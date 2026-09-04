@@ -1,0 +1,6 @@
+{
+  "name": "Legends Agency",
+  "description": "Premium landing page and link hub for Legends Agency on Tango & Zeena Live.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Legends Agency | وكالة الأساطير</title>
+    <meta name="description" content="Where Digital Legends Are Born - Legends Agency is the premier management network for top creators and live broadcasters on Tango & Zeena Live." />
+    
+    <!-- SEO: OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Legends Agency | وكالة الأساطير" />
+    <meta property="og:description" content="Join the elite network of broadcasters on Tango and Zeena Live. Top-tier management and 24/7 support." />
+    <meta property="og:image" content="/assets/legends_eagle_clean.png" />
+    <meta property="og:url" content="https://legnds.vercel.app" />
+    <meta property="og:site_name" content="Legends Agency" />
+    
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Legends Agency | وكالة الأساطير" />
+    <meta name="twitter:description" content="Join the elite network of broadcasters on Tango and Zeena Live." />
+    <meta name="twitter:image" content="/assets/legends_eagle_clean.png" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#02050A" />
+    
+    <link rel="icon" type="image/png" href="/assets/legends_eagle_clean.png" />
+    <link rel="apple-touch-icon" href="/assets/legends_eagle_clean.png" />
+    
+    <!-- Script Error Guard: logs cross-origin errors from embedded iframes instead of crashing -->
+    <script>
+      window.addEventListener('error', function(e) {
+        if (e.message === 'Script error.' || !e.filename) {
+          if (typeof console !== 'undefined' && console.debug) {
+            console.debug('[Legends] Suppressed cross-origin script error');
+          }
+          e.preventDefault();
+          return true;
+        }
+      }, true);
+      window.onerror = function(msg, url) {
+        if (msg === 'Script error.' || !url) {
+          return true;
+        }
+      };
+    </script>
+
+    <!-- Google Fonts: Inter & Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300..1000&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#050505] text-white overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
