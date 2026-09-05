@@ -56,7 +56,6 @@ src/
 ├── index.css                  # Global styles & Tailwind config
 ├── components/
 │   ├── About.tsx              # About section
-│   ├── AdminCrest.tsx         # SVG admin insignia crests
 │   ├── AudioPlayer.tsx        # Background music player
 │   ├── BrandIcons.tsx         # Social media brand SVG icons
 │   ├── EntranceOverlay.tsx    # Entry screen overlay
