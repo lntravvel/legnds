@@ -96,25 +96,27 @@ export function SuccessStories() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        className="w-full text-center px-5 max-w-4xl mx-auto mb-7"
+        className="w-full text-center px-4 sm:px-6 max-w-4xl mx-auto mb-7"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-semibold text-[var(--color-brand-primary)] mb-3 shadow-[0_0_15px_rgba(0,243,255,0.15)]">
-          <Sparkles size={14} className="animate-pulse" />
-          <span>{t('آراء وتجارب أبطالنا (15 مذيع ومذيعة)', 'Real Creator Reviews (15 Streamers)', 'Отзывы наших ведущих (15 стримеров)', 'Povești de succes (15 streameri)', 'Avis de nos créateurs (15 diffuseurs)', 'Recensioni dei nostri creatori (15 streamer)')}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-400/30 backdrop-blur-md mb-2.5 shadow-[0_0_15px_rgba(0,243,255,0.15)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+          <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
+            {t('آراء وتجارب الأبطال', 'Creator Testimonials', 'Отзывы наших авторов', 'Povești de succes', 'Témoignages des créateurs', 'Recensioni dei creatori')}
+          </span>
         </div>
 
-        <h2 className={`text-[23px] md:text-[27px] font-bold text-white tracking-wide mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+        <h2 className={`text-[20px] sm:text-[24px] md:text-[26px] font-bold text-white tracking-wide mb-1.5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t('قصص نجاح أبطال وكالة الأساطير', 'Legends Agency Success Stories', 'Истории успеха агентства Legends', 'Poveștile de succes ale agenției Legends', 'Histoires de réussite de l\'agence Legends', 'Storie di successo dell\'agenzia Legends')}
         </h2>
         
-        <p className={`text-sm md:text-[14.5px] text-white/60 max-w-xl mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+        <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-lg mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'نفتخر بدعم وتطوير أكثر من 150+ مذيع ومذيعة على تانجو وزينا لايف لتحقيق أعلى العوائد والمكافآت الحصرية.',
-            'Proud to empower over 150+ top creators on Tango and Zena Live to maximize their earnings and exclusive bonuses.',
-            'Гордимся поддержкой более 150+ ведущих на Tango и Zena Live для достижения максимального дохода.',
-            'Mândri să sprijinim peste 150+ creatori de top pe Tango și Zena Live să își maximizeze veniturile.',
-            'Fiers de soutenir plus de 150+ créateurs sur Tango et Zena Live pour maximiser leurs revenus.',
-            'Orgogliosi di supportare oltre 150+ creatori su Tango e Zena Live per massimizzare i loro guadagni.'
+            'نفتخر بدعم وتطوير نخبة المذيعين والمذيعات على تانجو وزينا لايف لتحقيق أعلى العوائد والمكافآت الحصرية.',
+            'Proud to empower top creators on Tango and Zena Live to maximize their earnings and exclusive bonuses.',
+            'Гордимся поддержкой лучших авторов на Tango и Zena Live для достижения максимального дохода.',
+            'Mândri să sprijinim creatorii de top pe Tango și Zena Live să își maximizeze veniturile.',
+            'Fiers de soutenir nos créateurs sur Tango et Zena Live pour maximiser leurs revenus.',
+            'Orgogliosi di supportare i migliori creator su Tango e Zena Live per massimizzare i loro guadagni.'
           )}
         </p>
       </motion.div>

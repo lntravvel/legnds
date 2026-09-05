@@ -71,20 +71,56 @@ export function Team() {
                 style={{ backgroundColor: isOwner ? '#fbbf24' : '#00f3ff' }}
               />
 
-              {/* Compact Avatar with Luxury Ring */}
+              {/* Compact Executive Monogram Seal (No stock photos) */}
               <div className="relative mb-2.5 mt-0.5">
-                <div className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[2px] transition-transform duration-300 group-hover:scale-105 ${
-                  isOwner
-                    ? 'bg-gradient-to-tr from-amber-500 via-amber-200 to-amber-600 shadow-[0_0_15px_rgba(251,191,36,0.35)]'
-                    : 'bg-gradient-to-tr from-cyan-500 via-white/50 to-blue-600 shadow-[0_0_12px_rgba(0,243,255,0.25)]'
-                }`}>
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    loading="lazy"
-                    className="w-full h-full rounded-full object-cover"
-                  />
-                </div>
+                {(() => {
+                  const accents: Record<string, { ring: string; text: string; bgSheen: string; glow: string }> = {
+                    owner: {
+                      ring: 'bg-gradient-to-tr from-amber-500 via-amber-200 to-amber-600 shadow-[0_0_15px_rgba(251,191,36,0.35)]',
+                      text: 'from-white via-amber-100 to-amber-400',
+                      bgSheen: 'from-amber-500/20 via-transparent to-amber-900/40',
+                      glow: '#fbbf24'
+                    },
+                    'admin-1': {
+                      ring: 'bg-gradient-to-tr from-cyan-400 via-sky-200 to-blue-600 shadow-[0_0_14px_rgba(0,243,255,0.3)]',
+                      text: 'from-white via-cyan-100 to-cyan-300',
+                      bgSheen: 'from-cyan-500/20 via-transparent to-blue-900/40',
+                      glow: '#00f3ff'
+                    },
+                    'admin-2': {
+                      ring: 'bg-gradient-to-tr from-emerald-400 via-teal-200 to-cyan-600 shadow-[0_0_14px_rgba(16,185,129,0.3)]',
+                      text: 'from-white via-emerald-100 to-emerald-300',
+                      bgSheen: 'from-emerald-500/20 via-transparent to-emerald-900/40',
+                      glow: '#10b981'
+                    },
+                    'admin-3': {
+                      ring: 'bg-gradient-to-tr from-purple-400 via-fuchsia-200 to-indigo-600 shadow-[0_0_14px_rgba(168,85,247,0.3)]',
+                      text: 'from-white via-purple-100 to-purple-300',
+                      bgSheen: 'from-purple-500/20 via-transparent to-purple-900/40',
+                      glow: '#a855f7'
+                    },
+                    'admin-4': {
+                      ring: 'bg-gradient-to-tr from-rose-500 via-red-200 to-neutral-700 shadow-[0_0_14px_rgba(244,63,94,0.3)]',
+                      text: 'from-white via-rose-100 to-rose-300',
+                      bgSheen: 'from-rose-500/20 via-transparent to-rose-950/40',
+                      glow: '#f43f5e'
+                    }
+                  };
+
+                  const accent = accents[member.id] || accents['admin-1'];
+
+                  return (
+                    <div className={`relative w-13 h-13 sm:w-15 sm:h-15 rounded-full p-[2px] transition-transform duration-300 group-hover:scale-105 ${accent.ring}`}>
+                      <div className="w-full h-full rounded-full bg-[#050814] flex items-center justify-center relative overflow-hidden border border-white/10">
+                        {/* Internal ambient radial sheen */}
+                        <div className={`absolute inset-0 bg-gradient-to-tr ${accent.bgSheen} pointer-events-none`} />
+                        <span className={`text-lg sm:text-xl font-black font-mono tracking-wider text-transparent bg-clip-text bg-gradient-to-b ${accent.text} drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] select-none`}>
+                          {member.name.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Founder Crown Badge */}
                 {isOwner && (

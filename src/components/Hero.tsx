@@ -180,29 +180,31 @@ function PartnerLogos() {
         {t('شركاء رسميون', 'Official Partners', 'Официальные партнеры', 'Parteneri oficiali', 'Partenaires officiels', 'Partner ufficiali')}
       </p>
       
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex items-center justify-center gap-8 sm:gap-12">
         {/* Tango Partner */}
         <motion.div 
           animate={{ y: [-3, 3, -3] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(0,243,255,0.4)] rounded-[14px]"
+          className="flex flex-col items-center gap-2 transition-all duration-300 shadow-[0_0_25px_rgba(0,243,255,0.45)] rounded-[18px] sm:rounded-[22px] group"
         >
-          <div className="w-14 h-14 rounded-[14px] bg-white flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.4)] border border-[var(--color-brand-primary)] p-2.5">
+          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-[18px] sm:rounded-[22px] bg-white flex items-center justify-center shadow-[0_0_20px_rgba(0,243,255,0.4)] border-2 border-[var(--color-brand-primary)] p-2 sm:p-2.5 transition-transform duration-300 group-hover:scale-105">
              <BrandIcons.Tango className="w-full h-full" />
           </div>
+          <span className="text-[11px] font-mono text-cyan-300/80 font-bold tracking-wider uppercase">TANGO LIVE</span>
         </motion.div>
         
-        <div className="w-px h-8 bg-white/10" />
+        <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
 
         {/* Zeena Live Partner */}
         <motion.div 
           animate={{ y: [3, -3, 3] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(255,0,128,0.4)] rounded-[14px]"
+          className="flex flex-col items-center gap-2 transition-all duration-300 shadow-[0_0_25px_rgba(255,0,128,0.45)] rounded-[18px] sm:rounded-[22px] group"
         >
-          <div className="w-14 h-14 rounded-[14px] bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,0,128,0.4)] border border-pink-500 p-2.5">
+          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-[18px] sm:rounded-[22px] bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,0,128,0.4)] border-2 border-pink-500 p-2 sm:p-2.5 transition-transform duration-300 group-hover:scale-105">
              <BrandIcons.Zeena className="w-full h-full" />
           </div>
+          <span className="text-[11px] font-mono text-pink-300/80 font-bold tracking-wider uppercase">ZEENA LIVE</span>
         </motion.div>
       </div>
     </div>

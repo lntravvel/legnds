@@ -106,22 +106,33 @@ export function FAQ() {
   const { lang, t, dir } = useLanguage();
 
   return (
-    <section className="relative z-10 w-full px-5 flex flex-col items-center max-w-3xl mx-auto">
+    <section className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center max-w-3xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-8 w-full"
+        viewport={{ once: true, margin: "-40px" }}
+        className="w-full text-center mb-6 sm:mb-8"
       >
-        <p className="text-[12px] uppercase tracking-[0.2em] text-[var(--color-brand-primary)] mb-2 font-semibold font-mono drop-shadow-[0_0_8px_rgba(0,243,255,0.4)]">
-          FAQ
-        </p>
-        <h2 className={`text-[22px] md:text-[26px] font-bold text-white mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t('الأسئلة الشائعة', 'Frequently Asked Questions', 'Часто задаваемые вопросы', 'Întrebări frecvente', 'Questions fréquemment posées', 'Domande frequenti')}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-400/30 backdrop-blur-md mb-2.5 shadow-[0_0_15px_rgba(0,243,255,0.15)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+          <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
+            {t('الأسئلة الشائعة', 'Frequently Asked Questions', 'Частые вопросы', 'Întrebări frecvente', 'FAQ', 'Domande frequenti')}
+          </span>
+        </div>
+
+        <h2 className={`text-[20px] sm:text-[24px] md:text-[26px] font-bold text-white tracking-wide mb-1.5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+          {t('الأسئلة الشائعة وإجاباتها', 'Common Questions & Answers', 'Часто задаваемые вопросы', 'Întrebări frecvente și răspunsuri', 'Questions fréquemment posées', 'Domande frequenti e risposte')}
         </h2>
-        <p className={`text-white/60 text-[14px] max-w-sm mx-auto font-medium ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t('كل ما تحتاج لمعرفته حول الانضمام إلينا', 'Everything you need to know about joining us', 'Все, что вам нужно знать о присоединении к нам', 'Tot ce trebuie să știți despre alăturarea la noi', 'Tout ce que vous devez savoir pour nous rejoindre', 'Tutto quello che devi sapere su come unirti a noi')}
+
+        <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-md mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+          {t(
+            'إجابات مباشرة ودقيقة لكل ما يهمك حول شروط الانضمام، طريقة استلام الأرباح، والبونصات الشهرية.',
+            'Direct and transparent answers regarding requirements, revenue collection, and monthly bonuses.',
+            'Прямые ответы обо всех условиях вступления, получении дохода и бонусах.',
+            'Răspunsuri directe despre condițiile de aderare, retragerea veniturilor și bonusuri.',
+            'Des réponses claires sur les conditions d\'adhésion, les paiements et les bonus.',
+            'Risposte dirette sulle condizioni di adesione, ricezione dei guadagni e bonus.'
+          )}
         </p>
       </motion.div>
 

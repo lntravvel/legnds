@@ -60,14 +60,14 @@ function BentoCard({ link, index }: { link: LinkItem; index: number }) {
         <>
           {/* Primary Badge Icon */}
           <div 
-            className={`relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-[16px] shrink-0 transition-all duration-300 group-hover:scale-105 z-10 shadow-md ${dir === 'rtl' ? 'ml-3.5' : 'mr-3.5'}`}
+            className={`relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-[16px] sm:rounded-[18px] shrink-0 transition-all duration-300 group-hover:scale-105 z-10 shadow-md ${dir === 'rtl' ? 'ml-3.5' : 'mr-3.5'}`}
             style={{
               backgroundColor: `${link.brandColor}20`,
               border: `1.5px solid ${link.brandColor}60`,
               boxShadow: `0 0 20px ${link.brandColor}25`
             }}
           >
-            <Icon className="w-6 h-6 sm:w-7 sm:h-7 drop-shadow-sm" />
+            <Icon className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" />
           </div>
 
           <div className={`flex flex-col flex-1 relative z-10 justify-center ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
@@ -134,6 +134,7 @@ function BentoCard({ link, index }: { link: LinkItem; index: number }) {
 
 export function LinkHub() {
   const { t, lang } = useLanguage();
+  const primaryLinks = AGENCY_LINKS.filter((l) => l.primary);
 
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 max-w-lg mx-auto">
@@ -144,22 +145,22 @@ export function LinkHub() {
         className="w-full text-center mb-5"
       >
         <h2 className={`text-[20px] sm:text-[24px] font-bold text-white tracking-wide mb-1 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t('روابط الانضمام والتواصل', 'Join & Connect', 'Присоединяйтесь к нам', 'Alătură-te și conectează-te', 'Rejoindre & Connecter', 'Unisciti & Connettiti')}
+          {t('روابط الانضمام الرسمية', 'Official Agency Programs', 'Официальные программы агентства', 'Programele oficiale ale agenției', 'Programmes officiels de l\'agence', 'Programmi ufficiali dell\'agenzia')}
         </h2>
         <p className={`text-xs sm:text-[13px] text-white/50 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'جميع منصاتنا الرسمية وبرامج الوكالة المعتمدة في مكان واحد',
-            'All our official platforms and accredited agency programs in one place',
-            'Все наши официальные платформы и программы агентства в одном месте',
-            'Toate platformele noastre oficiale și programele agenției într-un singur loc',
-            'Toutes nos plateformes officielles et programmes d\'agence en un seul endroit',
-            'Tutte le nostre piattaforme ufficiali e programmi di agenzia in un unico posto'
+            'اختر منصتك المفضلة وانضم مباشرة تحت مظلة وكالة الأساطير المعتمدة',
+            'Choose your preferred platform and join officially under Legends Agency',
+            'Выберите платформу и присоединяйтесь к агентству Legends',
+            'Alege platforma preferată și alătură-te agenției Legends',
+            'Choisissez votre plateforme et rejoignez officiellement Legends',
+            'Scegli la tua piattaforma preferita ed entra in Legends Agency'
           )}
         </p>
       </motion.div>
 
       <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-        {AGENCY_LINKS.map((link, idx) => (
+        {primaryLinks.map((link, idx) => (
           <BentoCard key={link.id} link={link} index={idx} />
         ))}
       </div>
