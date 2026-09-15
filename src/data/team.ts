@@ -40,12 +40,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'admin-black',
     role: {
-      ar: 'إداري الوكالة',
-      en: 'Agency Admin',
-      ru: 'Администратор агентства',
-      ro: 'Administrator agenție',
-      fr: 'Administrateur de l\'agence',
-      it: 'Amministratore dell\'agenzia'
+      ar: 'مشرف الوكالة',
+      en: 'Agency Supervisor',
+      ru: 'Супервайзер агентства',
+      ro: 'Supervizor agenție',
+      fr: 'Superviseur de l\'agence',
+      it: 'Supervisore dell\'agenzia'
     },
     name: 'Black',
     url: 'https://snapchat.com/t/WRnsRYu7',
