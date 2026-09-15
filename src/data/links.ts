@@ -67,7 +67,7 @@ export const AGENCY_LINKS: LinkItem[] = [
       fr: 'Instagram',
       it: 'Instagram'
     },
-    url: 'https://www.instagram.com/legends56272?igsh=MW83NWRxbjkzcXRmdA==',
+    url: 'https://www.instagram.com/legends_agenccy/',
     icon: BrandIcons.Instagram,
     brandColor: '#E1306C',
   },
