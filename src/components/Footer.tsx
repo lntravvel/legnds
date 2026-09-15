@@ -101,18 +101,12 @@ export function Footer() {
           <h4 className={`text-white/50 font-mono text-[10px] tracking-[0.2em] uppercase mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t('شركاء رسميون', 'Official Partners', 'Официальные партнеры', 'Parteneri oficiali', 'Partenaires officiels', 'Partner ufficiali')}
           </h4>
-          <div className="flex gap-8 items-center">
+          <div className="flex justify-center items-center">
             <div className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 rounded-[20px] bg-white flex items-center justify-center p-2.5 border-2 border-[var(--color-brand-primary)] shadow-[0_0_20px_rgba(0,243,255,0.4)] transition-all duration-300 hover:scale-105">
-                <BrandIcons.Tango className="w-full h-full" />
-              </div>
-              <span className="text-[10px] font-mono text-cyan-300/70 font-semibold tracking-wider">TANGO</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 rounded-[20px] bg-white flex items-center justify-center p-2.5 border-2 border-pink-500 shadow-[0_0_20px_rgba(255,0,128,0.4)] transition-all duration-300 hover:scale-105">
+              <div className="w-18 h-18 rounded-[22px] bg-white flex items-center justify-center p-3 border-2 border-pink-500 shadow-[0_0_25px_rgba(255,0,128,0.45)] transition-all duration-300 hover:scale-105">
                 <BrandIcons.Zeena className="w-full h-full" />
               </div>
-              <span className="text-[10px] font-mono text-pink-300/70 font-semibold tracking-wider">ZEENA</span>
+              <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">ZEENA LIVE OFFICIAL</span>
             </div>
           </div>
         </div>

@@ -39,11 +39,11 @@ export function Team() {
         </p>
       </motion.div>
 
-      {/* Compact Streamlined Cards Grid: 5 across on desktop, 3 on tablet, 2 on mobile */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3.5 w-full">
+      {/* Compact Streamlined Cards Grid: 3 across on desktop & tablet, 1 on mobile */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 w-full max-w-3xl mx-auto">
         {TEAM_MEMBERS.map((member, idx) => {
           const isOwner = member.id === 'owner';
-          const hasLink = member.url && member.url !== '#';
+          const hasLink = Boolean(member.url && member.url !== '#');
 
           return (
             <motion.a
@@ -55,20 +55,20 @@ export function Team() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: idx * 0.06, type: "spring", stiffness: 220, damping: 20 }}
-              whileHover={{ y: -4, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={hasLink ? { y: -4, scale: 1.02 } : undefined}
+              whileTap={hasLink ? { scale: 0.98 } : undefined}
               className={`group relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-[18px] sm:rounded-[20px] backdrop-blur-xl transition-all duration-300 overflow-hidden ${
                 hasLink ? 'cursor-pointer' : 'cursor-default'
               } ${
                 isOwner
                   ? 'bg-gradient-to-b from-amber-500/[0.08] via-[#0f0c08]/80 to-[#060910]/95 border border-amber-400/40 hover:border-amber-300/80 shadow-[0_4px_20px_rgba(251,191,36,0.12)] hover:shadow-[0_8px_30px_rgba(251,191,36,0.25)]'
-                  : 'bg-gradient-to-b from-white/[0.04] via-[#080d18]/70 to-[#03060c]/90 border border-white/[0.08] hover:border-[var(--color-brand-primary)]/50 hover:bg-white/[0.06] shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_25px_rgba(0,243,255,0.15)]'
+                  : 'bg-gradient-to-b from-white/[0.04] via-[#080d18]/70 to-[#03060c]/90 border border-white/[0.08] hover:border-yellow-400/50 hover:bg-white/[0.06] shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_25px_rgba(255,252,0,0.12)]'
               }`}
             >
               {/* Subtle top ambient glow */}
               <div 
                 className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full blur-xl pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity"
-                style={{ backgroundColor: isOwner ? '#fbbf24' : '#00f3ff' }}
+                style={{ backgroundColor: isOwner ? '#fbbf24' : '#FFFC00' }}
               />
 
               {/* Compact Executive Monogram Seal (No stock photos) */}
@@ -81,33 +81,27 @@ export function Team() {
                       bgSheen: 'from-amber-500/20 via-transparent to-amber-900/40',
                       glow: '#fbbf24'
                     },
-                    'admin-1': {
+                    'supervisor-1': {
                       ring: 'bg-gradient-to-tr from-cyan-400 via-sky-200 to-blue-600 shadow-[0_0_14px_rgba(0,243,255,0.3)]',
                       text: 'from-white via-cyan-100 to-cyan-300',
                       bgSheen: 'from-cyan-500/20 via-transparent to-blue-900/40',
                       glow: '#00f3ff'
                     },
-                    'admin-2': {
-                      ring: 'bg-gradient-to-tr from-emerald-400 via-teal-200 to-cyan-600 shadow-[0_0_14px_rgba(16,185,129,0.3)]',
-                      text: 'from-white via-emerald-100 to-emerald-300',
-                      bgSheen: 'from-emerald-500/20 via-transparent to-emerald-900/40',
-                      glow: '#10b981'
-                    },
-                    'admin-3': {
+                    'supervisor-2': {
                       ring: 'bg-gradient-to-tr from-purple-400 via-fuchsia-200 to-indigo-600 shadow-[0_0_14px_rgba(168,85,247,0.3)]',
                       text: 'from-white via-purple-100 to-purple-300',
                       bgSheen: 'from-purple-500/20 via-transparent to-purple-900/40',
                       glow: '#a855f7'
                     },
-                    'admin-4': {
-                      ring: 'bg-gradient-to-tr from-rose-500 via-red-200 to-neutral-700 shadow-[0_0_14px_rgba(244,63,94,0.3)]',
-                      text: 'from-white via-rose-100 to-rose-300',
-                      bgSheen: 'from-rose-500/20 via-transparent to-rose-950/40',
-                      glow: '#f43f5e'
+                    'admin-black': {
+                      ring: 'bg-gradient-to-tr from-yellow-400 via-amber-200 to-neutral-700 shadow-[0_0_14px_rgba(255,252,0,0.3)]',
+                      text: 'from-white via-yellow-100 to-yellow-300',
+                      bgSheen: 'from-yellow-500/20 via-transparent to-neutral-950/40',
+                      glow: '#FFFC00'
                     }
                   };
 
-                  const accent = accents[member.id] || accents['admin-1'];
+                  const accent = accents[member.id] || accents['supervisor-1'];
 
                   return (
                     <div className={`relative w-13 h-13 sm:w-15 sm:h-15 rounded-full p-[2px] transition-transform duration-300 group-hover:scale-105 ${accent.ring}`}>
@@ -122,14 +116,14 @@ export function Team() {
                   );
                 })()}
 
-                {/* Founder Crown Badge */}
+                {/* Principal Crown Badge */}
                 {isOwner && (
                   <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gradient-to-tr from-amber-400 to-amber-600 flex items-center justify-center shadow-[0_0_8px_rgba(251,191,36,0.6)] border border-[#060910]">
                     <Crown size={11} className="text-black fill-black" />
                   </div>
                 )}
 
-                {/* Verified Shield for Admins */}
+                {/* Verified Shield for Supervisors & Admins */}
                 {!isOwner && (
                   <div className="absolute -bottom-0.5 -right-0.5 w-4.5 h-4.5 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center shadow-[0_0_6px_rgba(0,243,255,0.4)]">
                     <ShieldCheck size={11} className="text-cyan-300" />
@@ -142,29 +136,29 @@ export function Team() {
                 <span className={`text-[13.5px] sm:text-[14.5px] font-extrabold tracking-wide truncate max-w-full ${
                   isOwner
                     ? 'text-transparent bg-clip-text bg-gradient-to-b from-white via-amber-100 to-amber-300 drop-shadow-[0_1px_4px_rgba(251,191,36,0.3)]'
-                    : 'text-white group-hover:text-cyan-100 transition-colors'
+                    : 'text-white group-hover:text-yellow-100 transition-colors'
                 }`}>
                   {member.name}
                 </span>
 
                 <span className={`text-[10px] sm:text-[11px] font-semibold mt-0.5 ${
-                  isOwner ? 'text-amber-300/90' : 'text-white/60 group-hover:text-cyan-300/80 transition-colors'
+                  isOwner ? 'text-amber-300/90' : 'text-white/60 group-hover:text-yellow-300/80 transition-colors'
                 } ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
                   {(member.role as Record<Language, string>)[lang]}
                 </span>
               </div>
 
-              {/* Bottom Tango VIP Action Badge */}
+              {/* Bottom Snapchat Action Badge */}
               <div className="w-full pt-1">
                 {hasLink ? (
                   <div className={`w-full flex items-center justify-center gap-1.5 py-1 px-2 rounded-full border transition-all text-[9.5px] sm:text-[10px] font-mono font-medium ${
                     isOwner
                       ? 'bg-amber-400/10 border-amber-400/30 text-amber-300 group-hover:bg-amber-400/20 group-hover:border-amber-400/50'
-                      : 'bg-white/[0.04] border-white/10 text-white/70 group-hover:border-cyan-400/40 group-hover:text-cyan-200 group-hover:bg-cyan-950/30'
+                      : 'bg-yellow-400/[0.08] border-yellow-400/25 text-yellow-300 group-hover:border-yellow-400/50 group-hover:bg-yellow-400/15'
                   }`}>
-                    <BrandIcons.Tango className="w-3 h-3 shrink-0" />
-                    <span className="truncate">Tango VIP</span>
-                    <ExternalLink size={9} className="opacity-60 group-hover:opacity-100 shrink-0" />
+                    <BrandIcons.Snapchat className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">Snapchat</span>
+                    <ExternalLink size={9} className="opacity-70 group-hover:opacity-100 shrink-0" />
                   </div>
                 ) : (
                   <div className="w-full flex items-center justify-center py-1 px-2 rounded-full bg-white/[0.03] border border-white/5 text-[9.5px] sm:text-[10px] font-mono text-white/40">

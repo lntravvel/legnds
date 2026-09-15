@@ -5,7 +5,7 @@ export interface ReviewItem {
   name: string;
   handle: string;
   role: Record<Language, string>;
-  platform: 'Tango' | 'Zena Live';
+  platform: 'Zeena Live';
   avatar: string;
   rating: number;
   earningsBadge: string;
@@ -18,14 +18,14 @@ export const REVIEWS: ReviewItem[] = [
     name: 'Sarah Al-Mansoor',
     handle: '@sarah_live',
     role: {
-      ar: 'مذيعة ماسية - تانجو',
-      en: 'Diamond Broadcaster - Tango',
-      ru: 'Бриллиантовый ведущий - Tango',
-      ro: 'Crainic Diamant - Tango',
-      fr: 'Diffuseur Diamant - Tango',
-      it: 'Emittente Diamante - Tango'
+      ar: 'مذيعة ماسية - زينا لايف',
+      en: 'Diamond Broadcaster - Zeena Live',
+      ru: 'Бриллиантовый ведущий - Zeena Live',
+      ro: 'Crainic Diamant - Zeena Live',
+      fr: 'Diffuseur Diamant - Zeena Live',
+      it: 'Emittente Diamante - Zeena Live'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$8,500/mo',
@@ -41,7 +41,7 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: 2,
     name: 'كريم المصري',
-    handle: '@kareem_tango',
+    handle: '@kareem_live',
     role: {
       ar: 'مذيع مسابقات وباتلز',
       en: 'Battles & Host Broadcaster',
@@ -50,7 +50,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur de battles & concours',
       it: 'Conduttore di battaglie e gare'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'VIP Tier',
@@ -75,7 +75,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Chanteuse et streameuse live',
       it: 'Cantante e streamer dal vivo'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top 5 Agency',
@@ -100,7 +100,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur de talk-show',
       it: 'Conduttore di talk show'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$6,200/mo',
@@ -125,7 +125,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Star des salons audio - Zena Live',
       it: 'Star delle stanze vocali - Zena'
     },
-    platform: 'Zena Live',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Zena Star',
@@ -143,24 +143,24 @@ export const REVIEWS: ReviewItem[] = [
     name: 'فهد الدوسري',
     handle: '@fahad_battle',
     role: {
-      ar: 'مذيع باتلز تانجو',
-      en: 'Tango Battle Master',
-      ru: 'Мастер баттлов Tango',
-      ro: 'Maestru de bătălii Tango',
-      fr: 'Maître des battles Tango',
-      it: 'Maestro delle battaglie Tango'
+      ar: 'مذيع باتلز زينا لايف',
+      en: 'Zeena Battle Master',
+      ru: 'Мастер баттлов Zeena',
+      ro: 'Maestru de bătălii Zeena',
+      fr: 'Maître des battles Zeena',
+      it: 'Maestro delle battaglie Zeena'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$11,000/mo',
     comment: {
-      ar: 'دعم فني في جولات الدعم والحروب على تانجو لا يوصف، إدارة واعية وواقفين مع المذيع في كل تحدي.',
-      en: 'Unbelievable support during Tango official battles! The management stands firmly behind the streamer in every round.',
-      ru: 'Невероятная поддержка во время официальных баттлов Tango! Руководство твердо стоит за ведущего в каждом раунде.',
-      ro: 'Sprijin incredibil în timpul bătăliilor oficiale Tango! Conducerea este alături de streamer în fiecare rundă.',
-      fr: 'Un soutien incroyable pendant les battles officielles sur Tango ! La direction soutient le créateur à chaque instant.',
-      it: 'Supporto incredibile durante le battaglie ufficiali di Tango! La direzione è sempre al fianco dello streamer in ogni sfida.'
+      ar: 'دعم فني في جولات الدعم والمسابقات على زينا لايف لا يوصف، إدارة واعية وواقفين مع المذيع في كل تحدي.',
+      en: 'Unbelievable support during Zeena Live official competitions! The management stands firmly behind the streamer in every round.',
+      ru: 'Невероятная поддержка во время официальных баттлов Zeena Live! Руководство твердо стоит за ведущего в каждом раунде.',
+      ro: 'Sprijin incredibil în timpul bătăliilor oficiale Zeena Live! Conducerea este alături de streamer în fiecare rundă.',
+      fr: 'Un soutien incroyable pendant les battles officielles sur Zeena Live ! La direction soutient le créateur à chaque instant.',
+      it: 'Supporto incredibile durante le battaglie ufficiali di Zeena Live! La direzione è sempre al fianco dello streamer in ogni sfida.'
     }
   },
   {
@@ -175,7 +175,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Gamer & diffuseur musical',
       it: 'Gamer e streamer musicale'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Verified VIP',
@@ -200,7 +200,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Streameuse de premier plan',
       it: 'Top streamer e conduttrice'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Official Badge',
@@ -225,7 +225,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Comédien et streameur de talent',
       it: 'Comico e streamer di talenti'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$5,400/mo',
@@ -250,7 +250,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Créatrice Art & Mode de vie',
       it: 'Creatrice di arte e lifestyle'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Diamond Tier',
@@ -275,7 +275,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur d\'événements',
       it: 'Conduttore di eventi'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$9,300/mo',
@@ -300,17 +300,17 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Streameur Pro & compétiteur',
       it: 'Streamer Pro e concorrente'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top Tier Pro',
     comment: {
-      ar: 'وكالة رائدة تقدم دعماً حقيقياً وفرص نمو غير محدودة على تانجو. أنصح كل مذيع طموح بالانضمام فوراً.',
-      en: 'A premier agency offering genuine support and boundless growth opportunities on Tango. Highly recommended for all ambitious creators.',
-      ru: 'Ведущее агентство, предлагающее реальную поддержку и безграничные возможности роста на Tango. Рекомендую всем!',
-      ro: 'O agenție de top care oferă suport real și oportunități nelimitate de creștere pe Tango. O recomand tuturor creatorilor ambițioși.',
-      fr: 'Une agence de premier plan offrant un soutien réel et des opportunités immenses sur Tango. Recommandée à tous les créateurs.',
-      it: 'Un\'agenzia leader che offre un supporto concreto e illimitate opportunità di crescita su Tango. Consigliata a tutti i creatori!'
+      ar: 'وكالة رائدة تقدم دعماً حقيقياً وفرص نمو غير محدودة على زينا لايف. أنصح كل مذيع طموح بالانضمام فوراً.',
+      en: 'A premier agency offering genuine support and boundless growth opportunities on Zeena Live. Highly recommended for all ambitious creators.',
+      ru: 'Ведущее агентство, предлагающее реальную поддержку и безграничные возможности роста на Zeena Live. Рекомендую всем!',
+      ro: 'O agenție de top care oferă suport real și oportunități nelimitate de creștere pe Zeena Live. O recomand tuturor creatorilor ambițioși.',
+      fr: 'Une agence de premier plan offrant un soutien réel et des opportunités immenses sur Zeena Live. Recommandée à tous les créateurs.',
+      it: 'Un\'agenzia leader che offre un supporto concreto e illimitate opportunità di crescita su Zeena Live. Consigliata a tutti i creatori!'
     }
   },
   {
@@ -325,7 +325,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animatrice de podcasts',
       it: 'Conduttrice di podcast'
     },
-    platform: 'Zena Live',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Zena Elite',
@@ -343,14 +343,14 @@ export const REVIEWS: ReviewItem[] = [
     name: 'خالد بوعلام',
     handle: '@khaled_algerie',
     role: {
-      ar: 'مذيع صاعد في تانجو',
-      en: 'Rising Star - Tango',
-      ru: 'Восходящая звезда - Tango',
-      ro: 'Stea în ascensiune - Tango',
-      fr: 'Étoile montante - Tango',
-      it: 'Astro nascente - Tango'
+      ar: 'مذيع صاعد في زينا لايف',
+      en: 'Rising Star - Zeena Live',
+      ru: 'Восходящая звезда - Zeena Live',
+      ro: 'Stea în ascensiune - Zeena Live',
+      fr: 'Étoile montante - Zeena Live',
+      it: 'Astro nascente - Zeena Live'
     },
-    platform: 'Tango',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$4,200/mo',
@@ -375,7 +375,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animatrice de salons - Zena Live',
       it: 'Conduttrice di stanze - Zena'
     },
-    platform: 'Zena Live',
+    platform: 'Zeena Live',
     avatar: 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top Host',

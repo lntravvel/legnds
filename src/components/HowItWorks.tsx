@@ -15,12 +15,12 @@ const STEPS = [
       it: 'Applica ora'
     },
     desc: {
-      ar: 'أرسل بياناتك عبر الواتساب أو رابط وكالتنا على تانجو في ثوانٍ وبدون تعقيد.',
-      en: 'Send us your details via WhatsApp or our Tango link in seconds.',
-      ru: 'Отправьте нам свои данные через WhatsApp или по ссылке Tango за пару секунд.',
-      ro: 'Trimite-ne detaliile tale prin WhatsApp sau link-ul Tango în câteva secunde.',
-      fr: 'Envoyez-nous vos coordonnées via WhatsApp ou notre lien Tango en quelques secondes.',
-      it: 'Inviaci i tuoi dettagli tramite WhatsApp o il nostro link Tango in pochi secondi.'
+      ar: 'أرسل بياناتك عبر الواتساب أو رابط وكالتنا الرسمي على زينا لايف في ثوانٍ وبدون تعقيد.',
+      en: 'Send us your details via WhatsApp or our official Zeena Live link in seconds.',
+      ru: 'Отправьте нам свои данные через WhatsApp или по ссылке Zeena Live за пару секунд.',
+      ro: 'Trimite-ne detaliile tale prin WhatsApp sau link-ul oficial Zeena Live în câteva secunde.',
+      fr: 'Envoyez-nous vos coordonnées via WhatsApp ou notre lien officiel Zeena Live en quelques secondes.',
+      it: 'Inviaci i tuoi dettagli tramite WhatsApp o il nostro link ufficiale Zeena Live in pochi secondi.'
     },
     color: '#00f3ff'
   },

@@ -5,17 +5,15 @@ import { useLanguage, Language } from '../i18n/LanguageContext';
 import { REVIEWS, ReviewItem } from '../data/reviews';
 
 function ReviewCard({ review, lang, dir }: { review: ReviewItem; lang: Language; dir: 'ltr' | 'rtl' }) {
-  const isTango = review.platform === 'Tango';
-
   return (
     <div
       dir={dir}
-      className="group relative w-[280px] sm:w-[320px] p-4 sm:p-4.5 rounded-[22px] sm:rounded-[24px] bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-[var(--color-brand-primary)]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,243,255,0.1)] hover:bg-white/[0.05] shrink-0 flex flex-col justify-between"
+      className="group relative w-[280px] sm:w-[320px] p-4 sm:p-4.5 rounded-[22px] sm:rounded-[24px] bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-pink-500/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255,0,128,0.15)] hover:bg-white/[0.05] shrink-0 flex flex-col justify-between"
     >
       {/* Subtle Brand Glow */}
       <div 
-        className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-10 group-hover:opacity-20 blur-2xl transition-opacity duration-500 pointer-events-none"
-        style={{ background: isTango ? '#ff2a54' : '#00f3ff' }}
+        className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-10 group-hover:opacity-25 blur-2xl transition-opacity duration-500 pointer-events-none"
+        style={{ background: '#ff0080' }}
       />
 
       {/* Top Quote Icon */}
@@ -65,12 +63,8 @@ function ReviewCard({ review, lang, dir }: { review: ReviewItem; lang: Language;
 
         {/* Platform & Earnings Badge */}
         <div className="flex items-center gap-1.5">
-          <span className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded-full border ${
-            isTango 
-              ? 'bg-[#ff2a54]/10 text-[#ff2a54] border-[#ff2a54]/30' 
-              : 'bg-[#00f3ff]/10 text-[#00f3ff] border-[#00f3ff]/30'
-          }`}>
-            {review.platform}
+          <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full border bg-pink-500/10 text-pink-400 border-pink-500/30">
+            Zeena Live
           </span>
           <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             {review.earningsBadge}
@@ -111,12 +105,12 @@ export function SuccessStories() {
         
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-lg mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'نفتخر بدعم وتطوير نخبة المذيعين والمذيعات على تانجو وزينا لايف لتحقيق أعلى العوائد والمكافآت الحصرية.',
-            'Proud to empower top creators on Tango and Zena Live to maximize their earnings and exclusive bonuses.',
-            'Гордимся поддержкой лучших авторов на Tango и Zena Live для достижения максимального дохода.',
-            'Mândri să sprijinim creatorii de top pe Tango și Zena Live să își maximizeze veniturile.',
-            'Fiers de soutenir nos créateurs sur Tango et Zena Live pour maximiser leurs revenus.',
-            'Orgogliosi di supportare i migliori creator su Tango e Zena Live per massimizzare i loro guadagni.'
+            'نفتخر بدعم وتطوير نخبة المذيعين والمذيعات على زينا لايف لتحقيق أعلى العوائد والمكافآت الحصرية.',
+            'Proud to empower top creators on Zeena Live to maximize their earnings and exclusive bonuses.',
+            'Гордимся поддержкой лучших авторов на Zeena Live для достижения максимального дохода.',
+            'Mândri să sprijinim creatorii de top pe Zeena Live să își maximizeze veniturile.',
+            'Fiers de soutenir nos créateurs sur Zeena Live pour maximiser leurs revenus.',
+            'Orgogliosi di supportare i migliori creator su Zeena Live per massimizzare i loro guadagni.'
           )}
         </p>
       </motion.div>

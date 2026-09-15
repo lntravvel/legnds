@@ -78,7 +78,7 @@ function BentoCard({ link, index }: { link: LinkItem; index: number }) {
               className="text-[10.5px] sm:text-[11px] font-semibold tracking-wider uppercase opacity-85"
               style={{ color: link.brandColor }}
             >
-              {link.id === 'tango-join' ? 'Official Tango Partner' : link.id === 'zena-join' ? 'Official Zena Partner' : 'Exclusive VIP Program'}
+              {link.id === 'zena-join' ? 'Official Zeena Live Partner' : 'Exclusive VIP Program'}
             </span>
           </div>
 

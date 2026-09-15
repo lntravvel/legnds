@@ -14,21 +14,6 @@ export interface LinkItem {
 
 export const AGENCY_LINKS: LinkItem[] = [
   {
-    id: 'tango-join',
-    title: {
-      ar: 'انضم لوكالتنا على تانجو',
-      en: 'Join our Tango Agency',
-      ru: 'Присоединяйтесь к нашему агентству Tango',
-      ro: 'Alătură-te agenției noastre Tango',
-      fr: 'Rejoignez notre agence Tango',
-      it: 'Unisciti alla nostra agenzia Tango'
-    },
-    url: 'https://links.tango.me/vsAXHv67kf73hRvY7',
-    icon: BrandIcons.Tango,
-    primary: true,
-    brandColor: '#FF2A54',
-  },
-  {
     id: 'zena-join',
     title: {
       ar: 'سجل في برنامج زينا لايف',

@@ -31,12 +31,12 @@ const COMPARISONS: ComparisonItem[] = [
       it: 'Giorni di attesa tramite bot, rischio di ban dell\'account senza preavviso'
     },
     agency: {
-      ar: 'خط مباشر 24/7 مع مسؤولي تانجو وزينا وحل فوري لأي بلاغ أو حظر في دقائق',
-      en: 'Direct 24/7 hotline to Tango & Zeena officials; instant fix for bans in minutes',
-      ru: 'Прямая связь 24/7 с администрацией Tango и Zeena, мгновенное снятие банов',
-      ro: 'Linie directă 24/7 cu oficialii Tango și Zeena, rezolvare imediată în câteva minute',
-      fr: 'Ligne directe 24/7 avec les responsables Tango & Zeena, déblocage en minutes',
-      it: 'Linea diretta 24/7 con i funzionari Tango e Zeena, sblocco immediato in pochi minuti'
+      ar: 'خط مباشر 24/7 مع مسؤولي وإدارة زينا لايف وحل فوري لأي بلاغ أو حظر في دقائق',
+      en: 'Direct 24/7 hotline to Zeena Live officials; instant fix for bans and issues in minutes',
+      ru: 'Прямая связь 24/7 с администрацией Zeena Live, мгновенное снятие банов',
+      ro: 'Linie directă 24/7 cu oficialii Zeena Live, rezolvare imediată în câteva minute',
+      fr: 'Ligne directe 24/7 avec les responsables Zeena Live, déblocage en minutes',
+      it: 'Linea diretta 24/7 con i funzionari Zeena Live, sblocco immediato in pochi minuti'
     }
   },
   {

@@ -90,12 +90,12 @@ export function About() {
           {/* Concise Narrative */}
           <p className={`text-white/70 text-[12.5px] sm:text-[13.5px] leading-relaxed max-w-2xl mx-auto mb-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'الشبكة الرسمية الرائدة لإدارة وتطوير صناع المحتوى على تانجو وزينا لايف في الشرق الأوسط. نوفر الحماية التقنية الشاملة، العلاقات المباشرة مع إدارات التطبيقات، وأعلى نسبة بونصات كاش في المنطقة.',
-              'The leading accredited network managing top creators on Tango & Zeena Live in MENA. We combine full account immunity, direct platform relations, and the region\'s highest cash bonus share.',
-              'Ведущая аккредитованная сеть для топ-авторов Tango и Zeena Live. Полная защита аккаунтов, прямая связь с платформами и максимальные денежные бонусы.',
-              'Rețeaua principală acreditată pentru creatorii de top pe Tango și Zeena Live. Protecție completă, relații directe și cele mai mari bonusuri.',
-              'Le premier réseau accrédité pour les créateurs d\'élite sur Tango et Zeena Live. Protection complète, relations directes et bonus maximaux.',
-              'La rete leader accreditata per i migliori creator su Tango e Zeena Live. Protezione totale, rapporti diretti e massimi bonus in denaro.'
+              'الشبكة الرسمية الرائدة لإدارة وتطوير صناع المحتوى على زينا لايف في الشرق الأوسط. نوفر الحماية التقنية الشاملة، العلاقات المباشرة مع إدارة التطبيق، وأعلى نسبة بونصات كاش في المنطقة.',
+              'The leading accredited network managing top creators on Zeena Live in MENA. We combine full account immunity, direct platform relations, and the region\'s highest cash bonus share.',
+              'Ведущая аккредитованная сеть для топ-авторов Zeena Live. Полная защита аккаунтов, прямая связь с платформой и максимальные денежные бонусы.',
+              'Rețeaua principală acreditată pentru creatorii de top pe Zeena Live. Protecție completă, relații directe și cele mai mari bonusuri.',
+              'Le premier réseau accrédité pour les créateurs d\'élite sur Zeena Live. Protection complète, relations directes et bonus maximaux.',
+              'La rete leader accreditata per i migliori creator su Zeena Live. Protezione totale, rapporti diretti e massimi bonus in denaro.'
             )}
           </p>
 
@@ -129,14 +129,14 @@ export function About() {
 
           {/* Minimal Bottom Bar */}
           <div className="mt-3.5 pt-2.5 border-t border-white/[0.05] flex items-center justify-center gap-3 sm:gap-5 text-white/45 text-[10px] sm:text-[10.5px] font-mono">
-            <div className="flex items-center gap-1 text-cyan-300/80">
-              <CheckCircle2 size={11} className="text-cyan-400" />
+            <div className="flex items-center gap-1 text-pink-300/80">
+              <CheckCircle2 size={11} className="text-pink-400" />
               <span>OFFICIAL ACCREDITED</span>
             </div>
             <span>•</span>
             <span>24/7 VIP SUPPORT</span>
             <span>•</span>
-            <span className="text-amber-300/80">TANGO & ZEENA</span>
+            <span className="text-pink-300/90 font-bold">ZEENA LIVE OFFICIAL</span>
           </div>
 
         </div>
