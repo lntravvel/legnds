@@ -33,7 +33,7 @@ const SYSTEM_PROMPT = `أنت المساعد الذكي الرسمي الحصر�
 3. حماية الحسابات من البلاغات الكيدية، فك الحظر فورياً عبر خط مباشر 24/7 مع مسؤولي زينا لايف.
 4. كوتشينج مباشر وتجهيز إضاءة ومايك للوصول إلى قائمة الإكسبلور وتحقيق أعلى الدعم.
 5. فريق الإدارة العليا: عبدالله (الوكيل / Principal)، جومالي (مشرف الوكالة)، وبلاك (مشرف الوكالة).
-6. للتواصل المباشر مع المشرفين: روابط السناب شات على بطاقات الإدارة أو واتساب الإدارة +905058167844.
+6. للتواصل المباشر مع المشرفين: روابط السناب شات على بطاقات الإدارة أو واتساب الإدارة +44 7460 018974.
 شجع المذيع دائماً على بدء رحلته وحجز مقعده الآن.`;
 
 export function AIChat() {
@@ -308,7 +308,7 @@ export function AIChat() {
             <div className="px-3 py-1.5 bg-black/40 border-t border-white/[0.04] flex items-center justify-between text-[10.5px] text-white/60">
               <span className="truncate">{t('تفضل التحدث مع مشرف بشري؟', 'Need human support?', 'Нужен оператор?', 'Vrei suport uman?', 'Besoin d\'un humain ?', 'Serve supporto umano?')}</span>
               <a
-                href="https://wa.me/+905058167844"
+                href="https://wa.me/447460018974"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#25D366] hover:underline font-bold flex items-center gap-1 shrink-0"

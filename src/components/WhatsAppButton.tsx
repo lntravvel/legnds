@@ -9,7 +9,7 @@ export function WhatsAppButton() {
     ? 'السلام عليكم، أود الاستفسار عن الانضمام لوكالة الأساطير'
     : 'Hello, I would like to inquire about joining Legends Agency';
 
-  const waUrl = `https://wa.me/+905058167844?text=${encodeURIComponent(message)}`;
+  const waUrl = `https://wa.me/447460018974?text=${encodeURIComponent(message)}`;
 
   return (
     <motion.aside

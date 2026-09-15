@@ -53,7 +53,7 @@ export const AGENCY_LINKS: LinkItem[] = [
       fr: 'Support WhatsApp',
       it: 'Supporto WhatsApp'
     },
-    url: 'https://wa.me/+905058167844',
+    url: 'https://wa.me/447460018974',
     icon: BrandIcons.WhatsApp,
     brandColor: '#25D366',
   },

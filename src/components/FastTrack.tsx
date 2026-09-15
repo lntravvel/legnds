@@ -261,7 +261,7 @@ export function FastTrack() {
         </div>
 
         <a
-          href="https://wa.me/+905058167844"
+          href="https://wa.me/447460018974"
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold text-[12.5px] sm:text-[13px] shadow-[0_0_20px_rgba(0,243,255,0.4)] transition-all transform hover:scale-105 active:scale-95"
