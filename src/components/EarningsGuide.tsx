@@ -75,12 +75,12 @@ export function EarningsGuide() {
 
         <p className={`text-sm sm:text-base text-white/70 max-w-2xl leading-relaxed mb-6 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'كل ما تحتاج معرفته عن شروط الساعات الشهرية، سلم الرواتب لـ 30 مستوى حتى 66,824$ شهرياً، وطرق السحب المعتمدة في كافة الدول العربية والعالم.',
-            'Everything you need to know about monthly streaming targets, the 30-tier salary ladder up to $66,824/mo, and approved payout methods worldwide.',
-            'Все условия: требования к часам, 30 уровней выплат до $66,824/мес и проверенные способы вывода.',
-            'Tot ce trebuie să știi despre orele de streaming, grila de 30 de niveluri până la 66.824$/lună și metodele de retragere.',
-            'Tout ce que vous devez savoir sur les heures de streaming, l\'échelle de 30 niveaux jusqu\'à 66 824$/mois et les retraits.',
-            'Tutto ciò che devi sapere sulle ore di streaming, la scala di 30 livelli fino a $66.824/mese e i metodi di prelievo.'
+            'كل ما تحتاج معرفته عن شروط الساعات الشهرية، احتساب اليوم الفعال، وسلم الرواتب لـ 30 مستوى مع أعلى بونص كاش حصري لمذيعي وكالة الأساطير.',
+            'Everything you need to know about monthly broadcast targets, active day rules, and the 30-tier salary ladder with exclusive cash bonuses.',
+            'Все условия: требования к часам, активные дни и 30 уровней выплат с эксклюзивными бонусами.',
+            'Tot ce trebuie să știi despre orele de streaming, zilele active și grila de 30 de niveluri de salarii.',
+            'Tout ce que vous devez savoir sur les heures de live, les jours actifs et la grille de 30 niveaux.',
+            'Tutto ciò che devi sapere sulle ore di streaming, i giorni attivi e la scala di 30 livelli di guadagno.'
           )}
         </p>
 
