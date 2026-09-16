@@ -10,7 +10,6 @@ import {
   Download, 
   Maximize2, 
   X, 
-  CheckCircle2, 
   Search, 
   TrendingUp, 
   Sparkles,
@@ -19,14 +18,13 @@ import {
   DollarSign
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { EARNING_TIERS, WITHDRAWAL_COUNTRIES, EarningTier } from '../data/earnings';
+import { EARNING_TIERS, EarningTier } from '../data/earnings';
 
 export function EarningsGuide() {
   const { lang, t, dir } = useLanguage();
   const [selectedLevel, setSelectedLevel] = useState<number>(5);
   const [tableSearch, setTableSearch] = useState<string>('');
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
-  const [selectedCountryCode, setSelectedCountryCode] = useState<string>('ALL');
 
   // Active tier for calculator
   const activeTier: EarningTier = useMemo(() => {
@@ -47,12 +45,6 @@ export function EarningsGuide() {
       );
     });
   }, [tableSearch]);
-
-  // Filtered countries
-  const filteredCountries = useMemo(() => {
-    if (selectedCountryCode === 'ALL') return WITHDRAWAL_COUNTRIES;
-    return WITHDRAWAL_COUNTRIES.filter((c) => c.countryCode === selectedCountryCode);
-  }, [selectedCountryCode]);
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-10">
@@ -432,87 +424,6 @@ export function EarningsGuide() {
               })}
             </tbody>
           </table>
-        </div>
-      </section>
-
-      {/* Withdrawal Methods by Country */}
-      <section className="relative overflow-hidden rounded-[26px] p-6 sm:p-8 bg-gradient-to-b from-[#090e1f] to-[#04060e] border border-cyan-500/20 shadow-xl">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-semibold mb-2">
-              <CreditCard size={14} />
-              <span>{t('طرق سحب الأرباح الرسمية', 'Official Withdrawal Methods', 'Способы вывода', 'Metode de retragere', 'Modes de retrait', 'Metodi di prelievo')}</span>
-            </div>
-            <h2 className={`text-xl sm:text-2xl font-bold text-white ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-              {t('وسائل السحب المعتمدة حسب كل دولة', 'Approved Payout Channels by Country', 'Способы вывода по странам', 'Canale de plată per țară', 'Moyens de retrait par pays', 'Canali di pagamento per paese')}
-            </h2>
-          </div>
-
-          {/* Country Filter Pills */}
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <button
-              onClick={() => setSelectedCountryCode('ALL')}
-              className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
-                selectedCountryCode === 'ALL'
-                  ? 'bg-cyan-400 text-black shadow-[0_0_10px_rgba(0,243,255,0.4)]'
-                  : 'bg-white/5 text-white/60 hover:text-white'
-              }`}
-            >
-              {t('كافة الدول', 'All Countries', 'Все страны', 'Toate', 'Tous', 'Tutti')}
-            </button>
-            {['SA', 'EG', 'AE', 'IQ', 'DZ', 'MA'].map((code) => {
-              const country = WITHDRAWAL_COUNTRIES.find((c) => c.countryCode === code);
-              if (!country) return null;
-              return (
-                <button
-                  key={code}
-                  onClick={() => setSelectedCountryCode(code)}
-                  className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer ${
-                    selectedCountryCode === code
-                      ? 'bg-cyan-400 text-black font-bold shadow-[0_0_10px_rgba(0,243,255,0.4)]'
-                      : 'bg-white/5 text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span>{country.flag}</span>
-                  <span>{code}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Country Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          {filteredCountries.map((country) => (
-            <div 
-              key={country.countryCode}
-              className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-cyan-400/40 transition-all flex flex-col justify-between gap-3 group"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">{country.flag}</span>
-                  <span className={`font-bold text-white text-sm ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-                    {country.country[lang]}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono text-white/40 bg-white/5 px-2 py-0.5 rounded">
-                  {country.countryCode}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
-                {country.methods.map((method, idx) => (
-                  <span 
-                    key={idx}
-                    className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2 py-1 rounded-md bg-cyan-950/40 border border-cyan-400/20 text-cyan-200"
-                  >
-                    <CheckCircle2 size={11} className="text-cyan-400 shrink-0" />
-                    <span>{method}</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 

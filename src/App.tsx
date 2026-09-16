@@ -10,6 +10,7 @@ import { LanguageSelector } from './components/LanguageSelector';
 import { Navbar } from './components/Navbar';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { AIChat } from './components/AIChat';
+import { FloatingEarningsButton } from './components/FloatingEarningsButton';
 import { SocialSection } from './components/SocialSection';
 import { HomePage } from './pages/HomePage';
 import { ComparisonPage } from './pages/ComparisonPage';
@@ -52,6 +53,7 @@ function MainLayout() {
           <LanguageSelector />
           <AIChat />
           <WhatsAppButton />
+          <FloatingEarningsButton />
         </>
       )}
 
