@@ -29,21 +29,6 @@ export const AGENCY_LINKS: LinkItem[] = [
     brandColor: '#00F3FF',
   },
   {
-    id: 'exclusive-rewards',
-    title: {
-      ar: 'قدم للحصول على مكافآت حصرية',
-      en: 'Apply for Exclusive Rewards',
-      ru: 'Подать заявку на эксклюзивные награды',
-      ro: 'Aplică pentru recompense exclusive',
-      fr: 'Postulez pour des récompenses exclusives',
-      it: 'Richiedi premi esclusivi'
-    },
-    url: '#rewards',
-    icon: BrandIcons.Crown,
-    primary: true,
-    brandColor: '#FFD700',
-  },
-  {
     id: 'whatsapp',
     title: {
       ar: 'تواصل معنا على واتساب',
