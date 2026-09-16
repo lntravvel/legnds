@@ -162,7 +162,7 @@ export function AIChat() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.8, type: "spring", stiffness: 260, damping: 20 }}
-        className="fixed bottom-[4.85rem] sm:bottom-[5.35rem] right-5 sm:right-6 z-40"
+        className="fixed bottom-[4.85rem] sm:bottom-[5.35rem] right-4 sm:right-6 z-40"
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
