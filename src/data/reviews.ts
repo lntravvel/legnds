@@ -5,7 +5,7 @@ export interface ReviewItem {
   name: string;
   handle: string;
   role: Record<Language, string>;
-  platform: 'Zeena Live';
+  platform: 'Xena Live';
   avatar: string;
   rating: number;
   earningsBadge: string;
@@ -19,13 +19,13 @@ export const REVIEWS: ReviewItem[] = [
     handle: '@sarah_live',
     role: {
       ar: 'مذيعة ماسية - زينا لايف',
-      en: 'Diamond Broadcaster - Zeena Live',
-      ru: 'Бриллиантовый ведущий - Zeena Live',
-      ro: 'Crainic Diamant - Zeena Live',
-      fr: 'Diffuseur Diamant - Zeena Live',
-      it: 'Emittente Diamante - Zeena Live'
+      en: 'Diamond Broadcaster - Xena Live',
+      ru: 'Бриллиантовый ведущий - Xena Live',
+      ro: 'Crainic Diamant - Xena Live',
+      fr: 'Diffuseur Diamant - Xena Live',
+      it: 'Emittente Diamante - Xena Live'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$8,500/mo',
@@ -50,7 +50,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur de battles & concours',
       it: 'Conduttore di battaglie e gare'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'VIP Tier',
@@ -75,7 +75,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Chanteuse et streameuse live',
       it: 'Cantante e streamer dal vivo'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top 5 Agency',
@@ -100,7 +100,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur de talk-show',
       it: 'Conduttore di talk show'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$6,200/mo',
@@ -119,23 +119,23 @@ export const REVIEWS: ReviewItem[] = [
     handle: '@nour_voice',
     role: {
       ar: 'نجمة غرف الصوت - زينا لايف',
-      en: 'Voice Room Star - Zena Live',
-      ru: 'Звезда голосовых комнат - Zena',
-      ro: 'Vedetă camere audio - Zena Live',
-      fr: 'Star des salons audio - Zena Live',
-      it: 'Star delle stanze vocali - Zena'
+      en: 'Voice Room Star - Xena Live',
+      ru: 'Звезда голосовых комнат - Xena',
+      ro: 'Vedetă camere audio - Xena Live',
+      fr: 'Star des salons audio - Xena Live',
+      it: 'Star delle stanze vocali - Xena'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop',
     rating: 5,
-    earningsBadge: 'Zena Star',
+    earningsBadge: 'Xena Star',
     comment: {
       ar: 'برنامج زينا لايف مع الوكالة رائع جداً، المسابقات الأسبوعية حماسية ومكافآتها فورية ومضمونة بدون أي خصم.',
-      en: 'Zena Live program with the agency is fantastic! The weekly competitions are exciting and rewards are instant.',
-      ru: 'Программа Zena Live с агентством потрясающая! Еженедельные конкурсы захватывающие, а награды мгновенные.',
-      ro: 'Programul Zena Live cu agenția este fantastic! Competițiile săptămânale sunt captivante, iar recompensele sunt instantanee.',
-      fr: 'Le programme Zena Live avec l\'agence est fantastique ! Les concours hebdomadaires sont passionnants et les récompenses instantanées.',
-      it: 'Il programma Zena Live con l\'agenzia è fantastico! Le competizioni settimanali sono entusiasmanti e i premi immediati.'
+      en: 'Xena Live program with the agency is fantastic! The weekly competitions are exciting and rewards are instant.',
+      ru: 'Программа Xena Live с агентством потрясающая! Еженедельные конкурсы захватывающие, а награды мгновенные.',
+      ro: 'Programul Xena Live cu agenția este fantastic! Competițiile săptămânale sunt captivante, iar recompensele sunt instantanee.',
+      fr: 'Le programme Xena Live avec l\'agence est fantastique ! Les concours hebdomadaires sont passionnants et les récompenses instantanées.',
+      it: 'Il programma Xena Live con l\'agenzia è fantastico! Le competizioni settimanali sono entusiasmanti e i premi immediati.'
     }
   },
   {
@@ -144,23 +144,23 @@ export const REVIEWS: ReviewItem[] = [
     handle: '@fahad_battle',
     role: {
       ar: 'مذيع باتلز زينا لايف',
-      en: 'Zeena Battle Master',
-      ru: 'Мастер баттлов Zeena',
-      ro: 'Maestru de bătălii Zeena',
-      fr: 'Maître des battles Zeena',
-      it: 'Maestro delle battaglie Zeena'
+      en: 'Xena Battle Master',
+      ru: 'Мастер баттлов Xena',
+      ro: 'Maestru de bătălii Xena',
+      fr: 'Maître des battles Xena',
+      it: 'Maestro delle battaglie Xena'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$11,000/mo',
     comment: {
       ar: 'دعم فني في جولات الدعم والمسابقات على زينا لايف لا يوصف، إدارة واعية وواقفين مع المذيع في كل تحدي.',
-      en: 'Unbelievable support during Zeena Live official competitions! The management stands firmly behind the streamer in every round.',
-      ru: 'Невероятная поддержка во время официальных баттлов Zeena Live! Руководство твердо стоит за ведущего в каждом раунде.',
-      ro: 'Sprijin incredibil în timpul bătăliilor oficiale Zeena Live! Conducerea este alături de streamer în fiecare rundă.',
-      fr: 'Un soutien incroyable pendant les battles officielles sur Zeena Live ! La direction soutient le créateur à chaque instant.',
-      it: 'Supporto incredibile durante le battaglie ufficiali di Zeena Live! La direzione è sempre al fianco dello streamer in ogni sfida.'
+      en: 'Unbelievable support during Xena Live official competitions! The management stands firmly behind the streamer in every round.',
+      ru: 'Невероятная поддержка во время официальных баттлов Xena Live! Руководство твердо стоит за ведущего в каждом раунде.',
+      ro: 'Sprijin incredibil în timpul bătăliilor oficiale Xena Live! Conducerea este alături de streamer în fiecare rundă.',
+      fr: 'Un soutien incroyable pendant les battles officielles sur Xena Live ! La direction soutient le créateur à chaque instant.',
+      it: 'Supporto incredibile durante le battaglie ufficiali di Xena Live! La direzione è sempre al fianco dello streamer in ogni sfida.'
     }
   },
   {
@@ -175,7 +175,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Gamer & diffuseur musical',
       it: 'Gamer e streamer musicale'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Verified VIP',
@@ -200,7 +200,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Streameuse de premier plan',
       it: 'Top streamer e conduttrice'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Official Badge',
@@ -225,7 +225,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Comédien et streameur de talent',
       it: 'Comico e streamer di talenti'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$5,400/mo',
@@ -250,7 +250,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Créatrice Art & Mode de vie',
       it: 'Creatrice di arte e lifestyle'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Diamond Tier',
@@ -275,7 +275,7 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animateur d\'événements',
       it: 'Conduttore di eventi'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$9,300/mo',
@@ -300,17 +300,17 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Streameur Pro & compétiteur',
       it: 'Streamer Pro e concorrente'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top Tier Pro',
     comment: {
       ar: 'وكالة رائدة تقدم دعماً حقيقياً وفرص نمو غير محدودة على زينا لايف. أنصح كل مذيع طموح بالانضمام فوراً.',
-      en: 'A premier agency offering genuine support and boundless growth opportunities on Zeena Live. Highly recommended for all ambitious creators.',
-      ru: 'Ведущее агентство, предлагающее реальную поддержку и безграничные возможности роста на Zeena Live. Рекомендую всем!',
-      ro: 'O agenție de top care oferă suport real și oportunități nelimitate de creștere pe Zeena Live. O recomand tuturor creatorilor ambițioși.',
-      fr: 'Une agence de premier plan offrant un soutien réel et des opportunités immenses sur Zeena Live. Recommandée à tous les créateurs.',
-      it: 'Un\'agenzia leader che offre un supporto concreto e illimitate opportunità di crescita su Zeena Live. Consigliata a tutti i creatori!'
+      en: 'A premier agency offering genuine support and boundless growth opportunities on Xena Live. Highly recommended for all ambitious creators.',
+      ru: 'Ведущее агентство, предлагающее реальную поддержку и безграничные возможности роста на Xena Live. Рекомендую всем!',
+      ro: 'O agenție de top care oferă suport real și oportunități nelimitate de creștere pe Xena Live. O recomand tuturor creatorilor ambițioși.',
+      fr: 'Une agence de premier plan offrant un soutien réel et des opportunités immenses sur Xena Live. Recommandée à tous les créateurs.',
+      it: 'Un\'agenzia leader che offre un supporto concreto e illimitate opportunità di crescita su Xena Live. Consigliata a tutti i creatori!'
     }
   },
   {
@@ -325,10 +325,10 @@ export const REVIEWS: ReviewItem[] = [
       fr: 'Animatrice de podcasts',
       it: 'Conduttrice di podcast'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=300&auto=format&fit=crop',
     rating: 5,
-    earningsBadge: 'Zena Elite',
+    earningsBadge: 'Xena Elite',
     comment: {
       ar: 'التدريب والتوجيه اللي أخذته من كابتن الوكالة نقل طريقة تقديمي لمستوى احترافي عالي وزادت أرقامي بشكل مذهل.',
       en: 'The coaching and mentorship from the agency coach elevated my presentation skills to a high professional level.',
@@ -344,13 +344,13 @@ export const REVIEWS: ReviewItem[] = [
     handle: '@khaled_algerie',
     role: {
       ar: 'مذيع صاعد في زينا لايف',
-      en: 'Rising Star - Zeena Live',
-      ru: 'Восходящая звезда - Zeena Live',
-      ro: 'Stea în ascensiune - Zeena Live',
-      fr: 'Étoile montante - Zeena Live',
-      it: 'Astro nascente - Zeena Live'
+      en: 'Rising Star - Xena Live',
+      ru: 'Восходящая звезда - Xena Live',
+      ro: 'Stea în ascensiune - Xena Live',
+      fr: 'Étoile montante - Xena Live',
+      it: 'Astro nascente - Xena Live'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: '+$4,200/mo',
@@ -369,13 +369,13 @@ export const REVIEWS: ReviewItem[] = [
     handle: '@zainab_voice',
     role: {
       ar: 'مذيعة غرف ومسابقات - زينا',
-      en: 'Host & Events - Zena Live',
-      ru: 'Ведущая шоу и комнат - Zena',
-      ro: 'Crainic de concursuri - Zena Live',
-      fr: 'Animatrice de salons - Zena Live',
-      it: 'Conduttrice di stanze - Zena'
+      en: 'Host & Events - Xena Live',
+      ru: 'Ведущая шоу и комнат - Xena',
+      ro: 'Crainic de concursuri - Xena Live',
+      fr: 'Animatrice de salons - Xena Live',
+      it: 'Conduttrice di stanze - Xena'
     },
-    platform: 'Zeena Live',
+    platform: 'Xena Live',
     avatar: 'https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=300&auto=format&fit=crop',
     rating: 5,
     earningsBadge: 'Top Host',

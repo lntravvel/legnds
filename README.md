@@ -2,7 +2,7 @@
   <img src="public/assets/legends_eagle_clean.png" alt="Legends Agency Logo" width="120" height="120" />
   <h1>Legends Agency | وكالة الأساطير</h1>
   <p><strong>Where Digital Legends Are Born</strong></p>
-  <p>Premium landing page for Legends Agency — the premier management network for top creators and live broadcasters on Zeena Live.</p>
+  <p>Premium landing page for Legends Agency — the premier management network for top creators and live broadcasters on Xena Live.</p>
 
   ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
   ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)

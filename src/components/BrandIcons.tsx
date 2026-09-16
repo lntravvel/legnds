@@ -45,6 +45,14 @@ export const BrandIcons = {
       className={`${className} object-cover rounded-[22%] shadow-sm`} 
     />
   ),
+  Xena: ({ className }: { className?: string }) => (
+    <img 
+      src="https://play-lh.googleusercontent.com/67LznToC42thuwsh8UMyj9DwWV6Pjltd_JXoyYw7fUF6K-X0rD-BbyXyRrBrDdDi9lNQ8wJzUkYhc_XFf14Kbg=s512" 
+      alt="Xena Live" 
+      referrerPolicy="no-referrer"
+      className={`${className} object-cover rounded-[22%] shadow-sm`} 
+    />
+  ),
   Zeena: ({ className }: { className?: string }) => (
     <img 
       src="https://play-lh.googleusercontent.com/67LznToC42thuwsh8UMyj9DwWV6Pjltd_JXoyYw7fUF6K-X0rD-BbyXyRrBrDdDi9lNQ8wJzUkYhc_XFf14Kbg=s512" 

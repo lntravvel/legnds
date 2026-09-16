@@ -16,11 +16,11 @@ const STEPS = [
     },
     desc: {
       ar: 'أرسل بياناتك عبر الواتساب أو رابط وكالتنا الرسمي على زينا لايف في ثوانٍ وبدون تعقيد.',
-      en: 'Send us your details via WhatsApp or our official Zeena Live link in seconds.',
-      ru: 'Отправьте нам свои данные через WhatsApp или по ссылке Zeena Live за пару секунд.',
-      ro: 'Trimite-ne detaliile tale prin WhatsApp sau link-ul oficial Zeena Live în câteva secunde.',
-      fr: 'Envoyez-nous vos coordonnées via WhatsApp ou notre lien officiel Zeena Live en quelques secondes.',
-      it: 'Inviaci i tuoi dettagli tramite WhatsApp o il nostro link ufficiale Zeena Live in pochi secondi.'
+      en: 'Send us your details via WhatsApp or our official Xena Live link in seconds.',
+      ru: 'Отправьте нам свои данные через WhatsApp или по ссылке Xena Live за пару секунд.',
+      ro: 'Trimite-ne detaliile tale prin WhatsApp sau link-ul oficial Xena Live în câteva secunde.',
+      fr: 'Envoyez-nous vos coordonnées via WhatsApp ou notre lien officiel Xena Live en quelques secondes.',
+      it: 'Inviaci i tuoi dettagli tramite WhatsApp o il nostro link ufficiale Xena Live in pochi secondi.'
     },
     color: '#00f3ff'
   },

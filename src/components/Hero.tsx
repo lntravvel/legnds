@@ -181,18 +181,18 @@ function PartnerLogos() {
       </p>
       
       <div className="flex items-center justify-center">
-        {/* Zeena Live Official Partner */}
+        {/* Xena Live Official Partner */}
         <motion.div 
           animate={{ y: [-3, 3, -3] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2.5 transition-all duration-300 shadow-[0_0_35px_rgba(255,0,128,0.5)] rounded-[22px] sm:rounded-[26px] group"
         >
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-[22px] sm:rounded-[26px] bg-white flex items-center justify-center shadow-[0_0_25px_rgba(255,0,128,0.45)] border-2 border-pink-500 p-2 sm:p-3 transition-transform duration-300 group-hover:scale-105">
-             <BrandIcons.Zeena className="w-full h-full" />
+             <BrandIcons.Xena className="w-full h-full" />
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-950/60 border border-pink-500/40">
             <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping" />
-            <span className="text-[11.5px] font-mono text-pink-300 font-bold tracking-wider uppercase">ZEENA LIVE OFFICIAL</span>
+            <span className="text-[11.5px] font-mono text-pink-300 font-bold tracking-wider uppercase">XENA LIVE OFFICIAL</span>
           </div>
         </motion.div>
       </div>
@@ -226,11 +226,11 @@ export function Hero() {
         <p className={`text-[14px] md:text-[16px] text-white/60 leading-relaxed font-normal mt-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
             'انضم إلى شبكة النخبة من المذيعين وصناع المحتوى على زينا لايف. نحن نقدم إدارة من الدرجة الأولى ودعماً حصرياً على مدار الساعة.',
-            'Join the elite network of broadcasters and creators on Zeena Live. We provide top-tier management and 24/7 support.',
-            'Присоединяйтесь к элитной сети ведущих на Zeena Live. Мы обеспечиваем управление высшего уровня и круглосуточную поддержку.',
-            'Alătură-te rețelei de elită a crainicilor pe Zeena Live. Oferim management de top și suport 24/7.',
-            'Rejoignez le réseau d\'élite des diffuseurs sur Zeena Live. Nous offrons une gestion de premier plan et un support 24/7.',
-            'Unisciti alla rete d\'élite di emittenti su Zeena Live. Offriamo una gestione di alto livello e supporto 24/7.'
+            'Join the elite network of broadcasters and creators on Xena Live. We provide top-tier management and 24/7 support.',
+            'Присоединяйтесь к элитной сети ведущих на Xena Live. Мы обеспечиваем управление высшего уровня и круглосуточную поддержку.',
+            'Alătură-te rețelei de elită a crainicilor pe Xena Live. Oferim management de top și suport 24/7.',
+            'Rejoignez le réseau d\'élite des diffuseurs sur Xena Live. Nous offrons une gestion de premier plan et un support 24/7.',
+            'Unisciti alla rete d\'élite di emittenti su Xena Live. Offriamo una gestione di alto livello e supporto 24/7.'
           )}
         </p>
       </motion.div>

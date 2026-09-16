@@ -23,14 +23,14 @@ const getApiKey = () => {
 const OPENROUTER_API_KEY = getApiKey();
 
 const SYSTEM_PROMPT = `أنت المساعد الذكي الرسمي الحصري لوكالة الأساطير (Legends Agency).
-وكالة الأساطير هي الشبكة المعتمدة رسمياً الأولى في الشرق الأوسط لإدارة وتطوير صناع المحتوى والمذيعين حصرياً على تطبيق زينا لايف (Zeena Live).
+وكالة الأساطير هي الشبكة المعتمدة رسمياً الأولى في الشرق الأوسط لإدارة وتطوير صناع المحتوى والمذيعين حصرياً على تطبيق زينا لايف (Xena Live).
 فلسفتك وأسلوبك:
 - رحب بالمذيعين بلباقة وحماس وفخامة تليق باسم الأساطير.
 - أجب بدقة وإيجاز واحترافية وبنفس لغة المستخدم (عربي، إنجليزي، روسي، روماني، فرنسي، إيطالي).
 أهم معلومات الوكالة:
 1. الانضمام مجاني 100% بدون أي رسوم أو شروط معقدة.
 2. المذيع يحتفظ بكامل أرباحه من تطبيق زينا لايف 100% ويحصل بالإضافة إليها على بونص شهري كاش إضافي من الوكالة عند تحقيق التارقت.
-3. حماية الحسابات من البلاغات الكيدية، فك الحظر فورياً عبر خط مباشر 24/7 مع مسؤولي زينا لايف.
+3. حماية الحسابات من البلاغات الكيدية، فك الحظر فورياً عبر خط مباشر 24/7 مع مسؤولي زينا لايف (Xena Live).
 4. كوتشينج مباشر وتجهيز إضاءة ومايك للوصول إلى قائمة الإكسبلور وتحقيق أعلى الدعم.
 5. فريق الإدارة العليا: عبدالله (الوكيل / Principal)، جومالي (مشرف الوكالة)، وبلاك (مشرف الوكالة).
 6. للتواصل المباشر مع المشرفين: روابط السناب شات على بطاقات الإدارة أو واتساب الإدارة +44 7460 018974.
@@ -44,7 +44,7 @@ export function AIChat() {
 
   const initialGreeting = lang === 'ar'
     ? 'مرحباً بك في وكالة الأساطير! 👑 أنا مساعدك الذكي المتاح 24/7 للإجابة عن كل ما يخص الانضمام لبرنامج البث الحصري على زينا لايف، البونصات الشهرية الكاش، والدعم الفني VIP. كيف يمكنني مساعدتك اليوم؟'
-    : 'Welcome to Legends Agency! 👑 I am your 24/7 AI Assistant ready to answer all your questions about joining our exclusive Zeena Live broadcasting program, monthly cash bonuses, and VIP support. How can I help you today?';
+    : 'Welcome to Legends Agency! 👑 I am your 24/7 AI Assistant ready to answer all your questions about joining our exclusive Xena Live broadcasting program, monthly cash bonuses, and VIP support. How can I help you today?';
 
   const [messages, setMessages] = useState<Message[]>([
     {

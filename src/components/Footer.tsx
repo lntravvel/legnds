@@ -104,9 +104,9 @@ export function Footer() {
           <div className="flex justify-center items-center">
             <div className="flex flex-col items-center gap-2">
               <div className="w-18 h-18 rounded-[22px] bg-white flex items-center justify-center p-3 border-2 border-pink-500 shadow-[0_0_25px_rgba(255,0,128,0.45)] transition-all duration-300 hover:scale-105">
-                <BrandIcons.Zeena className="w-full h-full" />
+                <BrandIcons.Xena className="w-full h-full" />
               </div>
-              <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">ZEENA LIVE OFFICIAL</span>
+              <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">XENA LIVE OFFICIAL</span>
             </div>
           </div>
         </div>

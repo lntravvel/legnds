@@ -14,6 +14,7 @@ import { SocialSection } from './components/SocialSection';
 import { HomePage } from './pages/HomePage';
 import { ComparisonPage } from './pages/ComparisonPage';
 import { FastTrackPage } from './pages/FastTrackPage';
+import { EarningsPage } from './pages/EarningsPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -60,6 +61,7 @@ function MainLayout() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/earnings" element={<EarningsPage />} />
           <Route path="/comparison" element={<ComparisonPage />} />
           <Route path="/fast-track" element={<FastTrackPage />} />
           <Route path="*" element={<HomePage />} />

@@ -64,7 +64,7 @@ function ReviewCard({ review, lang, dir }: { review: ReviewItem; lang: Language;
         {/* Platform & Earnings Badge */}
         <div className="flex items-center gap-1.5">
           <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full border bg-pink-500/10 text-pink-400 border-pink-500/30">
-            Zeena Live
+            Xena Live
           </span>
           <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             {review.earningsBadge}
@@ -106,11 +106,11 @@ export function SuccessStories() {
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-lg mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
             'نفتخر بدعم وتطوير نخبة المذيعين والمذيعات على زينا لايف لتحقيق أعلى العوائد والمكافآت الحصرية.',
-            'Proud to empower top creators on Zeena Live to maximize their earnings and exclusive bonuses.',
-            'Гордимся поддержкой лучших авторов на Zeena Live для достижения максимального дохода.',
-            'Mândri să sprijinim creatorii de top pe Zeena Live să își maximizeze veniturile.',
-            'Fiers de soutenir nos créateurs sur Zeena Live pour maximiser leurs revenus.',
-            'Orgogliosi di supportare i migliori creator su Zeena Live per massimizzare i loro guadagni.'
+            'Proud to empower top creators on Xena Live to maximize their earnings and exclusive bonuses.',
+            'Гордимся поддержкой лучших авторов на Xena Live для достижения максимального дохода.',
+            'Mândri să sprijinim creatorii de top pe Xena Live să își maximizeze veniturile.',
+            'Fiers de soutenir nos créateurs sur Xena Live pour maximiser leurs revenus.',
+            'Orgogliosi di supportare i migliori creator su Xena Live per massimizzare i loro guadagni.'
           )}
         </p>
       </motion.div>

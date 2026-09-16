@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Scale, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Scale, Zap, Coins, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { Stats } from '../components/Stats';
 import { LinkHub } from '../components/LinkHub';
@@ -25,13 +25,68 @@ export function HomePage() {
       <About />
 
       {/* Interactive Hub Teasers to Dedicated Subpages */}
-      <section className="relative z-10 w-full px-4 sm:px-6 max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full">
-          {/* 1. Comparison Page Teaser */}
+      <section className="relative z-10 w-full px-4 sm:px-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 w-full">
+          {/* 1. Earnings & Salary Guide Teaser */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
+            whileHover={{ y: -4, scale: 1.02 }}
+            className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-[24px] bg-gradient-to-b from-white/[0.04] via-[#1a071c]/90 to-[#0c0210]/98 border border-white/[0.08] hover:border-pink-500/50 backdrop-blur-xl transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] overflow-hidden"
+          >
+            {/* Expressive Background: High-End Crypto & Wealth Glow */}
+            <img 
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop"
+              alt="Earnings & Salary Guide"
+              aria-hidden="true"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:opacity-45 transition-all duration-700 group-hover:scale-105 filter saturate-150 contrast-125 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0210] via-[#120418]/80 to-[#08020e]/40 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-36 h-36 bg-pink-500/15 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="flex items-center justify-between mb-3 relative z-10">
+              <div className="w-11 h-11 rounded-[16px] bg-pink-950/80 border border-pink-500/40 flex items-center justify-center text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.3)]">
+                <Coins size={22} />
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pink-950/70 border border-pink-500/40 text-pink-300 text-[10px] font-mono font-bold backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping" />
+                <span>UP TO $66K/MO</span>
+              </div>
+            </div>
+
+            <div className="relative z-10">
+              <h3 className={`text-[17px] sm:text-[18px] font-bold text-white mb-1.5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+                {t('دليل الأرباح والرواتب: 30 مستوى', 'Earnings & Salary: 30-Tier Ladder', 'Доходы и зарплаты: 30 уровней', 'Ghid de câștiguri: 30 de niveluri', 'Guide des gains : 30 niveaux', 'Guida ai guadagni: 30 livelli')}
+              </h3>
+              <p className={`text-[12.5px] sm:text-[13px] text-white/70 leading-relaxed mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+                {t(
+                  'جدول مفصل حتى 66,824$ شهرياً، حاسبة أرباح تفاعلية، قواعد الساعات الشهرية، ووسائل السحب بكافة الدول.',
+                  'Full ladder up to $66,824/mo, interactive calculator, monthly hours rules, and approved payout channels.',
+                  'Таблица выплат до $66,824/мес, калькулятор и способы вывода.',
+                  'Grilă până la 66.824$/lună, calculator interactiv și metode de retragere.',
+                  'Grille jusqu\'à 66 824$/mois, calculateur interactif et retraits.',
+                  'Scala fino a $66.824/mese, calcolatore interattivo e prelievi.'
+                )}
+              </p>
+            </div>
+
+            <Link
+              to="/earnings"
+              className="relative z-10 inline-flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-pink-500/15 border border-pink-500/40 hover:bg-pink-500/25 text-pink-200 text-xs font-bold transition-all shadow-sm group-hover:border-pink-300"
+            >
+              <span>{t('عرض جدول الرواتب والسحب', 'View Earnings & Payouts', 'Смотреть таблицу', 'Vezi grila de salarii', 'Voir la grille', 'Vedi la tabella')}</span>
+              {dir === 'rtl' ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+            </Link>
+          </motion.div>
+
+          {/* 2. Comparison Page Teaser */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ delay: 0.05 }}
             whileHover={{ y: -4, scale: 1.02 }}
             className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-[24px] bg-gradient-to-b from-white/[0.04] via-[#060e1d]/90 to-[#02050e]/98 border border-white/[0.08] hover:border-cyan-400/50 backdrop-blur-xl transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] overflow-hidden"
           >
@@ -82,7 +137,7 @@ export function HomePage() {
             </Link>
           </motion.div>
 
-          {/* 2. Fast Track Page Teaser */}
+          {/* 3. Fast Track Page Teaser */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

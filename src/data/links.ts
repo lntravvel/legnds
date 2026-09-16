@@ -14,17 +14,17 @@ export interface LinkItem {
 
 export const AGENCY_LINKS: LinkItem[] = [
   {
-    id: 'zena-join',
+    id: 'xena-join',
     title: {
       ar: 'سجل في برنامج زينا لايف',
-      en: 'Join Zena Live Program',
-      ru: 'Зарегистрируйтесь в программе Zena Live',
-      ro: 'Înscrie-te în programul Zena Live',
-      fr: 'Rejoignez le programme Zena Live',
-      it: 'Iscriviti al programma Zena Live'
+      en: 'Join Xena Live Program',
+      ru: 'Зарегистрируйтесь в программе Xena Live',
+      ro: 'Înscrie-te în programul Xena Live',
+      fr: 'Rejoignez le programme Xena Live',
+      it: 'Iscriviti al programma Xena Live'
     },
     url: 'https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe',
-    icon: BrandIcons.Zeena,
+    icon: BrandIcons.Xena,
     primary: true,
     brandColor: '#00F3FF',
   },

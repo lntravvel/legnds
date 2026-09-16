@@ -32,11 +32,11 @@ const COMPARISONS: ComparisonItem[] = [
     },
     agency: {
       ar: 'خط مباشر 24/7 مع مسؤولي وإدارة زينا لايف وحل فوري لأي بلاغ أو حظر في دقائق',
-      en: 'Direct 24/7 hotline to Zeena Live officials; instant fix for bans and issues in minutes',
-      ru: 'Прямая связь 24/7 с администрацией Zeena Live, мгновенное снятие банов',
-      ro: 'Linie directă 24/7 cu oficialii Zeena Live, rezolvare imediată în câteva minute',
-      fr: 'Ligne directe 24/7 avec les responsables Zeena Live, déblocage en minutes',
-      it: 'Linea diretta 24/7 con i funzionari Zeena Live, sblocco immediato in pochi minuti'
+      en: 'Direct 24/7 hotline to Xena Live officials; instant fix for bans and issues in minutes',
+      ru: 'Прямая связь 24/7 с администрацией Xena Live, мгновенное снятие банов',
+      ro: 'Linie directă 24/7 cu oficialii Xena Live, rezolvare imediată în câteva minute',
+      fr: 'Ligne directe 24/7 avec les responsables Xena Live, déblocage en minutes',
+      it: 'Linea diretta 24/7 con i funzionari Xena Live, sblocco immediato in pochi minuti'
     }
   },
   {

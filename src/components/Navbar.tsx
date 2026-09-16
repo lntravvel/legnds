@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Scale, Zap, Home, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Scale, Zap, Home, Coins, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Navbar() {
@@ -13,6 +13,11 @@ export function Navbar() {
       to: '/',
       label: t('الرئيسية', 'Home', 'Главная', 'Acasă', 'Accueil', 'Home'),
       icon: Home
+    },
+    {
+      to: '/earnings',
+      label: t('دليل الأرباح', 'Earnings Guide', 'Доходы и вывод', 'Ghid salarii', 'Guide salaires', 'Guida compensi'),
+      icon: Coins
     },
     {
       to: '/comparison',

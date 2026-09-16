@@ -16,11 +16,11 @@ const FAQS = [
     },
     answer: {
       ar: 'نرحب بكافة صناع المحتوى الطموحين على منصة زينا لايف، سواء كنت في بداية مشوارك أو من كبار المحترفين. وكالتنا تحتضن مواهب من كافة أنحاء العالم.',
-      en: 'We welcome all ambitious content creators on the Zeena Live platform, whether you are just starting or are a top professional. Our agency embraces talents from all over the world.',
-      ru: 'Мы приветствуем всех амбициозных создателей контента на платформе Zeena Live, независимо от того, начинаете ли вы или являетесь ведущим профессионалом. Наше агентство объединяет таланты со всего мира.',
-      ro: 'Salutăm toți creatorii de conținut ambițioși de pe platforma Zeena Live, indiferent dacă sunteți la început sau un profesionist de top. Agenția noastră îmbrățișează talente din întreaga lume.',
-      fr: 'Nous accueillons tous les créateurs de contenu ambitieux sur la plateforme Zeena Live, que vous débutiez ou que vous soyez un professionnel de haut niveau. Notre agence accueille des talents du monde entier.',
-      it: 'Diamo il benvenuto a tutti gli ambiziosi creatori di contenuti sulla piattaforma Zeena Live, che tu stia iniziando o sia un professionista di alto livello. La nostra agenzia abbraccia talenti da tutto il mondo.'
+      en: 'We welcome all ambitious content creators on the Xena Live platform, whether you are just starting or are a top professional. Our agency embraces talents from all over the world.',
+      ru: 'Мы приветствуем всех амбициозных создателей контента на платформе Xena Live, независимо от того, начинаете ли вы или являетесь ведущим профессионалом. Наше агентство объединяет таланты со всего мира.',
+      ro: 'Salutăm toți creatorii de conținut ambițioși de pe platforma Xena Live, indiferent dacă sunteți la început sau un profesionist de top. Agenția noastră îmbrățișează talente din întreaga lume.',
+      fr: 'Nous accueillons tous les créateurs de contenu ambitieux sur la plateforme Xena Live, que vous débutiez ou que vous soyez un professionnel de haut niveau. Notre agence accueille des talents du monde entier.',
+      it: 'Diamo il benvenuto a tutti gli ambiziosi creatori di contenuti sulla piattaforma Xena Live, che tu stia iniziando o sia un professionista di alto livello. La nostra agenzia abbraccia talenti da tutto il mondo.'
     }
   },
   {
@@ -54,11 +54,11 @@ const FAQS = [
     },
     answer: {
       ar: 'تصلك أرباحك الأساسية مباشرة من تطبيق زينا لايف، بينما نقوم نحن بصرف مكافآتك الشهرية الإضافية بشكل منتظم ومضمون في موعدها.',
-      en: 'You receive your base earnings directly from the Zeena Live app, while we pay out your additional monthly bonuses regularly and securely on time.',
-      ru: 'Вы получаете свой базовый доход непосредственно из приложения Zeena Live, а мы регулярно и гарантированно выплачиваем ваши дополнительные ежемесячные бонусы в срок.',
-      ro: 'Vă primiți câștigurile de bază direct din aplicația Zeena Live, în timp ce noi vă plătim bonusurile lunare suplimentare în mod regulat și sigur la timp.',
-      fr: 'Vous recevez vos gains de base directement depuis l\'application Zeena Live, tandis que nous vous versons vos bonus mensuels supplémentaires régulièrement et en toute sécurité à temps.',
-      it: 'Ricevi i tuoi guadagni di base direttamente dall\'app Zeena Live, mentre noi paghiamo i tuoi bonus mensili aggiuntivi regolarmente e in modo sicuro in tempo.'
+      en: 'You receive your base earnings directly from the Xena Live app, while we pay out your additional monthly bonuses regularly and securely on time.',
+      ru: 'Вы получаете свой базовый доход непосредственно из приложения Xena Live, а мы регулярно и гарантированно выплачиваем ваши дополнительные ежемесячные бонусы в срок.',
+      ro: 'Vă primiți câștigurile de bază direct din aplicația Xena Live, în timp ce noi vă plătim bonusurile lunare suplimentare în mod regulat și sigur la timp.',
+      fr: 'Vous recevez vos gains de base directement depuis l\'application Xena Live, tandis que nous vous versons vos bonus mensuels supplémentaires régulièrement et en toute sécurité à temps.',
+      it: 'Ricevi i tuoi guadagni di base direttamente dall\'app Xena Live, mentre noi paghiamo i tuoi bonus mensili aggiuntivi regolarmente e in modo sicuro in tempo.'
     }
   },
   {
