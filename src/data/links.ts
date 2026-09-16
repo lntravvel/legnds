@@ -80,7 +80,7 @@ export const AGENCY_LINKS: LinkItem[] = [
       fr: 'Snapchat',
       it: 'Snapchat'
     },
-    url: 'https://snapchat.com/t/R8jCQWh1',
+    url: 'https://www.snapchat.com/@legeendsagency?locale=ar_OM&sid=7d0e9b4004a840f8a3621e7d64bc2ed6&share_id=DFZAt4TKTYSB_Ardk9GSug&invite_id=Os8h6A2y',
     icon: BrandIcons.Snapchat,
     brandColor: '#FFFC00',
   },
