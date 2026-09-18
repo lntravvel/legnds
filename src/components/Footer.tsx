@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Mail } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
@@ -109,6 +110,24 @@ export function Footer() {
               <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">XENA LIVE OFFICIAL</span>
             </div>
           </div>
+        </div>
+
+        {/* Official Email Contact */}
+        <div className="flex flex-col items-center gap-2 relative z-10 pt-6 border-t border-white/5 w-full">
+          <a
+            href="mailto:info@legeends.com"
+            className="group flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(0,243,255,0.25)] hover:scale-105 active:scale-95"
+          >
+            <div className="w-6 h-6 rounded-full bg-cyan-950/80 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-sm">
+              <Mail className="w-3.5 h-3.5" />
+            </div>
+            <span className="text-xs sm:text-sm font-mono text-white/90 group-hover:text-cyan-300 transition-colors font-semibold">
+              info@legeends.com
+            </span>
+          </a>
+          <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
+            {t('البريد الإلكتروني الرسمي للتواصل والشراكات', 'Official Inquiries & Partnerships Email', 'Официальная электронная почта', 'Email oficial de contact', 'Email officiel', 'Email ufficiale')}
+          </span>
         </div>
 
       </div>
