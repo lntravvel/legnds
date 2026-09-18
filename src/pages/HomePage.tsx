@@ -12,6 +12,7 @@ import { SuccessStories } from '../components/SuccessStories';
 import { PortalTeaser } from '../components/PortalTeaser';
 import { FAQ } from '../components/FAQ';
 import { Team } from '../components/Team';
+import { ApplicationForm } from '../components/ApplicationForm';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function HomePage() {
@@ -201,6 +202,7 @@ export function HomePage() {
       <PortalTeaser />
       <FAQ />
       <Team />
+      <ApplicationForm />
     </div>
   );
 }
