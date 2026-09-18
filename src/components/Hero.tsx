@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
+import { HeroVideo } from './HeroVideo';
 
 const SHARDS = Array.from({ length: 20 }).map((_, i) => {
   const angle = (i / 20) * Math.PI * 2;
@@ -19,7 +20,7 @@ const SHARDS = Array.from({ length: 20 }).map((_, i) => {
 function LegendsLogo() {
   const { t } = useLanguage();
   return (
-    <div className="flex flex-col items-center justify-center pt-8">
+    <div className="flex flex-col items-center justify-center pt-2 sm:pt-4">
       <div className="relative mb-8 mt-4">
         {/* Intense Initial Flash Effect */}
         <motion.div
@@ -203,7 +204,8 @@ function PartnerLogos() {
 export function Hero() {
   const { t, lang } = useLanguage();
   return (
-    <header className="relative z-10 flex flex-col items-center text-center pt-4 md:pt-8 pb-4 px-6 w-full max-w-3xl mx-auto">
+    <header className="relative z-10 flex flex-col items-center text-center pt-2 sm:pt-4 pb-4 px-4 sm:px-6 w-full max-w-3xl mx-auto">
+      <HeroVideo />
       <LegendsLogo />
       <PartnerLogos />
       
