@@ -50,8 +50,8 @@ export function HeroVideo() {
   };
 
   return (
-    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-[85vh] overflow-hidden bg-[#02050A] select-none">
-      {/* Full-bleed video without any frame, border, or rounded box */}
+    <div className="relative w-full aspect-[16/9] max-h-[580px] overflow-hidden bg-[#02050A] select-none">
+      {/* Full-bleed video in its native 16:9 cinematic aspect ratio */}
       <video
         ref={videoRef}
         src="/assets/videos/drone_stage.mp4"
@@ -66,33 +66,33 @@ export function HeroVideo() {
 
       {/* Top subtle vignette for fixed navbar contrast */}
       <div 
-        className="absolute top-0 inset-x-0 h-28 sm:h-36 bg-gradient-to-b from-[#02050A]/95 via-[#02050A]/40 to-transparent pointer-events-none" 
+        className="absolute top-0 inset-x-0 h-20 sm:h-28 bg-gradient-to-b from-[#02050A]/90 via-[#02050A]/30 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
       {/* Left and Right subtle vignettes for cinematic focus */}
       <div 
-        className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#02050A]/70 to-transparent pointer-events-none" 
+        className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#02050A]/60 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
       <div 
-        className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#02050A]/70 to-transparent pointer-events-none" 
+        className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#02050A]/60 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
-      {/* Bottom Dissolve: Blends the stage video seamlessly into the dark background and the logo underneath */}
+      {/* Bottom Dissolve: Blends gently into #02050A */}
       <div 
-        className="absolute bottom-0 inset-x-0 h-44 sm:h-64 bg-gradient-to-t from-[#02050A] via-[#02050A]/85 via-[#02050A]/30 to-transparent pointer-events-none" 
+        className="absolute bottom-0 inset-x-0 h-24 sm:h-36 bg-gradient-to-t from-[#02050A] via-[#02050A]/65 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
       {/* Sound Toggle Button */}
-      <div className="absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-20">
+      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 z-20">
         <button
           type="button"
           onClick={toggleMute}
           aria-label={isMuted ? 'تفعيل الصوت' : 'كتم الصوت'}
-          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer"
+          className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer"
         >
           {isMuted ? (
             <>

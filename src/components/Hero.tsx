@@ -208,8 +208,13 @@ export function Hero() {
       {/* Full-Bleed Video taking the Hero section completely (borderless, edge-to-edge) */}
       <HeroVideo />
 
-      {/* Content Section positioned directly underneath the video */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto -mt-8 sm:-mt-14 pb-4">
+      {/* Elegant Visual Transition between Video and Logo */}
+      <div className="relative z-10 flex items-center justify-center w-full mt-4 mb-2 pointer-events-none" aria-hidden="true">
+        <div className="w-32 sm:w-48 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+      </div>
+
+      {/* Content Section positioned with generous breathing room underneath the video */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto pt-4 sm:pt-8 pb-4">
         <LegendsLogo />
         <PartnerLogos />
         
