@@ -18,7 +18,7 @@ export function HomePage() {
   const { lang, t, dir } = useLanguage();
 
   return (
-    <div className="flex-1 w-full flex flex-col pt-6 pb-24 gap-10 md:gap-20">
+    <div className="flex-1 w-full flex flex-col pt-0 pb-24 gap-10 md:gap-20">
       <Hero />
       <Stats />
       <LinkHub />

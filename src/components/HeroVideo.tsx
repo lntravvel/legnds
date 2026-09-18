@@ -1,5 +1,4 @@
 ﻿import { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -51,69 +50,63 @@ export function HeroVideo() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97, y: 15 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative w-full max-w-2xl sm:max-w-3xl mb-4 group"
-    >
-      {/* Ambient Neon Backlight */}
+    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-[85vh] overflow-hidden bg-[#02050A] select-none">
+      {/* Full-bleed video without any frame, border, or rounded box */}
+      <video
+        ref={videoRef}
+        src="/assets/videos/drone_stage.mp4"
+        poster="/assets/videos/drone_stage_poster.webp"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover object-center pointer-events-none"
+      />
+
+      {/* Top subtle vignette for fixed navbar contrast */}
       <div 
-        className="absolute -inset-1 bg-gradient-to-r from-cyan-500/25 via-fuchsia-500/15 to-blue-600/25 rounded-2xl sm:rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10"
+        className="absolute top-0 inset-x-0 h-28 sm:h-36 bg-gradient-to-b from-[#02050A]/95 via-[#02050A]/40 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
-      {/* Video Container Frame */}
-      <div className="relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-500/30 shadow-[0_0_30px_rgba(0,243,255,0.2)] bg-[#05070c]">
-        <video
-          ref={videoRef}
-          src="/assets/videos/drone_stage.mp4"
-          poster="/assets/videos/drone_stage_poster.webp"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover select-none"
-        />
+      {/* Left and Right subtle vignettes for cinematic focus */}
+      <div 
+        className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#02050A]/70 to-transparent pointer-events-none" 
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#02050A]/70 to-transparent pointer-events-none" 
+        aria-hidden="true"
+      />
 
-        {/* Cinematic Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06080e]/80 via-transparent to-black/30 pointer-events-none" />
+      {/* Bottom Dissolve: Blends the stage video seamlessly into the dark background and the logo underneath */}
+      <div 
+        className="absolute bottom-0 inset-x-0 h-44 sm:h-64 bg-gradient-to-t from-[#02050A] via-[#02050A]/85 via-[#02050A]/30 to-transparent pointer-events-none" 
+        aria-hidden="true"
+      />
 
-        {/* Top Badges */}
-        <div className="absolute top-3 inset-x-3 sm:top-4 sm:inset-x-4 flex items-center justify-between pointer-events-none z-10">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300 shadow-md">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-            <span className="font-semibold tracking-wider uppercase">LEGENDS STAGE</span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] sm:text-[11px] font-mono text-white/70">
-            <span>OFFICIAL ARENA</span>
-          </div>
-        </div>
-
-        {/* Sound Toggle Button */}
-        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10">
-          <button
-            type="button"
-            onClick={toggleMute}
-            aria-label={isMuted ? 'تفعيل الصوت' : 'كتم الصوت'}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-lg cursor-pointer"
-          >
-            {isMuted ? (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-white/70" />
-                <span className="text-[11px] font-medium text-white/80">{t('كتم', 'Muted', 'Без звука', 'Mut', 'Muet', 'Muto')}</span>
-              </>
-            ) : (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                <span className="text-[11px] font-medium text-cyan-300">{t('صوت', 'Sound', 'Звук', 'Sunet', 'Son', 'Audio')}</span>
-              </>
-            )}
-          </button>
-        </div>
+      {/* Sound Toggle Button */}
+      <div className="absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-20">
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={isMuted ? 'تفعيل الصوت' : 'كتم الصوت'}
+          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer"
+        >
+          {isMuted ? (
+            <>
+              <VolumeX className="w-3.5 h-3.5 text-white/70" />
+              <span className="text-[11px] sm:text-xs font-medium text-white/90">{t('كتم', 'Muted', 'Без звука', 'Mut', 'Muet', 'Muto')}</span>
+            </>
+          ) : (
+            <>
+              <Volume2 className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+              <span className="text-[11px] sm:text-xs font-medium text-cyan-300">{t('صوت', 'Sound', 'Звук', 'Sunet', 'Son', 'Audio')}</span>
+            </>
+          )}
+        </button>
       </div>
-    </motion.div>
+    </div>
   );
 }

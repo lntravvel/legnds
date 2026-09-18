@@ -204,38 +204,43 @@ function PartnerLogos() {
 export function Hero() {
   const { t, lang } = useLanguage();
   return (
-    <header className="relative z-10 flex flex-col items-center text-center pt-2 sm:pt-4 pb-4 px-4 sm:px-6 w-full max-w-3xl mx-auto">
+    <header className="relative z-10 w-full flex flex-col items-center text-center">
+      {/* Full-Bleed Video taking the Hero section completely (borderless, edge-to-edge) */}
       <HeroVideo />
-      <LegendsLogo />
-      <PartnerLogos />
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="w-full"
-      >
-        <h3 className={`text-[22px] md:text-[28px] leading-tight font-bold text-white mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t(
-            'هنا تُصنع أساطير البث المباشر',
-            'Where Digital Legends Are Born',
-            'Здесь рождаются цифровые легенды',
-            'Aici se nasc legendele digitale',
-            'Où naissent les légendes numériques',
-            'Dove nascono le leggende digitali'
-          )}
-        </h3>
-        <p className={`text-[14px] md:text-[16px] text-white/60 leading-relaxed font-normal mt-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t(
-            'انضم إلى شبكة النخبة من المذيعين وصناع المحتوى على زينا لايف. نحن نقدم إدارة من الدرجة الأولى ودعماً حصرياً على مدار الساعة.',
-            'Join the elite network of broadcasters and creators on Xena Live. We provide top-tier management and 24/7 support.',
-            'Присоединяйтесь к элитной сети ведущих на Xena Live. Мы обеспечиваем управление высшего уровня и круглосуточную поддержку.',
-            'Alătură-te rețelei de elită a crainicilor pe Xena Live. Oferim management de top și suport 24/7.',
-            'Rejoignez le réseau d\'élite des diffuseurs sur Xena Live. Nous offrons une gestion de premier plan et un support 24/7.',
-            'Unisciti alla rete d\'élite di emittenti su Xena Live. Offriamo una gestione di alto livello e supporto 24/7.'
-          )}
-        </p>
-      </motion.div>
+
+      {/* Content Section positioned directly underneath the video */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto -mt-8 sm:-mt-14 pb-4">
+        <LegendsLogo />
+        <PartnerLogos />
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="w-full"
+        >
+          <h3 className={`text-[22px] md:text-[28px] leading-tight font-bold text-white mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+            {t(
+              'هنا تُصنع أساطير البث المباشر',
+              'Where Digital Legends Are Born',
+              'Здесь рождаются цифровые легенды',
+              'Aici se nasc legendele digitale',
+              'Où naissent les légendes numériques',
+              'Dove nascono le leggende digitali'
+            )}
+          </h3>
+          <p className={`text-[14px] md:text-[16px] text-white/60 leading-relaxed font-normal mt-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+            {t(
+              'انضم إلى شبكة النخبة من المذيعين وصناع المحتوى على زينا لايف. نحن نقدم إدارة من الدرجة الأولى ودعماً حصرياً على مدار الساعة.',
+              'Join the elite network of broadcasters and creators on Xena Live. We provide top-tier management and 24/7 support.',
+              'Присоединяйтесь к элитной сети ведущих на Xena Live. Мы обеспечиваем управление высшего уровня и круглосуточную поддержку.',
+              'Alătură-te rețelei de elită a crainicilor pe Xena Live. Oferim management de top și suport 24/7.',
+              'Rejoignez le réseau d\'élite des diffuseurs sur Xena Live. Nous offrons une gestion de premier plan et un support 24/7.',
+              'Unisciti alla rete d\'élite di emittenti su Xena Live. Offriamo una gestione di alto livello e supporto 24/7.'
+            )}
+          </p>
+        </motion.div>
+      </div>
     </header>
   );
 }
