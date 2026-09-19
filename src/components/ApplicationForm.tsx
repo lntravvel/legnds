@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, Sparkles, CheckCircle2, User, Phone, Globe, Video, Clock } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -58,17 +58,27 @@ export function ApplicationForm() {
     const experienceLabel = expTextMap[formData.experience] || formData.experience;
     const hoursLabel = hoursTextMap[formData.hours] || formData.hours;
 
+    // Sanitize inputs to prevent control character injection and excessive lengths
+    const cleanStr = (str: string, maxLen = 80) =>
+      str.replace(/[\r\n\t]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, maxLen);
+
+    const safeName = cleanStr(formData.name, 50);
+    const safePhone = cleanStr(formData.phone, 25);
+    const safeCountry = cleanStr(formData.country, 40);
+    const safeAge = cleanStr(formData.age, 3);
+    const safeHandle = cleanStr(formData.socialHandle, 50);
+
     // Beautifully formatted WhatsApp message
     const message = [
       '🌟 *طلب انضمام جديد - وكالة الأساطير (Legends Agency)* 🌟',
       '────────────────────────────',
-      `👤 *الاسم:* ${formData.name.trim()}`,
-      `📱 *رقم الواتساب:* ${formData.phone.trim()}`,
-      `🌍 *الدولة / الإقامة:* ${formData.country.trim()}`,
-      formData.age ? `🎂 *العمر:* ${formData.age.trim()}` : null,
+      `👤 *الاسم:* ${safeName}`,
+      `📱 *رقم الواتساب:* ${safePhone}`,
+      `🌍 *الدولة / الإقامة:* ${safeCountry}`,
+      safeAge ? `🎂 *العمر:* ${safeAge}` : null,
       `🎙️ *مستوى الخبرة:* ${experienceLabel}`,
       `⏱️ *ساعات البث المستهدفة:* ${hoursLabel}`,
-      formData.socialHandle ? `🔗 *معرف السوشيال / الآيدي:* ${formData.socialHandle.trim()}` : null,
+      safeHandle ? `🔗 *معرف السوشيال / الآيدي:* ${safeHandle}` : null,
       '────────────────────────────',
       '✨ تم إرسال هذا الطلب عبر الموقع الرسمي: https://legeends.com/'
     ].filter(Boolean).join('\n');
@@ -199,6 +209,8 @@ export function ApplicationForm() {
                   placeholder={t('+968 xxxxxxxx أو +966 xxxxxxxx', '+1 555 123 4567', '+7 999 123 4567', '+40 7xx xxx xxx', '+33 6 xx xx xx xx', '+39 3xx xxx xxxx')}
                   required
                   dir="ltr"
+                  inputMode="tel"
+                  autoComplete="tel"
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 focus:border-emerald-400 focus:bg-black/50 text-white text-sm outline-none transition-all placeholder:text-white/20"
                 />
               </div>
@@ -216,6 +228,7 @@ export function ApplicationForm() {
                   onChange={handleChange}
                   placeholder={t('مثال: سلطنة عمان، السعودية، مصر...', 'e.g. United Kingdom, USA...', 'Например: Казахстан, Россия...', 'ex: România, Moldova...', 'ex : France, Maroc...', 'es: Italia, Spagna...')}
                   required
+                  autoComplete="country-name"
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 focus:border-purple-400 focus:bg-black/50 text-white text-sm outline-none transition-all placeholder:text-white/20"
                 />
               </div>
@@ -234,6 +247,7 @@ export function ApplicationForm() {
                   placeholder={t('مثال: 22', 'e.g. 24', 'Например: 24', 'ex: 24', 'ex : 24', 'es: 24')}
                   min="18"
                   max="70"
+                  inputMode="numeric"
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 focus:border-pink-400 focus:bg-black/50 text-white text-sm outline-none transition-all placeholder:text-white/20"
                 />
               </div>

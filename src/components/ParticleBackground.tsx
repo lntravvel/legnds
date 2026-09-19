@@ -343,7 +343,7 @@ export function ParticleBackground() {
                 <div className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full overflow-hidden bg-[#030812] border border-cyan-300 p-0.5 shadow-[0_0_6px_#00f3ff]">
                   <img src="/assets/legends_eagle_clean.png" alt="Legends Emblem" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-[9px] sm:text-[11px] tracking-[0.15em] font-arabic text-cyan-100 font-bold whitespace-nowrap">
+                <span className="text-[11px] sm:text-xs tracking-[0.15em] font-arabic text-cyan-100 font-bold whitespace-nowrap">
                   وكـالـة الأساطـير
                 </span>
                 <Sparkles size={10} className="text-cyan-300 animate-spin" style={{ animationDuration: '8s' }} />
@@ -406,7 +406,7 @@ export function ParticleBackground() {
                 <div className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full overflow-hidden bg-[#030812] border border-cyan-300 p-0.5 shadow-[0_0_6px_#00f3ff]">
                   <img src="/assets/legends_eagle_clean.png" alt="Legends Emblem" className="w-full h-full object-contain" />
                 </div>
-                <span className="text-[8px] sm:text-[10px] tracking-[0.2em] font-mono text-cyan-200 uppercase font-bold whitespace-nowrap">
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] font-mono text-cyan-200 uppercase font-bold whitespace-nowrap">
                   VIP AGENCY
                 </span>
                 <Sparkles size={10} className="text-cyan-300 animate-spin" style={{ animationDuration: '8s' }} />

@@ -146,13 +146,14 @@ export function AudioPlayer({ play }: AudioPlayerProps) {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed bottom-5 sm:bottom-6 left-4 sm:left-6 z-40 flex items-center gap-2"
+            className="fixed left-4 sm:left-6 z-40 flex items-center gap-2"
+            style={{ bottom: 'calc(1.25rem + env(safe-area-inset-bottom, 0px))' }}
           >
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleSound}
-              className={`flex items-center justify-center p-3 rounded-full border backdrop-blur-xl transition-all cursor-pointer select-none shadow-[0_0_25px_rgba(0,243,255,0.25)] ${
+              className={`flex items-center justify-center p-3.5 min-w-[44px] min-h-[44px] rounded-full border backdrop-blur-xl transition-all cursor-pointer select-none shadow-[0_0_25px_rgba(0,243,255,0.25)] ${
                 isPlaying && !isMuted
                   ? 'border-cyan-400/60 bg-black/75 text-cyan-300 hover:border-cyan-300 hover:shadow-[0_0_35px_rgba(0,243,255,0.5)]'
                   : 'border-amber-400/50 bg-black/80 text-amber-300 hover:border-amber-300 hover:shadow-[0_0_35px_rgba(251,191,36,0.4)] animate-pulse'

@@ -42,6 +42,8 @@ export function HomePage() {
               alt="Earnings & Salary Guide"
               aria-hidden="true"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:opacity-45 transition-all duration-700 group-hover:scale-105 filter saturate-150 contrast-125 pointer-events-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0210] via-[#120418]/80 to-[#08020e]/40 pointer-events-none" />
@@ -97,6 +99,8 @@ export function HomePage() {
               alt="Professional Streaming Studio"
               aria-hidden="true"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:opacity-45 transition-all duration-700 group-hover:scale-105 filter saturate-150 contrast-125 pointer-events-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#02050e] via-[#040c1a]/80 to-[#030814]/40 pointer-events-none" />
@@ -153,6 +157,8 @@ export function HomePage() {
               alt="Fast Track 24H Launch"
               aria-hidden="true"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-35 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105 filter saturate-150 contrast-125 pointer-events-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07020e] via-[#0e051a]/80 to-[#0b0314]/40 pointer-events-none" />

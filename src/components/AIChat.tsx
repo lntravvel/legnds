@@ -9,18 +9,9 @@ interface Message {
   content: string;
 }
 
-// OpenRouter API key is loaded strictly from environment variable (e.g. Vercel environment or local .env)
-const getApiKey = () => {
-  const envKey = (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_OPENROUTER_API_KEY;
-  if (envKey) return envKey;
-  // Fallback composed tokens to prevent raw credential scanning while keeping demo functional
-  const p1 = 'sk-or-v1-';
-  const p2 = 'b7b34e58f805bd7bc7924a948e64d1b6';
-  const p3 = 'e610928a4e8367d300ee7d9b8b69e778';
-  return `${p1}${p2}${p3}`;
-};
-
-const OPENROUTER_API_KEY = getApiKey();
+// OpenRouter API key must be loaded strictly from environment variable (Vercel env or local .env)
+// NEVER hardcode API keys in client-side code - they are visible in the browser bundle
+const OPENROUTER_API_KEY = (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_OPENROUTER_API_KEY || '';
 
 const SYSTEM_PROMPT = `أنت المساعد الذكي الرسمي الحصري لوكالة الأساطير (Legends Agency).
 وكالة الأساطير هي الشبكة المعتمدة رسمياً الأولى في الشرق الأوسط لإدارة وتطوير صناع المحتوى والمذيعين حصرياً على تطبيق زينا لايف (Xena Live).
@@ -81,6 +72,11 @@ export function AIChat() {
     setIsLoading(true);
 
     try {
+      // Graceful fallback if API key is not configured
+      if (!OPENROUTER_API_KEY) {
+        throw new Error('API key not configured');
+      }
+
       const chatHistory = messages
         .filter((m) => m.id !== 'welcome')
         .map((m) => ({ role: m.role, content: m.content }));
@@ -162,7 +158,8 @@ export function AIChat() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.8, type: "spring", stiffness: 260, damping: 20 }}
-        className="fixed bottom-[4.85rem] sm:bottom-[5.35rem] right-4 sm:right-6 z-40"
+        className="fixed right-4 sm:right-6 z-40"
+        style={{ bottom: 'calc(4.85rem + env(safe-area-inset-bottom, 0px))' }}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -193,7 +190,8 @@ export function AIChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 25, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[390px] h-[520px] max-h-[78vh] rounded-[24px] bg-[#050914]/95 border border-cyan-400/40 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.85)] flex flex-col z-50 overflow-hidden"
+            className="fixed right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[390px] h-[520px] max-h-[78vh] rounded-[24px] bg-[#050914]/95 border border-cyan-400/40 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.85)] flex flex-col z-50 overflow-hidden"
+            style={{ bottom: 'calc(5.75rem + env(safe-area-inset-bottom, 0px))' }}
           >
             {/* Window Header */}
             <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-white/[0.08] bg-gradient-to-r from-cyan-950/40 via-blue-950/20 to-transparent">

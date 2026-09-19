@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -92,7 +92,7 @@ export function HeroVideo() {
           type="button"
           onClick={toggleMute}
           aria-label={isMuted ? 'تفعيل الصوت' : 'كتم الصوت'}
-          className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer"
+          className="flex items-center gap-2 px-4 py-2.5 sm:px-4 sm:py-2.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-xs transition-all duration-200 active:scale-95 shadow-2xl cursor-pointer min-h-[44px]"
         >
           {isMuted ? (
             <>

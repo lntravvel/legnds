@@ -17,7 +17,8 @@ export function WhatsAppButton() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
-      className="fixed bottom-5 sm:bottom-6 right-4 sm:right-6 z-40"
+      className="fixed right-4 sm:right-6 z-40"
+      style={{ bottom: 'calc(1.25rem + env(safe-area-inset-bottom, 0px))' }}
     >
       <a
         href={waUrl}

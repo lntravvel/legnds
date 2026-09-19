@@ -18,7 +18,8 @@ export function FloatingEarningsButton() {
       initial={{ scale: 0, opacity: 0, y: 20 }}
       animate={{ scale: 1, opacity: 1, y: 0 }}
       transition={{ delay: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
-      className="fixed bottom-[4.85rem] sm:bottom-[5.35rem] left-4 sm:left-6 z-40"
+      className="fixed left-4 sm:left-6 z-40"
+      style={{ bottom: 'calc(4.85rem + env(safe-area-inset-bottom, 0px))' }}
     >
       <Link
         to="/earnings"
