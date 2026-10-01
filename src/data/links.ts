@@ -66,7 +66,7 @@ export const AGENCY_LINKS: LinkItem[] = [
       fr: 'TikTok',
       it: 'TikTok'
     },
-    url: 'https://www.tiktok.com/@legends_agency_tango?_r=1&_t=ZS-9699UYIVxLg',
+    url: 'https://www.tiktok.com/@legends.1.agency',
     icon: BrandIcons.TikTok,
     brandColor: '#00F2FE',
   },
