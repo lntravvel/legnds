@@ -24,7 +24,7 @@ export function FloatingEarningsButton() {
       <Link
         to="/earnings"
         title={t('افتح دليل النشاط والأرباح وسلم الرواتب لـ 30 مستوى', 'Open 30-Tier Earnings & Salary Guide', 'Открыть таблицу доходов', 'Deschide ghidul de salarii', 'Ouvrir le guide des salaires', 'Apri la guida ai compensi')}
-        className="group relative flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#160b26]/95 via-[#1a1106]/95 to-[#0d041a]/95 border-2 border-amber-400/80 hover:border-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.55),0_0_40px_rgba(236,72,153,0.3)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-auto sm:gap-2.5 p-0 sm:px-3.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#160b26]/95 via-[#1a1106]/95 to-[#0d041a]/95 border-2 border-amber-400/80 hover:border-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.55),0_0_40px_rgba(236,72,153,0.3)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none"
       >
         {/* Constant Glowing Pulse & Ping Halo */}
         <span 
@@ -38,26 +38,26 @@ export function FloatingEarningsButton() {
 
         {/* 3D Golden Coin Icon */}
         <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-amber-400 via-yellow-300 to-amber-500 text-black shadow-[0_0_12px_rgba(251,191,36,0.8)] shrink-0 group-hover:rotate-12 transition-transform duration-300">
-          <Coins size={15} className="text-black sm:w-4 sm:h-4" />
+          <Coins size={16} className="text-black sm:w-4 sm:h-4" />
           <Sparkles size={9} className="absolute -top-1 -right-1 text-white animate-spin" style={{ animationDuration: '4s' }} />
         </div>
 
-        {/* Text & Badges - Mobile Optimized */}
-        <div className="flex flex-col text-start justify-center">
+        {/* Text & Badges - Hidden on Mobile to keep footprint ultra-compact, visible on Desktop */}
+        <div className="hidden sm:flex flex-col text-start justify-center">
           <div className="flex items-center gap-1.5">
-            <span className={`text-[11.5px] sm:text-[13px] font-black text-amber-300 tracking-tight leading-tight group-hover:text-yellow-200 transition-colors ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+            <span className={`text-[12px] sm:text-[13px] font-black text-amber-300 tracking-tight leading-tight group-hover:text-yellow-200 transition-colors ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
               {t('دليل الأرباح', 'Earnings Guide', 'Таблица доходов', 'Ghid salarii', 'Guide salaires', 'Guida compensi')}
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
           </div>
 
-          <span className="text-[9px] sm:text-[10px] font-mono font-bold text-pink-300 tracking-wider leading-none mt-0.5">
+          <span className="text-[10px] font-mono font-bold text-pink-300 tracking-wider leading-none mt-0.5">
             30 LVS • $66K/MO 🔥
           </span>
         </div>
 
-        {/* Small Arrow */}
-        <div className={`shrink-0 text-amber-300/80 group-hover:text-amber-200 transition-transform duration-300 ${dir === 'rtl' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`}>
+        {/* Small Arrow - Hidden on Mobile */}
+        <div className={`hidden sm:block shrink-0 text-amber-300/80 group-hover:text-amber-200 transition-transform duration-300 ${dir === 'rtl' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`}>
           {dir === 'rtl' ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}
         </div>
       </Link>

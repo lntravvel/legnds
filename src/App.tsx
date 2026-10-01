@@ -16,6 +16,7 @@ import { HomePage } from './pages/HomePage';
 import { ComparisonPage } from './pages/ComparisonPage';
 import { FastTrackPage } from './pages/FastTrackPage';
 import { EarningsPage } from './pages/EarningsPage';
+import { LandingApplyPage } from './pages/LandingApplyPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,8 +29,15 @@ function ScrollToTop() {
 }
 
 function MainLayout() {
+  const location = useLocation();
+  const isDirectLanding = ['/apply', '/join', '/landing'].includes(location.pathname);
+
   const [entered, setEntered] = useState(() => {
-    // If user already visited or direct linked
+    // If user accesses ad landing page directly, immediately bypass entrance overlay for max conversion
+    if (typeof window !== 'undefined') {
+      const p = window.location.pathname;
+      if (['/apply', '/join', '/landing'].includes(p)) return true;
+    }
     return sessionStorage.getItem('legends_entered') === 'true';
   });
 
@@ -43,11 +51,12 @@ function MainLayout() {
       {/* Cinematic Ambient Background (Handled by ParticleBackground) */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#02050A]/70 via-[#02050A]/80 to-[#02050A] pointer-events-none" />
 
-      <EntranceOverlay entered={entered} onEnter={handleEnter} />
+      {/* Do not show entrance overlay on ad landing pages */}
+      {!isDirectLanding && <EntranceOverlay entered={entered} onEnter={handleEnter} />}
 
       <ParticleBackground />
 
-      {entered && (
+      {(entered || isDirectLanding) && (
         <>
           <Navbar />
           <LanguageSelector />
@@ -57,12 +66,15 @@ function MainLayout() {
         </>
       )}
 
-      <AudioPlayer play={entered} />
+      <AudioPlayer play={entered || isDirectLanding} />
 
-      <div className={`relative z-10 flex flex-col min-h-[100dvh] w-full overflow-y-auto overflow-x-hidden hide-scrollbar scroll-smooth transition-opacity duration-1000 ${entered ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`relative z-10 flex flex-col min-h-[100dvh] w-full overflow-y-auto overflow-x-hidden hide-scrollbar scroll-smooth transition-opacity duration-1000 ${(entered || isDirectLanding) ? 'opacity-100' : 'opacity-0'}`}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/apply" element={<LandingApplyPage />} />
+          <Route path="/join" element={<LandingApplyPage />} />
+          <Route path="/landing" element={<LandingApplyPage />} />
           <Route path="/earnings" element={<EarningsPage />} />
           <Route path="/comparison" element={<ComparisonPage />} />
           <Route path="/fast-track" element={<FastTrackPage />} />
