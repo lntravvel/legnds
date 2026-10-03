@@ -12,18 +12,36 @@ export interface LinkItem {
   badge?: Record<Language, string>;
 }
 
+export const XENA_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.xparty.androidapp';
+export const XENA_APP_STORE_URL = 'https://apps.apple.com/app/xena-group-voice-chat-party/id6471887375';
+export const XENA_UNION_JOIN_URL = 'https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe';
+
+export function getXenaStoreUrl(): { url: string; platform: 'ios' | 'android' | 'other' } {
+  if (typeof window === 'undefined') {
+    return { url: XENA_PLAY_STORE_URL, platform: 'other' };
+  }
+  const ua = navigator.userAgent || navigator.vendor || (window as any).opera || '';
+  if (/iPad|iPhone|iPod/.test(ua) && !(window as any).MSStream) {
+    return { url: XENA_APP_STORE_URL, platform: 'ios' };
+  }
+  if (/android/i.test(ua)) {
+    return { url: XENA_PLAY_STORE_URL, platform: 'android' };
+  }
+  return { url: XENA_PLAY_STORE_URL, platform: 'other' };
+}
+
 export const AGENCY_LINKS: LinkItem[] = [
   {
     id: 'xena-join',
     title: {
-      ar: 'سجل في برنامج زينا لايف',
-      en: 'Join Xena Live Program',
-      ru: 'Зарегистрируйтесь в программе Xena Live',
-      ro: 'Înscrie-te în programul Xena Live',
-      fr: 'Rejoignez le programme Xena Live',
-      it: 'Iscriviti al programma Xena Live'
+      ar: 'انضم للوكالة من هنا',
+      en: 'Join Agency Union Here',
+      ru: 'Вступить в агентство здесь',
+      ro: 'Alătură-te agenției de aici',
+      fr: 'Rejoindre l\'agence ici',
+      it: 'Unisciti all\'agenzia qui'
     },
-    url: 'https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe',
+    url: XENA_UNION_JOIN_URL,
     icon: BrandIcons.Xena,
     primary: true,
     brandColor: '#00F3FF',

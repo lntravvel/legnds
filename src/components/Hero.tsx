@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, ExternalLink, Download } from 'lucide-react';
+import { Sparkles, ExternalLink, Download, UserPlus } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
 import { HeroVideo } from './HeroVideo';
+import { XENA_UNION_JOIN_URL, XENA_PLAY_STORE_URL, getXenaStoreUrl } from '../data/links';
 
 const SHARDS = Array.from({ length: 20 }).map((_, i) => {
   const angle = (i / 20) * Math.PI * 2;
@@ -204,6 +206,15 @@ function PartnerLogos() {
 
 export function Hero() {
   const { t, lang } = useLanguage();
+  const [deviceInfo, setDeviceInfo] = useState<{ url: string; platform: 'ios' | 'android' | 'other' }>({
+    url: XENA_PLAY_STORE_URL,
+    platform: 'other',
+  });
+
+  useEffect(() => {
+    setDeviceInfo(getXenaStoreUrl());
+  }, []);
+
   return (
     <header className="relative z-10 w-full flex flex-col items-center text-center">
       {/* Full-Bleed Video taking the Hero section completely (borderless, edge-to-edge) */}
@@ -246,8 +257,9 @@ export function Hero() {
             )}
           </p>
 
-          {/* PROMINENT XENA LIVE JOIN CTA BLOCK */}
-          <div className="flex flex-col items-center gap-3.5 mt-8 w-full max-w-md mx-auto">
+          {/* THREE VERTICALLY STACKED ACTION BUTTONS */}
+          <div className="flex flex-col items-center gap-3 mt-8 w-full max-w-md mx-auto">
+            {/* 1. APPLY / REGISTER ON SITE (TOP BUTTON) */}
             <a
               href="#apply-form"
               onClick={(e) => {
@@ -257,7 +269,7 @@ export function Hero() {
                   el.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-lg shadow-[0_0_35px_rgba(236,72,153,0.5),0_0_15px_rgba(0,243,255,0.4)] border border-pink-400/50 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-lg shadow-[0_0_35px_rgba(236,72,153,0.5),0_0_15px_rgba(0,243,255,0.4)] border border-pink-400/50 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               {/* Outer subtle glow pulse */}
               <span className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-400 animate-ping opacity-25 pointer-events-none" style={{ animationDuration: '3s' }} />
@@ -280,29 +292,71 @@ export function Hero() {
               <Sparkles size={18} className="text-yellow-300 animate-spin" style={{ animationDuration: '4s' }} />
             </a>
 
-            {/* Direct App Download & Union Registration Button */}
+            {/* 2. JOIN AGENCY FROM HERE (UNION LINK - MIDDLE BUTTON) */}
             <a
-              href="https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe"
+              href={XENA_UNION_JOIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-center gap-2.5 w-full py-3.5 px-5 rounded-2xl bg-cyan-950/70 hover:bg-cyan-900/80 border border-cyan-400/50 hover:border-cyan-300 text-cyan-200 hover:text-white font-bold text-sm sm:text-base shadow-[0_0_20px_rgba(0,243,255,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group relative flex items-center justify-center gap-2.5 w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-cyan-950/90 via-blue-950/80 to-purple-950/90 hover:from-cyan-900 hover:via-blue-900 hover:to-purple-900 border border-cyan-400/60 hover:border-cyan-300 text-cyan-200 hover:text-white font-bold text-sm sm:text-base shadow-[0_0_22px_rgba(0,243,255,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <div className="w-5 h-5 rounded-lg bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
-                <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+                <UserPlus size={14} className="group-hover:scale-110 transition-transform" />
               </div>
 
               <span>
                 {t(
-                  'حمل التطبيق من هنا وسجل بالوكالة',
-                  'Download App Here & Join Agency',
-                  'Скачать приложение и вступить в агентство',
-                  'Descarcă aplicația și înscrie-te în agenție',
-                  'Téléchargez l\'application et rejoignez l\'agence',
-                  'Scarica l\'app e unisciti all\'agenzia'
+                  'انضم للوكالة من هنا',
+                  'Join the Agency from here',
+                  'Вступить в агентство здесь',
+                  'Alătură-te agenției de aici',
+                  'Rejoignez l\'agence ici',
+                  'Unisciti all\'agenzia qui'
                 )}
               </span>
 
-              <ExternalLink size={13} className="text-cyan-400/70 group-hover:text-cyan-300 shrink-0" />
+              <ExternalLink size={14} className="text-cyan-400/70 group-hover:text-cyan-200 shrink-0" />
+            </a>
+
+            {/* 3. DOWNLOAD APP (SMART OS DETECTION: APPLE / GOOGLE PLAY - BOTTOM BUTTON) */}
+            <a
+              href={deviceInfo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center justify-between sm:justify-center gap-3 w-full py-3.5 px-5 rounded-2xl bg-[#090d16]/90 hover:bg-[#0f172a] border border-white/20 hover:border-white/40 text-white font-bold text-sm sm:text-base shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            >
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0">
+                  <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+                </div>
+
+                <span>
+                  {deviceInfo.platform === 'ios'
+                    ? t('حمل تطبيق زينا لايف (App Store)', 'Download Xena Live (App Store)', 'Скачать Xena Live (App Store)', 'Descarcă Xena Live (App Store)', 'Télécharger Xena Live (App Store)', 'Scarica Xena Live (App Store)')
+                    : deviceInfo.platform === 'android'
+                    ? t('حمل تطبيق زينا لايف (Google Play)', 'Download Xena Live (Google Play)', 'Скачать Xena Live (Google Play)', 'Descarcă Xena Live (Google Play)', 'Télécharger Xena Live (Google Play)', 'Scarica Xena Live (Google Play)')
+                    : t('تحميل تطبيق زينا لايف', 'Download Xena Live App', 'Скачать приложение Xena Live', 'Descarcă aplicația Xena Live', 'Télécharger l\'application Xena Live', 'Scarica l\'app Xena Live')}
+                </span>
+              </div>
+
+              {/* OS Brand Badges */}
+              <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity shrink-0">
+                {deviceInfo.platform === 'ios' ? (
+                  <span className="flex items-center gap-1 text-xs bg-white/10 px-2 py-0.5 rounded-full border border-white/20">
+                    <BrandIcons.Apple className="w-3.5 h-3.5" />
+                    <span>iOS</span>
+                  </span>
+                ) : deviceInfo.platform === 'android' ? (
+                  <span className="flex items-center gap-1 text-xs bg-white/10 px-2 py-0.5 rounded-full border border-white/20">
+                    <BrandIcons.GooglePlay className="w-3.5 h-3.5" />
+                    <span>Android</span>
+                  </span>
+                ) : (
+                  <div className="flex items-center gap-1.5">
+                    <BrandIcons.Apple className="w-3.5 h-3.5 text-white/70" />
+                    <BrandIcons.GooglePlay className="w-3.5 h-3.5 text-white/70" />
+                  </div>
+                )}
+              </div>
             </a>
 
             {/* Micro Trust Badges */}
