@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Sparkles, ExternalLink } from 'lucide-react';
+import { Sparkles, ExternalLink, Download } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
@@ -280,15 +280,29 @@ export function Hero() {
               <Sparkles size={18} className="text-yellow-300 animate-spin" style={{ animationDuration: '4s' }} />
             </a>
 
-            {/* Direct In-App Join Link (Union ID: 52039) */}
+            {/* Direct App Download & Union Registration Button */}
             <a
               href="https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] text-pink-300 hover:text-white transition-colors font-semibold"
+              className="group relative flex items-center justify-center gap-2.5 w-full py-3.5 px-5 rounded-2xl bg-cyan-950/70 hover:bg-cyan-900/80 border border-cyan-400/50 hover:border-cyan-300 text-cyan-200 hover:text-white font-bold text-sm sm:text-base shadow-[0_0_20px_rgba(0,243,255,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-              <span>{t('أو التسجيل المباشر داخل التطبيق (Union ID: 52039)', 'Or Direct In-App Union Invite (ID: 52039)', 'Прямая ссылка в приложении (ID: 52039)', 'Înscriere directă în aplicație (ID: 52039)', 'Ou inscription directe dans l\'app (ID : 52039)', 'O iscrizione diretta nell\'app (ID: 52039)')}</span>
-              <ExternalLink size={12} />
+              <div className="w-5 h-5 rounded-lg bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
+                <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+              </div>
+
+              <span>
+                {t(
+                  'حمل التطبيق من هنا وسجل بالوكالة',
+                  'Download App Here & Join Agency',
+                  'Скачать приложение и вступить в агентство',
+                  'Descarcă aplicația și înscrie-te în agenție',
+                  'Téléchargez l\'application et rejoignez l\'agence',
+                  'Scarica l\'app e unisciti all\'agenzia'
+                )}
+              </span>
+
+              <ExternalLink size={13} className="text-cyan-400/70 group-hover:text-cyan-300 shrink-0" />
             </a>
 
             {/* Micro Trust Badges */}
