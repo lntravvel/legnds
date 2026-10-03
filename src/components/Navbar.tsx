@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Scale, Zap, Home, Coins, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { BrandIcons } from './BrandIcons';
 
 export function Navbar() {
   const location = useLocation();
@@ -75,6 +76,19 @@ export function Navbar() {
             </Link>
           );
         })}
+
+        {/* Glowing Xena Join CTA Button */}
+        <Link
+          to="/apply"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-bold text-xs shadow-[0_0_15px_rgba(236,72,153,0.5)] border border-pink-400/50 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <div className="w-3.5 h-3.5 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
+            <BrandIcons.Xena className="w-full h-full" />
+          </div>
+          <span className={lang === 'ar' ? 'font-arabic' : 'font-sans'}>
+            {t('انضم لزينا', 'Join Xena', 'Вступить', 'Înscrie-te', 'Rejoindre', 'Unisciti')}
+          </span>
+        </Link>
       </div>
     </nav>
   );

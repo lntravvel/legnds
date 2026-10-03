@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Send, 
@@ -18,7 +18,8 @@ import {
   ArrowRight,
   ArrowLeft,
   Smartphone,
-  Coins
+  Coins,
+  AlertTriangle
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { BrandIcons } from '../components/BrandIcons';
@@ -96,9 +97,9 @@ export function LandingApplyPage() {
     };
 
     const goalMap: Record<string, string> = {
-      starter: '$500 - $1,500 شهرياً',
-      mid: '$2,000 - $8,000 شهرياً (المستوى الذهبي)',
-      elite: '+$10,000 شهرياً (نخبة الأساطير)'
+      starter: '$500 - $1,500 (مستوى النشاط الأساسي)',
+      mid: '$2,000 - $8,000 (مستوى النشاط المتقدم)',
+      elite: '+$10,000+ (مستوى نخبة الأساطير)'
     };
 
     const expMap: Record<string, string> = {
@@ -130,7 +131,7 @@ export function LandingApplyPage() {
       '────────────────────────────',
       '📊 *نتائج مسار الفلترة والتأهيل:*',
       `⏱️ *مستوى التفرغ:* ${commitmentMap[formData.commitment] || formData.commitment}`,
-      `🎯 *الهدف المالي المستهدف:* ${goalMap[formData.incomeGoal] || formData.incomeGoal}`,
+      `🎯 *المستوى المالي المستهدف من النشاط:* ${goalMap[formData.incomeGoal] || formData.incomeGoal}`,
       `🎙️ *الخبرة السابقة:* ${expMap[formData.experience] || formData.experience}`,
       `🎭 *نوع المحتوى المقترح:* ${contentMap[formData.contentType] || formData.contentType}`,
       `📱 *جاهزية الهاتف والإنترنت:* ${formData.deviceReady === 'yes' ? 'جاهز تماماً بكاميرا وإنترنت مستقر ✅' : 'يحتاج توجيه فني من الوكالة ⚠️'}`,
@@ -154,12 +155,12 @@ export function LandingApplyPage() {
           <Flame className="w-4 h-4 text-pink-400 animate-pulse shrink-0" />
           <span>
             {t(
-              'حملة القبول الحصرية مفتوحة الآن: بونص كاش شهري إضافي للمذيعين الجدد يصل إلى $66,000',
-              'Exclusive Registration Open: New broadcaster bonus up to $66,000/mo',
-              'Регистрация открыта: Бонусы для новых ведущих до $66,000 в месяц',
-              'Înscrieri deschise: Bonusuri de până la 66.000 $/lună',
-              'Inscriptions ouvertes : Bonus jusqu\'à 66 000 $/mois',
-              'Iscrizioni aperte: Bonus fino a $66.000/mese'
+              'حملة القبول الحصرية مفتوحة الآن: بونص تحفيزي إضافي لصناع المحتوى يصل إلى $66,000 حسب النشاط والتارقت',
+              'Exclusive Registration Open: Creator activity bonuses up to $66,000 based on targets',
+              'Регистрация открыта: Бонусы за активность до $66,000 при выполнении нормативов',
+              'Înscrieri deschise: Bonusuri de activitate de până la 66.000 $ conform obiectivelor',
+              'Inscriptions ouvertes : Primes d\'activité jusqu\'à 66 000 $ selon les objectifs',
+              'Iscrizioni aperte: Bonus di attività fino a $66.000 in base agli obiettivi'
             )}
           </span>
         </div>
@@ -182,23 +183,23 @@ export function LandingApplyPage() {
 
         <h1 className={`text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tight ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'حوّل شغفك بالبث المباشر إلى دخل شهري قياسي',
-            'Turn Your Live Streaming Passion Into Record Monthly Income',
-            'Превратите стримы в рекордный ежемесячный доход',
-            'Transformă streamingul într-un venit lunar record',
-            'Transformez vos lives en revenus records chaque mois',
-            'Trasforma i tuoi live in un reddito mensile record'
+            'حوّل شغفك بالبث المباشر إلى عوائد ومكافآت قياسية',
+            'Turn Your Live Streaming Passion Into Record Creator Rewards',
+            'Превратите стримы в рекордные вознаграждения',
+            'Transformă streamingul în recompense record de creator',
+            'Transformez vos lives en récompenses records',
+            'Trasforma i tuoi live in ricompense da record'
           )}
         </h1>
 
         <p className={`text-sm sm:text-base text-white/70 max-w-2xl mx-auto leading-relaxed mb-8 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'وكالة الأساطير تمنحك عقد الإدارة الرسمي المعتمد على زينا لايف: احتفظ بـ 100% من أرباحك، واحصل على بونص كاش شهري فوري، مع دعم فني 24/7 وحماية كاملة لحسابك.',
-            'Legends Agency provides official management on Xena Live: Keep 100% of your earnings, earn monthly cash bonuses, with 24/7 VIP support and account immunity.',
-            'Официальное управление на Xena Live: 100% дохода ваши + ежемесячные денежные бонусы и круглосуточная VIP-поддержка.',
-            'Management oficial pe Xena Live: Păstrează 100% din venituri + bonusuri lunare cash și suport 24/7.',
-            'Gestion officielle sur Xena Live : 100% de vos gains + bonus mensuels en cash et support 24/7.',
-            'Gestione ufficiale su Xena Live: 100% dei guadagni + bonus mensili in contanti e supporto 24/7.'
+            'وكالة الأساطير تمنحك عقد الإدارة الرسمي المعتمد لصناع المحتوى على زينا لايف: احتفظ بـ 100% من أرباح هداياك، واحصل على بونص كاش تحفيزي إضافي عند تحقيق مستويات النشاط، مع دعم فني 24/7 وحماية كاملة لحسابك.',
+            'Legends Agency provides official creator management on Xena Live: Keep 100% of your gift earnings, earn extra cash performance bonuses upon reaching activity tiers, with 24/7 VIP support and account immunity.',
+            'Официальное управление для создателей контента на Xena Live: 100% доходов от подарков ваши + бонусы за активность и поддержка 24/7.',
+            'Management oficial pentru creatori pe Xena Live: Păstrează 100% din cadouri + bonusuri la atingerea obiectivelor și suport 24/7.',
+            'Gestion officielle pour créateurs sur Xena Live : 100% de vos cadeaux + primes d\'activité et support 24/7.',
+            'Gestione ufficiale per creator su Xena Live: 100% dei regali + bonus di attività e supporto 24/7.'
           )}
         </p>
 
@@ -316,13 +317,13 @@ export function LandingApplyPage() {
 
                   <div>
                     <label className="block text-sm font-bold text-white mb-2">
-                      2. ما هو طموحك المالي المستهدف شهرياً؟ *
+                      2. ما هو مستوى العوائد التقديرية الذي تطمح للوصول إليه من نشاط البث؟ *
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                       {[
-                        { id: 'starter', title: '$500 - $1,500', desc: 'بداية آمنة وممتازة' },
-                        { id: 'mid', title: '$2,000 - $8,000', desc: 'دخل احترافي قوي' },
-                        { id: 'elite', title: '+$10,000 شهرياً', desc: 'مستوى حيتان البث 🔥' }
+                        { id: 'starter', title: '$500 - $1,500', desc: 'مستوى النشاط الأساسي' },
+                        { id: 'mid', title: '$2,000 - $8,000', desc: 'مستوى النشاط المتقدم' },
+                        { id: 'elite', title: '+$10,000+', desc: 'مستوى نخبة الأساطير 🔥' }
                       ].map(opt => (
                         <button
                           key={opt.id}
@@ -603,6 +604,17 @@ export function LandingApplyPage() {
           <span>تواصل مباشرة عبر واتساب الإدارة: +44 7460 018974</span>
         </a>
       </footer>
+
+      {/* 6. REGULATORY & EARNINGS LEGAL DISCLAIMER */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2.5 text-amber-300 font-bold font-mono text-xs uppercase tracking-wider">
+          <AlertTriangle size={15} className="text-amber-400 shrink-0" />
+          <span>إخلاء مسؤولية قانوني وتنظيمي (Legal & Earnings Disclaimer)</span>
+        </div>
+        <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed max-w-3xl mx-auto">
+          وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير معتمدة لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف أو مشغل حكومي، ولا تقدم وظائف رسمية أو رواتب شهرية ثابتة أو وعوداً بأرباح مضمونة. المذيعون وصناع المحتوى هم متعاقدون مستقلون بالكامل (Independent Content Creators)، وتعتمد كافة العوائد المالية والمكافآت التقديرية كلياً على الجهد والنشاط الفردي، وساعات البث الفعالة، والالتزام بسياسات وإرشادات مجتمع Xena Live، ومستوى الدعم والهدايا الافتراضية المستلمة من الجمهور داخل التطبيق. يتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة عن نشاطه والتزامه بالأنظمة واللوائح المعمول بها في بلد إقامة صانع المحتوى.
+        </p>
+      </div>
     </div>
   );
 }

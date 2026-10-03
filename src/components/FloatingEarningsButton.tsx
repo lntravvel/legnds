@@ -23,7 +23,7 @@ export function FloatingEarningsButton() {
     >
       <Link
         to="/earnings"
-        title={t('افتح دليل النشاط والأرباح وسلم الرواتب لـ 30 مستوى', 'Open 30-Tier Earnings & Salary Guide', 'Открыть таблицу доходов', 'Deschide ghidul de salarii', 'Ouvrir le guide des salaires', 'Apri la guida ai compensi')}
+        title={t('افتح دليل النشاط ومستويات أرباح ومكافآت التارقت', 'Open 30-Tier Target Rewards Guide', 'Открыть таблицу доходов', 'Deschide ghidul de recompense', 'Ouvrir le guide des primes', 'Apri la guida ai compensi')}
         className="group relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-auto sm:gap-2.5 p-0 sm:px-3.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#160b26]/95 via-[#1a1106]/95 to-[#0d041a]/95 border-2 border-amber-400/80 hover:border-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.55),0_0_40px_rgba(236,72,153,0.3)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none"
       >
         {/* Constant Glowing Pulse & Ping Halo */}

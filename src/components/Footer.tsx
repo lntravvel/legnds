@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail } from 'lucide-react';
+import { Mail, ShieldAlert } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
@@ -128,6 +128,24 @@ export function Footer() {
           <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
             {t('البريد الإلكتروني الرسمي للتواصل والشراكات', 'Official Inquiries & Partnerships Email', 'Официальная электронная почта', 'Email oficial de contact', 'Email officiel', 'Email ufficiale')}
           </span>
+        </div>
+
+        {/* Regulatory & Legal Disclaimer */}
+        <div className="w-full pt-8 border-t border-white/5 text-start sm:text-center text-white/50 text-[11px] leading-relaxed">
+          <div className="flex items-center justify-center gap-1.5 mb-2 text-amber-300 font-bold font-mono text-[10.5px] uppercase tracking-wider">
+            <ShieldAlert size={14} className="text-amber-400 shrink-0" />
+            <span>{t('إخلاء مسؤولية قانوني وتنظيمي', 'Legal & Regulatory Disclaimer', 'Правовое уведомление', 'Declinare a responsabilității', 'Avertissement légal', 'Disclaimer legale')}</span>
+          </div>
+          <p className="max-w-xl mx-auto">
+            {t(
+              'وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير معتمدة لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف ولا تقدم وظائف برواتب ثابتة أو عوائد مضمونة. المذيعون وصناع المحتوى هم متعاقدون مستقلون (Independent Creators). كافة الأرباح والمكافآت التقديرية تعتمد كلياً على نشاط المذيع الفعلي، وساعات البث، والتزامه الكامل بقوانين وسياسات مجتمع Xena Live، ومستوى الهدايا الافتراضية المستلمة داخل التطبيق. يتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة في بلد إقامته.',
+              'Legends Agency is an accredited management network on Xena Live. The agency is not an employer and does not offer salaried employment or guaranteed earnings. Broadcasters are independent content creators. All payouts and discretionary bonuses depend entirely on broadcast activity, streaming hours, compliance with Xena Live policies, and gifts received. Creators are solely responsible for legal and tax compliance in their jurisdiction.',
+              'Legends Agency — аккредитованная сеть управления на Xena Live. Агентство не является работодателем и не предлагает фиксированных окладов. Ведущие являются независимыми авторами.',
+              'Legends Agency este o rețea de management pe Xena Live. Agenția nu este un angajator și nu oferă salarii fixe. Creatorii sunt independenți.',
+              'Legends Agency est un réseau de gestion sur Xena Live. L\'agence n\'est pas un employeur et n\'offre pas de salaire fixe. Les créateurs sont indépendants.',
+              'Legends Agency è una rete di gestione su Xena Live. L\'agenzia non è un datore di lavoro e non offre stipendi fissi. I creator sono indipendenti.'
+            )}
+          </p>
         </div>
 
       </div>

@@ -75,12 +75,12 @@ export function EarningsGuide() {
 
         <p className={`text-sm sm:text-base text-white/70 max-w-2xl leading-relaxed mb-6 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'كل ما تحتاج معرفته عن شروط الساعات الشهرية، احتساب اليوم الفعال، وسلم الرواتب لـ 30 مستوى مع أعلى بونص كاش حصري لمذيعي وكالة الأساطير.',
-            'Everything you need to know about monthly broadcast targets, active day rules, and the 30-tier salary ladder with exclusive cash bonuses.',
+            'كل ما تحتاج معرفته عن شروط الساعات الشهرية، احتساب اليوم الفعال، وسلم مكافآت الأداء لـ 30 مستوى مع أعلى بونص كاش تحفيزي لمذيعي وكالة الأساطير.',
+            'Everything you need to know about monthly broadcast targets, active day rules, and the 30-tier performance rewards ladder with exclusive cash bonuses.',
             'Все условия: требования к часам, активные дни и 30 уровней выплат с эксклюзивными бонусами.',
-            'Tot ce trebuie să știi despre orele de streaming, zilele active și grila de 30 de niveluri de salarii.',
-            'Tout ce que vous devez savoir sur les heures de live, les jours actifs et la grille de 30 niveaux.',
-            'Tutto ciò che devi sapere sulle ore di streaming, i giorni attivi e la scala di 30 livelli di guadagno.'
+            'Tot ce trebuie să știi despre orele de streaming, zilele active și grila de 30 de niveluri de recompense.',
+            'Tout ce que vous devez savoir sur les heures de live, les jours actifs et la grille de 30 niveaux de récompenses.',
+            'Tutto ciò che devi sapere sulle ore di streaming, i giorni attivi e la scala di 30 livelli di ricompense.'
           )}
         </p>
 
@@ -188,12 +188,12 @@ export function EarningsGuide() {
             </h3>
             <p className={`text-xs text-white/70 leading-relaxed ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
               {t(
-                'أعلى نسبة بونص حصرية لمذيعينا تصل إلى 9,272$ إضافية فوق الراتب الأساسي عند الالتزام بالشروط.',
-                'The highest exclusive agency bonus in live streaming, adding up to $9,272 extra cash on top of base salary.',
-                'Эксклюзивный агентский бонус до $9,272 сверх базовой зарплаты при выполнении нормативов.',
-                'Cel mai mare bonus de agenție: până la 9.272$ în plus față de salariul de bază.',
-                'Le bonus le plus élevé de l\'industrie : jusqu\'à 9 272$ de prime en plus de votre salaire de base.',
-                'Il bonus di agenzia più alto del settore: fino a $9.272 in più oltre allo stipendio base.'
+                'أعلى نسبة بونص حصرية لمذيعينا تصل إلى 9,272$ كاش إضافية فوق أرباح التارقت عند تحقيق المستويات المطلوبة.',
+                'The highest exclusive agency bonus in live streaming, adding up to $9,272 extra cash on top of platform target earnings.',
+                'Эксклюзивный агентский бонус до $9,272 сверх базовых начислений при выполнении нормативов.',
+                'Cel mai mare bonus de agenție: până la 9.272$ în plus față de obiectivele platformei.',
+                'Le bonus le plus élevé de l\'industrie : jusqu\'à 9 272$ de prime en plus de vos gains de live.',
+                'Il bonus di agenzia più alto del settore: fino a $9.272 in più oltre ai guadagni degli obiettivi.'
               )}
             </p>
           </div>
@@ -291,11 +291,11 @@ export function EarningsGuide() {
             </span>
           </div>
 
-          {/* 3. Base Salary */}
+          {/* 3. Base Target Reward */}
           <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col">
             <span className="text-[11px] text-white/50 mb-1 flex items-center gap-1">
               <DollarSign size={12} className="text-emerald-400" />
-              {t('الراتب الأساسي', 'Base Salary', 'Базовая выплата', 'Salariu de bază', 'Salaire de base', 'Stipendio base')}
+              {t('مكافأة الهدف الأساسية', 'Base Target Reward', 'Базовая выплата цели', 'Recompensă de bază', 'Récompense de base', 'Compenso base target')}
             </span>
             <span className="text-base sm:text-lg font-bold font-mono text-emerald-300">
               ${activeTier.baseSalaryUSD.toLocaleString()}
@@ -313,10 +313,10 @@ export function EarningsGuide() {
             </span>
           </div>
 
-          {/* 5. Total Net Salary */}
+          {/* 5. Total Estimated Payout */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 p-4 rounded-xl bg-gradient-to-br from-amber-500/20 via-yellow-500/10 to-amber-900/30 border-2 border-amber-400/50 shadow-[0_0_20px_rgba(245,158,11,0.25)] flex flex-col justify-center">
             <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-0.5">
-              {t('إجمالي الراتب', 'Total Salary', 'Итоговая выплата', 'Total salariu', 'Salaire total', 'Totale stipendio')}
+              {t('إجمالي العائد التقديري', 'Total Estimated Payout', 'Итоговая выплата', 'Total estimat', 'Paiement total estimé', 'Compenso totale stimato')}
             </span>
             <span className="text-xl sm:text-2xl font-black font-mono text-yellow-300">
               ${activeTier.totalSalaryUSD.toLocaleString()}
@@ -381,9 +381,9 @@ export function EarningsGuide() {
                 <th className="p-3 text-center"># {t('المستوى', 'Level', 'Уровень', 'Nivel', 'Niveau', 'Livello')}</th>
                 <th className="p-3 text-center">{t('العملات (Coins)', 'Coins', 'Монеты', 'Monede', 'Pièces', 'Monete')}</th>
                 <th className="p-3 text-center">{t('الكريستال', 'Crystals', 'Кристаллы', 'Cristale', 'Cristaux', 'Cristalli')}</th>
-                <th className="p-3 text-center">{t('الراتب الأساسي', 'Base ($)', 'Базовый ($)', 'Bază ($)', 'Base ($)', 'Base ($)')}</th>
+                <th className="p-3 text-center">{t('مكافأة الهدف ($)', 'Base Target ($)', 'База ($)', 'Țintă ($)', 'Objectif ($)', 'Target ($)')}</th>
                 <th className="p-3 text-center">{t('البونص', 'Bonus ($)', 'Бонус ($)', 'Bonus ($)', 'Prime ($)', 'Bonus ($)')}</th>
-                <th className="p-3 text-center text-amber-300 font-bold">{t('الراتب الإجمالي', 'Total ($)', 'Итого ($)', 'Total ($)', 'Total ($)', 'Totale ($)')}</th>
+                <th className="p-3 text-center text-amber-300 font-bold">{t('إجمالي العائد ($)', 'Total Payout ($)', 'Итого ($)', 'Total ($)', 'Total ($)', 'Totale ($)')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
@@ -491,6 +491,24 @@ export function EarningsGuide() {
             </li>
           </ul>
         </div>
+      </section>
+
+      {/* 5. LEGAL & REGULATORY EARNINGS DISCLAIMER */}
+      <section className="mt-8 p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-amber-500/30 text-start">
+        <div className="flex items-center gap-2 mb-2 text-amber-300 font-bold text-xs sm:text-sm font-mono uppercase tracking-wider">
+          <AlertTriangle size={16} className="text-amber-400 shrink-0" />
+          <span>{t('إخلاء مسؤولية قانوني وتنظيمي حول عوائد البث', 'Regulatory & Earnings Disclaimer', 'Правовое уведомление о доходах', 'Declinare a responsabilității privind veniturile', 'Avertissement légal sur les revenus', 'Disclaimer legale sui guadagni')}</span>
+        </div>
+        <p className={`text-xs text-white/60 leading-relaxed ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+          {t(
+            'وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير معتمدة لصناع المحتوى على تطبيق Xena Live. المستويات والمكافآت الموضحة في هذا الدليل تمثل نماذج استرشادية لسلّم مكافآت التارقت الرسمية وحوافز الوكالة التقديرية، ولا تشكل بأي حال من الأحوال وظيفة براتب ثابت أو وعداً بدخل مالي مضمون. المذيعون وصناع المحتوى هم متعاقدون مستقلون (Independent Contractors)، وتعتمد كافة العوائد كلياً على نشاط المذيع الفعلي، ساعات البث المحققة، والتزامه الكامل بسياسات وإرشادات تطبيق Xena Live، ومستوى الدعم الافتراضي المستلم من المتابعين. يخضع استخدام المنصة للأنظمة والقوانين واللوائح المعمول بها في بلد إقامة صانع المحتوى.',
+            'Legends Agency is an accredited management network on Xena Live. Tiers and bonuses shown in this guide represent platform target incentive models and discretionary agency bonuses, and do not constitute salaried employment or guaranteed earnings. Broadcasters are independent contractors. All payouts depend entirely on individual broadcast activity, achieved hours, compliance with Xena Live policies, and gifts received from supporters. Broadcasters are solely responsible for compliance with local laws and regulations in their jurisdiction.',
+            'Legends Agency — аккредитованная сеть управления на Xena Live. Уровни и бонусы носят ориентировочный характер целевых вознаграждений платформы и не являются гарантированной зарплатой.',
+            'Legends Agency este o rețea de management pe Xena Live. Nivelurile și bonusurile reprezintă modele orientative de obiective și nu constituie salarii garantate.',
+            'Legends Agency est un réseau de gestion agréé sur Xena Live. Les niveaux et primes sont des modèles incitatifs et ne constituent pas un salaire garanti.',
+            'Legends Agency è una rete di gestione su Xena Live. I livelli e i bonus rappresentano modelli di ricompensa e non costituiscono stipendi garantiti.'
+          )}
+        </p>
       </section>
 
       {/* Infographic Lightbox Modal */}

@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Sparkles, ExternalLink } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { LegendsBrandTitle } from './LegendsBrandTitle';
@@ -244,6 +245,64 @@ export function Hero() {
               'Unisciti alla rete d\'élite di emittenti su Xena Live. Offriamo una gestione di alto livello e supporto 24/7.'
             )}
           </p>
+
+          {/* PROMINENT XENA LIVE JOIN CTA BLOCK */}
+          <div className="flex flex-col items-center gap-3.5 mt-8 w-full max-w-md mx-auto">
+            <a
+              href="#apply-form"
+              onClick={(e) => {
+                const el = document.getElementById('apply-form');
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-lg shadow-[0_0_35px_rgba(236,72,153,0.5),0_0_15px_rgba(0,243,255,0.4)] border border-pink-400/50 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+            >
+              {/* Outer subtle glow pulse */}
+              <span className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-400 animate-ping opacity-25 pointer-events-none" style={{ animationDuration: '3s' }} />
+
+              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0">
+                <BrandIcons.Xena className="w-full h-full" />
+              </div>
+
+              <span className="drop-shadow-sm font-bold">
+                {t(
+                  'انضم إلى زينا لايف الآن (قدّم طلبك)',
+                  'Join Xena Live Now (Apply)',
+                  'Присоединиться к Xena Live сейчас',
+                  'Alătură-te Xena Live acum',
+                  'Rejoignez Xena Live maintenant',
+                  'Unisciti a Xena Live ora'
+                )}
+              </span>
+
+              <Sparkles size={18} className="text-yellow-300 animate-spin" style={{ animationDuration: '4s' }} />
+            </a>
+
+            {/* Direct In-App Join Link (Union ID: 52039) */}
+            <a
+              href="https://m-hw.bisf.me/202405/union-join/index.html?fullPage=true&unionId=52039&inviteUid=32900140&t=1787250298&euid=345842baaed4fec8af8867544ecd3bfe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] text-pink-300 hover:text-white transition-colors font-semibold"
+            >
+              <span>{t('أو التسجيل المباشر داخل التطبيق (Union ID: 52039)', 'Or Direct In-App Union Invite (ID: 52039)', 'Прямая ссылка в приложении (ID: 52039)', 'Înscriere directă în aplicație (ID: 52039)', 'Ou inscription directe dans l\'app (ID : 52039)', 'O iscrizione diretta nell\'app (ID: 52039)')}</span>
+              <ExternalLink size={12} />
+            </a>
+
+            {/* Micro Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] font-mono text-white/50">
+              <span className="flex items-center gap-1 text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {t('انضمام مجاني 100%', '100% Free', '100% бесплатно', '100% gratuit', '100% gratuit', '100% gratuito')}
+              </span>
+              <span>•</span>
+              <span>{t('حماية الحسابات 24/7', '24/7 Immunity', 'Защита 24/7', 'Protecție 24/7', 'Protection 24/7', 'Protezione 24/7')}</span>
+              <span>•</span>
+              <span>{t('بونص كاش إضافي', 'Cash Bonuses', 'Бонусы кэш', 'Bonusuri cash', 'Primes en cash', 'Bonus in contanti')}</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </header>
