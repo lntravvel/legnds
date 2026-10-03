@@ -4,8 +4,8 @@ import { useLanguage } from '../i18n/LanguageContext';
 
 const VIDEOS = [
   { id: '1', ytId: 'a5I-eEkg2zM', title: 'Legends Agency Promo 1' },
-  { id: '2', ytId: 'E1dF3-EDgs0', title: 'Legends Agency Promo 2' },
-  { id: '3', ytId: 'HSfahqlYMFI', title: 'Legends Agency Promo 3' },
+  { id: '2', ytId: 'mby0aMdDG2w', title: 'Legends Agency Promo 2' },
+  { id: '3', ytId: 'aUA1wO2q_Xk', title: 'Legends Agency Promo 3' },
   { id: '4', ytId: 'MO8rRIei8go', title: 'Legends Agency Promo 4' }
 ];
 
