@@ -6,14 +6,15 @@ const VIDEOS = [
   { id: '1', ytId: 'a5I-eEkg2zM', title: 'Legends Agency Promo 1' },
   { id: '2', ytId: 'mby0aMdDG2w', title: 'Legends Agency Promo 2' },
   { id: '3', ytId: 'aUA1wO2q_Xk', title: 'Legends Agency Promo 3' },
-  { id: '4', ytId: 'MO8rRIei8go', title: 'Legends Agency Promo 4' }
+  { id: '4', ytId: 'zO-wIu-HnFg', title: 'Legends Agency Promo 4' },
+  { id: '5', ytId: 'MO8rRIei8go', title: 'Legends Agency Promo 5' }
 ];
 
 export function VideoGallery() {
   const { lang, t } = useLanguage();
 
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center justify-center max-w-4xl mx-auto">
+    <section className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center justify-center max-w-5xl mx-auto">
       {/* Unified Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -44,7 +45,7 @@ export function VideoGallery() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 w-full max-w-5xl mx-auto">
         {VIDEOS.map((vid, idx) => (
           <motion.div
             key={vid.id}
@@ -58,7 +59,9 @@ export function VideoGallery() {
             onClick={() => {
               window.dispatchEvent(new CustomEvent('app:pause-bg-music'));
             }}
-            className="group relative flex flex-col items-center p-1.5 bg-[#070d18] border border-white/[0.08] hover:border-cyan-400/50 rounded-[18px] sm:rounded-[22px] transition-all duration-400 hover:shadow-[0_10px_30px_rgba(0,243,255,0.2)] aspect-[9/16] overflow-hidden"
+            className={`group relative flex flex-col items-center p-1.5 bg-[#070d18] border border-white/[0.08] hover:border-cyan-400/50 rounded-[18px] sm:rounded-[22px] transition-all duration-400 hover:shadow-[0_10px_30px_rgba(0,243,255,0.2)] aspect-[9/16] overflow-hidden ${
+              idx === 4 ? 'col-span-2 sm:col-span-1 max-w-[240px] sm:max-w-none mx-auto w-full' : ''
+            }`}
           >
             <iframe
               src={`https://www.youtube.com/embed/${vid.ytId}?enablejsapi=1&rel=0&modestbranding=1&playsinline=1`}
