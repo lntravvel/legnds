@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Scale, Zap, Coins, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { Stats } from '../components/Stats';
-import { LinkHub } from '../components/LinkHub';
 import { About } from '../components/About';
 import { Features } from '../components/Features';
 import { VideoGallery } from '../components/VideoGallery';
@@ -22,7 +21,6 @@ export function HomePage() {
     <div className="flex-1 w-full flex flex-col pt-0 pb-24 gap-10 md:gap-20">
       <Hero />
       <Stats />
-      <LinkHub />
       <About />
 
       {/* Interactive Hub Teasers to Dedicated Subpages */}

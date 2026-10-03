@@ -205,7 +205,7 @@ function PartnerLogos() {
 }
 
 export function Hero() {
-  const { t, lang } = useLanguage();
+  const { t, lang, dir } = useLanguage();
   const [deviceInfo, setDeviceInfo] = useState<{ url: string; platform: 'ios' | 'android' | 'other' }>({
     url: XENA_PLAY_STORE_URL,
     platform: 'other',
@@ -258,7 +258,8 @@ export function Hero() {
           </p>
 
           {/* THREE VERTICALLY STACKED ACTION BUTTONS */}
-          <div className="flex flex-col items-center gap-3 mt-8 w-full max-w-md mx-auto">
+          <div className="flex flex-col items-center gap-3.5 mt-8 w-full max-w-md mx-auto">
+            
             {/* 1. APPLY / REGISTER ON SITE (TOP BUTTON) */}
             <a
               href="#apply-form"
@@ -269,93 +270,187 @@ export function Hero() {
                   el.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-lg shadow-[0_0_35px_rgba(236,72,153,0.5),0_0_15px_rgba(0,243,255,0.4)] border border-pink-400/50 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-[22px] sm:rounded-[24px] bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:from-pink-500 hover:via-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-lg shadow-[0_0_35px_rgba(236,72,153,0.5),0_0_15px_rgba(0,243,255,0.4)] border border-pink-400/50 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer overflow-hidden"
             >
               {/* Outer subtle glow pulse */}
-              <span className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-400 animate-ping opacity-25 pointer-events-none" style={{ animationDuration: '3s' }} />
+              <span className="absolute -inset-1 rounded-[22px] sm:rounded-[24px] bg-gradient-to-r from-pink-500 to-cyan-400 animate-ping opacity-25 pointer-events-none" style={{ animationDuration: '3s' }} />
 
               <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0">
                 <BrandIcons.Xena className="w-full h-full" />
               </div>
 
-              <span className="drop-shadow-sm font-bold">
+              <span className="drop-shadow-sm font-bold tracking-wide">
                 {t(
-                  'انضم إلى زينا لايف الآن (قدّم طلبك)',
-                  'Join Xena Live Now (Apply)',
-                  'Присоединиться к Xena Live сейчас',
-                  'Alătură-te Xena Live acum',
-                  'Rejoignez Xena Live maintenant',
-                  'Unisciti a Xena Live ora'
+                  'قدّم طلبك للانضمام',
+                  'Apply to Join Now',
+                  'Подать заявку на вступление',
+                  'Aplică pentru înscriere',
+                  'Postulez pour nous rejoindre',
+                  'Candidati per unirti'
                 )}
               </span>
 
               <Sparkles size={18} className="text-yellow-300 animate-spin" style={{ animationDuration: '4s' }} />
             </a>
 
-            {/* 2. JOIN AGENCY FROM HERE (UNION LINK - MIDDLE BUTTON) */}
+            {/* 2. JOIN AGENCY FROM HERE (UNION LINK - EXACT BENTO GLASS CARD DESIGN) */}
             <a
               href={XENA_UNION_JOIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-center gap-2.5 w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-cyan-950/90 via-blue-950/80 to-purple-950/90 hover:from-cyan-900 hover:via-blue-900 hover:to-purple-900 border border-cyan-400/60 hover:border-cyan-300 text-cyan-200 hover:text-white font-bold text-sm sm:text-base shadow-[0_0_22px_rgba(0,243,255,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group relative overflow-hidden transition-all duration-300 flex flex-row items-center p-3.5 sm:p-4 rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#0c1020]/95 via-[#080c18]/90 to-[#04060d]/95 backdrop-blur-xl border border-white/[0.14] hover:border-cyan-400/60 shadow-[0_8px_25px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_35px_rgba(0,243,255,0.25)] hover:scale-[1.02] active:scale-[0.98] w-full cursor-pointer"
             >
-              <div className="w-5 h-5 rounded-lg bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
-                <UserPlus size={14} className="group-hover:scale-110 transition-transform" />
+              {/* Authentic Ambient Brand Spotlight */}
+              <div 
+                className="absolute -top-6 -right-6 w-24 h-24 sm:w-28 sm:h-28 rounded-full opacity-20 group-hover:opacity-35 blur-2xl transition-all duration-500 pointer-events-none z-0"
+                style={{ background: '#00F3FF' }}
+              />
+              <div 
+                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full opacity-15 group-hover:opacity-25 blur-xl transition-all duration-500 pointer-events-none z-0"
+                style={{ background: '#00F3FF' }}
+              />
+
+              {/* Official Brand Watermark in Corner */}
+              <div 
+                className={`absolute pointer-events-none select-none z-0 transition-all duration-500 ${
+                  dir === 'rtl' ? 'left-4' : 'right-4'
+                } top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 opacity-10 group-hover:opacity-20 group-hover:scale-105`}
+              >
+                <BrandIcons.Xena className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.08)]" />
               </div>
 
-              <span>
-                {t(
-                  'انضم للوكالة من هنا',
-                  'Join the Agency from here',
-                  'Вступить в агентство здесь',
-                  'Alătură-te agenției de aici',
-                  'Rejoignez l\'agence ici',
-                  'Unisciti all\'agenzia qui'
-                )}
-              </span>
+              {/* Subtle Hover Rim Glow */}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-[22px] sm:rounded-[24px] border border-cyan-400/40"
+              />
 
-              <ExternalLink size={14} className="text-cyan-400/70 group-hover:text-cyan-200 shrink-0" />
+              {/* Primary Badge Icon with Xena Live Logo */}
+              <div 
+                className={`relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-[16px] sm:rounded-[18px] shrink-0 transition-all duration-300 group-hover:scale-105 z-10 shadow-md ${
+                  dir === 'rtl' ? 'ml-3.5' : 'mr-3.5'
+                } bg-[#00F3FF]/15 border border-[#00F3FF]/60 shadow-[0_0_20px_rgba(0,243,255,0.25)]`}
+              >
+                <BrandIcons.Xena className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" />
+              </div>
+
+              {/* Title & Subtitle */}
+              <div className={`flex flex-col flex-1 relative z-10 justify-center ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+                <span className="text-[14.5px] sm:text-[16px] font-bold tracking-wide leading-tight mb-0.5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  {t(
+                    'انضم للوكالة من هنا',
+                    'Join the Agency from here',
+                    'Вступить в агентство здесь',
+                    'Alătură-te agenției de aici',
+                    'Rejoignez l\'agence ici',
+                    'Unisciti all\'agenzia qui'
+                  )}
+                </span>
+                <span className="text-[10.5px] sm:text-[11px] font-semibold tracking-wider uppercase text-[#00F3FF] opacity-90">
+                  Official Xena Live Partner
+                </span>
+              </div>
+
+              {/* Action Arrow */}
+              <div 
+                className={`shrink-0 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full text-white transition-all duration-300 transform z-10 shadow-sm bg-[#00F3FF]/25 border border-[#00F3FF]/60 ${
+                  dir === 'rtl' ? 'group-hover:-translate-x-1.5 -scale-x-100' : 'group-hover:translate-x-1.5'
+                }`}
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
             </a>
 
-            {/* 3. DOWNLOAD APP (SMART OS DETECTION: APPLE / GOOGLE PLAY - BOTTOM BUTTON) */}
+            {/* 3. DOWNLOAD APP (SMART OS DETECTION - COSMIC GLASS CARD WITH AMBIENT GLOW) */}
             <a
               href={deviceInfo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-between sm:justify-center gap-3 w-full py-3.5 px-5 rounded-2xl bg-[#090d16]/90 hover:bg-[#0f172a] border border-white/20 hover:border-white/40 text-white font-bold text-sm sm:text-base shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="group relative overflow-hidden transition-all duration-300 flex flex-row items-center p-3.5 sm:p-4 rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#0a0f1d]/95 via-[#070b16]/90 to-[#03060c]/95 backdrop-blur-xl border border-white/[0.12] hover:border-purple-400/60 shadow-[0_8px_25px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_35px_rgba(168,85,247,0.25)] hover:scale-[1.02] active:scale-[0.98] w-full cursor-pointer"
             >
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0">
-                  <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
-                </div>
+              {/* Subtle Cosmic Background Gradient Accent */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-cyan-900/10 opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                <span>
+              {/* Ambient Spotlights */}
+              <div 
+                className="absolute -top-6 -right-6 w-24 h-24 sm:w-28 sm:h-28 rounded-full opacity-20 group-hover:opacity-35 blur-2xl transition-all duration-500 pointer-events-none z-0 bg-purple-500"
+              />
+              <div 
+                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full opacity-15 group-hover:opacity-25 blur-xl transition-all duration-500 pointer-events-none z-0 bg-cyan-400"
+              />
+
+              {/* Background Watermark */}
+              <div 
+                className={`absolute pointer-events-none select-none z-0 transition-all duration-500 ${
+                  dir === 'rtl' ? 'left-4' : 'right-4'
+                } top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 opacity-10 group-hover:opacity-20 group-hover:scale-105 text-purple-300 flex items-center justify-center`}
+              >
+                <Download className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.08)]" />
+              </div>
+
+              {/* Subtle Hover Rim Glow */}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-[22px] sm:rounded-[24px] border border-purple-400/40"
+              />
+
+              {/* Badge Icon with Apple / Google Play / Download */}
+              <div 
+                className={`relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-[16px] sm:rounded-[18px] shrink-0 transition-all duration-300 group-hover:scale-105 z-10 shadow-md ${
+                  dir === 'rtl' ? 'ml-3.5' : 'mr-3.5'
+                } bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-400/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]`}
+              >
+                {deviceInfo.platform === 'ios' ? (
+                  <BrandIcons.Apple className="w-6 h-6 text-white drop-shadow-sm" />
+                ) : deviceInfo.platform === 'android' ? (
+                  <BrandIcons.GooglePlay className="w-6 h-6 text-white drop-shadow-sm" />
+                ) : (
+                  <Download className="w-6 h-6 text-cyan-300 drop-shadow-sm group-hover:translate-y-0.5 transition-transform" />
+                )}
+              </div>
+
+              {/* Title & Subtitle */}
+              <div className={`flex flex-col flex-1 relative z-10 justify-center ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+                <span className="text-[14.5px] sm:text-[16px] font-bold tracking-wide leading-tight mb-0.5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   {deviceInfo.platform === 'ios'
-                    ? t('حمل تطبيق زينا لايف (App Store)', 'Download Xena Live (App Store)', 'Скачать Xena Live (App Store)', 'Descarcă Xena Live (App Store)', 'Télécharger Xena Live (App Store)', 'Scarica Xena Live (App Store)')
+                    ? t('تحميل تطبيق زينا لايف (App Store)', 'Download Xena Live (App Store)', 'Скачать Xena Live (App Store)', 'Descarcă Xena Live (App Store)', 'Télécharger Xena Live (App Store)', 'Scarica Xena Live (App Store)')
                     : deviceInfo.platform === 'android'
-                    ? t('حمل تطبيق زينا لايف (Google Play)', 'Download Xena Live (Google Play)', 'Скачать Xena Live (Google Play)', 'Descarcă Xena Live (Google Play)', 'Télécharger Xena Live (Google Play)', 'Scarica Xena Live (Google Play)')
+                    ? t('تحميل تطبيق زينا لايف (Google Play)', 'Download Xena Live (Google Play)', 'Скачать Xena Live (Google Play)', 'Descarcă Xena Live (Google Play)', 'Télécharger Xena Live (Google Play)', 'Scarica Xena Live (Google Play)')
                     : t('تحميل تطبيق زينا لايف', 'Download Xena Live App', 'Скачать приложение Xena Live', 'Descarcă aplicația Xena Live', 'Télécharger l\'application Xena Live', 'Scarica l\'app Xena Live')}
+                </span>
+                <span className="text-[10.5px] sm:text-[11px] font-semibold tracking-wider text-purple-300 opacity-90">
+                  {t('تنزيل فوري • متاح مجاناً على iOS و Android', 'Instant Download • Free on iOS & Android', 'Быстрая загрузка • iOS & Android', 'Descărcare rapidă • iOS & Android', 'Téléchargement direct • iOS & Android', 'Download immediato • iOS & Android')}
                 </span>
               </div>
 
-              {/* OS Brand Badges */}
-              <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity shrink-0">
-                {deviceInfo.platform === 'ios' ? (
-                  <span className="flex items-center gap-1 text-xs bg-white/10 px-2 py-0.5 rounded-full border border-white/20">
-                    <BrandIcons.Apple className="w-3.5 h-3.5" />
-                    <span>iOS</span>
-                  </span>
-                ) : deviceInfo.platform === 'android' ? (
-                  <span className="flex items-center gap-1 text-xs bg-white/10 px-2 py-0.5 rounded-full border border-white/20">
-                    <BrandIcons.GooglePlay className="w-3.5 h-3.5" />
-                    <span>Android</span>
-                  </span>
-                ) : (
-                  <div className="flex items-center gap-1.5">
-                    <BrandIcons.Apple className="w-3.5 h-3.5 text-white/70" />
-                    <BrandIcons.GooglePlay className="w-3.5 h-3.5 text-white/70" />
-                  </div>
-                )}
+              {/* Action Badges & Icon */}
+              <div className="shrink-0 flex items-center gap-2 z-10">
+                <div className="hidden sm:flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  {deviceInfo.platform === 'ios' ? (
+                    <span className="flex items-center gap-1 text-[11px] font-mono bg-white/10 px-2 py-0.5 rounded-full border border-white/20 text-white">
+                      <BrandIcons.Apple className="w-3 h-3" />
+                      <span>iOS</span>
+                    </span>
+                  ) : deviceInfo.platform === 'android' ? (
+                    <span className="flex items-center gap-1 text-[11px] font-mono bg-white/10 px-2 py-0.5 rounded-full border border-white/20 text-white">
+                      <BrandIcons.GooglePlay className="w-3 h-3" />
+                      <span>Android</span>
+                    </span>
+                  ) : (
+                    <div className="flex items-center gap-1.5">
+                      <BrandIcons.Apple className="w-3.5 h-3.5 text-white/70" />
+                      <BrandIcons.GooglePlay className="w-3.5 h-3.5 text-white/70" />
+                    </div>
+                  )}
+                </div>
+
+                <div 
+                  className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full text-white transition-all duration-300 transform shadow-sm bg-purple-500/25 border border-purple-400/60 ${
+                    dir === 'rtl' ? 'group-hover:-translate-x-1.5 -scale-x-100' : 'group-hover:translate-x-1.5'
+                  }`}
+                >
+                  <Download size={15} className="group-hover:translate-y-0.5 transition-transform" />
+                </div>
               </div>
             </a>
 
