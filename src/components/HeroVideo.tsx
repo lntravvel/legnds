@@ -50,8 +50,8 @@ export function HeroVideo() {
   };
 
   return (
-    <div className="relative w-full aspect-[16/9] max-h-[580px] overflow-hidden bg-[#02050A] select-none">
-      {/* Full-bleed video in its native 16:9 cinematic aspect ratio */}
+    <div className="relative w-full overflow-hidden bg-[#02050A] select-none flex items-center justify-center">
+      {/* 100% full-frame video with ZERO zoom and ZERO cropping */}
       <video
         ref={videoRef}
         src="/assets/videos/drone_stage.mp4"
@@ -61,28 +61,18 @@ export function HeroVideo() {
         muted
         playsInline
         preload="metadata"
-        className="w-full h-full object-cover object-center pointer-events-none"
+        className="w-full h-auto aspect-video max-h-[720px] object-contain object-center pointer-events-none"
       />
 
-      {/* Top subtle vignette for fixed navbar contrast */}
+      {/* Subtle top dissolve for transparent header */}
       <div 
-        className="absolute top-0 inset-x-0 h-20 sm:h-28 bg-gradient-to-b from-[#02050A]/90 via-[#02050A]/30 to-transparent pointer-events-none" 
+        className="absolute top-0 inset-x-0 h-10 sm:h-14 bg-gradient-to-b from-[#02050A]/60 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
-      {/* Left and Right subtle vignettes for cinematic focus */}
+      {/* Subtle bottom dissolve into page background */}
       <div 
-        className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#02050A]/60 to-transparent pointer-events-none" 
-        aria-hidden="true"
-      />
-      <div 
-        className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#02050A]/60 to-transparent pointer-events-none" 
-        aria-hidden="true"
-      />
-
-      {/* Bottom Dissolve: Blends gently into #02050A */}
-      <div 
-        className="absolute bottom-0 inset-x-0 h-24 sm:h-36 bg-gradient-to-t from-[#02050A] via-[#02050A]/65 to-transparent pointer-events-none" 
+        className="absolute bottom-0 inset-x-0 h-10 sm:h-16 bg-gradient-to-t from-[#02050A] to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
