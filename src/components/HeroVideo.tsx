@@ -51,7 +51,7 @@ export function HeroVideo() {
 
   return (
     <div className="relative w-full overflow-hidden bg-transparent select-none flex items-center justify-center">
-      {/* 100% full-frame video with ZERO zoom, seamlessly blended into the cosmic space background */}
+      {/* 100% full-frame video with ZERO zoom, with silky feathered edges that dissolve seamlessly into space */}
       <video
         ref={videoRef}
         src="/assets/videos/drone_stage.mp4"
@@ -61,18 +61,28 @@ export function HeroVideo() {
         muted
         playsInline
         preload="metadata"
+        style={{
+          WebkitMaskImage: 'radial-gradient(ellipse 85% 75% at 50% 50%, #000 55%, rgba(0,0,0,0.8) 70%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 85% 75% at 50% 50%, #000 55%, rgba(0,0,0,0.8) 70%, transparent 100%)',
+        }}
         className="w-full h-auto aspect-video max-h-[720px] object-contain object-center pointer-events-none mix-blend-screen"
       />
 
-      {/* Subtle soft edge blend into the cosmic background */}
+      {/* Silky Edge Dissolves: completely eliminating any hard rectangular cuts on all 4 borders */}
       <div 
-        className="absolute top-0 inset-x-0 h-8 sm:h-12 bg-gradient-to-b from-transparent via-transparent to-transparent pointer-events-none" 
+        className="absolute top-0 inset-x-0 h-10 sm:h-16 bg-gradient-to-b from-[#02050A]/70 via-[#02050A]/20 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
-
-      {/* Bottom subtle blend into page background */}
       <div 
-        className="absolute bottom-0 inset-x-0 h-8 sm:h-12 bg-gradient-to-t from-transparent to-transparent pointer-events-none" 
+        className="absolute bottom-0 inset-x-0 h-14 sm:h-24 bg-gradient-to-t from-[#02050A]/85 via-[#02050A]/30 to-transparent pointer-events-none" 
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute inset-y-0 left-0 w-10 sm:w-20 bg-gradient-to-r from-[#02050A]/70 via-[#02050A]/20 to-transparent pointer-events-none" 
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute inset-y-0 right-0 w-10 sm:w-20 bg-gradient-to-l from-[#02050A]/70 via-[#02050A]/20 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
