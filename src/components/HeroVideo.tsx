@@ -50,8 +50,8 @@ export function HeroVideo() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#02050A] select-none flex items-center justify-center">
-      {/* 100% full-frame video with ZERO zoom and ZERO cropping */}
+    <div className="relative w-full overflow-hidden bg-transparent select-none flex items-center justify-center">
+      {/* 100% full-frame video with ZERO zoom, seamlessly blended into the cosmic space background */}
       <video
         ref={videoRef}
         src="/assets/videos/drone_stage.mp4"
@@ -61,18 +61,18 @@ export function HeroVideo() {
         muted
         playsInline
         preload="metadata"
-        className="w-full h-auto aspect-video max-h-[720px] object-contain object-center pointer-events-none"
+        className="w-full h-auto aspect-video max-h-[720px] object-contain object-center pointer-events-none mix-blend-screen"
       />
 
-      {/* Subtle top dissolve for transparent header */}
+      {/* Subtle soft edge blend into the cosmic background */}
       <div 
-        className="absolute top-0 inset-x-0 h-10 sm:h-14 bg-gradient-to-b from-[#02050A]/60 to-transparent pointer-events-none" 
+        className="absolute top-0 inset-x-0 h-8 sm:h-12 bg-gradient-to-b from-transparent via-transparent to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
-      {/* Subtle bottom dissolve into page background */}
+      {/* Bottom subtle blend into page background */}
       <div 
-        className="absolute bottom-0 inset-x-0 h-10 sm:h-16 bg-gradient-to-t from-[#02050A] to-transparent pointer-events-none" 
+        className="absolute bottom-0 inset-x-0 h-8 sm:h-12 bg-gradient-to-t from-transparent to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
