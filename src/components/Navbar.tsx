@@ -16,8 +16,8 @@ export function Navbar() {
       icon: Home
     },
     {
-      to: '/earnings',
-      label: t('دليل الأرباح', 'Earnings Guide', 'Доходы и вывод', 'Ghid salarii', 'Guide salaires', 'Guida compensi'),
+      to: '/rewards',
+      label: t('نظام المكافآت', 'Rewards Policy', 'Награды', 'Recompense', 'Récompenses', 'Ricompense'),
       icon: Coins
     },
     {

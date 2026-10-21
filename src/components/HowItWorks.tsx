@@ -15,12 +15,12 @@ const STEPS = [
       it: 'Applica ora'
     },
     desc: {
-      ar: 'أرسل بياناتك عبر الواتساب أو رابط وكالتنا الرسمي على زينا لايف في ثوانٍ وبدون تعقيد.',
-      en: 'Send us your details via WhatsApp or our official Xena Live link in seconds.',
-      ru: 'Отправьте нам свои данные через WhatsApp или по ссылке Xena Live за пару секунд.',
-      ro: 'Trimite-ne detaliile tale prin WhatsApp sau link-ul oficial Xena Live în câteva secunde.',
-      fr: 'Envoyez-nous vos coordonnées via WhatsApp ou notre lien officiel Xena Live en quelques secondes.',
-      it: 'Inviaci i tuoi dettagli tramite WhatsApp o il nostro link ufficiale Xena Live in pochi secondi.'
+      ar: 'أرسل بياناتك عبر نموذج الانضمام أو رابط وكالتنا على زينا لايف في ثوانٍ وبدون تعقيد.',
+      en: 'Submit your details via the application form or our agency link on Xena Live.',
+      ru: 'Отправьте нам свои данные через форму заявки или по ссылке агентства.',
+      ro: 'Trimite detaliile tale prin formularul de înscriere sau link-ul agenției.',
+      fr: 'Envoyez vos coordonnées via le formulaire d\'inscription ou le lien de l\'agence.',
+      it: 'Invia i tuoi dati tramite il modulo di candidatura o il link dell\'agenzia.'
     },
     color: '#00f3ff'
   },
@@ -36,12 +36,12 @@ const STEPS = [
       it: 'Inizia lo streaming'
     },
     desc: {
-      ar: 'ابدأ البث مع دعم كامل، ابنِ جمهورك الخاص، واستفد من كوتشينج تحسين الصوت والإضاءة.',
-      en: 'Go live with full agency backup, build your audience, and get pro gear coaching.',
-      ru: 'Начинайте эфир с полной поддержкой, собирайте аудиторию и развивайтесь.',
-      ro: 'Fii live cu sprijin complet, construiește-ți audiența și primește îndrumare.',
+      ar: 'ابدأ البث مع دعم كامل، ابنِ جمهورك الخاص، واستفد من نصائح تحسين الصوت والإضاءة.',
+      en: 'Go live with full agency backup, build your audience, and get stream gear tips.',
+      ru: 'Начинайте эфир с полной поддержкой, собирайте аудиторию и улучшайте стрим.',
+      ro: 'Fii live cu sprijin complet, construiește-ți audiența și primește sfaturi tehnice.',
       fr: 'Passez en direct avec notre soutien, développez votre audience et progressez.',
-      it: 'Vai in diretta con il nostro supporto completo e costruisci il tuo pubblico.'
+      it: 'Vai in diretta con il nostro supporto completo e migliora il tuo streaming.'
     },
     color: '#38bdf8'
   },
@@ -49,20 +49,20 @@ const STEPS = [
     id: 3,
     icon: Trophy,
     title: {
-      ar: 'حقق الأرباح والنجاح',
-      en: 'Earn & Grow',
-      ru: 'Зарабатывай и расти',
-      ro: 'Câștigă și crește',
-      fr: 'Gagnez et grandissez',
-      it: 'Guadagna e cresci'
+      ar: 'طوّر محتواك',
+      en: 'Develop Your Content',
+      ru: 'Развивайте контент',
+      ro: 'Dezvoltă-ți conținutul',
+      fr: 'Développez votre contenu',
+      it: 'Sviluppa i tuoi contenuti'
     },
     desc: {
-      ar: 'احصل على أعلى أرباح، مكافآت حصرية كاش، ودعم فني خاص على مدار الساعة.',
-      en: 'Receive highest payouts, guaranteed cash target bonuses, and 24/7 VIP support.',
-      ru: 'Получайте самые высокие выплаты, денежные бонусы и круглосуточную поддержку.',
-      ro: 'Primește cele mai mari plăți, bonusuri în numerar și asistență VIP 24/7.',
-      fr: 'Recevez les paiements les plus élevés, des bonus garantis et un support 24/7.',
-      it: 'Ricevi i massimi pagamenti, bonus garantiti in contanti e supporto VIP 24/7.'
+      ar: 'استفد من التوجيه المستمر، ومتابعة الأداء الدورية، والدعم الفني لتحسين جودة محتواك.',
+      en: 'Benefit from ongoing mentorship, periodic performance reviews, and technical support.',
+      ru: 'Получайте постоянное наставничество, регулярные отчеты и техническую поддержку.',
+      ro: 'Beneficiază de îndrumare continuă, evaluări periodice și suport tehnic dedicat.',
+      fr: 'Bénéficiez d\'un encadrement continu, de rapports périodiques et d\'un support technique.',
+      it: 'Approfitta del tutoraggio continuo, dei report periodici e del supporto tecnico.'
     },
     color: '#fbbf24'
   }
@@ -93,12 +93,12 @@ export function HowItWorks() {
 
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-md mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'ثلاث خطوات بسيطة ومباشرة لتنطلق في عالم البث المباشر الاحترافي وتحقق أعلى العوائد.',
-            'Three direct steps to launch your professional streaming career and maximize revenue.',
-            'Три простых шага, чтобы начать профессиональную карьеру и максимизировать доход.',
-            'Trei pași simpli pentru a-ți lansa cariera de streamer profesionist.',
-            'Trois étapes simples pour lancer votre carrière de diffuseur professionnel.',
-            'Tre semplici passaggi per lanciare la tua carriera da streamer professionista.'
+            'ثلاث خطوات بسيطة ومباشرة لتنطلق في عالم البث المباشر الاحترافي وتطور مهاراتك.',
+            'Three direct steps to launch your professional streaming career and develop your skills.',
+            'Три простых шага, чтобы начать профессиональную карьеру и развить навыки.',
+            'Trei pași simpli pentru a-ți lansa cariera și a-ți dezvolta abilitățile.',
+            'Trois étapes simples pour lancer votre carrière et développer vos compétences.',
+            'Tre semplici passaggi per lanciare la tua carriera e sviluppare le tue competenze.'
           )}
         </p>
       </motion.div>

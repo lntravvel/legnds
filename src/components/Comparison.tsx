@@ -15,84 +15,56 @@ const COMPARISONS: ComparisonItem[] = [
     id: 'support',
     icon: Zap,
     title: {
-      ar: 'سرعة الدعم وحل المشاكل',
-      en: 'Support & Issue Resolution',
-      ru: 'Поддержка и решение проблем',
-      ro: 'Suport și rezolvarea problemelor',
-      fr: 'Support et résolution des problèmes',
-      it: 'Supporto e risoluzione dei problemi'
+      ar: 'سرعة الدعم والمساعدة التقنية',
+      en: 'Technical Support & Assistance',
+      ru: 'Скорость техподдержки',
+      ro: 'Suport tehnic și asistență',
+      fr: 'Support technique et assistance',
+      it: 'Supporto tecnico e assistenza'
     },
     solo: {
-      ar: 'انتظار أيام عبر الدعم الآلي، وخطر إغلاق الحساب دون سابق إنذار',
-      en: 'Days of waiting via automated bots, risk of account ban without notice',
-      ru: 'Дни ожидания через ботов, риск блокировки аккаунта без предупреждения',
-      ro: 'Zile de așteptare prin roboți automați, risc de blocare a contului fără preaviz',
-      fr: 'Des jours d\'attente via des bots, risque de bannissement sans préavis',
-      it: 'Giorni di attesa tramite bot, rischio di ban dell\'account senza preavviso'
+      ar: 'انتظار أوقات طويلة للرد على المشاكل والاستفسارات التقنية',
+      en: 'Long waiting times for replies to technical inquiries',
+      ru: 'Долгое ожидание ответов на технические вопросы',
+      ro: 'Timp îndelungat de așteptare pentru probleme tehnice',
+      fr: 'Délais d\'attente prolongés pour les soucis techniques',
+      it: 'Lunghi tempi di attesa per problemi tecnici'
     },
     agency: {
-      ar: 'خط مباشر 24/7 مع مسؤولي وإدارة زينا لايف وحل فوري لأي بلاغ أو حظر في دقائق',
-      en: 'Direct 24/7 hotline to Xena Live officials; instant fix for bans and issues in minutes',
-      ru: 'Прямая связь 24/7 с администрацией Xena Live, мгновенное снятие банов',
-      ro: 'Linie directă 24/7 cu oficialii Xena Live, rezolvare imediată în câteva minute',
-      fr: 'Ligne directe 24/7 avec les responsables Xena Live, déblocage en minutes',
-      it: 'Linea diretta 24/7 con i funzionari Xena Live, sblocco immediato in pochi minuti'
-    }
-  },
-  {
-    id: 'earnings',
-    icon: TrendingUp,
-    title: {
-      ar: 'الأرباح والمكافآت الإضافية',
-      en: 'Earnings & Bonus Rewards',
-      ru: 'Доходы и бонусные выплаты',
-      ro: 'Câștiguri și bonusuri',
-      fr: 'Revenus et bonus supplémentaires',
-      it: 'Guadagni e bonus aggiuntivi'
-    },
-    solo: {
-      ar: 'أرباحك العادية من الهدايا فقط، بدون أي حوافز أو مكافآت إضافية',
-      en: 'Standard gift earnings only, zero extra bonuses or performance cash',
-      ru: 'Только стандартный доход от подарков, никаких дополнительных бонусов',
-      ro: 'Doar câștiguri standard din cadouri, fără bonusuri suplimentare',
-      fr: 'Revenus standard des cadeaux uniquement, aucun bonus supplémentaire',
-      it: 'Solo guadagni standard dai regali, nessun bonus extra in denaro'
-    },
-    agency: {
-      ar: 'أرباحك كاملة 100% + بونص شهري كاش إضافي من الوكالة عند تحقيق التارقت',
-      en: '100% of your earnings + extra monthly cash bonuses paid directly by our agency',
-      ru: '100% вашего дохода + дополнительный ежемесячный денежный бонус от агентства',
-      ro: '100% din câștigurile tale + bonusuri lunare în numerar plătite de agenție',
-      fr: '100% de vos gains + bonus mensuel supplémentaire en espèces payé par l\'agence',
-      it: '100% dei tuoi guadagni + bonus mensile extra in contanti pagato dall\'agenzia'
+      ar: 'دعم فني سريع لمساعدتك في المشاكل التقنية وتوجيهك خطوة بخطوة',
+      en: 'Fast technical support helping you with technical issues step by step',
+      ru: 'Оперативная техподдержка и помощь в решении технических вопросов',
+      ro: 'Suport tehnic rapid pentru a te ajuta pas cu pas cu problemele tehnice',
+      fr: 'Support technique rapide pour vous aider pas à pas',
+      it: 'Supporto tecnico rapido per aiutarti passo dopo passo'
     }
   },
   {
     id: 'exposure',
     icon: Sparkles,
     title: {
-      ar: 'الانتشار ودعم الباتلز',
-      en: 'Exposure & Battle Support',
-      ru: 'Продвижение и поддержка в баттлах',
-      ro: 'Promovare și suport în bătălii',
-      fr: 'Visibilité et soutien en battle',
-      it: 'Visibilità e supporto nelle battaglie'
+      ar: 'الظهور وتطوير البث',
+      en: 'Discoverability & Growth',
+      ru: 'Видимость и развитие эфира',
+      ro: 'Vizibilitate și dezvoltare',
+      fr: 'Visibilité et progression',
+      it: 'Visibilità e crescita'
     },
     solo: {
-      ar: 'ظهور عشوائي للبث، صعوبة في جذب الداعمين، وغياب المساندة في التحديات',
-      en: 'Random stream visibility, hard to attract top gifters, zero battle backup',
-      ru: 'Случайные показы, трудно привлечь спонсоров, отсутствие поддержки в баттлах',
-      ro: 'Vizibilitate aleatorie, greu de atras sponsori, zero sprijin în provocări',
-      fr: 'Visibilité aléatoire, difficulté à attirer des donateurs, aucun soutien en direct',
-      it: 'Visibilità casuale, difficile attrarre grandi donatori, nessun supporto nelle sfide'
+      ar: 'ظهور عشوائي للبث وصعوبة في فهم خوارزميات التفاعل وجذب المتابعين',
+      en: 'Random stream visibility and difficulty understanding engagement',
+      ru: 'Случайные показы и сложности с привлечением аудитории',
+      ro: 'Vizibilitate aleatorie și dificultăți în atragerea publicului',
+      fr: 'Visibilité aléatoire et difficulté à fidéliser le public',
+      it: 'Visibilità casuale e difficoltà ad attirare spettatori'
     },
     agency: {
-      ar: 'دعم لوجستي في الإكسبلور، وتواجد فريق داعمين للوكالة في جولاتك الرسمية',
-      en: 'Explore page promotion, dedicated agency gifters backing you in official rounds',
-      ru: 'Продвижение в рекомендации, команда поддержки агентства в ваших баттлах',
-      ro: 'Promovare în pagina Explore, echipă dedicată de suporteri în rundele oficiale',
-      fr: 'Promotion sur la page Explorer, équipe de soutien dédiée lors de vos battles',
-      it: 'Promozione nella sezione Esplora, team di supporter dedicati nelle tue sfide'
+      ar: 'نصائح وتوجيهات عملية لتحسين ظهور البث وزيادة تفاعل المتابعين',
+      en: 'Practical tips and guidance to boost visibility and audience engagement',
+      ru: 'Практические советы для улучшения видимости стрима и вовлеченности',
+      ro: 'Sfaturi practice și îndrumare pentru creșterea vizibilității și interacțiunii',
+      fr: 'Conseils pratiques pour améliorer la visibilité et l\'engagement',
+      it: 'Consigli pratici per aumentare la visibilità e il coinvolgimento del pubblico'
     }
   },
   {
@@ -115,40 +87,12 @@ const COMPARISONS: ComparisonItem[] = [
       it: 'Tentativi ed errori da solo, tempo perso a calibrare audio, microfono e luci'
     },
     agency: {
-      ar: 'تدريب مباشر من كبار المذيعين لضبط المايك والإضاءة واحتراف جذب الداعمين',
-      en: '1-on-1 coaching from top broadcasters to optimize gear and hook whales',
-      ru: 'Персональное обучение от топ-стримеров по настройке оборудования и удержанию аудитории',
-      ro: 'Instruire 1-la-1 de la streameri de top pentru optimizarea echipamentului',
-      fr: 'Coaching personnalisé par des diffuseurs d\'élite pour optimiser votre matériel',
-      it: 'Coaching individuale da streamer d\'élite per ottimizzare l\'attrezzatura e intrattenere'
-    }
-  },
-  {
-    id: 'badges',
-    icon: Award,
-    title: {
-      ar: 'التوثيق والشارات الرسمية',
-      en: 'Official Verification & Badges',
-      ru: 'Верификация и официальные значки',
-      ro: 'Verificare oficială și insigne',
-      fr: 'Vérification et badges officiels',
-      it: 'Verifica e badge ufficiali'
-    },
-    solo: {
-      ar: 'شروط معقدة وانتظار أشهر طويلة مع احتمال رفض التوثيق',
-      en: 'Tough criteria and months of waiting with high chance of rejection',
-      ru: 'Сложные требования и месяцы ожидания с высоким риском отказа',
-      ro: 'Criterii dure și luni de așteptare cu risc mare de respingere',
-      fr: 'Critères stricts et des mois d\'attente avec risque élevé de rejet',
-      it: 'Criteri rigidi e mesi di attesa con alto rischio di rifiuto'
-    },
-    agency: {
-      ar: 'أولوية قصوى في التوثيق ومنح الشارات المعتمدة لحسابك في وقت قياسي',
-      en: 'Top priority verification and accredited agency badges fast-tracked to your profile',
-      ru: 'Высший приоритет верификации и официальные значки в кратчайшие сроки',
-      ro: 'Prioritate maximă la verificare și acordarea insignelor în timp record',
-      fr: 'Priorité absolue pour la vérification et obtention des badges en un temps record',
-      it: 'Massima priorità per la verifica e rilascio rapido dei badge ufficiali'
+      ar: 'إرشادات عملية لضبط المايك والإضاءة واحتراف التواصل مع المشاهدين',
+      en: 'Actionable guidance on microphone, lighting, and viewer communication',
+      ru: 'Практические рекомендации по настройке микрофона, света и общению со зрителями',
+      ro: 'Îndrumare practică pentru microfon, iluminare și comunicarea cu spectatorii',
+      fr: 'Conseils pratiques pour le micro, l\'éclairage et la communication avec le public',
+      it: 'Linee guida pratiche per microfono, luci e comunicazione con gli spettatori'
     }
   }
 ];
@@ -185,12 +129,12 @@ export function Comparison() {
 
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-lg mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'لماذا يختار كبار المذيعين الانضمام إلينا بدلاً من البث المستقل؟ إليك الفروقات الحقيقية بالأرقام والواقع.',
-            'Why do elite broadcasters choose Legends Agency over going solo? Real, tangible advantages that redefine your career.',
-            'Почему лучшие ведущие выбирают агентство Legends? Реальные преимущества, меняющие вашу карьеру.',
-            'De ce aleg crainicii de elită agenția Legends în locul independenței? Avantaje reale care îți redefinesc cariera.',
-            'Pourquoi les meilleurs créateurs choisissent l\'agence Legends ? Des avantages concrets qui transforment votre parcours.',
-            'Perché le migliori emittenti scelgono Legends Agency? Vantaggi reali che trasformano la tua carriera.'
+            'لماذا يختار صناع المحتوى الانضمام إلينا بدلاً من البث المستقل؟ إليك أهم الفروقات والمزايا المهنية.',
+            'Why do creators choose Legends Agency over going solo? Real, tangible advantages that support your journey.',
+            'Почему авторы выбирают агентство Legends? Реальные преимущества, помогающие в вашем развитии.',
+            'De ce aleg creatorii agenția Legends în locul independenței? Avantaje reale care îți sprijină parcursul.',
+            'Pourquoi les créateurs choisissent l\'agence Legends ? Des avantages concrets qui soutiennent votre progression.',
+            'Perché i creator scelgono Legends Agency? Vantaggi reali che supportano il tuo percorso.'
           )}
         </p>
       </motion.div>

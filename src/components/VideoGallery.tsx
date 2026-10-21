@@ -25,22 +25,22 @@ export function VideoGallery() {
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-400/30 backdrop-blur-md mb-2.5 shadow-[0_0_15px_rgba(0,243,255,0.15)]">
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
           <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
-            {t('الفيديوهات الرسمية', 'Official Media', 'Официальные медиа', 'Media oficială', 'Médias officiels', 'Media ufficiali')}
+            {t('معرض الفيديوهات', 'Video Highlights', 'Медиа галерея', 'Galerie video', 'Galerie vidéo', 'Galleria video')}
           </span>
         </div>
 
         <h2 className={`text-[20px] sm:text-[24px] md:text-[26px] font-bold text-white tracking-wide mb-1.5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t('أحدث الفيديوهات الإعلانية', 'Featured Promos & Campaigns', 'Рекомендуемые промо-ролики', 'Promoții recomandate', 'Promotions officielles', 'Promozioni in primo piano')}
+          {t('أحدث الفيديوهات الإعلانية', 'Featured Promos & Campaigns', 'Рекомендуемые промо-ролики', 'Promoții recomandate', 'Promotions vedettes', 'Promozioni in primo piano')}
         </h2>
 
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-md mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'شاهد عروضنا الترويجية وبطولات الدعم الكبرى لصناع المحتوى في وكالتنا.',
-            'Watch our promotional spotlights and major official agency broadcast highlights.',
+            'شاهد عروضنا الترويجية وأبرز اللقطات لصناع المحتوى في وكالتنا.',
+            'Watch our promotional spotlights and creator broadcast highlights.',
             'Смотрите промо-ролики и яркие моменты эфиров наших авторов.',
-            'Urmărește promoțiile noastre și cele mai importante momente ale transmisiunilor.',
-            'Regardez nos vidéos promotionnelles et les moments forts de nos créateurs.',
-            'Guarda i nostri promo e i momenti salienti delle trasmissioni dei nostri creator.'
+            'Urmărește promoțiile noastre și momentele de top ale creatorilor.',
+            'Regardez nos vidéos promotionnelles et les meilleurs moments de nos créateurs.',
+            'Guarda i nostri promo e i migliori momenti dei nostri creator.'
           )}
         </p>
       </motion.div>

@@ -7,7 +7,6 @@ import { About } from '../components/About';
 import { Features } from '../components/Features';
 import { VideoGallery } from '../components/VideoGallery';
 import { HowItWorks } from '../components/HowItWorks';
-import { SuccessStories } from '../components/SuccessStories';
 import { PortalTeaser } from '../components/PortalTeaser';
 import { FAQ } from '../components/FAQ';
 import { Team } from '../components/Team';
@@ -53,22 +52,22 @@ export function HomePage() {
               </div>
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pink-950/70 border border-pink-500/40 text-pink-300 text-[10px] font-mono font-bold backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping" />
-                <span>UP TO $66K/MO</span>
+                <span>XENA REWARDS</span>
               </div>
             </div>
 
             <div className="relative z-10">
               <h3 className={`text-[17px] sm:text-[18px] font-bold text-white mb-1.5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-                {t('دليل الأرباح والرواتب: 30 مستوى', 'Earnings & Salary: 30-Tier Ladder', 'Доходы и зарплаты: 30 уровней', 'Ghid de câștiguri: 30 de niveluri', 'Guide des gains : 30 niveaux', 'Guida ai guadagni: 30 livelli')}
+                {t('نظام المكافآت على Xena Live', 'Rewards Policy on Xena Live', 'Система вознаграждений Xena Live', 'Sistemul de recompense Xena Live', 'Système de récompenses Xena Live', 'Sistema di ricompense Xena Live')}
               </h3>
               <p className={`text-[12.5px] sm:text-[13px] text-white/70 leading-relaxed mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
                 {t(
-                  'جدول مفصل حتى 66,824$ شهرياً، حاسبة أرباح تفاعلية، قواعد الساعات الشهرية، ووسائل السحب بكافة الدول.',
-                  'Full ladder up to $66,824/mo, interactive calculator, monthly hours rules, and approved payout channels.',
-                  'Таблица выплат до $66,824/мес, калькулятор и способы вывода.',
-                  'Grilă până la 66.824$/lună, calculator interactiv și metode de retragere.',
-                  'Grille jusqu\'à 66 824$/mois, calculateur interactif et retraits.',
-                  'Scala fino a $66.824/mese, calcolatore interattivo e prelievi.'
+                  'نظام المكافآت يحدده تطبيق Xena Live حسب سياساته وشروطه، ويقوم فريق الإدارة بشرحه للمتقدم بعد التسجيل. لا توجد أي مخصصات شهرية ثابتة أو عوائد مؤكدة.',
+                  'The rewards system is determined by Xena Live according to its platform policies and explained after registration. No fixed allocations or assured returns.',
+                  'Система вознаграждений определяется Xena Live по официальным правилам и разъясняется после регистрации. Нет фиксированных зарплат или гарантированного дохода.',
+                  'Sistemul de recompense este stabilit de Xena Live conform politicilor sale oficiale. Nu există salarii fixe sau venituri garantate.',
+                  'Le système de récompenses est fixé par Xena Live selon ses règles officielles. Aucun salaire fixe ni revenu garanti.',
+                  'Il sistema di ricompense è stabilito da Xena Live secondo le sue politiche ufficiali. Non ci sono stipendi fissi o rendimenti garantiti.'
                 )}
               </p>
             </div>
@@ -77,7 +76,7 @@ export function HomePage() {
               to="/earnings"
               className="relative z-10 inline-flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-pink-500/15 border border-pink-500/40 hover:bg-pink-500/25 text-pink-200 text-xs font-bold transition-all shadow-sm group-hover:border-pink-300"
             >
-              <span>{t('عرض جدول الرواتب والسحب', 'View Earnings & Payouts', 'Смотреть таблицу', 'Vezi grila de salarii', 'Voir la grille', 'Vedi la tabella')}</span>
+              <span>{t('عرض تفاصيل نظام المكافآت', 'View Rewards Policy', 'Подробнее о вознаграждениях', 'Vezi detalii recompense', 'Voir les récompenses', 'Vedi i dettagli')}</span>
               {dir === 'rtl' ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
             </Link>
           </motion.div>
@@ -121,12 +120,12 @@ export function HomePage() {
               </h3>
               <p className={`text-[12.5px] sm:text-[13px] text-white/70 leading-relaxed mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
                 {t(
-                  'جدول مفصل بالأرقام يوضح لماذا يربح مذيعو الأساطير أضعاف البث المستقل في الدعم والبونص والانتشار وفك الحظر.',
-                  'Detailed side-by-side data showing why Legends creators multiply their earnings, battle support, and account immunity.',
-                  'Подробная таблица, показывающая преимущества стриминга с агентством Legends.',
-                  'Date detaliate care arată de ce creatorii Legends își multiplică veniturile.',
-                  'Données détaillées expliquant pourquoi nos créateurs multiplient leurs revenus.',
-                  'Dati dettagliati che mostrano perché i nostri creator moltiplicano i loro guadagni.'
+                  'مقارنة واضحة توضح الفروقات والمزايا التي يحصل عليها صناع المحتوى مع وكالة الأساطير في الدعم الفني، التدريب، وتطوير البث.',
+                  'A clear comparison showing the advantages creators receive with Legends Agency in technical support, coaching, and growth.',
+                  'Наглядное сравнение преимуществ авторов с агентством Legends в техподдержке, обучении и развитии.',
+                  'O comparație clară care arată avantajele oferite de Agenția Legends în suport tehnic și instruire.',
+                  'Un comparatif clair montrant les avantages offerts par l\'Agence Legends.',
+                  'Un confronto chiaro che mostra i vantaggi offerti da Legends Agency.'
                 )}
               </p>
             </div>
@@ -178,12 +177,12 @@ export function HomePage() {
               </h3>
               <p className={`text-[12.5px] sm:text-[13px] text-white/70 leading-relaxed mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
                 {t(
-                  'من إرسال الـ ID في الدقيقة الأولى حتى استلام أول كاش بونص، خطة إقلاع صاروخية واضحة تنقلك للقمة.',
-                  'From sending your ID in minute 1 to receiving your first cash bonus, an explosive roadmap to reaching the top.',
-                  'От первой минуты до первого бонуса: четкий пошаговый план выхода на вершину.',
-                  'De la minutul 1 până la primul bonus: pași clari care te duc în top.',
-                  'De la première minute au premier bonus : un guide étape par étape vers le sommet.',
-                  'Dal primo minuto al primo bonus: passaggi chiari per raggiungere la vetta.'
+                  'من إرسال بياناتك في الدقيقة الأولى حتى انطلاق أول بث مباشر بنجاح، خطوات واضحة ومباشرة لتنطلق بثقة.',
+                  'From sending your details in minute 1 to launching your live broadcast, clear and direct milestones to launch with confidence.',
+                  'От первого обращения до запуска эфира: четкие и понятные шаги для уверенного старта.',
+                  'De la primul mesaj până la lansarea transmisiei: pași clari pentru un start de încredere.',
+                  'Du premier contact jusqu\'au lancement de votre live : des étapes claires pour démarrer en confiance.',
+                  'Dal primo messaggio al lancio della tua diretta: passaggi chiari per iniziare con sicurezza.'
                 )}
               </p>
             </div>
@@ -202,7 +201,6 @@ export function HomePage() {
       <Features />
       <VideoGallery />
       <HowItWorks />
-      <SuccessStories />
       <PortalTeaser />
       <FAQ />
       <Team />

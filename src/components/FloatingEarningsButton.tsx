@@ -7,14 +7,14 @@ export function FloatingEarningsButton() {
   const location = useLocation();
   const { lang, t, dir } = useLanguage();
 
-  // Do not show button if user is already on the earnings page
-  if (location.pathname === '/earnings') {
+  // Do not show button if user is already on the rewards page
+  if (location.pathname === '/rewards' || location.pathname === '/earnings') {
     return null;
   }
 
   return (
     <motion.aside
-      aria-label="Floating Earnings Guide Link"
+      aria-label="Floating Rewards Policy Link"
       initial={{ scale: 0, opacity: 0, y: 20 }}
       animate={{ scale: 1, opacity: 1, y: 0 }}
       transition={{ delay: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
@@ -22,8 +22,8 @@ export function FloatingEarningsButton() {
       style={{ bottom: 'calc(4.85rem + env(safe-area-inset-bottom, 0px))' }}
     >
       <Link
-        to="/earnings"
-        title={t('افتح دليل النشاط ومستويات أرباح ومكافآت التارقت', 'Open 30-Tier Target Rewards Guide', 'Открыть таблицу доходов', 'Deschide ghidul de recompense', 'Ouvrir le guide des primes', 'Apri la guida ai compensi')}
+        to="/rewards"
+        title={t('نظام المكافآت على تطبيق Xena Live', 'Xena Live Rewards Policy', 'Система вознаграждений Xena Live', 'Sistemul de recompense Xena Live', 'Système de récompenses Xena Live', 'Sistema di ricompense Xena Live')}
         className="group relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-auto sm:gap-2.5 p-0 sm:px-3.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#160b26]/95 via-[#1a1106]/95 to-[#0d041a]/95 border-2 border-amber-400/80 hover:border-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.55),0_0_40px_rgba(236,72,153,0.3)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none"
       >
         {/* Constant Glowing Pulse & Ping Halo */}
@@ -46,13 +46,13 @@ export function FloatingEarningsButton() {
         <div className="hidden sm:flex flex-col text-start justify-center">
           <div className="flex items-center gap-1.5">
             <span className={`text-[12px] sm:text-[13px] font-black text-amber-300 tracking-tight leading-tight group-hover:text-yellow-200 transition-colors ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-              {t('دليل الأرباح', 'Earnings Guide', 'Таблица доходов', 'Ghid salarii', 'Guide salaires', 'Guida compensi')}
+              {t('نظام المكافآت', 'Rewards Policy', 'Система наград', 'Sistem recompense', 'Système primes', 'Sistema ricompense')}
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
           </div>
 
           <span className="text-[10px] font-mono font-bold text-pink-300 tracking-wider leading-none mt-0.5">
-            30 LVS • $66K/MO 🔥
+            XENA LIVE REWARDS
           </span>
         </div>
 

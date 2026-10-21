@@ -49,7 +49,7 @@ export function LegendsBrandTitle({
       >
         <Sparkles size={11} className="text-cyan-300 animate-spin" style={{ animationDuration: '9s' }} />
         <span className={`${currentSize.badge} tracking-[0.2em] font-mono text-cyan-200 font-bold uppercase`}>
-          {lang === 'ar' ? 'وكـالـة الأساطـيـر الرسمـيـة' : 'OFFICIAL LEGENDS AGENCY'}
+          {lang === 'ar' ? 'وكـالـة الأساطـيـر | XENA LIVE' : 'LEGENDS CREATOR AGENCY'}
         </span>
         <Sparkles size={11} className="text-cyan-300 animate-spin" style={{ animationDuration: '9s' }} />
       </motion.div>
@@ -98,7 +98,7 @@ export function LegendsBrandTitle({
         >
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-ping" />
           <span className="text-[10px] sm:text-[11px] tracking-[0.25em] font-mono text-cyan-200 uppercase font-bold">
-            {lang === 'ar' ? 'الـوكـالـة الـرسـمـيـة الأولـى' : 'OFFICIAL VIP AGENCY'}
+            {lang === 'ar' ? 'وكـالـة شـريـكـة عـلـى XENA LIVE' : 'XENA LIVE PARTNER AGENCY'}
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-ping" />
         </motion.div>

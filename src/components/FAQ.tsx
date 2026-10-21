@@ -53,12 +53,12 @@ const FAQS = [
       it: 'Come ricevo i miei guadagni?'
     },
     answer: {
-      ar: 'تصلك أرباحك الأساسية مباشرة من تطبيق زينا لايف، بينما نقوم نحن بصرف مكافآتك الشهرية الإضافية بشكل منتظم ومضمون في موعدها.',
-      en: 'You receive your base earnings directly from the Xena Live app, while we pay out your additional monthly bonuses regularly and securely on time.',
-      ru: 'Вы получаете свой базовый доход непосредственно из приложения Xena Live, а мы регулярно и гарантированно выплачиваем ваши дополнительные ежемесячные бонусы в срок.',
-      ro: 'Vă primiți câștigurile de bază direct din aplicația Xena Live, în timp ce noi vă plătim bonusurile lunare suplimentare în mod regulat și sigur la timp.',
-      fr: 'Vous recevez vos gains de base directement depuis l\'application Xena Live, tandis que nous vous versons vos bonus mensuels supplémentaires régulièrement et en toute sécurité à temps.',
-      it: 'Ricevi i tuoi guadagni di base direttamente dall\'app Xena Live, mentre noi paghiamo i tuoi bonus mensili aggiuntivi regolarmente e in modo sicuro in tempo.'
+      ar: 'حسب نظام تطبيق Xena Live الرسمي، ويوضحه فريق الإدارة بعد التسجيل.',
+      en: 'According to Xena Live platform guidelines, explained by the management team after registration.',
+      ru: 'В соответствии с официальными правилами Xena Live, подробно объясняется администрацией после регистрации.',
+      ro: 'Conform sistemului oficial Xena Live, explicat de echipa de conducere după înregistrare.',
+      fr: 'Selon le système officiel de l\'application Xena Live, expliqué par l\'équipe après inscription.',
+      it: 'Secondo il sistema ufficiale dell\'app Xena Live, spiegato dal team di gestione dopo la registrazione.'
     }
   },
   {
@@ -72,12 +72,12 @@ const FAQS = [
       it: 'Cosa mi offre il team di supporto?'
     },
     answer: {
-      ar: 'نوفر لك توجيهاً مباشراً من نخبة المذيعين، حماية كاملة لحسابك، استجابة سريعة لأي مشكلة تقنية، بالإضافة لفرصة الانضمام لمجتمعنا العالمي.',
-      en: 'We provide you with direct guidance from elite broadcasters, full protection for your account, fast response to any technical issue, plus the opportunity to join our global community.',
-      ru: 'Мы предоставляем вам прямое руководство от элитных ведущих, полную защиту вашей учетной записи, быстрое реагирование на любую техническую проблему, а также возможность присоединиться к нашему глобальному сообществу.',
-      ro: 'Vă oferim îndrumare directă de la radiodifuzori de elită, protecție completă pentru contul dvs., răspuns rapid la orice problemă tehnică, plus oportunitatea de a vă alătura comunității noastre globale.',
-      fr: 'Nous vous offrons des conseils directs de diffuseurs d\'élite, une protection complète de votre compte, une réponse rapide à tout problème technique, ainsi que la possibilité de rejoindre notre communauté mondiale.',
-      it: 'Ti forniamo una guida diretta da emittenti d\'élite, protezione completa per il tuo account, risposta rapida a qualsiasi problema tecnico, oltre all\'opportunità di unirti alla nostra comunità globale.'
+      ar: 'نوفر لك توجيهاً مستمراً لتحسين جودة البث، دعماً فنياً سريعاً للمشاكل التقنية، وإرشادات للالتزام بسياسات التطبيق.',
+      en: 'We provide you with ongoing mentorship to improve stream quality, fast technical support, and guidance on platform policies.',
+      ru: 'Мы предоставляем наставничество для улучшения качества эфира, оперативную техподдержку и рекомендации по правилам платформы.',
+      ro: 'Vă oferim îndrumare continuă pentru îmbunătățirea transmisiunii, suport tehnic rapid și îndrumare privind politicile platformei.',
+      fr: 'Nous vous offrons un encadrement continu pour améliorer la diffusion, un support technique rapide et des conseils sur les règles.',
+      it: 'Ti forniamo tutoraggio continuo per migliorare la qualità dello streaming, supporto tecnico rapido e linee guida sulle regole.'
     }
   },
   {
@@ -126,12 +126,12 @@ export function FAQ() {
 
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-md mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'إجابات مباشرة ودقيقة لكل ما يهمك حول شروط الانضمام، طريقة استلام الأرباح، والبونصات الشهرية.',
-            'Direct and transparent answers regarding requirements, revenue collection, and monthly bonuses.',
-            'Прямые ответы обо всех условиях вступления, получении дохода и бонусах.',
-            'Răspunsuri directe despre condițiile de aderare, retragerea veniturilor și bonusuri.',
-            'Des réponses claires sur les conditions d\'adhésion, les paiements et les bonus.',
-            'Risposte dirette sulle condizioni di adesione, ricezione dei guadagni e bonus.'
+            'إجابات مباشرة ودقيقة لكل ما يهمك حول شروط الانضمام، الدعم الفني، والتطوير المستمر.',
+            'Direct and transparent answers regarding requirements, technical support, and continuous growth.',
+            'Прямые ответы обо всех условиях вступления, техподдержке и развитии.',
+            'Răspunsuri directe despre condițiile de aderare, suportul tehnic și dezvoltare.',
+            'Des réponses claires sur les conditions d\'adhésion, le support technique et le développement.',
+            'Risposte dirette sulle condizioni di adesione, supporto tecnico e sviluppo.'
           )}
         </p>
       </motion.div>

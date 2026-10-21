@@ -12,12 +12,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'owner',
     role: {
-      ar: 'الوكيل',
-      en: 'Agency Principal',
-      ru: 'Агент агентства',
-      ro: 'Agentul agenției',
-      fr: 'Agent principal',
-      it: 'Agente principale'
+      ar: 'مدير الوكالة',
+      en: 'Agency Director',
+      ru: 'Руководитель агентства',
+      ro: 'Director agenție',
+      fr: 'Directeur de l\'agence',
+      it: 'Direttore dell\'agenzia'
     },
     name: 'Abdullah',
     url: 'https://snapchat.com/t/MiNqTpwc',

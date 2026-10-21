@@ -19,8 +19,7 @@
 - 🎵 **Background Music** — Ambient audio with smooth fade-in and auto-pause during video playback
 - 📱 **Mobile-First** — Responsive design optimized for all screen sizes
 - 🎥 **Video Gallery** — Embedded YouTube promotional videos
-- ⭐ **Success Stories** — Infinite scrolling marquee of creator testimonials
-- 🔗 **Link Hub** — All official agency links and social media in one place
+- 🔗 **Link Hub** — Agency links and social media in one place
 - 🛡️ **Secure** — Origin-checked message handlers, security headers, and error boundaries
 
 ## 🚀 Quick Start

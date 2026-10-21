@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Mail, ShieldAlert } from 'lucide-react';
 import { BrandIcons } from './BrandIcons';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -12,11 +13,10 @@ export function Footer() {
       {/* Background ambient glow in footer */}
       <div className="absolute inset-x-0 bottom-0 h-full bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[var(--color-brand-primary)]/10 via-transparent to-transparent pointer-events-none" />
 
-      <div className="max-w-xl mx-auto px-5 flex flex-col items-center text-center gap-10">
+      <div className="max-w-xl mx-auto px-5 flex flex-col items-center text-center gap-8">
         
-        {/* Majestic Animated Logo (Square removed, Soft celestial aura identical to Hero, Falcon lifted with full tail) */}
+        {/* Majestic Animated Logo */}
         <div className="relative inline-block">
-          {/* Glowing Circular Pulse Behind Logo (Outside overflow container to eliminate any square borders) */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <motion.div
               className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-[radial-gradient(circle,_rgba(0,243,255,0.3)_0%,_rgba(0,100,255,0.12)_45%,_transparent_70%)] blur-2xl"
@@ -27,7 +27,7 @@ export function Footer() {
 
           <div className="relative w-48 h-38 md:w-56 md:h-44 flex items-center justify-center drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]" style={{ perspective: '1200px' }}>
             <div className="relative w-full h-full" style={{ perspective: '1200px' }}>
-              {/* BASE LAYER (Eagle Body & Full Tail) */}
+              {/* BASE LAYER */}
               <motion.div
                 className="absolute inset-0 z-10"
                 style={{ clipPath: 'polygon(35% 0%, 65% 0%, 65% 100%, 35% 100%)' }}
@@ -82,7 +82,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Deluxe Brand Title Directly Under Eagle */}
+        {/* Brand Title Directly Under Eagle */}
         <div className="flex flex-col items-center relative z-10 -mt-2">
           <LegendsBrandTitle size="sm" showSubtitle={false} className="mb-2" />
           <p className={`text-white/50 text-[13px] max-w-xs leading-relaxed mt-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
@@ -97,23 +97,44 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Partners & Socials - Always Glowing */}
-        <div className="flex flex-col items-center relative z-10 w-full pt-8 border-t border-white/5">
-          <h4 className={`text-white/50 font-mono text-[10px] tracking-[0.2em] uppercase mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-            {t('شركاء رسميون', 'Official Partners', 'Официальные партнеры', 'Parteneri oficiali', 'Partenaires officiels', 'Partner ufficiali')}
+        {/* Partners & Socials */}
+        <div className="flex flex-col items-center relative z-10 w-full pt-6 border-t border-white/5">
+          <h4 className={`text-white/50 font-mono text-[10px] tracking-[0.2em] uppercase mb-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+            {t('وكالة شريكة على تطبيق Xena Live', 'Partner Agency on Xena Live', 'Агентство-партнер на Xena Live', 'Agenție parteneră pe Xena Live', 'Agence partenaire sur Xena Live', 'Agenzia partner su Xena Live')}
           </h4>
           <div className="flex justify-center items-center">
             <div className="flex flex-col items-center gap-2">
-              <div className="w-18 h-18 rounded-[22px] bg-white flex items-center justify-center p-3 border-2 border-pink-500 shadow-[0_0_25px_rgba(255,0,128,0.45)] transition-all duration-300 hover:scale-105">
+              <div className="w-16 h-16 rounded-[20px] bg-white flex items-center justify-center p-2.5 border-2 border-pink-500 shadow-[0_0_25px_rgba(255,0,128,0.4)] transition-all duration-300 hover:scale-105">
                 <BrandIcons.Xena className="w-full h-full" />
               </div>
-              <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">XENA LIVE OFFICIAL</span>
+              <span className="text-[11px] font-mono text-pink-300/90 font-bold tracking-wider">XENA LIVE PARTNER</span>
             </div>
           </div>
         </div>
 
-        {/* Official Email Contact */}
-        <div className="flex flex-col items-center gap-2 relative z-10 pt-6 border-t border-white/5 w-full">
+        {/* 18+ Adult Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-bold font-mono">
+          <span>🔞</span>
+          <span>{t('الخدمة متاحة للبالغين 18+ فقط', 'Service for Adults 18+ Only', 'Сервис только для совершеннолетних 18+', 'Serviciu doar pentru adulți 18+', 'Réservé aux adultes 18+ uniquement', 'Servizio riservato ai maggiorenni 18+')}</span>
+        </div>
+
+        {/* Legal & Policy Navigation Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-white/60">
+          <Link to="/privacy" className="hover:text-cyan-300 transition-colors">
+            {t('سياسة الخصوصية', 'Privacy Policy', 'Политика конфиденциальности', 'Politica de confidențialitate', 'Politique de confidentialité', 'Informativa sulla privacy')}
+          </Link>
+          <span className="text-white/20">•</span>
+          <Link to="/terms" className="hover:text-cyan-300 transition-colors">
+            {t('الشروط والأحكام', 'Terms & Conditions', 'Условия использования', 'Termeni și condiții', 'Conditions générales', 'Termini e condizioni')}
+          </Link>
+          <span className="text-white/20">•</span>
+          <Link to="/rewards" className="hover:text-cyan-300 transition-colors">
+            {t('نظام المكافآت', 'Rewards Policy', 'Система наград', 'Sistem recompense', 'Système primes', 'Sistema ricompense')}
+          </Link>
+        </div>
+
+        {/* Contact Email */}
+        <div className="flex flex-col items-center gap-2 relative z-10 pt-4 border-t border-white/5 w-full">
           <a
             href="mailto:info@legeends.com"
             className="group flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(0,243,255,0.25)] hover:scale-105 active:scale-95"
@@ -126,21 +147,21 @@ export function Footer() {
             </span>
           </a>
           <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
-            {t('البريد الإلكتروني الرسمي للتواصل والشراكات', 'Official Inquiries & Partnerships Email', 'Официальная электронная почта', 'Email oficial de contact', 'Email officiel', 'Email ufficiale')}
+            {t('البريد الإلكتروني للتواصل والشراكات', 'Inquiries & Partnerships Email', 'Электронная почта', 'Email de contact', 'Email de contact', 'Email di contatto')}
           </span>
         </div>
 
         {/* Regulatory & Legal Disclaimer */}
-        <div className="w-full pt-8 border-t border-white/5 text-start sm:text-center text-white/50 text-[11px] leading-relaxed">
+        <div className="w-full pt-6 border-t border-white/5 text-start sm:text-center text-white/50 text-[11px] leading-relaxed">
           <div className="flex items-center justify-center gap-1.5 mb-2 text-amber-300 font-bold font-mono text-[10.5px] uppercase tracking-wider">
             <ShieldAlert size={14} className="text-amber-400 shrink-0" />
             <span>{t('إخلاء مسؤولية قانوني وتنظيمي', 'Legal & Regulatory Disclaimer', 'Правовое уведомление', 'Declinare a responsabilității', 'Avertissement légal', 'Disclaimer legale')}</span>
           </div>
           <p className="max-w-xl mx-auto">
             {t(
-              'وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير معتمدة لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف ولا تقدم وظائف برواتب ثابتة أو عوائد مضمونة. المذيعون وصناع المحتوى هم متعاقدون مستقلون (Independent Creators). كافة الأرباح والمكافآت التقديرية تعتمد كلياً على نشاط المذيع الفعلي، وساعات البث، والتزامه الكامل بقوانين وسياسات مجتمع Xena Live، ومستوى الهدايا الافتراضية المستلمة داخل التطبيق. يتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة في بلد إقامته.',
-              'Legends Agency is an accredited management network on Xena Live. The agency is not an employer and does not offer salaried employment or guaranteed earnings. Broadcasters are independent content creators. All payouts and discretionary bonuses depend entirely on broadcast activity, streaming hours, compliance with Xena Live policies, and gifts received. Creators are solely responsible for legal and tax compliance in their jurisdiction.',
-              'Legends Agency — аккредитованная сеть управления на Xena Live. Агентство не является работодателем и не предлагает фиксированных окладов. Ведущие являются независимыми авторами.',
+              'وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف ولا تقدم وظائف بمخصصات ثابتة أو عوائد مؤكدة. المذيعون وصناع المحتوى هم متعاقدون مستقلون (Independent Creators). كافة الأرباح والمكافآت التقديرية تعتمد كلياً على نشاط المذيع الفعلي، وساعات البث، والتزامه الكامل بقوانين وسياسات مجتمع Xena Live، ومستوى الهدايا الافتراضية المستلمة داخل التطبيق. الخدمة متاحة للبالغين 18+ فقط، ويتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة في بلد إقامته.',
+              'Legends Agency is a creator management network on Xena Live. The agency is not an employer and does not offer salaried employment or guaranteed earnings. Broadcasters are independent content creators. All payouts and discretionary rewards depend entirely on broadcast activity, streaming hours, compliance with Xena Live policies, and gifts received. Service is for adults 18+ only. Creators are solely responsible for legal and tax compliance.',
+              'Legends Agency — сеть управления на Xena Live. Агентство не является работодателем и не предлагает фиксированных окладов. Ведущие являются независимыми авторами.',
               'Legends Agency este o rețea de management pe Xena Live. Agenția nu este un angajator și nu oferă salarii fixe. Creatorii sunt independenți.',
               'Legends Agency est un réseau de gestion sur Xena Live. L\'agence n\'est pas un employeur et n\'offre pas de salaire fixe. Les créateurs sont indépendants.',
               'Legends Agency è una rete di gestione su Xena Live. L\'agenzia non è un datore di lavoro e non offre stipendi fissi. I creator sono indipendenti.'

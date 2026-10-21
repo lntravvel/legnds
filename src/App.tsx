@@ -16,6 +16,9 @@ import { HomePage } from './pages/HomePage';
 import { ComparisonPage } from './pages/ComparisonPage';
 import { FastTrackPage } from './pages/FastTrackPage';
 import { EarningsPage } from './pages/EarningsPage';
+import { RewardsPage } from './pages/RewardsPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsPage } from './pages/TermsPage';
 import { LandingApplyPage } from './pages/LandingApplyPage';
 
 function ScrollToTop() {
@@ -75,9 +78,12 @@ function MainLayout() {
           <Route path="/apply" element={<LandingApplyPage />} />
           <Route path="/join" element={<LandingApplyPage />} />
           <Route path="/landing" element={<LandingApplyPage />} />
+          <Route path="/rewards" element={<RewardsPage />} />
           <Route path="/earnings" element={<EarningsPage />} />
           <Route path="/comparison" element={<ComparisonPage />} />
           <Route path="/fast-track" element={<FastTrackPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
 

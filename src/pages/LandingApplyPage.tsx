@@ -33,15 +33,16 @@ export function LandingApplyPage() {
 
   // Form & Qualification Data
   const [formData, setFormData] = useState({
-    commitment: 'part-time', // part-time | full-time | pro
-    incomeGoal: 'mid', // starter | mid | elite
+    growthGoal: 'quality', // quality | audience | support
     experience: 'beginner', // beginner | tiktok_bigo | xena_current
     deviceReady: 'yes', // yes | needs_help
     contentType: 'talk', // talk | gaming | talent
     name: '',
     phone: '',
     country: '',
-    socialHandle: ''
+    age: '',
+    socialHandle: '',
+    termsAccepted: false
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -75,31 +76,53 @@ export function LandingApplyPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.country.trim()) {
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.country.trim() || !formData.age.trim()) {
       setValidationError(
         t(
-          'يرجى ملء جميع الحقول المطلوبة (الاسم الكامل، رقم الواتساب، الدولة)',
-          'Please fill all required fields (Full Name, WhatsApp, Country)',
-          'Заполните обязательные поля (Имя, WhatsApp, Страна)',
-          'Completează câmpurile obligatorii (Nume, WhatsApp, Țară)',
-          'Veuillez remplir les champs obligatoires (Nom, WhatsApp, Pays)',
-          'Compila i campi obbligatori (Nome, WhatsApp, Paese)'
+          'يرجى ملء جميع الحقول المطلوبة (الاسم الكامل، رقم الواتساب، الدولة، العمر)',
+          'Please fill all required fields (Full Name, WhatsApp, Country, Age)',
+          'Заполните обязательные поля (Имя, WhatsApp, Страна, Возраст)',
+          'Completează câmpurile obligatorii (Nume, WhatsApp, Țară, Vârstă)',
+          'Veuillez remplir les champs obligatoires (Nom, WhatsApp, Pays, Âge)',
+          'Compila i campi obbligatori (Nome, WhatsApp, Paese, Età)'
         )
       );
       return;
     }
 
-    // Map values to human readable text
-    const commitmentMap: Record<string, string> = {
-      'part-time': t('دوام جزئي (2 - 3 ساعات يومياً)', 'Part-time (2-3 hours/day)', 'Частичная занятость (2-3 ч)', 'Part-time (2-3 ore)', 'Temps partiel (2-3h)', 'Part-time (2-3 ore)'),
-      'full-time': t('دوام كامل (4 - 6 ساعات يومياً)', 'Full-time (4-6 hours/day)', 'Полная занятость (4-6 ч)', 'Full-time (4-6 ore)', 'Temps plein (4-6h)', 'Full-time (4-6 ore)'),
-      'pro': t('بث احترافي مستمر (+6 ساعات)', 'Pro Streaming (+6 hours)', 'Профессиональный стриминг (+6 ч)', 'Streaming Pro (+6 ore)', 'Streaming Pro (+6h)', 'Streaming Pro (+6 ore)')
-    };
+    const ageNum = parseInt(formData.age, 10);
+    if (isNaN(ageNum) || ageNum < 18) {
+      setValidationError(
+        t(
+          'الانضمام متاح فقط لمن هم 18 سنة فأكثر.',
+          'Joining is only available for individuals 18 years or older.',
+          'Вступление доступно только лицам от 18 лет и старше.',
+          'Înscrierea este permisă doar persoanelor cu vârsta de 18 ani sau mai mult.',
+          'L\'inscription est réservée aux personnes de 18 ans et plus.',
+          'L\'iscrizione è consentita solo a chi ha compiuto 18 anni o più.'
+        )
+      );
+      return;
+    }
+
+    if (!formData.termsAccepted) {
+      setValidationError(
+        t(
+          'يرجى تأكيد الإقرار بأن عمرك 18 سنة أو أكثر والموافقة على سياسات Xena Live.',
+          'Please confirm that you are 18+ and agree to Xena Live policies.',
+          'Пожалуйста, подтвердите, что вам исполнилось 18 лет, и согласие с правилами Xena Live.',
+          'Vă rugăm să confirmați că aveți cel puțin 18 ani și sunteți de acord cu politicile Xena Live.',
+          'Veuillez confirmer que vous avez 18 ans ou plus et accepter les règles de Xena Live.',
+          'Conferma di avere almeno 18 anni e di accettare le regole di Xena Live.'
+        )
+      );
+      return;
+    }
 
     const goalMap: Record<string, string> = {
-      starter: '$500 - $1,500 (مستوى النشاط الأساسي)',
-      mid: '$2,000 - $8,000 (مستوى النشاط المتقدم)',
-      elite: '+$10,000+ (مستوى نخبة الأساطير)'
+      quality: 'تطوير جودة البث والصوت والإضاءة',
+      audience: 'بناء جمهور متفاعل واكتساب متابعين جدد',
+      support: 'الحصول على دعم فني وتوجيه مستمر'
     };
 
     const expMap: Record<string, string> = {
@@ -119,24 +142,26 @@ export function LandingApplyPage() {
     const safeName = clean(formData.name, 50);
     const safePhone = clean(formData.phone, 25);
     const safeCountry = clean(formData.country, 40);
+    const safeAge = clean(formData.age, 3);
     const safeHandle = clean(formData.socialHandle, 60);
 
     const message = [
-      '🔥 *طلب تأهيل وانضمام رسمي - وكالة الأساطير (Xena Live)* 🔥',
+      '🌟 *طلب انضمام جديد - وكالة الأساطير (Xena Live)* 🌟',
       '────────────────────────────',
       `👤 *الاسم:* ${safeName}`,
       `📱 *رقم الواتساب:* ${safePhone}`,
       `🌍 *الدولة وبلد الإقامة:* ${safeCountry}`,
+      `🎂 *العمر (18+):* ${safeAge}`,
       safeHandle ? `🔗 *معرف الحساب / الآيدي:* ${safeHandle}` : null,
       '────────────────────────────',
-      '📊 *نتائج مسار الفلترة والتأهيل:*',
-      `⏱️ *مستوى التفرغ:* ${commitmentMap[formData.commitment] || formData.commitment}`,
-      `🎯 *المستوى المالي المستهدف من النشاط:* ${goalMap[formData.incomeGoal] || formData.incomeGoal}`,
+      '📊 *معلومات المتقدم:*',
+      `🎯 *الهدف من الانضمام:* ${goalMap[formData.growthGoal] || formData.growthGoal}`,
       `🎙️ *الخبرة السابقة:* ${expMap[formData.experience] || formData.experience}`,
       `🎭 *نوع المحتوى المقترح:* ${contentMap[formData.contentType] || formData.contentType}`,
-      `📱 *جاهزية الهاتف والإنترنت:* ${formData.deviceReady === 'yes' ? 'جاهز تماماً بكاميرا وإنترنت مستقر ✅' : 'يحتاج توجيه فني من الوكالة ⚠️'}`,
+      `📱 *جاهزية الهاتف والإنترنت:* ${formData.deviceReady === 'yes' ? 'جاهز تماماً بكاميرا وإنترنت مستقر ✅' : 'يحتاج نصائح للإعدادات ⚠️'}`,
+      '✅ *إقرار:* المتقدم 18+ وموافق على سياسات تطبيق Xena Live',
       '────────────────────────────',
-      '✅ تم اجتياز اختبار التأهيل عبر صفحة الإعلانات: https://legeends.com/apply'
+      'تم إرسال هذا الطلب عبر الموقع: https://legeends.com/apply'
     ].filter(Boolean).join('\n');
 
     setIsSubmitted(true);
@@ -155,12 +180,12 @@ export function LandingApplyPage() {
           <Flame className="w-4 h-4 text-pink-400 animate-pulse shrink-0" />
           <span>
             {t(
-              'حملة القبول الحصرية مفتوحة الآن: بونص تحفيزي إضافي لصناع المحتوى يصل إلى $66,000 حسب النشاط والتارقت',
-              'Exclusive Registration Open: Creator activity bonuses up to $66,000 based on targets',
-              'Регистрация открыта: Бонусы за активность до $66,000 при выполнении нормативов',
-              'Înscrieri deschise: Bonusuri de activitate de până la 66.000 $ conform obiectivelor',
-              'Inscriptions ouvertes : Primes d\'activité jusqu\'à 66 000 $ selon les objectifs',
-              'Iscrizioni aperte: Bonus di attività fino a $66.000 in base agli obiettivi'
+              'حملة القبول مفتوحة الآن: دعم فني وتدريب وتطوير مستمر لصناع المحتوى البالغين على تطبيق Xena Live',
+              'Registration Open: Technical support, training, and continuous mentorship for adult creators on Xena Live',
+              'Регистрация открыта: Техподдержка, обучение и наставничество для совершеннолетних авторов на Xena Live',
+              'Înscrieri deschise: Suport tehnic, instruire și îndrumare continuă pentru creatorii adulți pe Xena Live',
+              'Inscriptions ouvertes : Support technique, formation et encadrement continu pour les créateurs adultes sur Xena Live',
+              'Iscrizioni aperte: Supporto tecnico, formazione e tutoraggio continuo per creator maggiorenni su Xena Live'
             )}
           </span>
         </div>
@@ -174,7 +199,7 @@ export function LandingApplyPage() {
             <BrandIcons.Xena className="w-full h-full" />
           </div>
           <span className="text-[11px] sm:text-xs font-mono font-bold tracking-wider uppercase">
-            XENA LIVE OFFICIAL ACCREDITED AGENCY
+            {t('وكالة شريكة على تطبيق XENA LIVE', 'XENA LIVE PARTNER AGENCY', 'АГЕНТСТВО-ПАРТНЕР XENA LIVE', 'AGENȚIE PARTENERĂ XENA LIVE', 'AGENCE PARTENAIRE XENA LIVE', 'AGENZIA PARTNER XENA LIVE')}
           </span>
         </div>
 
@@ -183,44 +208,44 @@ export function LandingApplyPage() {
 
         <h1 className={`text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tight ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'حوّل شغفك بالبث المباشر إلى عوائد ومكافآت قياسية',
-            'Turn Your Live Streaming Passion Into Record Creator Rewards',
-            'Превратите стримы в рекордные вознаграждения',
-            'Transformă streamingul în recompense record de creator',
-            'Transformez vos lives en récompenses records',
-            'Trasforma i tuoi live in ricompense da record'
+            'وكالة الأساطير | دعم وتوجيه صناع المحتوى على Xena Live',
+            'Legends Agency | Support & Mentorship for Creators on Xena Live',
+            'Legends Agency | Поддержка и развитие авторов на Xena Live',
+            'Legends Agency | Suport și îndrumare pentru creatori pe Xena Live',
+            'Legends Agency | Soutien et encadrement des créateurs sur Xena Live',
+            'Legends Agency | Supporto e tutoraggio per i creatori su Xena Live'
           )}
         </h1>
 
         <p className={`text-sm sm:text-base text-white/70 max-w-2xl mx-auto leading-relaxed mb-8 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'وكالة الأساطير تمنحك عقد الإدارة الرسمي المعتمد لصناع المحتوى على زينا لايف: احتفظ بـ 100% من أرباح هداياك، واحصل على بونص كاش تحفيزي إضافي عند تحقيق مستويات النشاط، مع دعم فني 24/7 وحماية كاملة لحسابك.',
-            'Legends Agency provides official creator management on Xena Live: Keep 100% of your gift earnings, earn extra cash performance bonuses upon reaching activity tiers, with 24/7 VIP support and account immunity.',
-            'Официальное управление для создателей контента на Xena Live: 100% доходов от подарков ваши + бонусы за активность и поддержка 24/7.',
-            'Management oficial pentru creatori pe Xena Live: Păstrează 100% din cadouri + bonusuri la atingerea obiectivelor și suport 24/7.',
-            'Gestion officielle pour créateurs sur Xena Live : 100% de vos cadeaux + primes d\'activité et support 24/7.',
-            'Gestione ufficiale per creator su Xena Live: 100% dei regali + bonus di attività e supporto 24/7.'
+            'نقدم الدعم الفني والتدريب على جودة البث والتوجيه المستمر لصناع المحتوى البالغين على تطبيق Xena Live، مع الالتزام الكامل بسياسات التطبيق.',
+            'We provide technical support, streaming quality training, and continuous mentorship for adult creators on Xena Live, in full compliance with platform policies.',
+            'Мы предоставляем техническую поддержку, обучение качеству трансляций и постоянное наставничество для совершеннолетних авторов на Xena Live в полном соответствии с правилами платформы.',
+            'Oferim suport tehnic, instruire pentru calitatea transmisiunilor și îndrumare continuă pentru creatorii adulți pe Xena Live, în deplină conformitate cu politicile platformei.',
+            'Nous offrons un support technique, une formation à la qualité de diffusion et un encadrement continu pour les créateurs adultes sur Xena Live, en totale conformité avec les règles.',
+            'Offriamo supporto tecnico, formazione sulla qualità dello streaming e tutoraggio continuo per i creatori maggiorenni su Xena Live, nel pieno rispetto delle regole.'
           )}
         </p>
 
         {/* Quick Highlights Trio */}
         <div className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-2xl mx-auto mb-10">
           <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md flex flex-col items-center justify-center">
-            <Coins className="w-5 h-5 text-amber-400 mb-1" />
-            <span className="text-xs sm:text-sm font-bold text-white leading-none">100% مجاناً</span>
+            <Coins className="w-5 h-5 text-cyan-400 mb-1" />
+            <span className="text-xs sm:text-sm font-bold text-white leading-none">انضمام مجاني</span>
             <span className="text-[10px] text-white/50 mt-1 font-mono">بدون أي رسوم</span>
           </div>
 
           <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md flex flex-col items-center justify-center">
             <TrendingUp className="w-5 h-5 text-emerald-400 mb-1" />
-            <span className="text-xs sm:text-sm font-bold text-white leading-none">بونص كاش</span>
-            <span className="text-[10px] text-white/50 mt-1 font-mono">حتى $66,000</span>
+            <span className="text-xs sm:text-sm font-bold text-white leading-none">تدريب وتطوير</span>
+            <span className="text-[10px] text-white/50 mt-1 font-mono">جودة الصوت والإضاءة</span>
           </div>
 
           <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md flex flex-col items-center justify-center">
-            <ShieldCheck className="w-5 h-5 text-cyan-400 mb-1" />
-            <span className="text-xs sm:text-sm font-bold text-white leading-none">حماية وفك حظر</span>
-            <span className="text-[10px] text-white/50 mt-1 font-mono">دعم رسمي 24/7</span>
+            <ShieldCheck className="w-5 h-5 text-purple-400 mb-1" />
+            <span className="text-xs sm:text-sm font-bold text-white leading-none">دعم فني 24/7</span>
+            <span className="text-[10px] text-white/50 mt-1 font-mono">متابعة مستمرة</span>
           </div>
         </div>
       </header>
@@ -257,10 +282,10 @@ export function LandingApplyPage() {
                 <CheckCircle2 size={36} />
               </div>
               <h2 className="text-xl sm:text-2xl font-black text-white mb-2 font-arabic">
-                تهانينا! أنت مؤهل بنسبة 100% للانضمام 👑
+                تهانينا! أنت مؤهل للانضمام معنا 👑
               </h2>
               <p className="text-xs sm:text-sm text-emerald-200/80 max-w-md mx-auto mb-6 leading-relaxed">
-                تم تجهيز تقرير تأهيلك بالكامل وتوجيهك إلى واتساب إدارة وكالة الأساطير الرسمي لاعتماد حسابك وتفعيل الدعم الفوري.
+                تم تجهيز بياناتك وتوجيهك إلى واتساب إدارة وكالة الأساطير للتواصل واستكمال الخطوات وتفعيل الدعم الفني.
               </p>
               <a
                 href={`https://wa.me/447460018974`}
@@ -280,7 +305,7 @@ export function LandingApplyPage() {
                 </div>
               )}
 
-              {/* STEP 1: COMMITMENT & FINANCIAL GOAL */}
+              {/* STEP 1: CONTENT TYPE & GROWTH GOAL */}
               {step === 1 && (
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
@@ -290,20 +315,20 @@ export function LandingApplyPage() {
                 >
                   <div>
                     <label className="block text-sm font-bold text-white mb-2">
-                      1. كم ساعة تستطيع التفرغ للبث المباشر يومياً؟ *
+                      1. ما هو نوع المحتوى الذي تقدمه أو تفضل تقديمه في البث؟ *
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                       {[
-                        { id: 'part-time', title: 'ساعتان - 3 ساعات', desc: 'دوام جزئي إضافي' },
-                        { id: 'full-time', title: '4 - 6 ساعات', desc: 'دوام كامل جاد' },
-                        { id: 'pro', title: '+6 ساعات يومياً', desc: 'احتراف وتصدر القمة' }
+                        { id: 'talk', title: 'حوار ودردشة وتفاعل', desc: 'بث تفاعلي وتواصل مباشر' },
+                        { id: 'gaming', title: 'ألعاب وبث مباشر', desc: 'ألعاب الهواتف والترفيه' },
+                        { id: 'talent', title: 'مواهب وفنون ومنوعات', desc: 'موسيقى، فن، إبداع' }
                       ].map(opt => (
                         <button
                           key={opt.id}
                           type="button"
-                          onClick={() => handleSelectOption('commitment', opt.id)}
+                          onClick={() => handleSelectOption('contentType', opt.id)}
                           className={`p-3.5 rounded-2xl border text-start transition-all cursor-pointer ${
-                            formData.commitment === opt.id
+                            formData.contentType === opt.id
                               ? 'bg-cyan-950/60 border-cyan-400 text-white shadow-[0_0_15px_rgba(0,243,255,0.25)]'
                               : 'bg-white/[0.03] border-white/10 text-white/70 hover:border-white/20'
                           }`}
@@ -317,25 +342,25 @@ export function LandingApplyPage() {
 
                   <div>
                     <label className="block text-sm font-bold text-white mb-2">
-                      2. ما هو مستوى العوائد التقديرية الذي تطمح للوصول إليه من نشاط البث؟ *
+                      2. ما هو هدفك الأساسي من الانضمام لوكالة الأساطير؟ *
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                       {[
-                        { id: 'starter', title: '$500 - $1,500', desc: 'مستوى النشاط الأساسي' },
-                        { id: 'mid', title: '$2,000 - $8,000', desc: 'مستوى النشاط المتقدم' },
-                        { id: 'elite', title: '+$10,000+', desc: 'مستوى نخبة الأساطير 🔥' }
+                        { id: 'quality', title: 'تطوير جودة البث والصوت', desc: 'نصائح لضبط المايك والإضاءة' },
+                        { id: 'audience', title: 'بناء جمهور متفاعل', desc: 'نصائح لزيادة المتابعين' },
+                        { id: 'support', title: 'دعم فني وتوجيه 24/7', desc: 'استشارات تقنية ومتابعة' }
                       ].map(opt => (
                         <button
                           key={opt.id}
                           type="button"
-                          onClick={() => handleSelectOption('incomeGoal', opt.id)}
+                          onClick={() => handleSelectOption('growthGoal', opt.id)}
                           className={`p-3.5 rounded-2xl border text-start transition-all cursor-pointer ${
-                            formData.incomeGoal === opt.id
-                              ? 'bg-amber-950/60 border-amber-400 text-white shadow-[0_0_15px_rgba(251,191,36,0.25)]'
+                            formData.growthGoal === opt.id
+                              ? 'bg-cyan-950/60 border-cyan-400 text-white shadow-[0_0_15px_rgba(0,243,255,0.25)]'
                               : 'bg-white/[0.03] border-white/10 text-white/70 hover:border-white/20'
                           }`}
                         >
-                          <div className="font-bold text-xs sm:text-sm text-amber-300">{opt.title}</div>
+                          <div className="font-bold text-xs sm:text-sm text-cyan-300">{opt.title}</div>
                           <div className="text-[10px] text-white/50 mt-0.5">{opt.desc}</div>
                         </button>
                       ))}
@@ -505,6 +530,26 @@ export function LandingApplyPage() {
                     />
                   </div>
 
+                  {/* Age (Mandatory 18+) */}
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-white/80 flex items-center gap-1.5">
+                      <Clock size={13} className="text-pink-400" />
+                      <span>العمر (18 سنة فأكثر) *</span>
+                    </label>
+                    <input
+                      type="number"
+                      name="age"
+                      value={formData.age}
+                      onChange={handleInputChange}
+                      placeholder="مثال: 22"
+                      min="18"
+                      max="99"
+                      required
+                      inputMode="numeric"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 focus:border-pink-400 focus:bg-black/50 text-white text-sm outline-none transition-all placeholder:text-white/20"
+                    />
+                  </div>
+
                   {/* Social Handle (Optional) */}
                   <div className="space-y-1">
                     <label className="text-xs font-semibold text-white/80 flex items-center gap-1.5">
@@ -521,6 +566,23 @@ export function LandingApplyPage() {
                     />
                   </div>
 
+                  {/* Mandatory Checkbox */}
+                  <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/10">
+                    <label className="flex items-start gap-2.5 cursor-pointer text-xs text-white/85 select-none leading-relaxed">
+                      <input
+                        type="checkbox"
+                        checked={formData.termsAccepted}
+                        onChange={(e) => {
+                          setFormData(prev => ({ ...prev, termsAccepted: e.target.checked }));
+                          if (validationError) setValidationError('');
+                        }}
+                        required
+                        className="mt-0.5 w-4 h-4 rounded border-white/30 bg-black/40 text-cyan-400 focus:ring-cyan-400 cursor-pointer shrink-0"
+                      />
+                      <span>أقر بأن عمري 18 سنة أو أكثر، وأنني أوافق على سياسات تطبيق Xena Live.</span>
+                    </label>
+                  </div>
+
                   {/* Submit Button */}
                   <div className="pt-2">
                     <button
@@ -528,11 +590,11 @@ export function LandingApplyPage() {
                       className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-white font-black text-base flex items-center justify-center gap-2.5 shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
                     >
                       <BrandIcons.WhatsApp className="w-5 h-5 text-white" />
-                      <span>إرسال تقرير التأهيل واستلام العقد عبر الواتساب</span>
+                      <span>إرسال طلب الانضمام عبر الواتساب</span>
                       <Send size={16} className={dir === 'rtl' ? 'rotate-180' : ''} />
                     </button>
                     <p className="text-[11px] text-center text-white/40 mt-2 font-mono">
-                      🔒 معلوماتك مشفرة ومحمية، وسيتم فتح محادثة فورية مع إدارة القبول لوكالة الأساطير.
+                      🔒 سيتم استخدام بياناتك للتواصل معك بخصوص طلبك فقط.
                     </p>
                   </div>
 
@@ -553,7 +615,7 @@ export function LandingApplyPage() {
       {/* 4. WHY LEGENDS AGENCY? (VALUE STACK) */}
       <section className="relative z-10 w-full px-4 sm:px-6 max-w-4xl mx-auto mb-16">
         <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 font-arabic">
-          لماذا ينضم كبار المذيعين وصناع المحتوى لوكالة الأساطير؟
+          لماذا ينضم صناع المحتوى لوكالة الأساطير؟
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -561,9 +623,9 @@ export function LandingApplyPage() {
             <div className="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-500/40 flex items-center justify-center text-pink-300 mb-3">
               <Award size={20} />
             </div>
-            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">عقد رسمي وبونص كاش</h3>
+            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">تدريب على الصوت والإضاءة</h3>
             <p className="text-xs text-white/60 leading-relaxed">
-              تحصل على كامل أرباحك من التطبيق 100% بدون أي استقطاع، بالإضافة إلى سلم بونص كاش شهري من الوكالة يصل حتى $66,000.
+              إرشادات عملية ونصائح متخصصة لرفع جودة الصوت والكاميرا والإضاءة لتقديم بث مباشر جذاب واحترافي.
             </p>
           </div>
 
@@ -571,9 +633,9 @@ export function LandingApplyPage() {
             <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300 mb-3">
               <ShieldCheck size={20} />
             </div>
-            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">حصانة وفك حظر 24/7</h3>
+            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">دعم فني سريع 24/7</h3>
             <p className="text-xs text-white/60 leading-relaxed">
-              خط ساخن ومباشر مع مسؤولي ومطوري تطبيق Xena Live لحماية حسابك من البلاغات الكيدية وفك الحظر فورياً.
+              فريق دعم فني متواجد لمساعدتك في أي عقبات تقنية أو استفسارات حول استخدام التطبيق وأدوات البث.
             </p>
           </div>
 
@@ -581,9 +643,9 @@ export function LandingApplyPage() {
             <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 mb-3">
               <TrendingUp size={20} />
             </div>
-            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">تدريب ودعم جولات</h3>
+            <h3 className="text-base font-bold text-white mb-1.5 font-arabic">تطوير المحتوى والمتابعة</h3>
             <p className="text-xs text-white/60 leading-relaxed">
-              مشرفون محترفون معك يومياً لتنسيق الجولات الرسمية وجذب الداعمين وتجهيز الإضاءة والمايك للوصول إلى الإكسبلور.
+              تحليل دوري لأدائك وتقديم أفكار مبتكرة وتوجيهات مستمرة لتنمية جمهورك وزيادة التفاعل.
             </p>
           </div>
         </div>
@@ -612,7 +674,7 @@ export function LandingApplyPage() {
           <span>إخلاء مسؤولية قانوني وتنظيمي (Legal & Earnings Disclaimer)</span>
         </div>
         <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed max-w-3xl mx-auto">
-          وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير معتمدة لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف أو مشغل حكومي، ولا تقدم وظائف رسمية أو رواتب شهرية ثابتة أو وعوداً بأرباح مضمونة. المذيعون وصناع المحتوى هم متعاقدون مستقلون بالكامل (Independent Content Creators)، وتعتمد كافة العوائد المالية والمكافآت التقديرية كلياً على الجهد والنشاط الفردي، وساعات البث الفعالة، والالتزام بسياسات وإرشادات مجتمع Xena Live، ومستوى الدعم والهدايا الافتراضية المستلمة من الجمهور داخل التطبيق. يتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة عن نشاطه والتزامه بالأنظمة واللوائح المعمول بها في بلد إقامة صانع المحتوى.
+          وكالة الأساطير (Legends Agency) هي شبكة إدارة وتطوير لصناع المحتوى والمذيعين على منصة Xena Live. الوكالة ليست جهة توظيف أو مشغل حكومي، ولا تقدم وظائف رسمية أو مخصصات شهرية ثابتة أو وعوداً بأرباح مؤكدة. المذيعون وصناع المحتوى هم متعاقدون مستقلون بالكامل (Independent Content Creators)، وتعتمد كافة العوائد والمكافآت التقديرية كلياً على الجهد والنشاط الفردي، وساعات البث الفعالة، والالتزام بسياسات وإرشادات مجتمع Xena Live، ومستوى الدعم والهدايا الافتراضية المستلمة من الجمهور داخل التطبيق. الخدمة متاحة للبالغين 18+ فقط، ويتحمل كل صانع محتوى المسؤولية القانونية والضريبية الكاملة عن نشاطه والتزامه بالأنظمة واللوائح المعمول بها في بلد إقامته.
         </p>
       </div>
     </div>

@@ -20,7 +20,7 @@ export function SocialSection() {
         {/* Header */}
         <div className="mb-4">
           <span className="text-[10.5px] sm:text-[11px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
-            {t('منصاتنا الرسمية', 'Official Social Channels', 'Официальные соцсети', 'Rețele sociale oficiale', 'Réseaux sociaux officiels', 'Canali social ufficiali')}
+            {t('قنوات التواصل الاجتماعي', 'Social Media Channels', 'Социальные сети', 'Rețele sociale', 'Réseaux sociaux', 'Canali social')}
           </span>
           <h3 className={`text-[17px] sm:text-[20px] font-bold text-white tracking-wide mt-1 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t('تابع وتواصل مع وكالة الأساطير', 'Follow & Connect With Legends', 'Следите за новостями агентства', 'Urmărește și conectează-te cu Legends', 'Suivez et contactez l\'Agence Legends', 'Segui e connettiti con Legends')}

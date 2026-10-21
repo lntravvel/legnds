@@ -29,17 +29,17 @@ export function PortalTeaser() {
           </div>
           
           <h2 className={`text-[19px] sm:text-[23px] md:text-[25px] font-bold text-white tracking-wide mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-            {t('شفافية رقمية كاملة لكل إحصائياتك وأرباحك', 'Complete Digital Transparency for Your Stats & Revenue', 'Полная прозрачность вашей статистики и доходов', 'Transparență completă pentru statistici și venituri', 'Transparence totale pour vos statistiques et revenus', 'Trasparenza totale per le tue statistiche e guadagni')}
+            {t('متابعة دورية لإحصائياتك وتطوير أدائك', 'Ongoing Tracking of Your Stream Stats & Performance', 'Отслеживание статистики и показателей вашего эфира', 'Monitorizare continuă a statisticilor și performanței', 'Suivi continu de vos statistiques et de vos performances', 'Monitoraggio continuo delle statistiche e delle prestazioni')}
           </h2>
           
           <p className={`text-white/70 text-[12.5px] sm:text-[13.5px] leading-relaxed max-w-xl mx-auto mb-5 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'بونصاتك، دعمك، إحالاتك، ودفعات نقاطك بنظرة واحدة. بمجرد ربط بروفايلك، تظهر جميع إحصائياتك بشفافية تامة دون أي تأخير.',
-              'Track your bonuses, support, referrals, points payments, and debts at a glance with 100% live transparency.',
-              'Следите за своими бонусами, поддержкой, рефералами и выплатами в одном месте с полной прозрачностью.',
-              'Urmăriți bonusurile, suportul, recomandările și plățile dintr-o privire cu transparență totală.',
-              'Suivez vos bonus, votre support, vos parrainages et vos paiements avec une transparence totale.',
-              'Tieni traccia dei tuoi bonus, supporto, segnalazioni e pagamenti con piena trasparenza.'
+              'ساعات البث الفعالة، تفاعل الجمهور، وملاحظات المشرفين بنظرة واحدة لمساعدتك على رفع جودة محتواك بانتظام.',
+              'Broadcast hours, audience engagement, and supervisor insights at a glance to help you consistently elevate your content quality.',
+              'Часы эфира, вовлеченность аудитории и рекомендации кураторов в одном месте.',
+              'Orele de transmisie, implicarea publicului și recomandările supervizorilor dintr-o privire.',
+              'Heures de diffusion, engagement du public et conseils des superviseurs en un coup d\'œil.',
+              'Ore di diretta, coinvolgimento del pubblico e feedback dei supervisori a colpo d\'occhio.'
             )}
           </p>
 
@@ -47,19 +47,19 @@ export function PortalTeaser() {
             <div className="flex flex-col items-center p-3 rounded-xl bg-white/[0.03] border border-white/5">
               <TrendingUp size={18} className="text-emerald-400 mb-1.5" />
               <span className={`text-[10.5px] text-white/70 uppercase tracking-wider font-semibold ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-                {t('الأرباح والبونص', 'Revenue & Bonus', 'Доход и бонус', 'Venituri și bonus', 'Revenus & Bonus', 'Entrate e bonus')}
+                {t('تقارير الأداء', 'Performance Reports', 'Отчеты об эфирах', 'Rapoarte de performanță', 'Rapports de performance', 'Report sulle prestazioni')}
               </span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-white/[0.03] border border-white/5">
               <Users size={18} className="text-blue-400 mb-1.5" />
               <span className={`text-[10.5px] text-white/70 uppercase tracking-wider font-semibold ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-                {t('شبكة الداعمين', 'Supporters Network', 'Сеть спонсоров', 'Rețeaua de sponsori', 'Réseau de donateurs', 'Rete di sostenitori')}
+                {t('تفاعل الجمهور', 'Audience Engagement', 'Аудитория', 'Implicarea publicului', 'Engagement du public', 'Coinvolgimento del pubblico')}
               </span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-white/[0.03] border border-white/5">
               <ShieldCheck size={18} className="text-cyan-400 mb-1.5" />
               <span className={`text-[10.5px] text-white/70 uppercase tracking-wider font-semibold ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-                {t('حالة التوثيق', 'Verification Status', 'Статус аккаунта', 'Stare verificare', 'Statut du compte', 'Stato account')}
+                {t('متابعة الحساب', 'Account Support', 'Поддержка аккаунта', 'Asistență cont', 'Assistance compte', 'Supporto account')}
               </span>
             </div>
           </div>

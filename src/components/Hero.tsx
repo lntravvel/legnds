@@ -53,7 +53,7 @@ function LegendsLogo() {
           className="absolute inset-0 blur-3xl rounded-full bg-blue-600/30 opacity-40 z-0"
         />
         
-        {/* Official Logo with high-intensity entry keyframes */}
+        {/* Legends Logo with high-intensity entry keyframes */}
         <motion.div 
           initial={{ scale: 0.3, opacity: 0, filter: 'brightness(3) blur(10px)' }}
           animate={{ 
@@ -181,11 +181,11 @@ function PartnerLogos() {
   return (
     <div className="flex flex-col items-center mt-2 mb-8">
       <p className="text-[10px] uppercase tracking-widest text-white/40 mb-4 font-semibold">
-        {t('الوكالة والبرنامج الرسمي المعتمد', 'Official Accredited Program', 'Официальная аккредитованная программа', 'Program oficial acreditat', 'Programme officiel accrédité', 'Programma ufficiale accreditato')}
+        {t('وكالة شريكة على تطبيق Xena Live', 'Partner Agency on Xena Live', 'Агентство-партнер на Xena Live', 'Agenție parteneră pe Xena Live', 'Agence partenaire sur Xena Live', 'Agenzia partner su Xena Live')}
       </p>
       
       <div className="flex items-center justify-center">
-        {/* Xena Live Official Partner */}
+        {/* Xena Live Partner */}
         <motion.div 
           animate={{ y: [-3, 3, -3] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -196,7 +196,7 @@ function PartnerLogos() {
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-950/60 border border-pink-500/40">
             <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping" />
-            <span className="text-[11.5px] font-mono text-pink-300 font-bold tracking-wider uppercase">XENA LIVE OFFICIAL</span>
+            <span className="text-[11.5px] font-mono text-pink-300 font-bold tracking-wider uppercase">XENA LIVE PARTNER</span>
           </div>
         </motion.div>
       </div>
@@ -238,22 +238,22 @@ export function Hero() {
         >
           <h3 className={`text-[22px] md:text-[28px] leading-tight font-bold text-white mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'هنا تُصنع أساطير البث المباشر',
-              'Where Digital Legends Are Born',
-              'Здесь рождаются цифровые легенды',
-              'Aici se nasc legendele digitale',
-              'Où naissent les légendes numériques',
-              'Dove nascono le leggende digitali'
+              'وكالة الأساطير | دعم وتوجيه صناع المحتوى على Xena Live',
+              'Legends Agency | Support & Mentorship for Creators on Xena Live',
+              'Legends Agency | Поддержка и развитие авторов на Xena Live',
+              'Legends Agency | Suport și îndrumare pentru creatori pe Xena Live',
+              'Legends Agency | Soutien et encadrement des créateurs sur Xena Live',
+              'Legends Agency | Supporto e tutoraggio per i creatori su Xena Live'
             )}
           </h3>
           <p className={`text-[14px] md:text-[16px] text-white/60 leading-relaxed font-normal mt-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'انضم إلى شبكة النخبة من المذيعين وصناع المحتوى على زينا لايف. نحن نقدم إدارة من الدرجة الأولى ودعماً حصرياً على مدار الساعة.',
-              'Join the elite network of broadcasters and creators on Xena Live. We provide top-tier management and 24/7 support.',
-              'Присоединяйтесь к элитной сети ведущих на Xena Live. Мы обеспечиваем управление высшего уровня и круглосуточную поддержку.',
-              'Alătură-te rețelei de elită a crainicilor pe Xena Live. Oferim management de top și suport 24/7.',
-              'Rejoignez le réseau d\'élite des diffuseurs sur Xena Live. Nous offrons une gestion de premier plan et un support 24/7.',
-              'Unisciti alla rete d\'élite di emittenti su Xena Live. Offriamo una gestione di alto livello e supporto 24/7.'
+              'نقدم الدعم الفني والتدريب على جودة البث والتوجيه المستمر لصناع المحتوى البالغين على تطبيق Xena Live، مع الالتزام الكامل بسياسات التطبيق.',
+              'We provide technical support, streaming quality training, and continuous mentorship for adult creators on Xena Live, in full compliance with platform policies.',
+              'Мы предоставляем техническую поддержку, обучение качеству трансляций и постоянное наставничество для совершеннолетних авторов на Xena Live в полном соответствии с правилами платформы.',
+              'Oferim suport tehnic, instruire pentru calitatea transmisiunilor și îndrumare continuă pentru creatorii adulți pe Xena Live, în deplină conformitate cu politicile platformei.',
+              'Nous offrons un support technique, une formation à la qualité de diffusion et un encadrement continu pour les créateurs adultes sur Xena Live, en totale conformité avec les règles.',
+              'Offriamo supporto tecnico, formazione sulla qualità dello streaming e tutoraggio continuo per i creatori maggiorenni su Xena Live, nel pieno rispetto delle regole.'
             )}
           </p>
 
@@ -310,7 +310,7 @@ export function Hero() {
                 style={{ background: '#00F3FF' }}
               />
 
-              {/* Official Brand Watermark in Corner */}
+              {/* Brand Watermark in Corner */}
               <div 
                 className={`absolute pointer-events-none select-none z-0 transition-all duration-500 ${
                   dir === 'rtl' ? 'left-4' : 'right-4'
@@ -346,7 +346,7 @@ export function Hero() {
                   )}
                 </span>
                 <span className="text-[10.5px] sm:text-[11px] font-semibold tracking-wider uppercase text-[#00F3FF] opacity-90">
-                  Official Xena Live Partner
+                  {t('وكالة شريكة على تطبيق Xena Live', 'Partner Agency on Xena Live', 'Агентство-партнер на Xena Live', 'Agenție parteneră pe Xena Live', 'Agence partenaire sur Xena Live', 'Agenzia partner su Xena Live')}
                 </span>
               </div>
 
@@ -458,12 +458,12 @@ export function Hero() {
             <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] font-mono text-white/50">
               <span className="flex items-center gap-1 text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                {t('انضمام مجاني 100%', '100% Free', '100% бесплатно', '100% gratuit', '100% gratuit', '100% gratuito')}
+                {t('انضمام مجاني', 'Free Joining', 'Бесплатное участие', 'Înscriere gratuită', 'Inscription gratuite', 'Iscrizione gratuita')}
               </span>
               <span>•</span>
-              <span>{t('حماية الحسابات 24/7', '24/7 Immunity', 'Защита 24/7', 'Protecție 24/7', 'Protection 24/7', 'Protezione 24/7')}</span>
+              <span>{t('دعم فني 24/7', '24/7 Technical Support', 'Техподдержка 24/7', 'Suport tehnic 24/7', 'Support technique 24/7', 'Supporto tecnico 24/7')}</span>
               <span>•</span>
-              <span>{t('بونص كاش إضافي', 'Cash Bonuses', 'Бонусы кэш', 'Bonusuri cash', 'Primes en cash', 'Bonus in contanti')}</span>
+              <span>{t('تدريب وتطوير', 'Training & Development', 'Обучение и развитие', 'Instruire și dezvoltare', 'Formation et développement', 'Formazione e sviluppo')}</span>
             </div>
           </div>
         </motion.div>

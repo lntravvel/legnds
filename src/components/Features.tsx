@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Headset, DollarSign, Award, Rocket } from 'lucide-react';
+import { Headset, Mic, BarChart2, Rocket } from 'lucide-react';
 import { useLanguage, Language } from '../i18n/LanguageContext';
 
 const FEATURES = [
@@ -8,63 +8,63 @@ const FEATURES = [
     icon: Headset,
     title: {
       ar: 'دعم فني خاص 24/7',
-      en: '24/7 VIP Support',
-      ru: 'Круглосуточная VIP-поддержка',
-      ro: 'Suport VIP 24/7',
-      fr: 'Support VIP 24/7',
-      it: 'Supporto VIP 24/7'
+      en: '24/7 Technical Support',
+      ru: 'Круглосуточная техподдержка',
+      ro: 'Suport tehnic 24/7',
+      fr: 'Support technique 24/7',
+      it: 'Supporto tecnico 24/7'
     },
     desc: {
-      ar: 'متابعة لحظية ومستمرة لكل مذيع لحل أي عقبة فورياً',
-      en: 'Real-time dedicated support resolving any issue instantly',
-      ru: 'Мгновенная поддержка для решения любых вопросов',
-      ro: 'Asistență dedicată în timp real pentru orice problemă',
-      fr: 'Assistance dédiée en temps réel pour chaque créateur',
-      it: 'Supporto dedicato in tempo reale per qualsiasi problema'
+      ar: 'متابعة واستشارات لمساعدتك في أي عقبات تقنية تواجهك',
+      en: 'Dedicated guidance to help you resolve technical hurdles',
+      ru: 'Консультации и помощь в решении технических вопросов',
+      ro: 'Asistență dedicată pentru rezolvarea problemelor tehnice',
+      fr: 'Assistance dédiée pour résoudre les difficultés techniques',
+      it: 'Assistenza dedicata per risolvere eventuali ostacoli tecnici'
     },
     bgImage: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=800&auto=format&fit=crop',
     color: '#00f3ff'
   },
   {
     id: 2,
-    icon: DollarSign,
+    icon: Mic,
     title: {
-      ar: 'أعلى نسبة أرباح وبونص',
-      en: 'Highest Revenue & Bonuses',
-      ru: 'Самый высокий доход и бонусы',
-      ro: 'Cele mai mari venituri și bonusuri',
-      fr: 'Revenus et bonus maximaux',
-      it: 'Entrate e bonus più alti'
+      ar: 'تدريب على الصوت والإضاءة وتقديم المحتوى',
+      en: 'Audio, Lighting & Presentation Training',
+      ru: 'Обучение звуку, свету и подаче контента',
+      ro: 'Instruire pentru sunet, lumini și prezentare',
+      fr: 'Formation son, éclairage et présentation',
+      it: 'Formazione su audio, luci e presentazione'
     },
     desc: {
-      ar: 'مكافآت شهرية إضافية كاش عند تحقيق التارقت بدون خصومات',
-      en: 'Extra monthly cash rewards when hitting targets without deductions',
-      ru: 'Ежемесячные денежные бонусы за выполнение целей',
-      ro: 'Bonusuri lunare în numerar la atingerea obiectivelor',
-      fr: 'Bonus mensuels en espèces dès l\'atteinte des objectifs',
-      it: 'Bonus mensili in contanti al raggiungimento degli obiettivi'
+      ar: 'ورش تدريبية ونصائح عملية لرفع جودة البث وجذب الجمهور',
+      en: 'Practical workshops and tips to improve stream quality and engagement',
+      ru: 'Практические советы и тренинги для улучшения качества эфира',
+      ro: 'Workshop-uri practice și sfaturi pentru îmbunătățirea transmisiei',
+      fr: 'Ateliers pratiques et conseils pour améliorer la qualité du direct',
+      it: 'Workshop pratici e consigli per migliorare la qualità dello streaming'
     },
     bgImage: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=800&auto=format&fit=crop',
     color: '#fbbf24'
   },
   {
     id: 3,
-    icon: Award,
+    icon: BarChart2,
     title: {
-      ar: 'شارات وتوثيق رسمي',
-      en: 'Official Badges & Immunity',
-      ru: 'Официальные значки и защита',
-      ro: 'Insigne oficiale și protecție',
-      fr: 'Badges officiels et protection',
-      it: 'Badge ufficiali e protezione'
+      ar: 'متابعة وتقارير أداء دورية',
+      en: 'Performance Reviews & Periodic Reports',
+      ru: 'Регулярные отчеты и аналитика эффективности',
+      ro: 'Monitorizare și rapoarte periodice de performanță',
+      fr: 'Suivi et rapports périodiques de performance',
+      it: 'Monitoraggio e report periodici sulle prestazioni'
     },
     desc: {
-      ar: 'أولوية في توثيق الحسابات ومنح الشارات المعتمدة للوكالة',
-      en: 'Priority profile verification and accredited agency badges',
-      ru: 'Приоритетная верификация и официальные значки',
-      ro: 'Prioritate la verificare și insigne oficiale ale agenției',
-      fr: 'Vérification prioritaire et badges officiels d\'agence',
-      it: 'Verifica prioritaria e badge ufficiali dell\'agenzia'
+      ar: 'تحليل ساعات البث وتفاعل الجمهور لمساعدتك على التطوير المستمر',
+      en: 'Analysis of broadcast hours and audience engagement for continuous growth',
+      ru: 'Анализ часов эфира и вовлеченности аудитории для постоянного роста',
+      ro: 'Analiza orelor de transmisie și interacțiunii pentru dezvoltare continuă',
+      fr: 'Analyse des heures de direct et de l\'engagement pour une croissance continue',
+      it: 'Analisi delle ore di trasmissione e del coinvolgimento per la crescita'
     },
     bgImage: 'https://images.unsplash.com/photo-1578269174936-2709b6aeb913?q=80&w=800&auto=format&fit=crop',
     color: '#38bdf8'
@@ -73,20 +73,20 @@ const FEATURES = [
     id: 4,
     icon: Rocket,
     title: {
-      ar: 'نمو سريع وصعود للإكسبلور',
-      en: 'Rapid Growth & Explore Reach',
-      ru: 'Быстрый рост и рекомендации',
-      ro: 'Creștere rapidă și promovare',
-      fr: 'Croissance rapide et Explore',
-      it: 'Crescita rapida ed Esplora'
+      ar: 'نمو سريع وتطوير المحتوى',
+      en: 'Content Growth & Reach',
+      ru: 'Развитие контента и рост',
+      ro: 'Creșterea conținutului și promovare',
+      fr: 'Croissance et développement du contenu',
+      it: 'Crescita e sviluppo dei contenuti'
     },
     desc: {
-      ar: 'خطط مدروسة لدفع البث المباشر إلى واجهة التطبيق والترند',
-      en: 'Targeted strategies pushing your stream to the front page and trend',
-      ru: 'Стратегии для продвижения вашего эфира на главную страницу',
-      ro: 'Strategii clare care îți propulsează transmisia pe prima pagină',
-      fr: 'Stratégies ciblées pour propulser votre direct en première page',
-      it: 'Strategie mirate per spingere la tua diretta in prima pagina'
+      ar: 'خطط مدروسة لدفع البث المباشر نحو التميز وجذب المتابعين',
+      en: 'Targeted strategies pushing your stream toward excellence',
+      ru: 'Стратегии для развития вашего эфира и привлечения аудитории',
+      ro: 'Strategii clare care îți propulsează transmisia spre excelență',
+      fr: 'Stratégies ciblées pour propulser votre direct vers l\'excellence',
+      it: 'Strategie mirate per portare la tua diretta all\'eccellenza'
     },
     bgImage: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop',
     color: '#a855f7'

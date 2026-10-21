@@ -1,17 +1,17 @@
 import { motion } from 'motion/react';
-import { Users, TrendingUp, DollarSign } from 'lucide-react';
+import { Users, Headset, CheckCircle2 } from 'lucide-react';
 import { useLanguage, Language } from '../i18n/LanguageContext';
 
 const STATS = [
   { 
     id: 1, 
     label: {
-      ar: 'مذيع نشط',
-      en: 'Active Broadcasters',
-      ru: 'Активные ведущие',
-      ro: 'Crainici activi',
-      fr: 'Diffuseurs actifs',
-      it: 'Trasmettitori attivi'
+      ar: 'صانع محتوى',
+      en: 'Creators Supported',
+      ru: 'Авторов контента',
+      ro: 'Creatori susținuți',
+      fr: 'Créateurs accompagnés',
+      it: 'Creator supportati'
     },
     value: '+500', 
     icon: Users 
@@ -19,28 +19,28 @@ const STATS = [
   { 
     id: 2, 
     label: {
-      ar: 'مشاهدات شهرية',
-      en: 'Monthly Views',
-      ru: 'Ежемесячные просмотры',
-      ro: 'Vizualizări lunare',
-      fr: 'Vues mensuelles',
-      it: 'Visualizzazioni mensili'
+      ar: 'دعم فني وتوجيه',
+      en: 'Technical Support',
+      ru: 'Техподдержка и помощь',
+      ro: 'Suport tehnic dedicat',
+      fr: 'Support technique',
+      it: 'Supporto tecnico'
     },
-    value: '10M+', 
-    icon: TrendingUp 
+    value: '24/7', 
+    icon: Headset 
   },
   { 
     id: 3, 
     label: {
-      ar: 'أرباح قياسية',
-      en: 'Top Earnings',
-      ru: 'Рекордные доходы',
-      ro: 'Câștiguri de top',
-      fr: 'Revenus record',
-      it: 'Guadagni record'
+      ar: 'انضمام مجاني',
+      en: 'Free Joining',
+      ru: 'Бесплатное участие',
+      ro: 'Înscriere gratuită',
+      fr: 'Inscription gratuite',
+      it: 'Iscrizione gratuita'
     },
-    value: '$1M+', 
-    icon: DollarSign 
+    value: '100%', 
+    icon: CheckCircle2 
   },
 ];
 

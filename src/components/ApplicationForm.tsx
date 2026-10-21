@@ -13,8 +13,8 @@ export function ApplicationForm() {
     country: '',
     age: '',
     experience: 'beginner',
-    hours: 'part-time',
-    socialHandle: ''
+    socialHandle: '',
+    termsAccepted: false
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -29,15 +29,44 @@ export function ApplicationForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.country.trim()) {
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.country.trim() || !formData.age.trim()) {
       setErrorMsg(
         t(
-          'يرجى ملء جميع الحقول الأساسية (الاسم، رقم الهاتف، الدولة)',
-          'Please fill in required fields (Name, Phone, Country)',
-          'Пожалуйста, заполните обязательные поля (Имя, Телефон, Страна)',
-          'Vă rugăm să completați câmpurile obligatorii (Nume, Telefon, Țară)',
-          'Veuillez remplir les champs obligatoires (Nom, Téléphone, Pays)',
-          'Si prega di compilare i campi obbligatori (Nome, Telefono, Paese)'
+          'يرجى ملء جميع الحقول الأساسية (الاسم، رقم الهاتف، الدولة، العمر)',
+          'Please fill in all required fields (Name, Phone, Country, Age)',
+          'Пожалуйста, заполните обязательные поля (Имя, Телефон, Страна, Возраст)',
+          'Vă rugăm să completați câmpurile obligatorii (Nume, Telefon, Țară, Vârstă)',
+          'Veuillez remplir les champs obligatoires (Nom, Téléphone, Pays, Âge)',
+          'Si prega di compilare i campi obbligatori (Nome, Telefono, Paese, Età)'
+        )
+      );
+      return;
+    }
+
+    const ageNum = parseInt(formData.age, 10);
+    if (isNaN(ageNum) || ageNum < 18) {
+      setErrorMsg(
+        t(
+          'الانضمام متاح فقط لمن هم 18 سنة فأكثر.',
+          'Joining is only available for individuals 18 years or older.',
+          'Вступление доступно только лицам от 18 лет и старше.',
+          'Înscrierea este permisă doar persoanelor cu vârsta de 18 ani sau mai mult.',
+          'L\'inscription est réservée aux personnes de 18 ans et plus.',
+          'L\'iscrizione è consentita solo a chi ha compiuto 18 anni o più.'
+        )
+      );
+      return;
+    }
+
+    if (!formData.termsAccepted) {
+      setErrorMsg(
+        t(
+          'يرجى تأكيد الإقرار بأن عمرك 18 سنة أو أكثر والموافقة على سياسات Xena Live.',
+          'Please confirm that you are 18+ and agree to Xena Live policies.',
+          'Пожалуйста, подтвердите, что вам исполнилось 18 лет, и согласие с правилами Xena Live.',
+          'Vă rugăm să confirmați că aveți cel puțin 18 ani și sunteți de acord cu politicile Xena Live.',
+          'Veuillez confirmer que vous avez 18 ans ou plus et accepter les règles de Xena Live.',
+          'Conferma di avere almeno 18 anni e di accettare le regole di Xena Live.'
         )
       );
       return;
@@ -49,14 +78,7 @@ export function ApplicationForm() {
       xena_current: t('مذيع حالي على زينا لايف', 'Current host on Xena Live', 'Текущий ведущий на Xena Live', 'Gazdă actuală pe Xena Live', 'Diffuseur actuel sur Xena Live', 'Host attuale su Xena Live')
     };
 
-    const hoursTextMap: Record<string, string> = {
-      'part-time': t('دوام جزئي (2 - 3 ساعات يومياً)', 'Part-time (2-3 hours daily)', 'Частичная занятость (2-3 часа)', 'Part-time (2-3 ore zilnic)', 'Temps partiel (2-3h par jour)', 'Part-time (2-3 ore al giorno)'),
-      'full-time': t('دوام كامل احترافي (4 - 6 ساعات يومياً)', 'Full-time Pro (4-6 hours daily)', 'Полная занятость (4-6 часов)', 'Full-time Pro (4-6 ore zilnic)', 'Temps plein (4-6h par jour)', 'Full-time Pro (4-6 ore al giorno)'),
-      'flexible': t('مرن حسب التفرغ', 'Flexible schedule', 'Гибкий график', 'Program flexibil', 'Horaires flexibles', 'Orario flessibile')
-    };
-
     const experienceLabel = expTextMap[formData.experience] || formData.experience;
-    const hoursLabel = hoursTextMap[formData.hours] || formData.hours;
 
     // Sanitize inputs to prevent control character injection and excessive lengths
     const cleanStr = (str: string, maxLen = 80) =>
@@ -68,19 +90,19 @@ export function ApplicationForm() {
     const safeAge = cleanStr(formData.age, 3);
     const safeHandle = cleanStr(formData.socialHandle, 50);
 
-    // Beautifully formatted WhatsApp message
+    // Formatted WhatsApp message
     const message = [
       '🌟 *طلب انضمام جديد - وكالة الأساطير (Legends Agency)* 🌟',
       '────────────────────────────',
       `👤 *الاسم:* ${safeName}`,
       `📱 *رقم الواتساب:* ${safePhone}`,
       `🌍 *الدولة / الإقامة:* ${safeCountry}`,
-      safeAge ? `🎂 *العمر:* ${safeAge}` : null,
+      `🎂 *العمر (18+):* ${safeAge}`,
       `🎙️ *مستوى الخبرة:* ${experienceLabel}`,
-      `⏱️ *ساعات البث المستهدفة:* ${hoursLabel}`,
       safeHandle ? `🔗 *معرف السوشيال / الآيدي:* ${safeHandle}` : null,
+      '✅ *إقرار:* المتقدم 18+ وموافق على سياسات تطبيق Xena Live',
       '────────────────────────────',
-      '✨ تم إرسال هذا الطلب عبر الموقع الرسمي: https://legeends.com/'
+      'تم إرسال هذا الطلب عبر الموقع: https://legeends.com/'
     ].filter(Boolean).join('\n');
 
     setIsSubmitted(true);
@@ -107,30 +129,38 @@ export function ApplicationForm() {
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-950/60 border border-pink-500/30 text-pink-300 text-xs font-mono mb-4 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
-            <span className="font-bold tracking-wider uppercase">
-              {t('انضم إلى نخبة الأساطير', 'Join The Legends Elite', 'Станьте легендой', 'Alătură-te elitei', 'Rejoignez l\'élite', 'Unisciti all\'élite')}
-            </span>
+          {/* 18+ Adult Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-xs font-bold mb-3 shadow-sm">
+            <span>🔞</span>
+            <span>{t('الخدمة متاحة للبالغين 18+ فقط', 'Service for Adults 18+ Only', 'Сервис только для совершеннолетних 18+', 'Serviciu doar pentru adulți 18+', 'Réservé aux adultes 18+ uniquement', 'Servizio riservato ai maggiorenni 18+')}</span>
+          </div>
+
+          <div className="flex justify-center mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-950/60 border border-pink-500/30 text-pink-300 text-xs font-mono shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
+              <span className="font-bold tracking-wider uppercase">
+                {t('انضم إلى وكالة الأساطير', 'Join Legends Agency', 'Вступить в Legends Agency', 'Alătură-te Agenției Legends', 'Rejoignez l\'Agence Legends', 'Unisciti a Legends Agency')}
+              </span>
+            </div>
           </div>
 
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 tracking-tight ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'قدّم طلبك الآن وابدأ رحلة الأرباح',
-              'Apply Now & Start Your Earnings Journey',
-              'Подайте заявку и начните зарабатывать',
-              'Aplică acum și începe să câștigi',
-              'Postulez maintenant et commencez à gagner',
-              'Candidati ora e inizia a guadagnare'
+              'قدّم طلب الانضمام',
+              'Submit Your Application',
+              'Подать заявку на вступление',
+              'Trimite cererea de înscriere',
+              'Soumettre votre candidature',
+              'Invia la domanda di candidatura'
             )}
           </h2>
 
           <p className={`text-xs sm:text-sm text-white/60 leading-relaxed ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'املأ بياناتك أدناه وسيقوم فريق إدارة الوكالة بالتواصل معك مباشرة عبر الواتساب لإتمام تسجيلك وتفعيل الدعم الفوري.',
-              'Fill in your details below and our management team will reach out directly on WhatsApp to complete your registration.',
-              'Заполните форму ниже, и мы свяжемся с вами в WhatsApp для завершения регистрации.',
-              'Completează formularul de mai jos și echipa noastră te va contacta pe WhatsApp.',
+              'املأ بياناتك أدناه وسيقوم فريق إدارة الوكالة بالتواصل معك مباشرة عبر الواتساب لإتمام تسجيلك وتفعيل الدعم الفني والتوجيه.',
+              'Fill in your details below and our management team will reach out directly on WhatsApp to guide you and complete setup.',
+              'Заполните форму ниже, и наша команда свяжется с вами в WhatsApp для завершения регистрации.',
+              'Completează datele de mai jos și echipa noastră te va contacta direct pe WhatsApp.',
               'Remplissez vos coordonnées ci-dessous et notre équipe vous contactera directement sur WhatsApp.',
               'Compila i dettagli di seguito e il nostro team ti contatterà su WhatsApp.'
             )}
@@ -152,8 +182,8 @@ export function ApplicationForm() {
             </h3>
             <p className={`text-sm text-emerald-200/80 max-w-md mb-6 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
               {t(
-                'تم توجيهك إلى تطبيق الواتساب الرسمي للوكالة لإرسال الطلب. إذا لم يفتح التطبيق تلقائياً، اضغط على الزر أدناه.',
-                'You have been redirected to official WhatsApp. If it did not open automatically, click the button below.',
+                'تم توجيهك إلى تطبيق الواتساب لإرسال الطلب. إذا لم يفتح التطبيق تلقائياً، اضغط على الزر أدناه.',
+                'You have been redirected to WhatsApp. If it did not open automatically, click the button below.',
                 'Вы были перенаправлены в WhatsApp. Если он не открылся, нажмите кнопку ниже.',
                 'Ai fost redirecționat pe WhatsApp. Dacă nu s-a deschis, apasă pe butonul de mai jos.',
                 'Vous avez été redirigé vers WhatsApp. S\'il ne s\'est pas ouvert, cliquez ci-dessous.',
@@ -233,11 +263,11 @@ export function ApplicationForm() {
                 />
               </div>
 
-              {/* Age */}
+              {/* Age (Mandatory 18+) */}
               <div className="space-y-1.5">
                 <label className="flex items-center gap-1.5 text-xs font-semibold text-white/80">
                   <Clock className="w-3.5 h-3.5 text-pink-400" />
-                  <span>{t('العمر (اختياري)', 'Age (Optional)', 'Возраст (необязательно)', 'Vârstă (opțional)', 'Âge (facultatif)', 'Età (facoltativo)')}</span>
+                  <span>{t('العمر (18 سنة فأكثر) *', 'Age (18+ only) *', 'Возраст (18+) *', 'Vârstă (18+) *', 'Âge (18+ ans) *', 'Età (18+ anni) *')}</span>
                 </label>
                 <input
                   type="number"
@@ -246,14 +276,15 @@ export function ApplicationForm() {
                   onChange={handleChange}
                   placeholder={t('مثال: 22', 'e.g. 24', 'Например: 24', 'ex: 24', 'ex : 24', 'es: 24')}
                   min="18"
-                  max="70"
+                  max="99"
+                  required
                   inputMode="numeric"
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 focus:border-pink-400 focus:bg-black/50 text-white text-sm outline-none transition-all placeholder:text-white/20"
                 />
               </div>
 
               {/* Streaming Experience */}
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 sm:col-span-2">
                 <label className="flex items-center gap-1.5 text-xs font-semibold text-white/80">
                   <Video className="w-3.5 h-3.5 text-cyan-400" />
                   <span>{t('الخبرة السابقة في البث المباشر', 'Streaming Experience', 'Опыт стриминга', 'Experiență de streaming', 'Expérience de streaming', 'Esperienza di streaming')}</span>
@@ -265,26 +296,8 @@ export function ApplicationForm() {
                   className="w-full px-4 py-3 rounded-xl bg-[#090d18] border border-white/10 hover:border-white/20 focus:border-cyan-400 text-white text-sm outline-none transition-all"
                 >
                   <option value="beginner">{t('مذيع جديد (أول مرة)', 'Beginner (First time)', 'Новичок (впервые)', 'Începător (prima dată)', 'Débutant (première fois)', 'Principiante (prima volta)')}</option>
-                  <option value="tiktok_bigo">{t('خبرة سابقة على تيك توك / بيجو لايف', 'Experience on TikTok / Bigo', 'Опыт в TikTok / Bigo', 'Experiență pe TikTok / Bigo', 'Expérience sur TikTok / Bigo', 'Esperienza su TikTok / Bigo')}</option>
+                  <option value="tiktok_bigo">{t('خبرة سابقة على تيك توك / تطبيقات أخرى', 'Experience on TikTok / Other apps', 'Опыт в TikTok / других приложениях', 'Experiență pe TikTok / alte aplicații', 'Expérience sur TikTok / autres', 'Esperienza su TikTok / altre app')}</option>
                   <option value="xena_current">{t('مذيع حالي على زينا لايف', 'Current host on Xena Live', 'Ведущий на Xena Live', 'Gazdă pe Xena Live', 'Diffuseur sur Xena Live', 'Host su Xena Live')}</option>
-                </select>
-              </div>
-
-              {/* Target Hours */}
-              <div className="space-y-1.5">
-                <label className="flex items-center gap-1.5 text-xs font-semibold text-white/80">
-                  <Clock className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{t('ساعات البث المقترحة يومياً', 'Target Hours Daily', 'Часов в день', 'Ore zilnice', 'Heures par jour', 'Ore al giorno')}</span>
-                </label>
-                <select
-                  name="hours"
-                  value={formData.hours}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-[#090d18] border border-white/10 hover:border-white/20 focus:border-emerald-400 text-white text-sm outline-none transition-all"
-                >
-                  <option value="part-time">{t('دوام جزئي (2 - 3 ساعات يومياً)', 'Part-time (2-3 hours daily)', 'Частичная занятость (2-3 ч)', 'Part-time (2-3 ore)', 'Temps partiel (2-3h)', 'Part-time (2-3 ore)')}</option>
-                  <option value="full-time">{t('دوام كامل احترافي (4 - 6 ساعات يومياً)', 'Full-time Pro (4-6 hours daily)', 'Полная занятость (4-6 ч)', 'Full-time Pro (4-6 ore)', 'Temps plein (4-6h)', 'Full-time Pro (4-6 ore)')}</option>
-                  <option value="flexible">{t('مرن حسب التفرغ', 'Flexible schedule', 'Гибкий график', 'Program flexibil', 'Horaires flexibles', 'Orario flessibile')}</option>
                 </select>
               </div>
             </div>
@@ -305,6 +318,33 @@ export function ApplicationForm() {
               />
             </div>
 
+            {/* 18+ Mandatory Agreement Checkbox */}
+            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 transition-colors">
+              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-white/85 select-none leading-relaxed">
+                <input
+                  type="checkbox"
+                  name="termsAccepted"
+                  checked={formData.termsAccepted}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, termsAccepted: e.target.checked }));
+                    if (errorMsg) setErrorMsg('');
+                  }}
+                  required
+                  className="mt-0.5 w-4 h-4 rounded border-white/30 bg-black/40 text-cyan-400 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer shrink-0"
+                />
+                <span>
+                  {t(
+                    'أقر بأن عمري 18 سنة أو أكثر، وأنني أوافق على سياسات تطبيق Xena Live.',
+                    'I confirm that I am 18 years or older, and I agree to Xena Live platform policies.',
+                    'Я подтверждаю, что мне 18 лет или больше, и согласен с правилами Xena Live.',
+                    'Confirm că am 18 ani sau mai mult și sunt de acord cu politicile Xena Live.',
+                    'Je certifie avoir 18 ans ou plus et j\'accepte les règles de Xena Live.',
+                    'Confermo di avere 18 anni o più e accetto le regole di Xena Live.'
+                  )}
+                </span>
+              </label>
+            </div>
+
             {/* Submit Button */}
             <div className="pt-3">
               <button
@@ -314,12 +354,12 @@ export function ApplicationForm() {
                 <BrandIcons.WhatsApp className="w-5 h-5 text-white" />
                 <span>
                   {t(
-                    'إرسال طلب الانضمام عبر واتساب الإدارة',
-                    'Send Application via WhatsApp Management',
-                    'Отправить заявку в WhatsApp руководству',
-                    'Trimite aplicația prin WhatsApp',
-                    'Envoyer la candidature via WhatsApp',
-                    'Invia la candidatura tramite WhatsApp'
+                    'قدّم طلب الانضمام',
+                    'Submit Application',
+                    'Подать заявку на вступление',
+                    'Trimite cererea de înscriere',
+                    'Soumettre la candidature',
+                    'Invia la domanda di adesione'
                   )}
                 </span>
                 <Send className={`w-4 h-4 text-white/90 group-hover:translate-x-1 transition-transform ${dir === 'rtl' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
@@ -327,12 +367,12 @@ export function ApplicationForm() {
 
               <p className="text-[11px] text-center text-white/40 mt-3 font-mono">
                 {t(
-                  '🔒 معلوماتك محمية ومشفرة، وسيتم فتح محادثة رسمية ومباشرة مع إدارة وكالة الأساطير.',
-                  '🔒 Your data is protected. A direct verified chat with Legends Agency will open.',
-                  '🔒 Ваши данные защищены. Откроется официальный чат с агентством Legends.',
-                  '🔒 Datele tale sunt în siguranță. Se va deschide un chat direct.',
-                  '🔒 Vos données sont protégées. Un chat direct et officiel s\'ouvrira.',
-                  '🔒 I tuoi dati sono protetti. Si aprirà una chat ufficiale diretta.'
+                  '🔒 سيتم استخدام بياناتك للتواصل معك بخصوص طلبك فقط.',
+                  '🔒 Your data will only be used to contact you regarding your application.',
+                  '🔒 Ваши данные будут использованы только для связи с вами по поводу вашей заявки.',
+                  '🔒 Datele tale vor fi folosite exclusiv pentru a te contacta în legătură cu cererea ta.',
+                  '🔒 Vos données seront utilisées uniquement pour vous contacter au sujet de votre candidature.',
+                  '🔒 I tuoi dati verranno utilizzati solo per contattarti in merito alla tua candidatura.'
                 )}
               </p>
             </div>

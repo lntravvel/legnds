@@ -39,7 +39,7 @@ function BentoCard({ link, index }: { link: LinkItem; index: number }) {
         style={{ background: link.brandColor }}
       />
 
-      {/* Official Brand Watermark in Corner */}
+      {/* Brand Watermark in Corner */}
       <div 
         className={`absolute pointer-events-none select-none z-0 transition-all duration-500 ${
           isPrimary 
@@ -78,7 +78,7 @@ function BentoCard({ link, index }: { link: LinkItem; index: number }) {
               className="text-[10.5px] sm:text-[11px] font-semibold tracking-wider uppercase opacity-85"
               style={{ color: link.brandColor }}
             >
-              {link.id === 'zena-join' || link.id === 'xena-join' ? 'Official Xena Live Partner' : 'Exclusive VIP Program'}
+              {link.id === 'zena-join' || link.id === 'xena-join' ? 'Partner Agency on Xena Live' : 'Creator Program'}
             </span>
           </div>
 
@@ -145,15 +145,15 @@ export function LinkHub() {
         className="w-full text-center mb-5"
       >
         <h2 className={`text-[20px] sm:text-[24px] font-bold text-white tracking-wide mb-1 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-          {t('روابط الانضمام الرسمية', 'Official Agency Programs', 'Официальные программы агентства', 'Programele oficiale ale agenției', 'Programmes officiels de l\'agence', 'Programmi ufficiali dell\'agenzia')}
+          {t('روابط الانضمام للوكالة', 'Agency Join Links', 'Ссылки агентства', 'Link-uri de înscriere în agenție', 'Liens d\'inscription à l\'agence', 'Link di adesione all\'agenzia')}
         </h2>
         <p className={`text-xs sm:text-[13px] text-white/50 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'اختر منصتك المفضلة وانضم مباشرة تحت مظلة وكالة الأساطير المعتمدة',
-            'Choose your preferred platform and join officially under Legends Agency',
+            'اختر منصتك المفضلة وانضم مباشرة تحت مظلة وكالة الأساطير',
+            'Choose your preferred platform and join under Legends Agency',
             'Выберите платформу и присоединяйтесь к агентству Legends',
             'Alege platforma preferată și alătură-te agenției Legends',
-            'Choisissez votre plateforme et rejoignez officiellement Legends',
+            'Choisissez votre plateforme et rejoignez Legends',
             'Scegli la tua piattaforma preferita ed entra in Legends Agency'
           )}
         </p>

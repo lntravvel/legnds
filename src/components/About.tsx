@@ -9,36 +9,36 @@ export function About() {
     {
       icon: Shield,
       text: {
-        ar: 'حماية وحصانة الحسابات',
-        en: 'Account Protection & Safety',
-        ru: 'Защита и безопасность аккаунтов',
-        ro: 'Protecția și siguranța conturilor',
-        fr: 'Protection et sécurité des comptes',
-        it: 'Protezione e sicurezza degli account'
+        ar: 'دعم فني واستشارات تقنية',
+        en: 'Technical Support & Guidance',
+        ru: 'Техподдержка и консультации',
+        ro: 'Suport tehnic și îndrumare',
+        fr: 'Support technique et conseils',
+        it: 'Supporto tecnico e consulenza'
       },
       color: '#00f3ff'
     },
     {
       icon: TrendingUp,
       text: {
-        ar: 'أعلى بونصات كاش شهرية',
-        en: 'Highest Monthly Cash Bonuses',
-        ru: 'Высшие денежные бонусы',
-        ro: 'Cele mai mari bonusuri lunare',
-        fr: 'Bonus mensuels les plus élevés',
-        it: 'I più alti bonus mensili'
+        ar: 'تدريب على جودة البث والصوت',
+        en: 'Stream Quality & Audio Training',
+        ru: 'Обучение качеству звука и эфира',
+        ro: 'Instruire pentru calitatea transmisiei',
+        fr: 'Formation à la qualité de diffusion',
+        it: 'Formazione sulla qualità dello streaming'
       },
       color: '#fbbf24'
     },
     {
       icon: Award,
       text: {
-        ar: 'كوتشينج وصناعة النجوم',
-        en: 'Star Coaching & Growth',
-        ru: 'Коучинг и развитие звезд',
-        ro: 'Coaching și promovare de elită',
-        fr: 'Coaching et création de stars',
-        it: 'Coaching e crescita da star'
+        ar: 'توجيه ومتابعة مستمرة',
+        en: 'Continuous Mentorship & Growth',
+        ru: 'Наставничество и развитие',
+        ro: 'Îndrumare și dezvoltare continuă',
+        fr: 'Mentorat et développement continu',
+        it: 'Tutoraggio e crescita continua'
       },
       color: '#a855f7'
     }
@@ -78,24 +78,24 @@ export function About() {
           {/* Headline */}
           <h2 className={`text-[18px] sm:text-[21px] md:text-[23px] font-bold text-white tracking-wide mb-2 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'وكالة الأساطير — المنظومة الأقوى لإدارة وتطوير المذيعين',
-              'Legends Agency — The Premier Broadcaster Network',
-              'Агентство Legends — Сеть №1 для авторов прямых эфиров',
-              'Agenția Legends — Rețeaua Premieră pentru Streameri',
-              'Agence Legends — Le Premier Réseau de Gestion de Créateurs',
-              'Legends Agency — La Rete Leader per Emittenti Live'
+              'وكالة الأساطير — دعم وتوجيه صناع المحتوى على Xena Live',
+              'Legends Agency — Support & Mentorship for Creators on Xena Live',
+              'Legends Agency — Поддержка и развитие авторов на Xena Live',
+              'Legends Agency — Suport și îndrumare pentru creatori pe Xena Live',
+              'Legends Agency — Soutien et encadrement des créateurs sur Xena Live',
+              'Legends Agency — Supporto e tutoraggio per i creatori su Xena Live'
             )}
           </h2>
 
           {/* Concise Narrative */}
           <p className={`text-white/70 text-[12.5px] sm:text-[13.5px] leading-relaxed max-w-2xl mx-auto mb-4 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t(
-              'الشبكة الرسمية الرائدة لإدارة وتطوير صناع المحتوى على زينا لايف في الشرق الأوسط. نوفر الحماية التقنية الشاملة، العلاقات المباشرة مع إدارة التطبيق، وأعلى نسبة بونصات كاش في المنطقة.',
-              'The leading accredited network managing top creators on Xena Live in MENA. We combine full account immunity, direct platform relations, and the region\'s highest cash bonus share.',
-              'Ведущая аккредитованная сеть для топ-авторов Xena Live. Полная защита аккаунтов, прямая связь с платформой и максимальные денежные бонусы.',
-              'Rețeaua principală acreditată pentru creatorii de top pe Xena Live. Protecție completă, relații directe și cele mai mari bonusuri.',
-              'Le premier réseau accrédité pour les créateurs d\'élite sur Xena Live. Protection complète, relations directes et bonus maximaux.',
-              'La rete leader accreditata per i migliori creator su Xena Live. Protezione totale, rapporti diretti e massimi bonus in denaro.'
+              'نقدم الدعم الفني والتدريب على جودة البث والتوجيه المستمر لصناع المحتوى البالغين على تطبيق Xena Live، مع الالتزام الكامل بسياسات التطبيق.',
+              'We provide technical support, streaming quality training, and continuous mentorship for adult creators on Xena Live, in full compliance with platform policies.',
+              'Мы предоставляем техническую поддержку, обучение качеству трансляций и постоянное наставничество для совершеннолетних авторов на Xena Live в полном соответствии с правилами платформы.',
+              'Oferim suport tehnic, instruire pentru calitatea transmisiunilor și îndrumare continuă pentru creatorii adulți pe Xena Live, în deplină conformitate cu politicile platformei.',
+              'Nous offrons un support technique, une formation à la qualité de diffusion et un encadrement continu pour les créateurs adultes sur Xena Live, en totale conformité avec les règles.',
+              'Offriamo supporto tecnico, formazione sulla qualità dello streaming e tutoraggio continuo per i creatori maggiorenni su Xena Live, nel pieno rispetto delle regole.'
             )}
           </p>
 
@@ -131,12 +131,12 @@ export function About() {
           <div className="mt-3.5 pt-2.5 border-t border-white/[0.05] flex items-center justify-center gap-3 sm:gap-5 text-white/45 text-[10px] sm:text-[10.5px] font-mono">
             <div className="flex items-center gap-1 text-pink-300/80">
               <CheckCircle2 size={11} className="text-pink-400" />
-              <span>OFFICIAL ACCREDITED</span>
+              <span>{t('وكالة شريكة', 'PARTNER AGENCY', 'ПАРТНЕРСКОЕ АГЕНТСТВО', 'AGENȚIE PARTENERĂ', 'AGENCE PARTENAIRE', 'AGENZIA PARTNER')}</span>
             </div>
             <span>•</span>
-            <span>24/7 VIP SUPPORT</span>
+            <span>24/7 SUPPORT</span>
             <span>•</span>
-            <span className="text-pink-300/90 font-bold">XENA LIVE OFFICIAL</span>
+            <span className="text-pink-300/90 font-bold">XENA LIVE</span>
           </div>
 
         </div>

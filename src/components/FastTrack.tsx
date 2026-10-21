@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Send, ShieldCheck, Radio, Coins, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Send, ShieldCheck, Radio, Sparkles, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useLanguage, Language } from '../i18n/LanguageContext';
 
 interface Milestone {
@@ -52,20 +52,20 @@ const MILESTONES: Milestone[] = [
       it: 'Ora 02'
     },
     title: {
-      ar: 'الربط والاعتماد الرسمي',
-      en: 'Official System Verification',
-      ru: 'Официальное подтверждение',
-      ro: 'Verificare oficială în sistem',
-      fr: 'Validation officielle du compte',
-      it: 'Verifica ufficiale del sistema'
+      ar: 'الربط وتأكيد الحساب',
+      en: 'Account Linking & Setup',
+      ru: 'Подключение и настройка',
+      ro: 'Conectare și configurare',
+      fr: 'Liaison et configuration',
+      it: 'Collegamento e configurazione'
     },
     desc: {
-      ar: 'تفعيل حسابك في لوحة تحكم وكالة الأساطير وتعيين مدير دعم خاص لمرافقتك من اللحظة الأولى.',
-      en: 'Your account links to the official agency portal and an assigned manager connects with you.',
-      ru: 'Ваш аккаунт подключается к панели агентства, и с вами связывается персональный куратор.',
-      ro: 'Contul tău este conectat la portalul agenției și un manager dedicat te contactează.',
-      fr: 'Votre compte est lié au portail officiel et un gestionnaire dédié prend contact avec vous.',
-      it: 'Il tuo account viene collegato al portale ufficiale e ti viene assegnato un manager dedicato.'
+      ar: 'ربط حسابك مع فريق وكالة الأساطير والتواصل معك لمراجعة البيانات وتوجيهك بالخطوات القادمة.',
+      en: 'Linking your account with Legends Agency and connecting to review details and guide you.',
+      ru: 'Подключение вашего аккаунта и связь с куратором для дальнейших инструкций.',
+      ro: 'Conectarea contului cu Agenția Legends și contactarea pentru pașii următori.',
+      fr: 'Liaison de votre compte avec l\'agence et prise de contact pour vous guider.',
+      it: 'Collegamento del tuo account con l\'agenzia e contatto per guidarti nei passi successivi.'
     },
     icon: ShieldCheck,
     accent: '#38bdf8'
@@ -89,12 +89,12 @@ const MILESTONES: Milestone[] = [
       it: 'Coaching e prima diretta ufficiale'
     },
     desc: {
-      ar: 'جلسة توجيه سريعة لإعداد الإضاءة والصوت وتحديد توقيت البث الذهبي لحصد أعلى مشاهدات ودعم.',
-      en: 'Quick gear and lighting coaching, scheduling prime-time broadcast for peak viewership.',
-      ru: 'Быстрая настройка звука и света, выбор золотого времени эфира для максимального доната.',
-      ro: 'Sesiune rapidă de configurare a sunetului și luminii, programarea orei de vârf.',
-      fr: 'Session rapide de réglage audio/lumière et programmation du créneau horaire optimal.',
-      it: 'Rapida sessione di calibrazione audio/luci e pianificazione negli orari di massimo ascolto.'
+      ar: 'جلسة توجيه سريعة لإعداد الإضاءة والصوت وتحديد توقيت البث الأنسب لجذب الجمهور.',
+      en: 'Quick gear and lighting coaching, scheduling prime broadcast time for high engagement.',
+      ru: 'Быстрая настройка звука и света, выбор оптимального времени эфира.',
+      ro: 'Sesiune rapidă de configurare a sunetului și luminii, programarea orei optime.',
+      fr: 'Session rapide de réglage audio/lumière et programmation du meilleur créneau.',
+      it: 'Rapida sessione di calibrazione audio/luci e pianificazione negli orari migliori.'
     },
     icon: Radio,
     accent: '#a855f7'
@@ -102,30 +102,30 @@ const MILESTONES: Milestone[] = [
   {
     id: 4,
     timeBadge: {
-      ar: 'نهاية الشهر',
-      en: 'Month End',
-      ru: 'Конец месяца',
-      ro: 'Sfârșitul lunii',
-      fr: 'Fin du mois',
-      it: 'Fine mese'
+      ar: 'مستمر',
+      en: 'Ongoing',
+      ru: 'Постоянно',
+      ro: 'Continuu',
+      fr: 'Continu',
+      it: 'Continuo'
     },
     title: {
-      ar: 'استلام الأرباح + البونص كاش',
-      en: 'Receive Earnings + Cash Bonus',
-      ru: 'Получение дохода + денежный бонус',
-      ro: 'Încasare câștiguri + bonus în numerar',
-      fr: 'Paiement des gains + bonus en espèces',
-      it: 'Incasso guadagni + bonus in contanti'
+      ar: 'المتابعة والتطوير المستمر',
+      en: 'Continuous Follow-up & Growth',
+      ru: 'Постоянное развитие и поддержка',
+      ro: 'Monitorizare și dezvoltare continuă',
+      fr: 'Suivi et développement continu',
+      it: 'Monitoraggio e sviluppo continuo'
     },
     desc: {
-      ar: 'تحويل كامل أرباحك مع بونص التارقت الشهري المضمون من الوكالة فوراً وبدون أي اقتطاعات.',
-      en: 'Withdraw 100% of your earnings plus guaranteed monthly agency target bonuses right on time.',
-      ru: 'Вывод всех ваших доходов плюс гарантированный ежемесячный бонус от агентства точно в срок.',
-      ro: 'Retragerea integrală a câștigurilor plus bonusul lunar garantat de la agenție.',
-      fr: 'Retrait de 100% de vos revenus plus votre bonus d\'agence mensuel garanti sans retenue.',
-      it: 'Prelievo del 100% dei tuoi guadagni più il bonus mensile garantito dall\'agenzia senza detrazioni.'
+      ar: 'مراجعة دورية لأدائك وتقديم نصائح متجددة لتحسين جودة البث وزيادة تفاعل المتابعين.',
+      en: 'Periodic performance review and ongoing guidance to enhance stream quality and engagement.',
+      ru: 'Регулярный анализ эффективности и советы по улучшению качества эфира.',
+      ro: 'Evaluare periodică și sfaturi continue pentru îmbunătățirea calității transmisiei.',
+      fr: 'Revue périodique et conseils continus pour améliorer la qualité de diffusion.',
+      it: 'Revisione periodica e consigli continui per migliorare la qualità dello streaming.'
     },
-    icon: Coins,
+    icon: Sparkles,
     accent: '#fbbf24'
   }
 ];
@@ -162,12 +162,12 @@ export function FastTrack() {
 
         <p className={`text-[12.5px] sm:text-[14px] text-white/60 max-w-md mx-auto ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
           {t(
-            'خطوات واضحة وسريعة من لحظة تواصلك الأولى حتى استلام أول دفعة بونص كاش لحسابك.',
-            'Clear, rapid milestones from your initial message to receiving your first cash bonus.',
-            'Четкие и быстрые шаги от первого обращения до получения первого денежного бонуса.',
-            'Pași clari și rapizi de la primul mesaj până la primirea primului bonus în numerar.',
-            'Des étapes simples et rapides, du premier contact jusqu\'à votre premier bonus.',
-            'Passaggi chiari e rapidi dal primo messaggio fino alla ricezione del tuo primo bonus.'
+            'خطوات واضحة ومباشرة من لحظة تواصلك الأولى وحتى انطلاق بثك المباشر بنجاح.',
+            'Clear, direct milestones from your first message to launching your stream successfully.',
+            'Четкие и понятные шаги от первого обращения до успешного запуска трансляций.',
+            'Pași clari și direcți de la primul mesaj până la lansarea cu succes a transmisiunii.',
+            'Des étapes simples et directes, du premier contact jusqu\'au lancement réussi de vos directs.',
+            'Passaggi chiari e diretti dal primo messaggio fino all\'avvio con successo della tua diretta.'
           )}
         </p>
       </motion.div>
