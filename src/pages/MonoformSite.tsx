@@ -839,7 +839,7 @@ const InteractiveEcosystemCommandHub = React.memo(function InteractiveEcosystemC
   const [manualSelection, setManualSelection] = useState(false);
 
   // Scroll-scrubbed progress inside Phase 3 [0.30 -> 0.54]
-  const localEcoP = rangeProgress(scrollProgress, 0.3, 0.54);
+  const localEcoP = rangeProgress(scrollProgress, 0.36, 0.50);
 
   // Auto-highlight platform as user scrolls through Phase 3 unless manually clicked
   const scrollDrivenPlatformId: PlatformId =
@@ -1245,6 +1245,7 @@ export function MonoformSite() {
 
   // Dedicated Platform Page View (`null` = Main 3D Scroll Stage, `'xena' | 'tango' | 'bigo'` = Full Dedicated Page)
   const [activeAppPage, setActiveAppPage] = useState<PlatformId | null>(null);
+  const last3DScrollYRef = useRef(0);
 
   // Active platform selected in the Phase 3 Interactive Ecosystem Hub
   const [hubPlatform, setHubPlatform] = useState<PlatformId>('xena');
@@ -1316,11 +1317,12 @@ export function MonoformSite() {
 
       // On mobile touch: 1:1 instant tracking so the 3D stage moves immediately under your finger (no finger-lift freeze!)
       // On desktop mouse wheel: crisp 0.28 damping so wheel steps glide smoothly.
+      if (activeAppPage !== null) {
+        rafId = null;
+        return;
+      }
+
       if (isTouchViewport) {
-        if (Math.abs(diff) < 0.0012) {
-          rafId = null;
-          return;
-        }
         currentPRef.current = target;
         setP(target);
         syncVideoPlayback(target);
@@ -1328,8 +1330,8 @@ export function MonoformSite() {
         return;
       }
 
-      const lerpFactor = 0.32;
-      const settleThreshold = 0.00025;
+      const lerpFactor = 0.35;
+      const settleThreshold = 0.0002;
 
       if (Math.abs(diff) > settleThreshold) {
         const next = current + diff * lerpFactor;
@@ -1384,29 +1386,37 @@ export function MonoformSite() {
   }, []);
 
   const scrubToProgress = (targetProgress: number, _mobileSectionId?: string) => {
-    const scrollTarget = () => {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    if (activeAppPage !== null) {
+      setActiveAppPage(null);
+    }
+    requestAnimationFrame(() => {
+      const isTouch = window.innerWidth < 768;
+      const runwayMultiplier = isTouch ? 2.5 : 4.6;
+      const maxScroll = Math.max(1, window.innerHeight * runwayMultiplier);
       window.scrollTo({
         top: targetProgress * maxScroll,
         behavior: 'smooth',
       });
-    };
-
-    if (activeAppPage !== null) {
-      setActiveAppPage(null);
-      setTimeout(scrollTarget, 60);
-      return;
-    }
-    scrollTarget();
+    });
   };
 
   const openDedicatedPlatformPage = (platformId: PlatformId) => {
+    if (activeAppPage === null) {
+      last3DScrollYRef.current = window.scrollY;
+    }
     const found = PLATFORMS.find((pl) => pl.id === platformId);
     if (found) {
       setSelectedApps([found.nameEn]);
     }
     setActiveAppPage(platformId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  };
+
+  const closeDedicatedPlatformPage = () => {
+    setActiveAppPage(null);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: last3DScrollYRef.current, behavior: 'instant' as ScrollBehavior });
+    });
   };
 
   const toggleHeroSound = (e: React.MouseEvent) => {
@@ -1451,40 +1461,40 @@ export function MonoformSite() {
   // Every single 1% of scroll [0.00 -> 1.00] drives continuous, overlapping 3D motion
   // with ZERO empty dead zones between Hero, Apps, Ecosystem, Videos, Streamers, and Finale!
   // ==========================================================================
-  // Phase 1 [0.00 -> 0.08]: Full-Screen Landscape Hero Video recedes immediately on first scroll
-  const heroStageOpacity = 1 - smoothstep(0.015, 0.08, p);
-  const heroStageScale = 1 - smoothstep(0.0, 0.08, p) * 0.12;
+  // Phase 1 [0.00 -> 0.07]: Full-Screen Landscape Hero Video recedes immediately on first scroll
+  const heroStageOpacity = 1 - smoothstep(0.01, 0.07, p);
+  const heroStageScale = 1 - smoothstep(0.0, 0.07, p) * 0.1;
 
-  // Phase 2 [0.002 -> 0.35]: 3D 4-Sided Rotating Box materializes immediately & rotates continuously!
-  const cubeEnterProgress = smoothstep(0.002, 0.055, p);
-  const cubeRotationProgress = rangeProgress(p, 0.02, 0.32);
+  // Phase 2 [0.03 -> 0.33]: 3D 4-Sided Rotating Box materializes immediately & rotates cleanly!
+  const cubeEnterProgress = smoothstep(0.03, 0.07, p);
+  const cubeRotationProgress = rangeProgress(p, 0.07, 0.28);
   const cubeRotateY = -cubeRotationProgress * 270;
   const cubeRotateX = Math.sin(cubeRotationProgress * Math.PI * 2) * 5;
   const cubeRotateZ = Math.sin(cubeRotationProgress * Math.PI) * -2;
 
-  // Seamless Overlapping Crossfade from 3D Box to Interactive Ecosystem Command Hub
-  const boxExitProgress = smoothstep(0.305, 0.355, p);
+  // Clean crossfade: Box exits at 0.29 -> 0.33 as Phase 3 arrives
+  const boxExitProgress = smoothstep(0.29, 0.33, p);
   const cubeStageOpacity = clamp(cubeEnterProgress - boxExitProgress, 0, 1);
 
-  // Phase 3: Interactive Ecosystem Command Hub [0.29 -> 0.54]
-  const particleStageEnter = smoothstep(0.29, 0.34, p);
-  const particleStageExit = smoothstep(0.495, 0.545, p);
+  // Phase 3: Interactive Ecosystem Command Hub [0.32 -> 0.54]
+  const particleStageEnter = smoothstep(0.32, 0.36, p);
+  const particleStageExit = smoothstep(0.50, 0.54, p);
   const particleStageOpacity = clamp(particleStageEnter - particleStageExit, 0, 1);
 
-  // Phase 4: 3D Coverflow YouTube Video Deck + Interactive Social Media Dock [0.48 -> 0.76]
-  const railEnter = smoothstep(0.48, 0.53, p);
-  const railExit = smoothstep(0.715, 0.765, p);
+  // Phase 4: 3D Coverflow YouTube Video Deck + Interactive Social Media Dock [0.53 -> 0.75]
+  const railEnter = smoothstep(0.53, 0.57, p);
+  const railExit = smoothstep(0.71, 0.75, p);
   const railOpacity = clamp(railEnter - railExit, 0, 1);
-  const railSlideProgress = rangeProgress(p, 0.5, 0.74);
+  const railSlideProgress = rangeProgress(p, 0.55, 0.73);
 
-  // Phase 5: 3D Camera Fly-Through of 10 Real Live Streamers [0.70 -> 0.94]
-  const flyEnter = smoothstep(0.70, 0.75, p);
-  const flyExit = smoothstep(0.895, 0.945, p);
+  // Phase 5: 3D Camera Fly-Through of 10 Real Live Streamers [0.74 -> 0.94]
+  const flyEnter = smoothstep(0.74, 0.78, p);
+  const flyExit = smoothstep(0.90, 0.94, p);
   const flyOpacity = clamp(flyEnter - flyExit, 0, 1);
-  const flyProgress = rangeProgress(p, 0.71, 0.93);
+  const flyProgress = rangeProgress(p, 0.76, 0.92);
 
-  // Phase 6: Finale Card [0.88 -> 1.00]
-  const finaleEnter = smoothstep(0.88, 0.93, p);
+  // Phase 6: Finale Card [0.93 -> 1.00]
+  const finaleEnter = smoothstep(0.93, 0.97, p);
 
   const currentPlatformPageData = activeAppPage
     ? PLATFORMS.find((pl) => pl.id === activeAppPage) || null
@@ -1516,7 +1526,7 @@ export function MonoformSite() {
             type="button"
             onClick={() => scrubToProgress(0, 'mobile-home')}
             className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-medium rounded-full transition cursor-pointer shrink-0 ${
-              activeAppPage === null && p < 0.06
+              activeAppPage === null && p < 0.05
                 ? 'bg-white text-black font-semibold shadow-sm'
                 : 'text-white/75 hover:text-white hover:bg-white/[0.08]'
             }`}
@@ -1526,9 +1536,9 @@ export function MonoformSite() {
 
           <button
             type="button"
-            onClick={() => scrubToProgress(0.13, 'mobile-apps')}
+            onClick={() => scrubToProgress(0.14, 'mobile-apps')}
             className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-medium rounded-full transition cursor-pointer shrink-0 ${
-              activeAppPage === null && p >= 0.06 && p < 0.33
+              activeAppPage === null && p >= 0.05 && p < 0.33
                 ? 'bg-white text-black font-semibold shadow-sm'
                 : 'text-white/75 hover:text-white hover:bg-white/[0.08]'
             }`}
@@ -1538,9 +1548,9 @@ export function MonoformSite() {
 
           <button
             type="button"
-            onClick={() => scrubToProgress(0.41, 'mobile-eco')}
+            onClick={() => scrubToProgress(0.43, 'mobile-eco')}
             className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-medium rounded-full transition cursor-pointer hidden md:inline-block shrink-0 ${
-              activeAppPage === null && p >= 0.33 && p < 0.52
+              activeAppPage === null && p >= 0.33 && p < 0.54
                 ? 'bg-white text-black font-semibold shadow-sm'
                 : 'text-white/75 hover:text-white hover:bg-white/[0.08]'
             }`}
@@ -1550,9 +1560,9 @@ export function MonoformSite() {
 
           <button
             type="button"
-            onClick={() => scrubToProgress(0.61, 'mobile-academy')}
+            onClick={() => scrubToProgress(0.64, 'mobile-academy')}
             className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-medium rounded-full transition cursor-pointer shrink-0 ${
-              activeAppPage === null && p >= 0.52 && p < 0.74
+              activeAppPage === null && p >= 0.54 && p < 0.75
                 ? 'bg-white text-black font-semibold shadow-sm'
                 : 'text-white/75 hover:text-white hover:bg-white/[0.08]'
             }`}
@@ -1562,9 +1572,9 @@ export function MonoformSite() {
 
           <button
             type="button"
-            onClick={() => scrubToProgress(0.82, 'mobile-streamers')}
+            onClick={() => scrubToProgress(0.84, 'mobile-streamers')}
             className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-medium rounded-full transition cursor-pointer hidden lg:inline-block shrink-0 ${
-              activeAppPage === null && p >= 0.74 && p < 0.91
+              activeAppPage === null && p >= 0.75
                 ? 'bg-white text-black font-semibold shadow-sm'
                 : 'text-white/75 hover:text-white hover:bg-white/[0.08]'
             }`}
@@ -1672,7 +1682,7 @@ export function MonoformSite() {
             <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/[0.1]">
               <button
                 type="button"
-                onClick={() => setActiveAppPage(null)}
+                onClick={closeDedicatedPlatformPage}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.14] border border-white/[0.12] text-xs sm:text-sm font-semibold text-white transition cursor-pointer"
               >
                 {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -2068,7 +2078,7 @@ export function MonoformSite() {
                 opacity: heroStageOpacity,
                 visibility: heroStageOpacity <= 0.005 ? 'hidden' : 'visible',
                 transform: `scale(${heroStageScale})`,
-                pointerEvents: p < 0.05 ? 'auto' : 'none',
+                pointerEvents: heroStageOpacity > 0.5 ? 'auto' : 'none',
                 zIndex: 35,
               }}
               className="absolute inset-0 w-full h-full p-2 sm:p-5 md:p-7 flex items-center justify-center will-change-transform"
@@ -2232,7 +2242,7 @@ export function MonoformSite() {
                 transform: `scale(${
                   0.84 + cubeEnterProgress * 0.16 - boxExitProgress * 0.18
                 }) translate3d(0, ${(1 - cubeEnterProgress) * 48 - boxExitProgress * 36}px, 0)`,
-                pointerEvents: p >= 0.04 && p < 0.34 ? 'auto' : 'none',
+                pointerEvents: cubeStageOpacity > 0.5 ? 'auto' : 'none',
                 zIndex: 30,
               }}
               className="absolute inset-0 w-full h-full flex items-center justify-center will-change-transform"
@@ -2578,10 +2588,10 @@ export function MonoformSite() {
                 {/* Interactive Face Selector Pills under the 3D Spinning Box */}
                 <div className="mt-5 sm:mt-7 flex items-center gap-1 sm:gap-1.5 bg-[#0c0c10]/95 backdrop-blur-2xl px-2.5 sm:px-3 py-1.5 rounded-full border border-white/15 shadow-2xl">
                   {[
-                    { label: isAr ? '1. استوديو الأساطير' : '1. Studio', target: 0.03 },
-                    { label: '2. Xena Live', target: 0.125 },
-                    { label: '3. Tango Live', target: 0.22 },
-                    { label: '4. Bigo Live', target: 0.315 },
+                    { label: isAr ? '1. استوديو الأساطير' : '1. Studio', target: 0.07 },
+                    { label: '2. Xena Live', target: 0.14 },
+                    { label: '3. Tango Live', target: 0.21 },
+                    { label: '4. Bigo Live', target: 0.28 },
                   ].map((face, idx) => {
                     const activeFace = Math.round(cubeRotationProgress * 3) === idx;
                     return (
@@ -2613,10 +2623,10 @@ export function MonoformSite() {
                 opacity: particleStageOpacity,
                 visibility: particleStageOpacity <= 0.005 ? 'hidden' : 'visible',
                 transform: `scale(${0.92 + particleStageEnter * 0.08})`,
-                pointerEvents: particleStageOpacity > 0.4 ? 'auto' : 'none',
+                pointerEvents: particleStageOpacity > 0.5 ? 'auto' : 'none',
                 zIndex: 50,
               }}
-              className="absolute inset-0 flex flex-col justify-center pt-12 sm:pt-14 pb-4 sm:pb-8 px-3 sm:px-8 md:px-14 will-change-transform bg-[#000000]/90 overflow-hidden"
+              className="absolute inset-0 flex flex-col justify-center pt-12 sm:pt-14 pb-4 sm:pb-8 px-3 sm:px-8 md:px-14 will-change-transform bg-transparent overflow-hidden"
             >
               <InteractiveEcosystemCommandHub
                 isAr={isAr}
@@ -2636,10 +2646,10 @@ export function MonoformSite() {
               style={{
                 opacity: railOpacity,
                 visibility: railOpacity <= 0.005 ? 'hidden' : 'visible',
-                pointerEvents: railOpacity > 0.35 ? 'auto' : 'none',
+                pointerEvents: railOpacity > 0.5 ? 'auto' : 'none',
                 zIndex: 60,
               }}
-              className="absolute inset-0 flex flex-col items-center justify-between pt-14 sm:pt-16 pb-4 sm:pb-6 px-3 sm:px-8 overflow-hidden bg-[#000000]"
+              className="absolute inset-0 flex flex-col items-center justify-between pt-14 sm:pt-16 pb-4 sm:pb-6 px-3 sm:px-8 overflow-hidden bg-transparent"
             >
               {/* Subtle Apple-Pro Studio Spotlight */}
               <div
@@ -2991,11 +3001,11 @@ export function MonoformSite() {
               style={{
                 opacity: flyOpacity,
                 visibility: flyOpacity <= 0.005 ? 'hidden' : 'visible',
-                pointerEvents: flyOpacity > 0.4 ? 'auto' : 'none',
+                pointerEvents: flyOpacity > 0.5 ? 'auto' : 'none',
                 perspective: '1100px',
                 zIndex: 70,
               }}
-              className="absolute inset-0 flex items-center justify-center overflow-hidden bg-[#000000]"
+              className="absolute inset-0 flex items-center justify-center overflow-hidden bg-transparent"
             >
               {LIVE_CREATORS.map((creator) => {
                 const localP = clamp(0.22 + flyProgress * 1.15 - creator.zOffset * 0.55, 0, 1);
@@ -3094,7 +3104,7 @@ export function MonoformSite() {
                 pointerEvents: finaleEnter > 0.5 ? 'auto' : 'none',
                 zIndex: 80,
               }}
-              className="absolute inset-0 bg-[#000000] p-2 sm:p-6 md:p-9 flex items-center justify-center"
+              className="absolute inset-0 bg-transparent p-2 sm:p-6 md:p-9 flex items-center justify-center"
             >
               <div className="relative w-full h-full rounded-[26px] sm:rounded-[32px] overflow-hidden border border-white/15 p-5 sm:p-12 md:p-16 flex flex-col justify-between bg-[#07070a] shadow-[0_30px_100px_rgba(0,0,0,1)]">
                 <div className="relative z-20 my-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-6 sm:gap-8 pt-8 sm:pt-0">
