@@ -77,12 +77,12 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
   {
     id: 'zO-wIu-HnFg',
     code: 'EP · 04',
-    tagEn: 'Financial Payouts',
-    tagAr: 'الرواتب والمكافآت',
-    titleEn: 'Revenue System 04',
-    titleAr: 'منظومة الأرباح 04',
-    descEn: 'Consistent daily & monthly creator income',
-    descAr: 'تحويل ساعات البث والتارجت إلى رواتب ومكافآت فورية مضمونة',
+    tagEn: 'Creator Growth',
+    tagAr: 'تطوير المذيعين',
+    titleEn: 'Growth System 04',
+    titleAr: 'منظومة النجاح 04',
+    descEn: 'Structured broadcasting schedules & official agency mentorship',
+    descAr: 'تنظيم ساعات البث وتحقيق مستويات التميز الرسمية بإشراف الوكالة',
     views: '54.8K',
     poster: '/assets/streamers/legends_host_2.webp',
   },
@@ -428,14 +428,14 @@ const PLATFORMS: PlatformInfo[] = [
     accentGlow: 'rgba(236, 72, 153, 0.35)',
     cardHeadlineEn: 'Dominate Voice Rooms & Official PKs on Xena Live.',
     cardHeadlineAr: 'تصدر الغرف الصوتية والجولات الرسمية في زينا لايف.',
-    promptPillEn: 'Official Contracts · Daily & Weekly Payouts · VIP Support',
-    promptPillAr: 'عقود رسمية · قبض فوري ومكافآت · دعم وتصدر',
+    promptPillEn: 'Official Contracts · PK Coordination · VIP Support',
+    promptPillAr: 'عقود رسمية · تنسيق PK · دعم وتصدر',
     heroTitleAr: 'وكالة الأساطير المعتمدة في تطبيق زينا لايف (Xena Live)',
     heroTitleEn: 'Official Legends Agency Hub for Xena Live Creators',
     heroDescAr:
-      'انضم إلى أقوى منظومة إدارة مذيعين وغرف صوتية في الشرق الأوسط على تطبيق Xena Live. نوفر لك كود وكالة رسمي معتمد، حماية كاملة للحساب، جدولة جولات PK احترافية، وصرف مستحقاتك ومكافآتك المالية بدقة وأمان تام.',
+      'انضم إلى أقوى منظومة إدارة مذيعين وغرف صوتية في الشرق الأوسط على تطبيق Xena Live. نوفر لك كود وكالة رسمي معتمد، حماية كاملة للحساب، جدولة جولات PK احترافية، ومتابعة مستمرة لتطوير أدائك بأمان تام.',
     heroDescEn:
-      'Join the premier creator agency on Xena Live across MENA. Get instant official agency verification, account protection, scheduled PK tournaments, and guaranteed payouts.',
+      'Join the premier creator agency on Xena Live across MENA. Get instant official agency verification, account protection, scheduled PK tournaments, and dedicated creator support.',
     featuresAr: [
       {
         title: 'توثيق رسمي فوري بالوكالة',
@@ -447,11 +447,11 @@ const PLATFORMS: PlatformInfo[] = [
       },
       {
         title: 'جدولة تحديات PK الرسمية',
-        desc: 'تنسيق جولات وتحديات PK يومية وأسبوعية مع أقوى المذيعين لمضاعفة نقاط التارجت والمكافآت.',
+        desc: 'تنسيق جولات وتحديات PK يومية وأسبوعية مع أقوى المذيعين لرفع التفاعل والوصول لأعلى المستويات.',
       },
       {
-        title: 'صرف أرباح مرن ومضمون 100%',
-        desc: 'استلام مستحقاتك المالية والرواتب عبر فودافون كاش، إنستا باي، التحويل البنكي، أو USDT بدون أي تأخير.',
+        title: 'إدارة ومتابعة احترافية 100%',
+        desc: 'فريق دعم فني وإداري متخصص لمتابعة حسابك وحمايته وتطوير جدول بثك وفق سياسات المنصة.',
       },
     ],
     featuresEn: [
@@ -468,8 +468,8 @@ const PLATFORMS: PlatformInfo[] = [
         desc: 'Daily and weekly PK battles coordinated by dedicated account managers.',
       },
       {
-        title: 'Guaranteed Fast Payouts',
-        desc: 'Receive your earnings seamlessly via local wallets, bank transfer, or USDT.',
+        title: '100% Verified Management',
+        desc: 'Dedicated technical support and transparent tracking aligned with official platform policies.',
       },
     ],
     requirementsAr: [
@@ -490,27 +490,27 @@ const PLATFORMS: PlatformInfo[] = [
         levelEn: 'Starter Tier',
         hoursAr: '40 ساعة / 18 يوم',
         hoursEn: '40 hrs / 18 days',
-        targetAr: 'تارجت المبتدئين',
-        payoutAr: 'راتب أساسي + بونص تارجت',
-        payoutEn: 'Base Salary + Target Bonus',
+        targetAr: 'نشاط تأسيسي',
+        payoutAr: 'تفعيل الشارة + متابعة وإرشاد أسبوعي',
+        payoutEn: 'Badge Activation + Weekly Coaching',
       },
       {
         levelAr: 'المستوى الاحترافي (Pro Host)',
         levelEn: 'Pro Host Tier',
         hoursAr: '55 ساعة / 20 يوم',
         hoursEn: '55 hrs / 20 days',
-        targetAr: 'تارجت متوسط',
-        payoutAr: 'راتب مضاعف + عمولة وكالة كاملة',
-        payoutEn: 'Double Base + Full Commission',
+        targetAr: 'نشاط متقدم',
+        payoutAr: 'إدارة غرفة صوتية + جدولة PK رسمية',
+        payoutEn: 'Room Management + Official PK Scheduling',
       },
       {
         levelAr: 'نخبة الأساطير (VIP Star)',
         levelEn: 'VIP Star Tier',
         hoursAr: '70 ساعة / 22 يوم',
         hoursEn: '70 hrs / 22 days',
-        targetAr: 'تارجت النجوم',
-        payoutAr: 'أعلى شريحة راتب بالدولار + مكافآت VIP',
-        payoutEn: 'Top USD Tier + VIP Rewards',
+        targetAr: 'مستوى النخبة',
+        payoutAr: 'أولوية الترويج والتصدر + دعم VIP كامل',
+        payoutEn: 'Priority Explore + Full VIP Support',
       },
     ],
     LogoComponent: BrandIcons.Xena,
@@ -524,35 +524,35 @@ const PLATFORMS: PlatformInfo[] = [
     creatorsCountAr: '+10,000 مذيع وصانع محتوى',
     creatorsCountEn: '10,000+ Video Creators',
     badgeEn: 'Global Video Stream',
-    badgeAr: 'بث مرئي عالمي بالدولار',
+    badgeAr: 'بث مرئي عالمي وتصدر',
     accentColor: '#a855f7',
     accentGlow: 'rgba(168, 85, 247, 0.35)',
-    cardHeadlineEn: 'Maximize Your USD Video Revenue on Tango Live.',
-    cardHeadlineAr: 'حقق أعلى عائد مالي بالدولار عبر البث المباشر في تانجو لايف.',
-    promptPillEn: 'Global Audience · Instant Diamonds · VIP Account Management',
-    promptPillAr: 'جمهور عالمي · سحب فوري بالدولار · إدارة حسابات VIP',
+    cardHeadlineEn: 'Scale Your Global Video Presence on Tango Live.',
+    cardHeadlineAr: 'وسّع انتشارك العالمي وتصدر البث المباشر في تانجو لايف.',
+    promptPillEn: 'Global Audience · Explore Boost · VIP Account Management',
+    promptPillAr: 'جمهور عالمي · تصدر الاكسبلور · إدارة حسابات VIP',
     heroTitleAr: 'وكالة الأساطير الرسمية لمذيعي وصناع محتوى تانجو لايف (Tango Live)',
     heroTitleEn: 'Official Legends Agency for Tango Live Broadcasters',
     heroDescAr:
-      'افتح آفاق الربح العالمي بالدولار عبر تطبيق Tango Live مع وكالة الأساطير. نمنحك تفعيل الحساب الاحترافي، بونص ترحيبي للمذيعين الجدد، تدريب متقدم على جذب الداعمين الكبار (VIP Supporters)، وسحب فوري للأرباح.',
+      'وسّع حضورك العالمي عبر تطبيق Tango Live مع وكالة الأساطير. نمنحك تفعيل الحساب الاحترافي، تأهيل وتدريب متقدم للمذيعين الجدد على بناء جمهور تفاعلي، وحماية كاملة لحسابك على مدار الساعة.',
     heroDescEn:
-      'Scale your global live video income in USD on Tango Live with Legends Agency. Enjoy premium onboarding bonuses, VIP supporter strategies, and instant withdrawals.',
+      'Scale your global live video presence on Tango Live with Legends Agency. Enjoy professional onboarding, audience growth strategies, and dedicated technical support.',
     featuresAr: [
       {
         title: 'تفعيل حساب مذيع رسمي بمزايا خاصة',
-        desc: 'فتح ميزات الربح المتقدمة والظهور في الصفحة الرئيسية (Explore) لجذب مشاهدين وداعمين من كل العالم.',
+        desc: 'فتح ميزات البث المتقدمة والظهور في الصفحة الرئيسية (Explore) لجذب مشاهدين ومتابعين من كل العالم.',
       },
       {
-        title: 'بونص إضافي على الألماس الشهري',
-        desc: 'نسب مكافآت حصرية إضافية فوق أرباحك الأساسية عند تحقيق مستويات التارجت مع وكالة الأساطير.',
+        title: 'برامج تطوير ونمو المذيعين',
+        desc: 'خطط متابعة أسبوعية وتوجيه احترافي لرفع جودة البث وزيادة التفاعل مع وكالة الأساطير.',
       },
       {
         title: 'حماية الحساب والدعم الفني المباشر',
         desc: 'فريق مختص لحل أي مشكلة تقنية أو حظر طارئ والتواصل المباشر مع إدارة تطبيق Tango Live.',
       },
       {
-        title: 'سحب أرباح فوري بالدولار أو العملة المحلية',
-        desc: 'خيارات متعددة ومرنة لسحب الأرباح يومياً أو أسبوعياً بأعلى سعر صرف وبدون رسوم خفية.',
+        title: 'متابعة وإدارة تشغيلية 24/7',
+        desc: 'دعم مستمر لتطوير جدول البث وتحسين التفاعل وضمان التزام الحساب بسياسات المنصة الرسمية.',
       },
     ],
     featuresEn: [
@@ -561,16 +561,16 @@ const PLATFORMS: PlatformInfo[] = [
         desc: 'Unlock global Explore visibility and premium monetization tools from day one.',
       },
       {
-        title: 'Extra Agency Diamond Bonuses',
-        desc: 'Earn additional percentage bonuses on top of your standard Tango diamond earnings.',
+        title: 'Creator Growth Programs',
+        desc: 'Dedicated milestones and agency recognition programs for active Tango broadcasters.',
       },
       {
         title: 'Direct Account Protection',
         desc: 'Dedicated escalation channel with Tango management to protect your broadcaster account.',
       },
       {
-        title: 'Instant USD & Local Payouts',
-        desc: 'Withdraw your earnings daily or weekly at top exchange rates.',
+        title: '24/7 Operational Support',
+        desc: 'Daily guidance to optimize your stream quality, audience engagement, and schedule.',
       },
     ],
     requirementsAr: [
@@ -592,8 +592,8 @@ const PLATFORMS: PlatformInfo[] = [
         hoursAr: '35 ساعة / 15 يوم',
         hoursEn: '35 hrs / 15 days',
         targetAr: 'شريحة البداية',
-        payoutAr: 'أرباح الألماس كاملة + بونص ترحيبي',
-        payoutEn: '100% Diamonds + Welcome Bonus',
+        payoutAr: 'تفعيل الحساب + تأهيل وتدريب تفاعلي',
+        payoutEn: 'Account Activation + Onboarding Coaching',
       },
       {
         levelAr: 'مذيع متقدم (Elite Streamer)',
@@ -601,8 +601,8 @@ const PLATFORMS: PlatformInfo[] = [
         hoursAr: '50 ساعة / 20 يوم',
         hoursEn: '50 hrs / 20 days',
         targetAr: 'شريحة الاحتراف',
-        payoutAr: 'أرباح الألماس + مكافأة وكالة شهرية',
-        payoutEn: 'Diamonds + Monthly Agency Bonus',
+        payoutAr: 'أولوية الظهور في Explore + متابعة أسبوعية',
+        payoutEn: 'Explore Priority + Weekly Review',
       },
       {
         levelAr: 'نجم تانجو (Tango Legend)',
@@ -610,8 +610,8 @@ const PLATFORMS: PlatformInfo[] = [
         hoursAr: '65 ساعة / 22 يوم',
         hoursEn: '65 hrs / 22 days',
         targetAr: 'شريحة النخبة',
-        payoutAr: 'أعلى عائد بالدولار + دعم ترويجي VIP',
-        payoutEn: 'Max USD Payout + VIP Promotion',
+        payoutAr: 'دعم ترويجي VIP + مدير حساب مخصص',
+        payoutEn: 'VIP Promotion + Dedicated Manager',
       },
     ],
     LogoComponent: BrandIcons.Tango,
@@ -624,36 +624,36 @@ const PLATFORMS: PlatformInfo[] = [
     shortAr: 'بيجو لايف',
     creatorsCountAr: '+1,500 مذيع ومذيعة',
     creatorsCountEn: '1,500+ Official Hosts',
-    badgeEn: 'Official Contracts',
-    badgeAr: 'عقود رسمية براتب ثابت',
+    badgeEn: 'Official Agency Hub',
+    badgeAr: 'توثيق رسمي ودعم عالمي',
     accentColor: '#00d2ff',
     accentGlow: 'rgba(0, 210, 255, 0.35)',
-    cardHeadlineEn: 'Official Host Contracts & Base Salaries on Bigo Live.',
-    cardHeadlineAr: 'عقود مذيعين رسمية برواتب شهرية ثابتة + أرباح الفاصوليا.',
-    promptPillEn: 'Fixed Monthly Salary + Beans Revenue + Global PKs',
-    promptPillAr: 'راتب شهري ثابت + أرباح الفاصوليا + بطولات عالمية',
-    heroTitleAr: 'وكالة الأساطير المعتمدة لعقود المذيعين في بيجو لايف (Bigo Live)',
-    heroTitleEn: 'Official Legends Agency Host Contracts on Bigo Live',
+    cardHeadlineEn: 'Official Host Verification & Global PKs on Bigo Live.',
+    cardHeadlineAr: 'توثيق رسمي للمذيعين وإدارة احترافية للفعاليات في بيجو لايف.',
+    promptPillEn: 'Official Verification + Audition Prep + Global PKs',
+    promptPillAr: 'توثيق رسمي + تأهيل القبول + بطولات عالمية',
+    heroTitleAr: 'وكالة الأساطير المعتمدة لمذيعي بيجو لايف (Bigo Live)',
+    heroTitleEn: 'Official Legends Agency Host Hub on Bigo Live',
     heroDescAr:
-      'احصل على عقد مذيع رسمي موثق في تطبيق Bigo Live مع وكالة الأساطير. نضمن لك نظام الرواتب الشهرية الثابتة مقابل التارجت بالإضافة إلى كامل أرباحك من الفاصوليا (Beans)، مع تأهيلك للمشاركة في المسابقات والحفلات الرسمية الكبرى.',
+      'انضم إلى نخبة المذيعين المعتمدين في تطبيق Bigo Live مع وكالة الأساطير. نوفر لك التأهيل الكامل لاجتياز اختبار القبول الرسمي، جدولة ساعات البث الاحترافية، وترشيحك للمشاركة في المسابقات والفعاليات الرسمية الكبرى.',
     heroDescEn:
-      'Secure your official Bigo Live host contract with Legends Agency. Combine guaranteed monthly tier salaries with your Beans revenue and official event invitations.',
+      'Join verified creators on Bigo Live with Legends Agency. Get full audition preparation, structured streaming schedules, and official event invitations.',
     featuresAr: [
       {
-        title: 'عقود مذيعين رسمية براتب شهري',
-        desc: 'نظام رواتب واضح ومضمون يبدأ من أول تارجت بالإضافة إلى احتفاظك بقيمة الفاصوليا داخل حسابك.',
+        title: 'توثيق رسمي للمذيعين بالوكالة',
+        desc: 'تفعيل حسابك كمذيع معتمد داخل منظومة بيجو لايف مع متابعة مستمرة لمؤشرات الأداء وساعات البث.',
       },
       {
         title: 'اختبار قبول وتفعيل سريع (Audition)',
-        desc: 'تجهيزك لاجتياز فيديو القبول الرسمي في بيجو لايف بنجاح من المرة الأولى وتفعيل العقد فوراً.',
+        desc: 'تجهيزك لاجتياز فيديو القبول الرسمي في بيجو لايف بنجاح من المرة الأولى وتفعيل الحساب فوراً.',
       },
       {
         title: 'ترشيح للحفلات والفعاليات الرسمية',
-        desc: 'إدراج مذيعي الوكالة في بطولات بيجو الإقليمية والعالمية لزيادة الشهرة ومضاعفة التارجت.',
+        desc: 'إدراج مذيعي الوكالة في بطولات بيجو الإقليمية والعالمية لزيادة الشهرة وتعزيز التفاعل.',
       },
       {
         title: 'إدارة حسابات متكاملة 24/7',
-        desc: 'متابعة يومية لساعات البث والتارجت وتوفير تقارير أداء دقيقة لضمان تحقيق أعلى شريحة راتب.',
+        desc: 'متابعة يومية لساعات البث وتوفير تقارير أداء دقيقة لضمان تطور مستمر لحسابك.',
       },
     ],
     requirementsAr: [
@@ -664,8 +664,8 @@ const PLATFORMS: PlatformInfo[] = [
     ],
     featuresEn: [
       {
-        title: 'Official Monthly Salary Contracts',
-        desc: 'Transparent salary tiers combined with your in-app Beans earnings.',
+        title: 'Official Host Verification',
+        desc: 'Step-by-step guidance to verify your Bigo Live broadcaster profile seamlessly.',
       },
       {
         title: 'Fast-Track Audition Approval',
@@ -677,7 +677,7 @@ const PLATFORMS: PlatformInfo[] = [
       },
       {
         title: '24/7 Dedicated Management',
-        desc: 'Daily tracking of your hours and beans target so you never miss a payout tier.',
+        desc: 'Daily tracking of your streaming hours and growth milestones.',
       },
     ],
     requirementsEn: [
@@ -688,31 +688,31 @@ const PLATFORMS: PlatformInfo[] = [
     ],
     tiers: [
       {
-        levelAr: 'عقد المستوى الأول (Tier S1)',
-        levelEn: 'Contract Tier S1',
+        levelAr: 'المستوى الأول (Tier S1)',
+        levelEn: 'Tier S1',
         hoursAr: '30 ساعة / 15 يوم',
         hoursEn: '30 hrs / 15 days',
-        targetAr: '10,000+ فاصوليا',
-        payoutAr: 'راتب ثابت + صافي أرباح الفاصوليا',
-        payoutEn: 'Fixed Base Salary + Beans',
+        targetAr: 'نشاط تأسيسي',
+        payoutAr: 'توثيق رسمي + تأهيل Audition كامل',
+        payoutEn: 'Official Verification + Audition Prep',
       },
       {
-        levelAr: 'عقد المستوى المتقدم (Tier S2)',
-        levelEn: 'Contract Tier S2',
+        levelAr: 'المستوى المتقدم (Tier S2)',
+        levelEn: 'Tier S2',
         hoursAr: '40 ساعة / 20 يوم',
         hoursEn: '40 hrs / 20 days',
-        targetAr: '40,000+ فاصوليا',
-        payoutAr: 'راتب شهري مرتفع + مكافأة تميز',
-        payoutEn: 'High Monthly Salary + Bonus',
+        targetAr: 'نشاط متقدم',
+        payoutAr: 'جدولة PK إقليمية + تقارير أداء',
+        payoutEn: 'Regional PKs + Performance Reports',
       },
       {
-        levelAr: 'عقد النجوم المحترفين (Star Pro)',
-        levelEn: 'Star Pro Contract',
+        levelAr: 'نخبة المحترفين (Star Pro)',
+        levelEn: 'Star Pro',
         hoursAr: '44 ساعة / 20 يوم',
         hoursEn: '44 hrs / 20 days',
-        targetAr: '100,000+ فاصوليا',
-        payoutAr: 'أعلى راتب رسمي بالدولار + رعاية كاملة',
-        payoutEn: 'Top Official USD Salary + Sponsorship',
+        targetAr: 'مستوى النخبة',
+        payoutAr: 'ترشيح للفعاليات الرسمية + رعاية VIP',
+        payoutEn: 'Official Gala Invites + VIP Management',
       },
     ],
     LogoComponent: BrandIcons.Bigo,
@@ -875,8 +875,8 @@ function InteractiveEcosystemCommandHub({
       baseAngleDeg: 30,
       statAr: '+10,000 مذيع وصانع محتوى',
       statEn: '10,000+ Video Creators',
-      subAr: 'بث مرئي عالمي وسحب فوري بالدولار',
-      subEn: 'Global Video & Instant USD',
+      subAr: 'بث مرئي عالمي وتصدر الاكسبلور',
+      subEn: 'Global Video & Explore Reach',
       metricCode: 'SYS · TANGO · +10,000',
     },
     {
@@ -884,8 +884,8 @@ function InteractiveEcosystemCommandHub({
       baseAngleDeg: 150,
       statAr: '+1,500 مذيع ومذيعة',
       statEn: '1,500+ Official Hosts',
-      subAr: 'رواتب شهرية ثابتة + أرباح الفاصوليا',
-      subEn: 'Fixed Base Salary + Beans',
+      subAr: 'توثيق رسمي + دعم وجولات عالمية',
+      subEn: 'Official Onboarding + Global PKs',
       metricCode: 'SYS · BIGO · +1,500',
     },
   ];
@@ -1721,18 +1721,18 @@ export function MonoformSite() {
                   </div>
                   <div className="p-3 sm:p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
                     <div className="text-[11px] sm:text-xs text-white/50">
-                      {isAr ? 'نسبة صافي الأرباح' : 'Creator Share'}
+                      {isAr ? 'حماية وتوثيق الحساب' : 'Account Protection'}
                     </div>
                     <div className="text-sm sm:text-lg font-bold text-emerald-400 mt-0.5">
-                      100% + Bonus
+                      100% Verified
                     </div>
                   </div>
                   <div className="p-3 sm:p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
                     <div className="text-[11px] sm:text-xs text-white/50">
-                      {isAr ? 'طرق استلام الرواتب' : 'Payout Methods'}
+                      {isAr ? 'الدعم الفني والإدارة' : 'Creator Support'}
                     </div>
                     <div className="text-sm sm:text-lg font-bold text-cyan-300 mt-0.5">
-                      USDT · Cash · Bank
+                      24/7 VIP Desk
                     </div>
                   </div>
                 </div>
@@ -1807,15 +1807,15 @@ export function MonoformSite() {
               </div>
             </div>
 
-            {/* SALARY TIERS & REQUIREMENTS GRID */}
+            {/* GROWTH TIERS & REQUIREMENTS GRID */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-7 p-6 sm:p-8 rounded-[28px] bg-[#0a0a0d] border border-white/[0.1] space-y-5">
                 <div className="flex items-center gap-2.5">
-                  <DollarSign className="w-5 h-5 text-emerald-400" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
                   <h3 className="text-xl font-bold text-white">
                     {isAr
-                      ? `نظام التارجت والرواتب في ${currentPlatformPageData.shortAr}`
-                      : `${currentPlatformPageData.nameEn} Target & Salary Tiers`}
+                      ? `مستويات التطوير والالتزام في ${currentPlatformPageData.shortAr}`
+                      : `${currentPlatformPageData.nameEn} Growth & Activity Levels`}
                   </h3>
                 </div>
 
@@ -2133,8 +2133,8 @@ export function MonoformSite() {
 
                   <p className="text-white/90 text-xs sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                     {isAr
-                      ? 'تعاقد رسمي موثق، رواتب شهرية ثابتة ومكافآت ألماس فورية بالدولار، مع إدارة حسابات احترافية وحماية كاملة على مدار الساعة في أقوى منصات البث العالمية.'
-                      : 'Verified host contracts, guaranteed monthly salaries, instant USD diamond payouts, and 24/7 account protection across global live platforms.'}
+                      ? 'توثيق رسمي معتمد، إدارة حسابات احترافية، تنسيق جولات PK، وحماية ودعم فني متكامل على مدار الساعة في أقوى منصات البث العالمية.'
+                      : 'Verified host onboarding, professional account management, PK coordination, and 24/7 creator protection across global live platforms.'}
                   </p>
 
                   <div className="pt-1 sm:pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
@@ -2307,7 +2307,7 @@ export function MonoformSite() {
 
                 <div className="w-full max-w-6xl mx-auto flex items-center justify-between border-t border-white/[0.1] pt-3 sm:pt-4 text-[10px] sm:text-xs text-white/60">
                   <span>TANGO +10,000 · XENA +2,000 · BIGO +1,500</span>
-                  <span>100% VERIFIED PAYOUT SYSTEM</span>
+                  <span>100% OFFICIAL VERIFIED AGENCY</span>
                 </div>
               </div>
 
@@ -3093,8 +3093,8 @@ export function MonoformSite() {
                     </h2>
                     <p className="text-white/75 text-xs sm:text-base max-w-xl leading-relaxed">
                       {isAr
-                        ? 'اختر التطبيق المناسب لك لتصفح الدليل الشامل لنظام التارجت والرواتب وتعبئة استمارة التقديم المعتمدة، أو قدّم طلبك المباشر الآن.'
-                        : 'Select your preferred platform below to view its full salary guide and application form, or apply directly now.'}
+                        ? 'اختر التطبيق المناسب لك لتصفح الدليل الشامل لنظام التطوير والالتزام وتعبئة استمارة التقديم المعتمدة، أو قدّم طلبك المباشر الآن.'
+                        : 'Select your preferred platform below to view its full guide and application form, or apply directly now.'}
                     </p>
                     <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                       <button
