@@ -947,7 +947,7 @@ const InteractiveEcosystemCommandHub = React.memo(function InteractiveEcosystemC
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] text-[9.5px] sm:text-[11px] font-medium text-cyan-300">
             <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400 animate-spin" style={{ animationDuration: '8s' }} />
             <span>
-              {isAr ? 'منظومة وكالة الأساطير التفاعلية' : 'Interactive Legends Core Engine'}
+              {isAr ? 'ماذا تقدم لك وكالة الأساطير كمذيع؟ — مميزات الإدارة والتوثيق' : 'What Legends Agency Offers You — Core Management Benefits'}
             </span>
           </div>
           <span className="text-[9.5px] sm:text-[10px] font-mono text-emerald-400 flex items-center gap-1 shrink-0">
@@ -2154,16 +2154,19 @@ export function MonoformSite() {
                     <span>LEGENDS AGENCY · MENA & GLOBAL</span>
                   </div>
 
-                  <h1 className="text-[28px] sm:text-[60px] md:text-[80px] font-extrabold tracking-tight leading-[1.08] [text-shadow:0_6px_24px_rgba(0,0,0,0.9)]">
-                    <span className="block bg-gradient-to-r from-white via-cyan-200 to-amber-200 bg-clip-text text-transparent">
-                      {isAr ? 'وكالة الأساطير لصناعة النجوم' : 'Legends Agency for Star Creation'}
+                  <h1 className="text-[28px] sm:text-[54px] md:text-[74px] font-extrabold tracking-tight leading-[1.08] [text-shadow:0_6px_24px_rgba(0,0,0,0.9)]">
+                    <span className="block text-white">
+                      {isAr ? 'وكالة الأساطير' : 'Legends Agency'}
+                    </span>
+                    <span className="block bg-gradient-to-r from-amber-300 via-cyan-300 to-white bg-clip-text text-transparent mt-1">
+                      {isAr ? 'صناعة نجوم البث المباشر' : 'Live Streaming Star Makers'}
                     </span>
                   </h1>
 
-                  <p className="text-white/90 text-xs sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium [text-shadow:0_2px_14px_rgba(0,0,0,0.95)]">
+                  <p className="text-white/90 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium [text-shadow:0_2px_14px_rgba(0,0,0,0.95)]">
                     {isAr
-                      ? 'توثيق رسمي معتمد، إدارة حسابات احترافية، تنسيق جولات PK، وحماية ودعم فني متكامل على مدار الساعة في أقوى منصات البث العالمية.'
-                      : 'Verified host onboarding, professional account management, PK coordination, and 24/7 creator protection across global live platforms.'}
+                      ? 'الوكيل الرسمي المعتمد في الشرق الأوسط لإدارة وتأهيل صناع المحتوى على تطبيقات Xena Live · Tango Live · Bigo Live. نوفر لك توثيق فوري معتمد، حماية كاملة لحسابك، ودعم وتصدر في البث مجاناً وبدون أي رسوم.'
+                      : 'The official certified creator agency across MENA for Xena Live, Tango Live, and Bigo Live. Instant verification, account protection, and explore boost — 100% free with zero fees.'}
                   </p>
 
                   <div className="pt-1 sm:pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
@@ -2172,15 +2175,26 @@ export function MonoformSite() {
                       onClick={() => setApplyModalOpen(true)}
                       className="px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white hover:bg-cyan-300 text-black text-xs sm:text-sm font-bold shadow-[0_0_35px_rgba(255,255,255,0.35)] transition cursor-pointer flex items-center gap-2"
                     >
-                      <span>{isAr ? 'قدّم طلب الانضمام الرسمي' : 'Apply for Official Contract'}</span>
+                      <span>{isAr ? 'قدّم طلب انضمامك الآن' : 'Apply to Join Agency'}</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
+                    <a
+                      href={`https://wa.me/201069560025?text=${encodeURIComponent(
+                        'السلام عليكم، أرغب في الاستفسار والانضمام لوكالة الأساطير (Legends Agency)'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-black text-xs sm:text-sm font-bold shadow-[0_0_25px_rgba(37,211,102,0.4)] transition cursor-pointer flex items-center gap-2"
+                    >
+                      <BrandIcons.WhatsApp className="w-4 h-4" />
+                      <span>{isAr ? 'تواصل مع الإدارة عبر واتساب' : 'WhatsApp Desk'}</span>
+                    </a>
                     <button
                       type="button"
-                      onClick={() => scrubToProgress(0.13)}
-                      className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-black/70 hover:bg-white/15 backdrop-blur-xl border border-white/25 text-white text-xs sm:text-sm font-semibold transition cursor-pointer"
+                      onClick={() => scrubToProgress(0.14)}
+                      className="px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-black/70 hover:bg-white/15 backdrop-blur-xl border border-white/25 text-white text-xs sm:text-sm font-semibold transition cursor-pointer"
                     >
-                      {isAr ? 'استعراض التطبيقات 3D ↓' : 'Explore 3D Apps ↓'}
+                      {isAr ? 'تصفح المنصات الشريكة ↓' : 'Partner Platforms ↓'}
                     </button>
                   </div>
                 </div>
@@ -2253,13 +2267,13 @@ export function MonoformSite() {
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                     <span className="text-[10px] sm:text-sm font-mono uppercase tracking-[0.18em] text-white/85">
-                      LEGENDS 3D APPLICATION CUBE
+                      {isAr ? 'المنصات الرسمية الشريكة — اختر منصتك المفضلة' : 'OFFICIAL PARTNER PLATFORMS — CHOOSE YOUR APP'}
                     </span>
                   </div>
                   <span className="text-[10px] sm:text-sm font-semibold text-cyan-300 hidden sm:inline">
                     {isAr
-                      ? 'اضغط على أي تطبيق لفتح صفحته الكاملة واستمارة التقديم'
-                      : 'Click any platform to open its full guide & application'}
+                      ? 'اضغط على أي تطبيق للاطلاع على الشروط واستمارة التقديم الفورية'
+                      : 'Click any platform to view requirements & instant apply'}
                   </span>
                 </div>
 
@@ -2386,7 +2400,7 @@ export function MonoformSite() {
                     <div className="relative z-10 flex items-center justify-between">
                       <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-bold text-white flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>LEGENDS 3D BOX</span>
+                        <span>{isAr ? 'استوديو وصناع محتوى الأساطير' : 'Legends Agency Studio'}</span>
                       </span>
                       <button
                         type="button"
@@ -2476,7 +2490,7 @@ export function MonoformSite() {
                         onClick={() => openDedicatedPlatformPage('xena')}
                         className="w-full py-2 rounded-xl bg-white hover:bg-pink-200 text-black font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5"
                       >
-                        <span>{isAr ? 'شرح وتقديم زينا لايف' : 'Xena Live Page & Apply'}</span>
+                        <span>{isAr ? 'شرح وشروط تقديم زينا لايف (غرف صوتية)' : 'Xena Voice Rooms — Guide & Apply'}</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -2527,7 +2541,7 @@ export function MonoformSite() {
                         onClick={() => openDedicatedPlatformPage('tango')}
                         className="w-full py-2 rounded-xl bg-white hover:bg-purple-200 text-black font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5"
                       >
-                        <span>{isAr ? 'شرح وتقديم تانجو لايف' : 'Tango Live Page & Apply'}</span>
+                        <span>{isAr ? 'شرح وشروط تقديم تانجو (بث مرئي)' : 'Tango Video Stream — Guide & Apply'}</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -2578,7 +2592,7 @@ export function MonoformSite() {
                         onClick={() => openDedicatedPlatformPage('bigo')}
                         className="w-full py-2 rounded-xl bg-white hover:bg-cyan-200 text-black font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5"
                       >
-                        <span>{isAr ? 'شرح وتقديم بيجو لايف' : 'Bigo Live Page & Apply'}</span>
+                        <span>{isAr ? 'شرح وشروط تقديم بيجو (عقود رسمية)' : 'Bigo Live Contracts — Guide & Apply'}</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -3117,19 +3131,35 @@ export function MonoformSite() {
                           : 'Official #1 Agency — Tango (10K+) · Xena (2K+) · Bigo (1.5K+)'}
                       </span>
                     </div>
-                    <h2 className="text-[32px] sm:text-[60px] md:text-[74px] font-bold tracking-[-0.035em] leading-[1.02]">
+                    <h2 className="text-[30px] sm:text-[54px] md:text-[66px] font-bold tracking-[-0.035em] leading-[1.02]">
                       <span className="block text-white">
                         {isAr ? 'وكالة الأساطير' : 'Legends Agency'}
                       </span>
-                      <span className="block text-white/45 mt-1">
-                        {isAr ? 'لصناعة النجوم' : 'for Star Creation'}
+                      <span className="block text-cyan-300 mt-1">
+                        {isAr ? 'صناعة نجوم البث المباشر' : 'Live Streaming Star Makers'}
                       </span>
                     </h2>
-                    <p className="text-white/75 text-xs sm:text-base max-w-xl leading-relaxed">
-                      {isAr
-                        ? 'اختر التطبيق المناسب لك لتصفح الدليل الشامل لنظام التطوير والالتزام وتعبئة استمارة التقديم المعتمدة، أو قدّم طلبك المباشر الآن.'
-                        : 'Select your preferred platform below to view its full guide and application form, or apply directly now.'}
-                    </p>
+
+                    {/* 3 Steps to Join Box */}
+                    <div className="p-3.5 sm:p-4 rounded-2xl bg-white/[0.04] border border-white/[0.1] space-y-2">
+                      <div className="text-[11px] sm:text-xs font-bold text-amber-300 font-mono uppercase">
+                        {isAr ? '⚡ خطوات الانضمام الرسمية في 3 دقائق:' : '⚡ 3 Simple Steps to Join:'}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-start">
+                        <div className="p-2 rounded-xl bg-black/40 border border-white/5 space-y-0.5">
+                          <div className="text-[11px] font-bold text-white">1. اختر منصتك</div>
+                          <div className="text-[9.5px] sm:text-[10px] text-white/60">زينا، تانجو، أو بيجو</div>
+                        </div>
+                        <div className="p-2 rounded-xl bg-black/40 border border-white/5 space-y-0.5">
+                          <div className="text-[11px] font-bold text-cyan-300">2. قدّم طلبك</div>
+                          <div className="text-[9.5px] sm:text-[10px] text-white/60">بالاستمارة أو واتساب</div>
+                        </div>
+                        <div className="p-2 rounded-xl bg-black/40 border border-white/5 space-y-0.5">
+                          <div className="text-[11px] font-bold text-emerald-300">3. ابدأ البث</div>
+                          <div className="text-[9.5px] sm:text-[10px] text-white/60">بتوثيق ودعم مباشر</div>
+                        </div>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                       <button
                         type="button"
