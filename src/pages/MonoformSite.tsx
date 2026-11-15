@@ -761,7 +761,7 @@ function LegendsProEmblem3D({
     >
       {/* Volumetric Gold & Cyan Halo */}
       <div
-        className="pointer-events-none absolute inset-4 rounded-full blur-2xl"
+        className="pointer-events-none absolute inset-4 rounded-full"
         style={{
           opacity: 0.7 * glowIntensity,
           background:
@@ -809,7 +809,7 @@ function LegendsProEmblem3D({
         <img
           src="/assets/legends_official_3d.webp"
           alt="Legends Agency Official Logo"
-          className="relative w-[90%] h-[90%] object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.9)]"
+          className="relative w-[90%] h-[90%] object-contain"
           style={{ transform: 'translateZ(18px)' }}
         />
       </div>
@@ -1665,7 +1665,7 @@ export function MonoformSite() {
           className="relative min-h-screen w-full bg-[#000000] text-[#f5f5f7] pt-24 pb-24 px-4 sm:px-8 md:px-14 overflow-x-hidden"
         >
           <div
-            className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] rounded-full blur-[150px] opacity-35"
+            className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] rounded-full opacity-35"
             style={{
               background: `radial-gradient(circle, ${currentPlatformPageData.accentColor} 0%, transparent 70%)`,
             }}
@@ -2067,6 +2067,7 @@ export function MonoformSite() {
                 - Video fills the entire Hero in landscape widescreen!
                 - Full clear title "وكالة الأساطير لصناعة النجوم" prominently displayed!
                =============================================================== */}
+            {heroStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: heroStageOpacity,
@@ -2148,13 +2149,13 @@ export function MonoformSite() {
                     <span>LEGENDS AGENCY · MENA & GLOBAL</span>
                   </div>
 
-                  <h1 className="text-[28px] sm:text-[60px] md:text-[80px] font-extrabold tracking-tight leading-[1.08] drop-shadow-[0_10px_35px_rgba(0,0,0,0.95)]">
+                  <h1 className="text-[28px] sm:text-[60px] md:text-[80px] font-extrabold tracking-tight leading-[1.08] [text-shadow:0_6px_24px_rgba(0,0,0,0.9)]">
                     <span className="block bg-gradient-to-r from-white via-cyan-200 to-amber-200 bg-clip-text text-transparent">
                       {isAr ? 'وكالة الأساطير لصناعة النجوم' : 'Legends Agency for Star Creation'}
                     </span>
                   </h1>
 
-                  <p className="text-white/90 text-xs sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+                  <p className="text-white/90 text-xs sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium [text-shadow:0_2px_14px_rgba(0,0,0,0.95)]">
                     {isAr
                       ? 'توثيق رسمي معتمد، إدارة حسابات احترافية، تنسيق جولات PK، وحماية ودعم فني متكامل على مدار الساعة في أقوى منصات البث العالمية.'
                       : 'Verified host onboarding, professional account management, PK coordination, and 24/7 creator protection across global live platforms.'}
@@ -2222,6 +2223,7 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* ===============================================================
                 STAGE LAYER B: PHASE 2 — 3D 4-SIDED ROTATING BOX APPEARS ON SCROLL!
@@ -2229,6 +2231,7 @@ export function MonoformSite() {
                 - Appears immediately when scrolling down from the Hero with ZERO gap!
                 - Rotates cleanly through all 4 faces as you scroll!
                =============================================================== */}
+            {cubeStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: cubeStageOpacity,
@@ -2606,6 +2609,7 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* ===============================================================
                 STAGE LAYER C: PHASE 3 — DYNAMIC 3D ORBITAL ECOSYSTEM ENGINE
@@ -2637,6 +2641,7 @@ export function MonoformSite() {
                 + INTERACTIVE SOCIAL MEDIA DOCK DIRECTLY UNDER THE VIDEOS!
                 (p = 0.49 -> 0.77)
                =============================================================== */}
+            {railOpacity > 0.005 && (
             <div
               style={{
                 opacity: railOpacity,
@@ -2648,7 +2653,7 @@ export function MonoformSite() {
             >
               {/* Subtle Apple-Pro Studio Spotlight */}
               <div
-                className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[130px] opacity-55"
+                className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-55"
                 style={{
                   background:
                     'radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(0, 210, 255, 0.18) 50%, transparent 100%)',
@@ -2898,7 +2903,7 @@ export function MonoformSite() {
                       >
                         {/* Ambient Brand Glow Aura Behind Pure Logo */}
                         <span
-                          className="pointer-events-none absolute -inset-2.5 sm:-inset-3 rounded-full blur-xl opacity-45 group-hover:opacity-95 transition-opacity duration-300"
+                          className="pointer-events-none absolute -inset-2.5 sm:-inset-3 rounded-full opacity-45 group-hover:opacity-95 transition-opacity duration-300"
                           style={{
                             background: `radial-gradient(circle, ${soc.brandColor} 0%, transparent 70%)`,
                           }}
@@ -2916,9 +2921,6 @@ export function MonoformSite() {
                         {/* Pure Floating Platform Logo (No Card Box) */}
                         <div
                           className="relative w-10 h-10 sm:w-13 sm:h-13 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1.5"
-                          style={{
-                            filter: `drop-shadow(0 10px 22px ${soc.brandColor}80)`,
-                          }}
                         >
                           <SocIcon className="w-full h-full object-contain" />
                         </div>
@@ -2968,7 +2970,7 @@ export function MonoformSite() {
                         }
                       >
                         <span
-                          className="pointer-events-none absolute -inset-2.5 sm:-inset-3 rounded-full blur-xl opacity-55 group-hover:opacity-100 transition-opacity duration-300"
+                          className="pointer-events-none absolute -inset-2.5 sm:-inset-3 rounded-full opacity-55 group-hover:opacity-100 transition-opacity duration-300"
                           style={{
                             background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)',
                           }}
@@ -2990,11 +2992,13 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* ===============================================================
                 STAGE LAYER E: PHASE 5 — 3D CAMERA FLY-THROUGH OF 10 REAL LIVE STREAMERS
                 (p = 0.71 -> 0.95)
                =============================================================== */}
+            {flyOpacity > 0.005 && (
             <div
               style={{
                 opacity: flyOpacity,
@@ -3090,11 +3094,13 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* ===============================================================
                 STAGE LAYER F: PHASE 6 — APPLE-BLACK FINALE & DEDICATED APP PORTALS
                 (p = 0.88 -> 1.00)
                =============================================================== */}
+            {finaleEnter > 0.005 && (
             <div
               style={{
                 opacity: finaleEnter,
@@ -3213,6 +3219,7 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </>
       )}
