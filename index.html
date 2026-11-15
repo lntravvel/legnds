@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl" style="background-color: #000000; color: #ffffff;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Legends Agency | وكالة الأساطير — دعم وتوجيه صناع المحتوى على Xena Live</title>
-    <meta name="description" content="وكالة الأساطير (Legends Agency) — وكالة شريكة لدعم وتوجيه صناع المحتوى والمذيعين على تطبيق زينا لايف (Xena Live). دعم فني 24/7 وتدريب على جودة البث." />
-    <meta name="keywords" content="وكالة الأساطير, زينا لايف, Xena Live, بث مباشر, صناع المحتوى, Legends Agency, دعم المذيعين, تدريب البث المباشر" />
+    <title>Legends Agency | وكالة الأساطير — صناعة نجوم البث المباشر</title>
+    <meta name="description" content="وكالة الأساطير (Legends Agency) — الوكيل الرسمي المعتمد لإدارة وتأهيل صناع المحتوى على تطبيقات زينا لايف، تانجو، وبيجو لايف. توثيق رسمي، دعم فني 24/7، وتدريب احترافي." />
+    <meta name="keywords" content="وكالة الأساطير, زينا لايف, Xena Live, تانجو لايف, Tango Live, بيجو لايف, Bigo Live, بث مباشر, صناع المحتوى, Legends Agency, دعم المذيعين, توثيق حسابات" />
     <link rel="canonical" href="https://legeends.com/" />
     
     <!-- SEO: OpenGraph (Facebook, WhatsApp, Telegram) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Legends Agency | وكالة الأساطير — دعم وتوجيه صناع المحتوى على Xena Live" />
-    <meta property="og:description" content="انضم إلى وكالة الأساطير على تطبيق زينا لايف (Xena Live). دعم فني 24/7، تدريب وتطوير مستمر لجودة البث لصناع المحتوى البالغين 18+." />
+    <meta property="og:title" content="Legends Agency | وكالة الأساطير — صناعة نجوم البث المباشر" />
+    <meta property="og:description" content="انضم إلى وكالة الأساطير الرسمية على تطبيقات Xena Live · Tango Live · Bigo Live. توثيق معتمد، حماية كاملة، ودعم وتصدر للبث." />
     <meta property="og:image" content="https://legeends.com/assets/legends_eagle_clean.png" />
     <meta property="og:url" content="https://legeends.com/" />
     <meta property="og:site_name" content="Legends Agency | وكالة الأساطير" />
@@ -19,8 +19,8 @@
     
     <!-- SEO: Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Legends Agency | وكالة الأساطير — زينا لايف" />
-    <meta name="twitter:description" content="وكالة شريكة لدعم وتوجيه صناع المحتوى على زينا لايف (Xena Live). دعم فني 24/7 وتدريب وتطوير." />
+    <meta name="twitter:title" content="Legends Agency | وكالة الأساطير — صناعة نجوم البث المباشر" />
+    <meta name="twitter:description" content="الوكيل الرسمي المعتمد لصناع المحتوى على زينا لايف، تانجو، وبيجو لايف." />
     <meta name="twitter:image" content="https://legeends.com/assets/legends_eagle_clean.png" />
     
     <!-- Structured Data (Schema.org) for Google Search -->
@@ -32,7 +32,7 @@
       "alternateName": "وكالة الأساطير",
       "url": "https://legeends.com/",
       "logo": "https://legeends.com/assets/legends_eagle_clean.png",
-      "description": "وكالة شريكة لإدارة وتطوير صناع المحتوى والمذيعين على تطبيق زينا لايف (Xena Live).",
+      "description": "وكالة شريكة لإدارة وتطوير صناع المحتوى والمذيعين على تطبيقات Xena Live و Tango Live و Bigo Live.",
       "sameAs": [
         "https://www.tiktok.com/@legends.1.agency",
         "https://www.instagram.com/legends_agenccy/",
@@ -43,26 +43,38 @@
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+447460018974",
+        "telephone": "+201069560025",
         "contactType": "customer support",
-        "availableLanguage": ["Arabic", "English", "Russian", "French"]
+        "availableLanguage": ["Arabic", "English"]
       }
     }
     </script>
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#02050A" />
+    <meta name="theme-color" content="#000000" />
     
     <link rel="icon" type="image/png" href="/assets/legends_eagle_clean.png" />
     <link rel="apple-touch-icon" href="/assets/legends_eagle_clean.png" />
     
-    <!-- Script Error Guard: logs cross-origin errors from embedded iframes instead of crashing -->
+    <!-- Script Error Guard & Stale Deployment Auto-Recovery -->
     <script>
+      // Auto-reload once if a stale cached HTML requests an outdated JS bundle that returns 404
+      window.addEventListener('vite:preloadError', function(event) {
+        console.warn('[Legends] Stale chunk detected, refreshing to latest deployment...');
+        window.location.reload();
+      });
       window.addEventListener('error', function(e) {
-        if (e.message === 'Script error.' || !e.filename) {
-          if (typeof console !== 'undefined' && console.debug) {
-            console.debug('[Legends] Suppressed cross-origin script error');
+        var msg = (e && e.message) || '';
+        if (msg.indexOf('Failed to fetch dynamically imported module') !== -1 ||
+            msg.indexOf('Importing a module script failed') !== -1 ||
+            msg.indexOf('error loading dynamically imported module') !== -1) {
+          var hasReloaded = sessionStorage.getItem('legends_chunk_reload');
+          if (!hasReloaded) {
+            sessionStorage.setItem('legends_chunk_reload', '1');
+            window.location.reload();
           }
+        }
+        if (msg === 'Script error.' || !e.filename) {
           e.preventDefault();
           return true;
         }
@@ -79,8 +91,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300..1000&family=Inter:wght@100..900&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#050505] text-white overflow-x-hidden">
-    <div id="root"></div>
+  <body style="background-color: #000000; color: #ffffff; margin: 0; min-height: 100vh;" class="bg-[#000000] text-white overflow-x-hidden">
+    <div id="root">
+      <!-- Dark Splash Fallback: Guarantees zero white-screen during initial load -->
+      <div style="position: fixed; inset: 0; background-color: #000000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; text-align: center; padding: 20px;">
+        <img src="/assets/legends_official_3d.webp" alt="Legends Agency" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 16px; opacity: 0.9;" />
+        <div style="color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 6px; font-family: 'Cairo', sans-serif;">وكالة الأساطير — صناعة نجوم البث</div>
+        <div style="color: rgba(255, 255, 255, 0.45); font-size: 12px; font-family: 'Cairo', sans-serif;">جاري تحميل المنصة التفاعلية...</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
