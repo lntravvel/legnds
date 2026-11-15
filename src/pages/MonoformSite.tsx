@@ -739,7 +739,7 @@ function smoothstep(min: number, max: number, value: number) {
 // ============================================================================
 // APPLE-GRADE 3D GLASS MEDALLION EMBLEM FOR LEGENDS OFFICIAL LOGO
 // ============================================================================
-function LegendsProEmblem3D({
+const LegendsProEmblem3D = React.memo(function LegendsProEmblem3D({
   className = 'w-44 h-44',
   rotationDeg = 0,
   glowIntensity = 1,
@@ -815,14 +815,14 @@ function LegendsProEmblem3D({
       </div>
     </div>
   );
-}
+});
 
 // ============================================================================
 // DYNAMIC 3D REVOLVING ORBITAL ECOSYSTEM ENGINE (Phase 3 — "مميزات الوكالة")
 // - Nodes physically orbit in 3D space as you scroll (`scrollProgress`),
 //   plus 3D mouse-move tilt & GPU-accelerated radar rings!
 // ============================================================================
-function InteractiveEcosystemCommandHub({
+const InteractiveEcosystemCommandHub = React.memo(function InteractiveEcosystemCommandHub({
   isAr,
   scrollProgress,
   activePlatformId,
@@ -1234,7 +1234,7 @@ function InteractiveEcosystemCommandHub({
       </div>
     </div>
   );
-}
+});
 
 // ============================================================================
 // MAIN COMPONENT: APPLE-BLACK 3D SCROLL STAGE + DEDICATED APP PAGES
@@ -1254,9 +1254,8 @@ export function MonoformSite() {
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
 
-  // Smooth-damped scroll progress `p` in [0, 1] + velocity `vel`
+  // Smooth-damped scroll progress `p` in [0, 1]
   const [p, setP] = useState(0);
-  const [vel, setVel] = useState(0);
   const targetPRef = useRef(0);
   const currentPRef = useRef(0);
 
@@ -1318,28 +1317,29 @@ export function MonoformSite() {
       // On mobile touch: 1:1 instant tracking so the 3D stage moves immediately under your finger (no finger-lift freeze!)
       // On desktop mouse wheel: crisp 0.28 damping so wheel steps glide smoothly.
       if (isTouchViewport) {
+        if (Math.abs(diff) < 0.0012) {
+          rafId = null;
+          return;
+        }
         currentPRef.current = target;
         setP(target);
-        setVel(diff * 0.4);
         syncVideoPlayback(target);
         rafId = null;
         return;
       }
 
-      const lerpFactor = 0.28;
-      const settleThreshold = 0.0002;
+      const lerpFactor = 0.32;
+      const settleThreshold = 0.00025;
 
       if (Math.abs(diff) > settleThreshold) {
         const next = current + diff * lerpFactor;
         currentPRef.current = next;
         setP(next);
-        setVel(diff);
         syncVideoPlayback(next);
         rafId = requestAnimationFrame(tick);
       } else {
         currentPRef.current = target;
         setP(target);
-        setVel(0);
         syncVideoPlayback(target);
         rafId = null;
       }
@@ -1485,8 +1485,6 @@ export function MonoformSite() {
 
   // Phase 6: Finale Card [0.88 -> 1.00]
   const finaleEnter = smoothstep(0.88, 0.93, p);
-
-  const velocitySkew = clamp(vel * 110, -4, 4);
 
   const currentPlatformPageData = activeAppPage
     ? PLATFORMS.find((pl) => pl.id === activeAppPage) || null
@@ -1638,9 +1636,7 @@ export function MonoformSite() {
         aria-label={isAr ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
         title={isAr ? 'تواصل مباشر عبر واتساب الوكالة (24/7)' : 'Contact Agency on WhatsApp (24/7)'}
         style={{
-          transform: `translate3d(0, ${p > 0.01 || activeAppPage ? '0px' : '4px'}, 0) scale(${
-            1 + Math.min(0.14, Math.abs(vel) * 2.2)
-          })`,
+          transform: `translate3d(0, ${p > 0.01 || activeAppPage ? '0px' : '4px'}, 0)`,
         }}
         className="fixed bottom-3.5 right-4 sm:right-6 z-[165] group flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#07160e]/95 hover:bg-[#0d281a] border border-[#25D366]/60 hover:border-[#25D366] shadow-[0_10px_35px_rgba(37,211,102,0.45)] backdrop-blur-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
       >
@@ -2048,7 +2044,7 @@ export function MonoformSite() {
           {/* COMPACT ZERO-GAP SCROLL RUNWAY (350vh on mobile / 560vh on desktop) */}
           <div className="w-full h-[350vh] sm:h-[560vh] pointer-events-none" />
 
-          <div className="fixed inset-0 w-screen h-[100dvh] overflow-hidden bg-[#000000] touch-pan-y">
+          <div className="fixed inset-0 w-screen h-[100dvh] overflow-hidden bg-[#000000] touch-pan-y [contain:strict] will-change-transform">
             {/* Ambient Modern Tech Cyber-Grid & Laser Horizon Accent across the entire site */}
             <div
               className="pointer-events-none absolute inset-0 opacity-20"
@@ -2067,7 +2063,6 @@ export function MonoformSite() {
                 - Video fills the entire Hero in landscape widescreen!
                 - Full clear title "وكالة الأساطير لصناعة النجوم" prominently displayed!
                =============================================================== */}
-            {heroStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: heroStageOpacity,
@@ -2223,7 +2218,6 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
-            )}
 
             {/* ===============================================================
                 STAGE LAYER B: PHASE 2 — 3D 4-SIDED ROTATING BOX APPEARS ON SCROLL!
@@ -2231,7 +2225,6 @@ export function MonoformSite() {
                 - Appears immediately when scrolling down from the Hero with ZERO gap!
                 - Rotates cleanly through all 4 faces as you scroll!
                =============================================================== */}
-            {cubeStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: cubeStageOpacity,
@@ -2609,17 +2602,16 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
-            )}
 
             {/* ===============================================================
                 STAGE LAYER C: PHASE 3 — DYNAMIC 3D ORBITAL ECOSYSTEM ENGINE
                 (p = 0.30 -> 0.55)
                 - overflow-hidden so mobile touch scroll is NEVER trapped inside a nested box!
                =============================================================== */}
-            {particleStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: particleStageOpacity,
+                visibility: particleStageOpacity <= 0.005 ? 'hidden' : 'visible',
                 transform: `scale(${0.92 + particleStageEnter * 0.08})`,
                 pointerEvents: particleStageOpacity > 0.4 ? 'auto' : 'none',
                 zIndex: 50,
@@ -2634,14 +2626,12 @@ export function MonoformSite() {
                 onOpenPlatformPage={openDedicatedPlatformPage}
               />
             </div>
-            )}
 
             {/* ===============================================================
                 STAGE LAYER D: PHASE 4 — 3D INTERACTIVE COVERFLOW REEL DECK
                 + INTERACTIVE SOCIAL MEDIA DOCK DIRECTLY UNDER THE VIDEOS!
                 (p = 0.49 -> 0.77)
                =============================================================== */}
-            {railOpacity > 0.005 && (
             <div
               style={{
                 opacity: railOpacity,
@@ -2725,7 +2715,7 @@ export function MonoformSite() {
                   const translateZ = Math.cos(clamp(rel, -2.5, 2.5) * 0.6) * (isMobile ? 80 : 105) - 65;
                   const translateY = absRel * 10;
                   const rotateY = clamp(rel * -32, -62, 62);
-                  const rotateZ = rel * 2.3 + velocitySkew * 0.25;
+                  const rotateZ = rel * 2.3;
                   const cardScale = clamp(1.04 - absRel * 0.13, 0.7, 1.04);
                   const cardOpacity = clamp(1 - absRel * 0.25, 0.18, 1);
                   const zIndex = Math.round(60 - absRel * 15);
@@ -2992,13 +2982,11 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
-            )}
 
             {/* ===============================================================
                 STAGE LAYER E: PHASE 5 — 3D CAMERA FLY-THROUGH OF 10 REAL LIVE STREAMERS
                 (p = 0.71 -> 0.95)
                =============================================================== */}
-            {flyOpacity > 0.005 && (
             <div
               style={{
                 opacity: flyOpacity,
@@ -3094,13 +3082,11 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
-            )}
 
             {/* ===============================================================
                 STAGE LAYER F: PHASE 6 — APPLE-BLACK FINALE & DEDICATED APP PORTALS
                 (p = 0.88 -> 1.00)
                =============================================================== */}
-            {finaleEnter > 0.005 && (
             <div
               style={{
                 opacity: finaleEnter,
@@ -3219,7 +3205,6 @@ export function MonoformSite() {
                 </div>
               </div>
             </div>
-            )}
           </div>
         </>
       )}

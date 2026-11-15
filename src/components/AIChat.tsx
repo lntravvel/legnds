@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Bot, X, Send, Trash2, Sparkles, User, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -26,7 +26,7 @@ const SYSTEM_PROMPT = `أنت المساعد الذكي لوكالة الأسا�
 4. فريق الإدارة: عبدالله (الوكيل / مدير الوكالة)، جومالي (مشرف)، وبلاك (مشرف).
 5. للتواصل المباشر مع الإدارة: واتساب الإدارة +44 7460 018974.`;
 
-export function AIChat() {
+export const AIChat = React.memo(function AIChat() {
   const { lang, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
@@ -346,3 +346,4 @@ export function AIChat() {
     </>
   );
 }
+);
