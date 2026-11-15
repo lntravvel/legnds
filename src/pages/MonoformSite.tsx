@@ -34,6 +34,7 @@ interface YoutubeShowreelItem {
   descEn: string;
   descAr: string;
   views: string;
+  poster: string;
 }
 
 const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
@@ -47,6 +48,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency showreel & creator production',
     descAr: 'العرض الرسمي لمنظومة إدارة وتوثيق صناع المحتوى',
     views: '48.5K',
+    poster: '/assets/streamers/legends_host_1.jpg',
   },
   {
     id: 'mby0aMdDG2w',
@@ -58,6 +60,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency verification & monthly growth tiers',
     descAr: 'ترقية الحسابات الرسمية وتفعيل شارات الوكالة المعتمدة',
     views: '62.1K',
+    poster: '/assets/streamers/legends_host_4.jpg',
   },
   {
     id: 'aUA1wO2q_Xk',
@@ -69,6 +72,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Record-breaking PK events across MENA',
     descAr: 'تنظيم أقوى الجولات الرسمية وتصدر الترتيب اليومي',
     views: '91.4K',
+    poster: '/assets/streamers/legends_host_6.jpg',
   },
   {
     id: 'zO-wIu-HnFg',
@@ -80,6 +84,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Consistent daily & monthly creator income',
     descAr: 'تحويل ساعات البث والتارجت إلى رواتب ومكافآت فورية مضمونة',
     views: '54.8K',
+    poster: '/assets/streamers/legends_host_2.jpg',
   },
   {
     id: 'MO8rRIei8go',
@@ -91,6 +96,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Next-gen talent management on Xena, Tango & Bigo',
     descAr: 'إدارة حسابات المذيعين وحمايتها وتوثيق العقود الرسمية',
     views: '77.2K',
+    poster: '/assets/streamers/legends_host_7.jpg',
   },
   {
     id: 'OxYL4yLhhcs',
@@ -102,6 +108,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency broadcast highlights & top creators',
     descAr: 'أقوى لحظات البث المباشر وتألق مذيعي وكالة الأساطير',
     views: '84.6K',
+    poster: '/assets/streamers/legends_host_5.jpg',
   },
   {
     id: 'Fykwnnekw-U',
@@ -113,6 +120,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official creator milestones & top tier achievements',
     descAr: 'تحقيق أعلى التارجتات وتوثيق نجوم البث المباشر',
     views: '93.8K',
+    poster: '/assets/streamers/legends_host_8.jpg',
   },
 ];
 
@@ -2662,37 +2670,61 @@ export function MonoformSite() {
                       }`}
                     >
                       <div className="relative w-full h-full rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#050508] border border-white/15 flex flex-col justify-between">
-                        {isPlaying ? (
+                        {isPlaying || isCenter ? (
                           <>
+                            {/* Local Studio Backdrop underneath the iframe so it's never blank while loading */}
+                            <img
+                              src={video.poster}
+                              alt=""
+                              aria-hidden="true"
+                              className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-50"
+                            />
                             <iframe
-                              src={`https://www.youtube.com/embed/${video.id}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1`}
+                              src={`https://www.youtube.com/embed/${video.id}?${
+                                isPlaying ? 'autoplay=1&' : ''
+                              }enablejsapi=1&rel=0&modestbranding=1&playsinline=1`}
                               title={video.titleEn}
+                              loading="lazy"
+                              referrerPolicy="strict-origin-when-cross-origin"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                               allowFullScreen
-                              className="w-full h-full border-0 bg-black"
+                              className="relative z-10 w-full h-full border-0 bg-transparent pointer-events-auto"
                             />
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setPlayingYoutubeId(null);
-                              }}
-                              className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/75 hover:bg-red-600 text-white border border-white/20 flex items-center justify-center transition cursor-pointer"
-                              title="إغلاق الفيديو"
-                            >
-                              <X className="w-4 h-4" />
-                            </button>
+                            {isPlaying && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setPlayingYoutubeId(null);
+                                }}
+                                className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/75 hover:bg-red-600 text-white border border-white/20 flex items-center justify-center transition cursor-pointer"
+                                title="إغلاق الفيديو"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            )}
                           </>
                         ) : (
                           <div className="relative w-full h-full overflow-hidden group">
+                            {/* Guaranteed Local Studio Poster Base Layer (Never blocked by CSP or network) */}
+                            <img
+                              src={video.poster}
+                              alt={video.titleAr}
+                              className="absolute inset-0 w-full h-full object-cover filter brightness-90 contrast-110"
+                            />
+                            {/* YouTube Official Thumbnail Layer on Top */}
                             <img
                               src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
                               alt={video.titleAr}
-                              className="w-full h-full object-cover scale-[1.85] group-hover:scale-[1.98] transition-transform duration-700 filter brightness-90 contrast-110"
+                              referrerPolicy="no-referrer"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                              className="relative z-10 w-full h-full object-cover scale-[1.85] group-hover:scale-[1.98] transition-transform duration-700 filter brightness-90 contrast-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/65" />
+                            <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-black via-black/25 to-black/65" />
 
-                            <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                            <div className="absolute top-2.5 left-2.5 right-2.5 z-30 flex items-center justify-between">
                               <span className="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[8.5px] sm:text-[9px] font-mono text-white flex items-center gap-1">
                                 <span
                                   className={`w-1.5 h-1.5 rounded-full ${
@@ -2708,7 +2740,7 @@ export function MonoformSite() {
                               />
                             </div>
 
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute inset-0 z-30 flex items-center justify-center">
                               <div
                                 className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center transition-all duration-300 ${
                                   isCenter
@@ -2722,7 +2754,7 @@ export function MonoformSite() {
 
                             <div
                               dir={isAr ? 'rtl' : 'ltr'}
-                              className="absolute bottom-2 left-2 right-2 p-2 sm:p-2.5 rounded-xl bg-black/75 backdrop-blur-xl border border-white/15 flex items-center justify-between gap-1.5"
+                              className="absolute bottom-2 left-2 right-2 z-30 p-2 sm:p-2.5 rounded-xl bg-black/75 backdrop-blur-xl border border-white/15 flex items-center justify-between gap-1.5"
                             >
                               <div className="min-w-0">
                                 <div className="text-[8.5px] sm:text-[9px] text-cyan-300 font-medium truncate">
