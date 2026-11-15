@@ -20,6 +20,8 @@ import { RewardsPage } from './pages/RewardsPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
 import { LandingApplyPage } from './pages/LandingApplyPage';
+import { LuminaVisionSite } from './pages/LuminaVisionSite';
+import { MonoformSite } from './pages/MonoformSite';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -95,11 +97,59 @@ function MainLayout() {
 }
 
 export default function App() {
+  const [siteMode, setSiteMode] = useState<'monoform' | 'lumina' | 'original'>('monoform');
+
   return (
-    <ErrorBoundary>
+    <ErrorBoundary key={siteMode}>
       <BrowserRouter>
         <LanguageProvider>
-          <MainLayout />
+          {/* Floating Preview Mode Switcher (Localhost Testing Bar) */}
+          <div
+            dir="rtl"
+            className="fixed bottom-4 left-4 z-[9999] flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-black/90 backdrop-blur-2xl border border-white/25 shadow-[0_10px_40px_rgba(0,0,0,0.9)]"
+          >
+            <button
+              type="button"
+              onClick={() => setSiteMode('monoform')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                siteMode === 'monoform'
+                  ? 'bg-white text-black shadow-md'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              ✦ تصميم AI Studio (GetLayers)
+            </button>
+            <button
+              type="button"
+              onClick={() => setSiteMode('lumina')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                siteMode === 'lumina'
+                  ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-md'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              ✨ تصميم Lumina
+            </button>
+            <button
+              type="button"
+              onClick={() => setSiteMode('original')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                siteMode === 'original'
+                  ? 'bg-cyan-500 text-black shadow-md'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              🏛️ الموقع الأساسي الأصلي
+            </button>
+          </div>
+
+          {siteMode === 'monoform' ? (
+            <MonoformSite />
+          ) : siteMode === 'lumina' ? (
+            <LuminaVisionSite />
+          ) : (
+            <MainLayout />
+          )}
         </LanguageProvider>
       </BrowserRouter>
     </ErrorBoundary>

@@ -61,6 +61,33 @@ export const BrandIcons = {
       className={`${className} object-cover rounded-[22%] shadow-sm`} 
     />
   ),
+  Bigo: ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 64 64" fill="none" className={`${className} rounded-[22%]`} xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="14" fill="url(#bigo-bg)" />
+      <defs>
+        <linearGradient id="bigo-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#00F3FF" />
+          <stop offset="0.5" stopColor="#00A8FF" />
+          <stop offset="1" stopColor="#0051FF" />
+        </linearGradient>
+      </defs>
+      {/* Stylized Dino / Bigo Live Crest */}
+      <path
+        d="M22 46C17.5 46 14 42.5 14 38V26C14 19.3726 19.3726 14 26 14H36C42.6274 14 48 19.3726 48 26C48 29.5 46.2 32.5 43.5 34.3C46.8 36.1 49 39.5 49 43.5C49 47.5 45.5 50 41 50H25C23.3 50 22 48.2 22 46Z"
+        fill="white"
+      />
+      <circle cx="27" cy="25" r="3" fill="#0051FF" />
+      <circle cx="38" cy="25" r="3" fill="#0051FF" />
+      <path d="M28 33C29.5 34.5 34.5 34.5 36 33" stroke="#0051FF" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  ),
+  LuminaNode: ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="4" fill="#3B82F6" />
+      <circle cx="12" cy="12" r="8" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="3 3" />
+      <path d="M12 2V6M12 18V22M2 12H6M18 12H22" stroke="#3B82F6" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
   Crown: ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} xmlns="http://www.w3.org/2000/svg">
       <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
