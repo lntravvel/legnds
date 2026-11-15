@@ -48,7 +48,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency showreel & creator production',
     descAr: 'العرض الرسمي لمنظومة إدارة وتوثيق صناع المحتوى',
     views: '48.5K',
-    poster: '/assets/streamers/legends_host_1.jpg',
+    poster: '/assets/streamers/legends_host_1.webp',
   },
   {
     id: 'mby0aMdDG2w',
@@ -60,7 +60,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency verification & monthly growth tiers',
     descAr: 'ترقية الحسابات الرسمية وتفعيل شارات الوكالة المعتمدة',
     views: '62.1K',
-    poster: '/assets/streamers/legends_host_4.jpg',
+    poster: '/assets/streamers/legends_host_4.webp',
   },
   {
     id: 'aUA1wO2q_Xk',
@@ -72,7 +72,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Record-breaking PK events across MENA',
     descAr: 'تنظيم أقوى الجولات الرسمية وتصدر الترتيب اليومي',
     views: '91.4K',
-    poster: '/assets/streamers/legends_host_6.jpg',
+    poster: '/assets/streamers/legends_host_6.webp',
   },
   {
     id: 'zO-wIu-HnFg',
@@ -84,7 +84,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Consistent daily & monthly creator income',
     descAr: 'تحويل ساعات البث والتارجت إلى رواتب ومكافآت فورية مضمونة',
     views: '54.8K',
-    poster: '/assets/streamers/legends_host_2.jpg',
+    poster: '/assets/streamers/legends_host_2.webp',
   },
   {
     id: 'MO8rRIei8go',
@@ -96,7 +96,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Next-gen talent management on Xena, Tango & Bigo',
     descAr: 'إدارة حسابات المذيعين وحمايتها وتوثيق العقود الرسمية',
     views: '77.2K',
-    poster: '/assets/streamers/legends_host_7.jpg',
+    poster: '/assets/streamers/legends_host_7.webp',
   },
   {
     id: 'OxYL4yLhhcs',
@@ -108,7 +108,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official agency broadcast highlights & top creators',
     descAr: 'أقوى لحظات البث المباشر وتألق مذيعي وكالة الأساطير',
     views: '84.6K',
-    poster: '/assets/streamers/legends_host_5.jpg',
+    poster: '/assets/streamers/legends_host_5.webp',
   },
   {
     id: 'Fykwnnekw-U',
@@ -120,7 +120,7 @@ const YOUTUBE_VIDEOS: YoutubeShowreelItem[] = [
     descEn: 'Official creator milestones & top tier achievements',
     descAr: 'تحقيق أعلى التارجتات وتوثيق نجوم البث المباشر',
     views: '93.8K',
-    poster: '/assets/streamers/legends_host_8.jpg',
+    poster: '/assets/streamers/legends_host_8.webp',
   },
 ];
 
@@ -267,7 +267,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Official Legends Agency Studio',
     viewers: '42.8K',
     platformId: 'xena',
-    image: '/assets/streamers/legends_host_1.jpg',
+    image: '/assets/streamers/legends_host_1.webp',
     x: -33,
     y: -21,
     zOffset: 0.0,
@@ -278,7 +278,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Legends Pro Broadcast Setup',
     viewers: '36.4K',
     platformId: 'bigo',
-    image: '/assets/streamers/legends_host_2.jpg',
+    image: '/assets/streamers/legends_host_2.webp',
     x: 33,
     y: -19,
     zOffset: 0.08,
@@ -289,7 +289,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Verified Host — Xena Live',
     viewers: '28.9K',
     platformId: 'xena',
-    image: '/assets/streamers/legends_host_3.jpg',
+    image: '/assets/streamers/legends_host_3.webp',
     x: -35,
     y: 20,
     zOffset: 0.16,
@@ -300,7 +300,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Interactive Live — Legends Agency',
     viewers: '51.2K',
     platformId: 'bigo',
-    image: '/assets/streamers/legends_host_4.jpg',
+    image: '/assets/streamers/legends_host_4.webp',
     x: 34,
     y: 21,
     zOffset: 0.24,
@@ -311,7 +311,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Pro Creator Studio — Bigo Live',
     viewers: '33.7K',
     platformId: 'bigo',
-    image: '/assets/streamers/legends_host_5.jpg',
+    image: '/assets/streamers/legends_host_5.webp',
     x: -23,
     y: -27,
     zOffset: 0.32,
@@ -322,7 +322,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Live PK Match — Tango & Legends',
     viewers: '64.5K',
     platformId: 'tango',
-    image: '/assets/streamers/legends_host_6.jpg',
+    image: '/assets/streamers/legends_host_6.webp',
     x: 24,
     y: -25,
     zOffset: 0.40,
@@ -333,7 +333,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Top Broadcaster — Tango Live',
     viewers: '47.1K',
     platformId: 'tango',
-    image: '/assets/streamers/legends_host_7.jpg',
+    image: '/assets/streamers/legends_host_7.webp',
     x: -25,
     y: 26,
     zOffset: 0.48,
@@ -344,7 +344,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Daily Top Ranking — Tango Live',
     viewers: '29.6K',
     platformId: 'tango',
-    image: '/assets/streamers/legends_host_8.jpg',
+    image: '/assets/streamers/legends_host_8.webp',
     x: 26,
     y: 25,
     zOffset: 0.56,
@@ -355,7 +355,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'VIP Talent Management — Xena Live',
     viewers: '38.3K',
     platformId: 'xena',
-    image: '/assets/streamers/legends_host_9.jpg',
+    image: '/assets/streamers/legends_host_9.webp',
     x: -31,
     y: 2,
     zOffset: 0.64,
@@ -366,7 +366,7 @@ const LIVE_CREATORS: LiveCreatorCard[] = [
     labelEn: 'Legends Agency Elite Broadcasters',
     viewers: '72.0K',
     platformId: 'xena',
-    image: '/assets/streamers/legends_host_10.jpg',
+    image: '/assets/streamers/legends_host_10.webp',
     x: 31,
     y: -2,
     zOffset: 0.72,
@@ -514,7 +514,7 @@ const PLATFORMS: PlatformInfo[] = [
       },
     ],
     LogoComponent: BrandIcons.Xena,
-    streamerImg: '/assets/streamers/legends_host_1.jpg',
+    streamerImg: '/assets/streamers/legends_host_1.webp',
   },
   {
     id: 'tango',
@@ -615,7 +615,7 @@ const PLATFORMS: PlatformInfo[] = [
       },
     ],
     LogoComponent: BrandIcons.Tango,
-    streamerImg: '/assets/streamers/legends_host_7.jpg',
+    streamerImg: '/assets/streamers/legends_host_7.webp',
   },
   {
     id: 'bigo',
@@ -716,7 +716,7 @@ const PLATFORMS: PlatformInfo[] = [
       },
     ],
     LogoComponent: BrandIcons.Bigo,
-    streamerImg: '/assets/streamers/legends_host_2.jpg',
+    streamerImg: '/assets/streamers/legends_host_2.webp',
   },
 ];
 
@@ -807,7 +807,7 @@ function LegendsProEmblem3D({
         />
 
         <img
-          src="/assets/legends_official_3d.png"
+          src="/assets/legends_official_3d.webp"
           alt="Legends Agency Official Logo"
           className="relative w-[90%] h-[90%] object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.9)]"
           style={{ transform: 'translateZ(18px)' }}
@@ -1201,7 +1201,7 @@ function InteractiveEcosystemCommandHub({
               >
                 <div className="flex items-center justify-between gap-1.5 mb-1">
                   <span className="text-[9px] font-mono text-cyan-400/80">{node.metricCode}</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 </div>
                 <div className="flex items-center justify-between gap-2 mb-1.5">
                   <div className="flex items-center gap-2">
@@ -1483,7 +1483,7 @@ export function MonoformSite() {
             title="وكالة الأساطير — Legends Agency"
           >
             <img
-              src="/assets/legends_official_3d.png"
+              src="/assets/legends_official_3d.webp"
               alt="Legends Official Logo"
               className="w-full h-full object-contain"
             />
@@ -1756,7 +1756,7 @@ export function MonoformSite() {
                       </span>
                     </div>
                     <img
-                      src="/assets/legends_official_3d.png"
+                      src="/assets/legends_official_3d.webp"
                       alt="Legends"
                       className="w-9 h-9 object-contain"
                     />
@@ -1891,7 +1891,7 @@ export function MonoformSite() {
                     </div>
                   </div>
                   <img
-                    src="/assets/legends_official_3d.png"
+                    src="/assets/legends_official_3d.webp"
                     alt="Legends"
                     className="w-14 h-14 object-contain hidden sm:block"
                   />
@@ -2255,13 +2255,13 @@ export function MonoformSite() {
                   onClick={() => openDedicatedPlatformPage('tango')}
                 >
                   <div className="relative w-full aspect-[4/4.4] overflow-hidden">
-                    <img
-                      src="/assets/streamers/legends_host_7.jpg"
+                    <img loading="lazy" decoding="async"
+                      src="/assets/streamers/legends_host_7.webp"
                       alt="Tango Live Streamer"
                       className="w-full h-full object-cover"
                     />
                     <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-bold flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                       +10,000 مذيع
                     </span>
                   </div>
@@ -2284,13 +2284,13 @@ export function MonoformSite() {
                   onClick={() => openDedicatedPlatformPage('bigo')}
                 >
                   <div className="relative w-full aspect-[4/4.4] overflow-hidden">
-                    <img
-                      src="/assets/streamers/legends_host_4.jpg"
+                    <img loading="lazy" decoding="async"
+                      src="/assets/streamers/legends_host_4.webp"
                       alt="Bigo Live Streamer"
                       className="w-full h-full object-cover"
                     />
                     <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-bold flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                       +1,500 مذيع
                     </span>
                   </div>
@@ -2335,6 +2335,7 @@ export function MonoformSite() {
                   >
                     <video
                       ref={cubeVideoRef}
+                      preload="none"
                       src="/assets/videos/drone_stage.mp4"
                       poster="/assets/videos/drone_stage_poster.webp"
                       autoPlay
@@ -2401,7 +2402,7 @@ export function MonoformSite() {
                     }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden bg-[#0a0812] border border-pink-500/40 shadow-[0_30px_90px_rgba(0,0,0,0.95)] flex flex-col justify-between p-5"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={PLATFORMS[0].streamerImg}
                       alt="Xena Live Studio"
                       className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-80"
@@ -2452,7 +2453,7 @@ export function MonoformSite() {
                     }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden bg-[#0a0814] border border-purple-400/40 shadow-[0_30px_90px_rgba(0,0,0,0.95)] flex flex-col justify-between p-5"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={PLATFORMS[1].streamerImg}
                       alt="Tango Live Streamer"
                       className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-80"
@@ -2503,7 +2504,7 @@ export function MonoformSite() {
                     }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden bg-[#070b14] border border-cyan-400/40 shadow-[0_30px_90px_rgba(0,0,0,0.95)] flex flex-col justify-between p-5"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={PLATFORMS[2].streamerImg}
                       alt="Bigo Live Streamer"
                       className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-80"
@@ -2632,7 +2633,7 @@ export function MonoformSite() {
                 <div className="flex items-center gap-2.5 sm:gap-3">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center p-1 shrink-0">
                     <img
-                      src="/assets/legends_official_3d.png"
+                      src="/assets/legends_official_3d.webp"
                       alt=""
                       className="w-full h-full object-contain"
                     />
@@ -2718,7 +2719,7 @@ export function MonoformSite() {
                         {isPlaying ? (
                           <>
                             {/* Local Studio Backdrop underneath the iframe so it's never blank while loading */}
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={video.poster}
                               alt=""
                               aria-hidden="true"
@@ -2748,7 +2749,7 @@ export function MonoformSite() {
                         ) : (
                           <div className="relative w-full h-full overflow-hidden group">
                             {/* Guaranteed Local Studio Poster Base Layer (Never blocked by CSP or network) */}
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={video.poster}
                               alt={video.titleAr}
                               className="absolute inset-0 w-full h-full object-cover filter brightness-90 contrast-110"
@@ -2775,7 +2776,7 @@ export function MonoformSite() {
                                 <span>0{idx + 1} / 0{YOUTUBE_VIDEOS.length}</span>
                               </span>
                               <img
-                                src="/assets/legends_official_3d.png"
+                                src="/assets/legends_official_3d.webp"
                                 alt=""
                                 className="w-4 h-4 sm:w-5 sm:h-5 object-contain drop-shadow"
                               />
@@ -2941,8 +2942,8 @@ export function MonoformSite() {
                           }}
                         />
                         <div className="relative w-10 h-10 sm:w-13 sm:h-13 rounded-2xl p-1 bg-gradient-to-br from-amber-300 via-amber-500 to-cyan-400 shadow-[0_10px_28px_rgba(245,158,11,0.55)] transition-transform duration-300 group-hover:-translate-y-1.5 flex items-center justify-center overflow-hidden">
-                          <img
-                            src="/assets/legends_qr_official.png"
+                          <img loading="lazy" decoding="async"
+                            src="/assets/legends_qr_official.webp"
                             alt="Legends Agency Official QR"
                             className="w-full h-full object-cover rounded-xl"
                           />
@@ -3003,7 +3004,7 @@ export function MonoformSite() {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute top-2 left-2 flex items-center gap-1 bg-black/75 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/15">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                         <span className="text-[8.5px] sm:text-[9px] font-bold text-white tracking-wider">
                           LIVE
                         </span>
@@ -3102,7 +3103,7 @@ export function MonoformSite() {
                         className="px-5 sm:px-7 py-3 sm:py-4 rounded-full bg-white text-black text-xs sm:text-sm font-bold hover:bg-cyan-300 transition shadow-xl cursor-pointer flex items-center gap-2"
                       >
                         <img
-                          src="/assets/legends_official_3d.png"
+                          src="/assets/legends_official_3d.webp"
                           alt=""
                           className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                         />
@@ -3129,8 +3130,8 @@ export function MonoformSite() {
                       title={isAr ? 'اضغط لتكبير رمز QR الرسمي' : 'Click to enlarge official QR code'}
                     >
                       <div className="relative rounded-[16px] sm:rounded-[20px] overflow-hidden bg-[#05070e]">
-                        <img
-                          src="/assets/legends_qr_official.png"
+                        <img loading="lazy" decoding="async"
+                          src="/assets/legends_qr_official.webp"
                           alt="Legends Official QR Code"
                           className="w-full h-auto object-contain"
                         />
@@ -3203,7 +3204,7 @@ export function MonoformSite() {
 
             <div className="mb-6 flex items-center gap-3.5">
               <img
-                src="/assets/legends_official_3d.png"
+                src="/assets/legends_official_3d.webp"
                 alt="Legends Agency"
                 className="w-16 h-16 object-contain"
               />
@@ -3368,7 +3369,7 @@ export function MonoformSite() {
       )}
 
       {/* =====================================================================
-          OFFICIAL ALL-PLATFORMS QR CODE MODAL (`/assets/legends_qr_official.png`)
+          OFFICIAL ALL-PLATFORMS QR CODE MODAL (`/assets/legends_qr_official.webp`)
          ===================================================================== */}
       {qrModalOpen && (
         <div
@@ -3400,8 +3401,8 @@ export function MonoformSite() {
             </div>
 
             <div className="w-full rounded-[24px] overflow-hidden border border-amber-400/30 shadow-2xl bg-[#04060c]">
-              <img
-                src="/assets/legends_qr_official.png"
+              <img loading="lazy" decoding="async"
+                src="/assets/legends_qr_official.webp"
                 alt="Legends Agency Official QR Code"
                 className="w-full h-auto object-contain"
               />

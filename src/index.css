@@ -55,3 +55,14 @@ body {
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
 }
+
+/* Mobile GPU Optimization: Cap heavy backdrop-filter blur radius on touch devices
+   to prevent compositing lag across 3D layers while keeping the glass aesthetic */
+@media (max-width: 767px) {
+  .backdrop-blur-2xl,
+  .backdrop-blur-xl,
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(8px) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+}
