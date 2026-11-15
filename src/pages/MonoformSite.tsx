@@ -1279,12 +1279,16 @@ export function MonoformSite() {
   const [experience, setExperience] = useState('خبير / لدي خبرة سابقة');
   const [notes, setNotes] = useState('');
 
-  // High-Efficiency Scroll Engine:
-  // - Mobile (< 768px): ZERO JS scroll-jacking or rAF setState -> 100% native OS 120fps touch momentum
-  // - Desktop (>= 768px): 120fps smooth-damped 3D stage scrubbing
+  // High-Efficiency 120fps Interactive 3D Scroll Engine (Mobile 1:1 Finger Tracking + Desktop Damping)
   useEffect(() => {
     let rafId: number | null = null;
-    let lastMobileState = window.innerWidth < 768;
+    let lastWidth = window.innerWidth;
+    let lastMobileState = lastWidth < 768;
+
+    const computeMaxScroll = () =>
+      Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+    let lockedMaxScroll = computeMaxScroll();
 
     const syncVideoPlayback = (progress: number) => {
       const heroVid = heroVideoRef.current;
@@ -1309,6 +1313,18 @@ export function MonoformSite() {
       const target = targetPRef.current;
       const current = currentPRef.current;
       const diff = target - current;
+      const isTouchViewport = window.innerWidth < 768;
+
+      // On mobile touch: 1:1 instant tracking so the 3D stage moves immediately under your finger (no finger-lift freeze!)
+      // On desktop mouse wheel: crisp 0.28 damping so wheel steps glide smoothly.
+      if (isTouchViewport) {
+        currentPRef.current = target;
+        setP(target);
+        setVel(diff * 0.4);
+        syncVideoPlayback(target);
+        rafId = null;
+        return;
+      }
 
       const lerpFactor = 0.28;
       const settleThreshold = 0.0002;
@@ -1330,8 +1346,11 @@ export function MonoformSite() {
     };
 
     const wakeScrollLoop = () => {
-      if (window.innerWidth < 768) return;
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      // Only refresh maxScroll on desktop or if scrollY exceeds lockedMaxScroll (prevents mobile URL-bar jitter)
+      const isTouchViewport = window.innerWidth < 768;
+      const maxScroll = isTouchViewport
+        ? Math.max(lockedMaxScroll, window.scrollY || 1)
+        : computeMaxScroll();
       targetPRef.current = clamp(window.scrollY / maxScroll, 0, 1);
       if (rafId === null) {
         rafId = requestAnimationFrame(tick);
@@ -1339,42 +1358,33 @@ export function MonoformSite() {
     };
 
     const handleResize = () => {
-      const nextMobile = window.innerWidth < 768;
+      const nextWidth = window.innerWidth;
+      const nextMobile = nextWidth < 768;
       if (nextMobile !== lastMobileState) {
         lastMobileState = nextMobile;
         setIsMobile(nextMobile);
       }
-      if (!nextMobile) {
-        wakeScrollLoop();
+      // Update lockedMaxScroll only when width changes (orientation/resize), ignoring mobile URL-bar height changes
+      if (nextWidth !== lastWidth || !nextMobile) {
+        lastWidth = nextWidth;
+        lockedMaxScroll = computeMaxScroll();
       }
+      wakeScrollLoop();
     };
 
-    if (!lastMobileState) {
-      window.addEventListener('scroll', wakeScrollLoop, { passive: true });
-      wakeScrollLoop();
-    }
+    window.addEventListener('scroll', wakeScrollLoop, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
+    wakeScrollLoop();
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
       window.removeEventListener('scroll', wakeScrollLoop);
       window.removeEventListener('resize', handleResize);
     };
-  }, [isMobile]);
+  }, []);
 
-  const scrubToProgress = (targetProgress: number, mobileSectionId?: string) => {
+  const scrubToProgress = (targetProgress: number, _mobileSectionId?: string) => {
     const scrollTarget = () => {
-      if (isMobile) {
-        if (mobileSectionId && mobileSectionId !== 'mobile-home') {
-          const el = document.getElementById(mobileSectionId);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            return;
-          }
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       window.scrollTo({
         top: targetProgress * maxScroll,
@@ -1442,39 +1452,39 @@ export function MonoformSite() {
   // with ZERO empty dead zones between Hero, Apps, Ecosystem, Videos, Streamers, and Finale!
   // ==========================================================================
   // Phase 1 [0.00 -> 0.08]: Full-Screen Landscape Hero Video recedes immediately on first scroll
-  const heroStageOpacity = 1 - smoothstep(0.003, 0.08, p);
+  const heroStageOpacity = 1 - smoothstep(0.015, 0.08, p);
   const heroStageScale = 1 - smoothstep(0.0, 0.08, p) * 0.12;
 
-  // Phase 2 [0.003 -> 0.36]: 3D 4-Sided Rotating Box materializes immediately & rotates continuously!
-  const cubeEnterProgress = smoothstep(0.003, 0.08, p);
-  const cubeRotationProgress = rangeProgress(p, 0.03, 0.32);
+  // Phase 2 [0.002 -> 0.35]: 3D 4-Sided Rotating Box materializes immediately & rotates continuously!
+  const cubeEnterProgress = smoothstep(0.002, 0.055, p);
+  const cubeRotationProgress = rangeProgress(p, 0.02, 0.32);
   const cubeRotateY = -cubeRotationProgress * 270;
   const cubeRotateX = Math.sin(cubeRotationProgress * Math.PI * 2) * 5;
   const cubeRotateZ = Math.sin(cubeRotationProgress * Math.PI) * -2;
 
   // Seamless Overlapping Crossfade from 3D Box to Interactive Ecosystem Command Hub
-  const boxExitProgress = smoothstep(0.3, 0.36, p);
+  const boxExitProgress = smoothstep(0.305, 0.355, p);
   const cubeStageOpacity = clamp(cubeEnterProgress - boxExitProgress, 0, 1);
 
-  // Phase 3: Interactive Ecosystem Command Hub [0.30 -> 0.55]
-  const particleStageEnter = smoothstep(0.3, 0.36, p);
-  const particleStageExit = smoothstep(0.49, 0.55, p);
+  // Phase 3: Interactive Ecosystem Command Hub [0.29 -> 0.54]
+  const particleStageEnter = smoothstep(0.29, 0.34, p);
+  const particleStageExit = smoothstep(0.495, 0.545, p);
   const particleStageOpacity = clamp(particleStageEnter - particleStageExit, 0, 1);
 
-  // Phase 4: 3D Coverflow YouTube Video Deck + Interactive Social Media Dock [0.49 -> 0.77]
-  const railEnter = smoothstep(0.49, 0.55, p);
-  const railExit = smoothstep(0.71, 0.77, p);
+  // Phase 4: 3D Coverflow YouTube Video Deck + Interactive Social Media Dock [0.48 -> 0.76]
+  const railEnter = smoothstep(0.48, 0.53, p);
+  const railExit = smoothstep(0.715, 0.765, p);
   const railOpacity = clamp(railEnter - railExit, 0, 1);
   const railSlideProgress = rangeProgress(p, 0.5, 0.74);
 
-  // Phase 5: 3D Camera Fly-Through of 10 Real Live Streamers [0.71 -> 0.95]
-  const flyEnter = smoothstep(0.71, 0.77, p);
-  const flyExit = smoothstep(0.89, 0.95, p);
+  // Phase 5: 3D Camera Fly-Through of 10 Real Live Streamers [0.70 -> 0.94]
+  const flyEnter = smoothstep(0.70, 0.75, p);
+  const flyExit = smoothstep(0.895, 0.945, p);
   const flyOpacity = clamp(flyEnter - flyExit, 0, 1);
   const flyProgress = rangeProgress(p, 0.71, 0.93);
 
-  // Phase 6: Finale Card [0.89 -> 1.00]
-  const finaleEnter = smoothstep(0.89, 0.95, p);
+  // Phase 6: Finale Card [0.88 -> 1.00]
+  const finaleEnter = smoothstep(0.88, 0.93, p);
 
   const velocitySkew = clamp(vel * 110, -4, 4);
 
@@ -2030,452 +2040,15 @@ export function MonoformSite() {
             </div>
           </div>
         </div>
-      ) : isMobile ? (
-        /* ===================================================================
-           VIEW MODE B-MOBILE: 100% NATIVE VERTICAL SCROLL (ZERO LAG / ZERO GAP)
-           =================================================================== */
-        <main
-          dir={isAr ? 'rtl' : 'ltr'}
-          className="w-full min-h-screen bg-[#000000] text-[#f5f5f7] pt-16 pb-24 px-3 space-y-6"
-        >
-          {/* 1. MOBILE HERO */}
-          <section
-            id="mobile-home"
-            className="relative w-full min-h-[76svh] rounded-[24px] overflow-hidden border border-white/[0.14] bg-black flex flex-col justify-between p-4 shadow-2xl"
-          >
-            <video
-              ref={heroVideoRef}
-              src="/assets/videos/drone_stage.mp4"
-              poster="/assets/videos/drone_stage_poster.webp"
-              autoPlay
-              loop
-              muted={heroMuted}
-              playsInline
-              className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-80"
-            />
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0.92) 100%)',
-              }}
-            />
-
-            <div className="relative z-10 flex items-center justify-between gap-2">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 border border-white/15 text-[10px] text-cyan-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                <span className="font-semibold truncate">
-                  {isAr ? 'الوكيل الرسمي — Xena · Tango · Bigo' : 'Verified — Xena · Tango · Bigo'}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={toggleHeroSound}
-                className="p-2 rounded-full bg-black/75 border border-white/20 text-white cursor-pointer shrink-0"
-                aria-label="Toggle Sound"
-              >
-                {heroMuted ? (
-                  <VolumeX className="w-4 h-4 text-cyan-300" />
-                ) : (
-                  <Volume2 className="w-4 h-4 text-emerald-400" />
-                )}
-              </button>
-            </div>
-
-            <div className="relative z-10 my-auto text-center space-y-3 py-6">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 text-[10px] font-mono uppercase tracking-widest text-amber-300">
-                LEGENDS AGENCY · MENA & GLOBAL
-              </div>
-              <h1 className="text-[28px] font-extrabold tracking-tight leading-[1.12] bg-gradient-to-r from-white via-cyan-200 to-amber-200 bg-clip-text text-transparent">
-                {isAr ? 'وكالة الأساطير لصناعة النجوم' : 'Legends Agency for Star Creation'}
-              </h1>
-              <p className="text-white/90 text-xs leading-relaxed font-medium">
-                {isAr
-                  ? 'توثيق رسمي معتمد، إدارة حسابات احترافية، تنسيق جولات PK، وحماية ودعم فني متكامل على مدار الساعة في أقوى منصات البث العالمية.'
-                  : 'Verified host onboarding, professional account management, PK coordination, and 24/7 creator protection across global live platforms.'}
-              </p>
-              <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => setApplyModalOpen(true)}
-                  className="px-5 py-2.5 rounded-full bg-white text-black font-bold text-xs flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span>{isAr ? 'قدّم طلبك الآن' : 'Apply Now'}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrubToProgress(0.13, 'mobile-apps')}
-                  className="px-4 py-2.5 rounded-full bg-black/70 border border-white/25 text-white font-semibold text-xs cursor-pointer"
-                >
-                  {isAr ? 'تصفح التطبيقات' : 'Explore Apps'}
-                </button>
-              </div>
-            </div>
-
-            <div className="relative z-10 flex items-center justify-center gap-2 text-[10px] text-white/70">
-              <span>TANGO +10,000 · XENA +2,000 · BIGO +1,500</span>
-            </div>
-          </section>
-
-          {/* 2. MOBILE APPS SHOWCASE */}
-          <section id="mobile-apps" className="scroll-mt-16 space-y-3">
-            <div className="flex items-center justify-between px-1">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
-                  {isAr ? 'المنصات المعتمدة' : 'OFFICIAL PLATFORMS'}
-                </div>
-                <h2 className="text-lg font-extrabold text-white">
-                  {isAr ? 'اختر منصتك وانطلق الآن' : 'Choose Your Platform'}
-                </h2>
-              </div>
-              <span className="text-[10px] text-white/50 font-mono">3 APPS</span>
-            </div>
-
-            <div className="space-y-3">
-              {PLATFORMS.map((pl) => {
-                const Icon = pl.LogoComponent;
-                return (
-                  <div
-                    key={pl.id}
-                    onClick={() => openDedicatedPlatformPage(pl.id)}
-                    className="rounded-[22px] bg-[#0a0b12] border border-white/[0.12] p-4 space-y-3 active:scale-[0.99] transition-transform cursor-pointer"
-                    style={{ boxShadow: `0 12px 35px -15px ${pl.accentGlow}` }}
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-12 h-12 rounded-2xl overflow-hidden border border-white/20 bg-black p-1 shrink-0">
-                          <Icon className="w-full h-full" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-sm font-bold text-white truncate">
-                            {isAr ? pl.nameAr : pl.nameEn}
-                          </div>
-                          <div className="text-[11px] font-semibold" style={{ color: pl.accentColor }}>
-                            {isAr ? pl.creatorsCountAr : pl.creatorsCountEn}
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        className="px-2.5 py-1 rounded-full text-[10px] font-bold border shrink-0"
-                        style={{
-                          color: pl.accentColor,
-                          borderColor: `${pl.accentColor}44`,
-                          backgroundColor: `${pl.accentColor}15`,
-                        }}
-                      >
-                        {isAr ? pl.badgeAr : pl.badgeEn}
-                      </span>
-                    </div>
-                    <p className="text-xs text-white/75 leading-relaxed">
-                      {isAr ? pl.cardHeadlineAr : pl.cardHeadlineEn}
-                    </p>
-                    <div className="flex items-center justify-between pt-1 border-t border-white/[0.08] text-[11px] font-bold text-cyan-300">
-                      <span>{isAr ? pl.promptPillAr : pl.promptPillEn}</span>
-                      <span className="flex items-center gap-1 shrink-0 text-white">
-                        {isAr ? 'التفاصيل' : 'Details'}
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* 3. MOBILE ECOSYSTEM HUB */}
-          <section
-            id="mobile-eco"
-            className="scroll-mt-16 rounded-[24px] bg-[#08090f] border border-white/[0.12] p-4 space-y-3.5"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-amber-300">
-                  {isAr ? 'منظومة وكالة الأساطير' : 'LEGENDS ECOSYSTEM'}
-                </div>
-                <h2 className="text-lg font-extrabold text-white">
-                  {isAr ? 'مميزات الإدارة والتوثيق' : 'Management & Verification'}
-                </h2>
-              </div>
-              <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0" />
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              {PLATFORMS.map((pl) => {
-                const Icon = pl.LogoComponent;
-                const active = hubPlatform === pl.id;
-                return (
-                  <button
-                    key={pl.id}
-                    type="button"
-                    onClick={() => setHubPlatform(pl.id)}
-                    className={`p-2 rounded-xl border flex flex-col items-center gap-1.5 transition cursor-pointer ${
-                      active
-                        ? 'bg-white/[0.12] border-cyan-400/60 text-white'
-                        : 'bg-black/60 border-white/[0.08] text-white/60'
-                    }`}
-                  >
-                    <div className="w-7 h-7 rounded-lg overflow-hidden">
-                      <Icon className="w-full h-full" />
-                    </div>
-                    <span className="text-[10px] font-bold truncate max-w-full">
-                      {isAr ? pl.shortAr : pl.nameEn.split(' ')[0]}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {(() => {
-              const activePl = PLATFORMS.find((pl) => pl.id === hubPlatform) || PLATFORMS[0];
-              const features = isAr ? activePl.featuresAr : activePl.featuresEn;
-              return (
-                <div className="grid grid-cols-1 gap-2.5">
-                  {features.map((feat, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3 rounded-xl bg-black/70 border border-white/[0.08] space-y-1"
-                    >
-                      <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                        <span>{feat.title}</span>
-                      </div>
-                      <p className="text-[11px] text-white/70 leading-relaxed">{feat.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              );
-            })()}
-          </section>
-
-          {/* 4. MOBILE ACADEMY VIDEOS + SOCIAL MEDIA */}
-          <section id="mobile-academy" className="scroll-mt-16 space-y-4">
-            <div className="flex items-center justify-between px-1">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
-                  {isAr ? 'أكاديمية الأساطير' : 'LEGENDS ACADEMY'}
-                </div>
-                <h2 className="text-lg font-extrabold text-white">
-                  {isAr ? 'شروحات وتجارب المذيعين' : 'Creator Showreel & Guides'}
-                </h2>
-              </div>
-              <span className="text-[10px] text-white/50 font-mono">
-                {isAr ? 'اسحب أفقياً ←' : 'Swipe →'}
-              </span>
-            </div>
-
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 hide-scrollbar">
-              {YOUTUBE_VIDEOS.map((vid) => {
-                const isPlaying = playingYoutubeId === vid.id;
-                return (
-                  <div
-                    key={vid.id}
-                    className="snap-center shrink-0 w-[180px] aspect-[9/16] rounded-[20px] overflow-hidden border border-white/15 bg-[#09090d] relative"
-                  >
-                    {isPlaying ? (
-                      <iframe
-                        src={`https://www.youtube.com/embed/${vid.id}?autoplay=1&rel=0&playsinline=1`}
-                        title={isAr ? vid.titleAr : vid.titleEn}
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full border-0"
-                      />
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setPlayingYoutubeId(vid.id)}
-                        className="w-full h-full relative text-start cursor-pointer"
-                      >
-                        <img
-                          src={`https://i.ytimg.com/vi/${vid.id}/hqdefault.jpg`}
-                          alt={isAr ? vid.titleAr : vid.titleEn}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/40" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-11 h-11 rounded-full bg-white/95 text-black flex items-center justify-center shadow-xl">
-                            <Play className="w-5 h-5 fill-black ml-0.5" />
-                          </div>
-                        </div>
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 space-y-1">
-                          <div className="text-[9px] font-mono text-cyan-300 uppercase">
-                            {isAr ? vid.tagAr : vid.tagEn}
-                          </div>
-                          <div className="text-xs font-bold text-white leading-snug line-clamp-2">
-                            {isAr ? vid.titleAr : vid.titleEn}
-                          </div>
-                        </div>
-                      </button>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Interactive Social Media Orbs Row */}
-            <div className="rounded-[22px] bg-[#08090f] border border-white/[0.1] p-3.5 space-y-2.5">
-              <div className="text-[11px] font-bold text-white/80 text-center">
-                {isAr ? 'حسابات وكالة الأساطير الرسمية' : 'Official Legends Social Channels'}
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-2.5">
-                {SOCIAL_CHANNELS.map((ch) => {
-                  const Icon = ch.Icon;
-                  return (
-                    <a
-                      key={ch.id}
-                      href={ch.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={isAr ? ch.nameAr : ch.nameEn}
-                      className="w-11 h-11 rounded-2xl bg-black/80 border border-white/15 flex items-center justify-center p-2 active:scale-95 transition-transform"
-                      style={{ boxShadow: `0 6px 18px ${ch.brandColor}33` }}
-                    >
-                      <Icon className="w-full h-full" />
-                    </a>
-                  );
-                })}
-                <button
-                  type="button"
-                  onClick={() => setQrModalOpen(true)}
-                  aria-label="Official QR Code"
-                  className="w-11 h-11 rounded-2xl p-1 bg-gradient-to-br from-amber-300 via-amber-500 to-cyan-400 flex items-center justify-center active:scale-95 transition-transform cursor-pointer"
-                >
-                  <img
-                    src="/assets/legends_qr_official.webp"
-                    alt="Legends QR"
-                    loading="lazy"
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </button>
-              </div>
-            </div>
-          </section>
-
-          {/* 5. MOBILE 10 REAL LIVE STREAMERS */}
-          <section id="mobile-streamers" className="scroll-mt-16 space-y-3">
-            <div className="flex items-center justify-between px-1">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-amber-300">
-                  {isAr ? 'نجوم اللايف' : 'LIVE STARS'}
-                </div>
-                <h2 className="text-lg font-extrabold text-white">
-                  {isAr ? 'نخبة مذيعي وكالة الأساطير' : 'Legends Top Creators'}
-                </h2>
-              </div>
-              <span className="text-[10px] text-white/50 font-mono">10 STARS</span>
-            </div>
-
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 hide-scrollbar">
-              {LIVE_CREATORS.map((creator) => {
-                const pl = PLATFORMS.find((item) => item.id === creator.platformId) || PLATFORMS[0];
-                const Icon = pl.LogoComponent;
-                return (
-                  <div
-                    key={creator.id}
-                    onClick={() => openDedicatedPlatformPage(creator.platformId)}
-                    className="snap-center shrink-0 w-[168px] rounded-2xl overflow-hidden border border-white/15 bg-[#09090d] cursor-pointer"
-                  >
-                    <div className="relative w-full aspect-[4/4.5] bg-black">
-                      <img
-                        src={creator.image}
-                        alt={isAr ? creator.labelAr : creator.labelEn}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute top-2 left-2 flex items-center gap-1 bg-black/80 px-2 py-0.5 rounded-full border border-white/15">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                        <span className="text-[8.5px] font-bold text-white">LIVE</span>
-                      </div>
-                      <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/80 text-[8.5px] text-cyan-300 font-mono">
-                        {creator.viewers}
-                      </div>
-                    </div>
-                    <div className="p-2.5 flex items-center justify-between gap-2">
-                      <div className="min-w-0">
-                        <div className="text-[10.5px] font-bold text-white truncate">
-                          {isAr ? creator.labelAr : creator.labelEn}
-                        </div>
-                        <div className="text-[9px] font-semibold" style={{ color: pl.accentColor }}>
-                          {isAr ? pl.shortAr : pl.nameEn}
-                        </div>
-                      </div>
-                      <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 border border-white/20">
-                        <Icon className="w-full h-full" />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* 6. MOBILE FINALE & QR */}
-          <section
-            id="mobile-join"
-            className="rounded-[24px] bg-[#07070c] border border-white/15 p-5 space-y-4"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <div className="space-y-1.5">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
-                  OFFICIAL AGENCY PARTNER
-                </div>
-                <h2 className="text-xl font-extrabold text-white">
-                  {isAr ? 'انضم لوكالة الأساطير اليوم' : 'Join Legends Agency Today'}
-                </h2>
-                <p className="text-xs text-white/75 leading-relaxed">
-                  {isAr
-                    ? 'اختر التطبيق المناسب لك أو قدّم طلبك المباشر الآن عبر واتساب.'
-                    : 'Choose your preferred platform or submit your direct application now.'}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setQrModalOpen(true)}
-                className="w-20 h-20 rounded-2xl p-1 bg-gradient-to-b from-amber-300/70 to-cyan-400/40 shrink-0 cursor-pointer"
-              >
-                <img
-                  src="/assets/legends_qr_official.webp"
-                  alt="Legends Official QR"
-                  loading="lazy"
-                  className="w-full h-full object-cover rounded-xl"
-                />
-              </button>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setApplyModalOpen(true)}
-                className="flex-1 py-3 px-4 rounded-xl bg-white text-black font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <span>{isAr ? 'قدّم طلبك الآن' : 'Apply Now'}</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-              <a
-                href={`https://wa.me/201069560025?text=${encodeURIComponent(
-                  'السلام عليكم، أرغب في الانضمام لوكالة الأساطير الرسمية'
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-3 px-4 rounded-xl bg-[#25D366]/15 border border-[#25D366]/50 text-[#25D366] font-bold text-xs flex items-center justify-center gap-1.5"
-              >
-                <span>{isAr ? 'واتساب مباشر' : 'WhatsApp'}</span>
-              </a>
-            </div>
-          </section>
-        </main>
       ) : (
         /* ===================================================================
            VIEW MODE B: MAIN 3D SCROLL-SCRUBBED INTERACTIVE STAGE (DESKTOP)
            =================================================================== */
         <>
-          {/* COMPACT ZERO-GAP SCROLL RUNWAY (460svh on mobile / 580vh on desktop) */}
-          <div className="w-full h-[460svh] sm:h-[580vh] pointer-events-none" />
+          {/* COMPACT ZERO-GAP SCROLL RUNWAY (350vh on mobile / 560vh on desktop) */}
+          <div className="w-full h-[350vh] sm:h-[560vh] pointer-events-none" />
 
-          <div className="fixed inset-0 w-screen h-[100dvh] overflow-hidden bg-[#000000]">
+          <div className="fixed inset-0 w-screen h-[100dvh] overflow-hidden bg-[#000000] touch-pan-y">
             {/* Ambient Modern Tech Cyber-Grid & Laser Horizon Accent across the entire site */}
             <div
               className="pointer-events-none absolute inset-0 opacity-20"
@@ -2783,17 +2356,25 @@ export function MonoformSite() {
                     }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden bg-[#050507] border border-white/25 shadow-[0_30px_90px_rgba(0,0,0,0.95)] flex flex-col justify-between p-5"
                   >
-                    <video
-                      ref={cubeVideoRef}
-                      preload="none"
-                      src="/assets/videos/drone_stage.mp4"
-                      poster="/assets/videos/drone_stage_poster.webp"
-                      autoPlay
-                      loop
-                      muted={heroMuted}
-                      playsInline
-                      className="pointer-events-none absolute inset-0 w-full h-full object-cover"
-                    />
+                    {isMobile ? (
+                      <img
+                        src="/assets/videos/drone_stage_poster.webp"
+                        alt="Legends 3D Box"
+                        className="pointer-events-none absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <video
+                        ref={cubeVideoRef}
+                        preload="none"
+                        src="/assets/videos/drone_stage.mp4"
+                        poster="/assets/videos/drone_stage_poster.webp"
+                        autoPlay
+                        loop
+                        muted={heroMuted}
+                        playsInline
+                        className="pointer-events-none absolute inset-0 w-full h-full object-cover"
+                      />
+                    )}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/45" />
 
                     <div className="relative z-10 flex items-center justify-between">
@@ -3031,10 +2612,10 @@ export function MonoformSite() {
                 (p = 0.30 -> 0.55)
                 - overflow-hidden so mobile touch scroll is NEVER trapped inside a nested box!
                =============================================================== */}
+            {particleStageOpacity > 0.005 && (
             <div
               style={{
                 opacity: particleStageOpacity,
-                visibility: particleStageOpacity <= 0.005 ? 'hidden' : 'visible',
                 transform: `scale(${0.92 + particleStageEnter * 0.08})`,
                 pointerEvents: particleStageOpacity > 0.4 ? 'auto' : 'none',
                 zIndex: 50,
@@ -3049,6 +2630,7 @@ export function MonoformSite() {
                 onOpenPlatformPage={openDedicatedPlatformPage}
               />
             </div>
+            )}
 
             {/* ===============================================================
                 STAGE LAYER D: PHASE 4 — 3D INTERACTIVE COVERFLOW REEL DECK
