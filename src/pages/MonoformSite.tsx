@@ -523,95 +523,97 @@ const PLATFORMS: PlatformInfo[] = [
     shortAr: 'تانجو لايف',
     creatorsCountAr: '+10,000 مذيع وصانع محتوى',
     creatorsCountEn: '10,000+ Video Creators',
-    badgeEn: 'Global Video Stream',
-    badgeAr: 'بث مرئي عالمي وتصدر',
+    badgeEn: 'Global Video Stream & Fixed Bonus',
+    badgeAr: 'بث مرئي عالمي + نظام الثابت',
     accentColor: '#a855f7',
     accentGlow: 'rgba(168, 85, 247, 0.35)',
-    cardHeadlineEn: 'Scale Your Global Video Presence on Tango Live.',
-    cardHeadlineAr: 'وسّع انتشارك العالمي وتصدر البث المباشر في تانجو لايف.',
-    promptPillEn: 'Global Audience · Explore Boost · VIP Account Management',
-    promptPillAr: 'جمهور عالمي · تصدر الاكسبلور · إدارة حسابات VIP',
+    cardHeadlineEn: 'Official Fixed Bonus System ($40 - $100) + Revenue Share on Tango Live.',
+    cardHeadlineAr: 'نظام الثابت المعتمد (40$ - 100$ مكافأة شهرية) + النسبة في تانجو لايف.',
+    promptPillEn: 'Fixed Salary System · $40 - $100 Extra · Explore Boost',
+    promptPillAr: 'نظام الثابت · مكافأة 40$ - 100$ · تصدر الاكسبلور',
     heroTitleAr: 'وكالة الأساطير الرسمية لمذيعي وصناع محتوى تانجو لايف (Tango Live)',
     heroTitleEn: 'Official Legends Agency for Tango Live Broadcasters',
     heroDescAr:
-      'وسّع حضورك العالمي عبر تطبيق Tango Live مع وكالة الأساطير. نمنحك تفعيل الحساب الاحترافي، تأهيل وتدريب متقدم للمذيعين الجدد على بناء جمهور تفاعلي، وحماية كاملة لحسابك على مدار الساعة.',
+      'انضم إلى وكالة الأساطير المعتمدة على تطبيق Tango Live واستفد من نظام الثابت والمكافأة الشهرية (من 40$ حتى 100$ دولار بالإضافة إلى النسبة الشهرية) مع تدريب متقدم وتأهيل المذيعين وحماية وتوثيق رسمي للحساب 24/7.',
     heroDescEn:
-      'Scale your global live video presence on Tango Live with Legends Agency. Enjoy professional onboarding, audience growth strategies, and dedicated technical support.',
+      'Scale your global live video presence on Tango Live with Legends Agency. Benefit from the official fixed monthly bonus system ($40 to $100 + revenue share), audience growth, and 24/7 VIP support.',
     featuresAr: [
       {
-        title: 'تفعيل حساب مذيع رسمي بمزايا خاصة',
-        desc: 'فتح ميزات البث المتقدمة والظهور في الصفحة الرئيسية (Explore) لجذب مشاهدين ومتابعين من كل العالم.',
+        title: 'نظام المكافآت الثابتة (من 40$ إلى 100$)',
+        desc: 'نظام مكافآت شهرية إضافية مخصصة لمذيعي الوكالة تصرف مع النسبة في نهاية كل شهر وفق ساعات البث المنجزة (شهر وقابل للتمديد لـ 3 أشهر).',
       },
       {
-        title: 'برامج تطوير ونمو المذيعين',
-        desc: 'خطط متابعة أسبوعية وتوجيه احترافي لرفع جودة البث وزيادة التفاعل مع وكالة الأساطير.',
+        title: 'تفعيل حساب مذيع رسمي وتصدر Explore',
+        desc: 'فتح ميزات البث المتقدمة والظهور في الصفحة الرئيسية لجذب متابعين وداعمين من جميع دول العالم.',
       },
       {
-        title: 'حماية الحساب والدعم الفني المباشر',
-        desc: 'فريق مختص لحل أي مشكلة تقنية أو حظر طارئ والتواصل المباشر مع إدارة تطبيق Tango Live.',
+        title: 'برامج تطوير وتأهيل المذيعين الجدد',
+        desc: 'خطط توجيه أسبوعية وتدريب تفاعلي لرفع جودة البث وزيادة التفاعل وجذب الداعمين إلى غرفتك.',
       },
       {
-        title: 'متابعة وإدارة تشغيلية 24/7',
-        desc: 'دعم مستمر لتطوير جدول البث وتحسين التفاعل وضمان التزام الحساب بسياسات المنصة الرسمية.',
+        title: 'حماية الحساب والدعم الفني المباشر 24/7',
+        desc: 'فريق مختص لحل أي مشكلة تقنية أو حظر طارئ والتواصل المباشر مع إدارة تطبيق Tango Live الرسمية.',
       },
     ],
     featuresEn: [
+      {
+        title: 'Official Fixed Bonus System ($40 - $100)',
+        desc: 'Monthly fixed bonus tiers paid directly alongside your revenue share based on streaming hours completed.',
+      },
       {
         title: 'Premium Broadcaster Activation',
         desc: 'Unlock global Explore visibility and premium monetization tools from day one.',
       },
       {
-        title: 'Creator Growth Programs',
-        desc: 'Dedicated milestones and agency recognition programs for active Tango broadcasters.',
+        title: 'Creator Growth & Coaching Programs',
+        desc: 'Structured coaching and agency recognition milestones for active Tango broadcasters.',
       },
       {
-        title: 'Direct Account Protection',
+        title: 'Direct Account Protection 24/7',
         desc: 'Dedicated escalation channel with Tango management to protect your broadcaster account.',
-      },
-      {
-        title: '24/7 Operational Support',
-        desc: 'Daily guidance to optimize your stream quality, audience engagement, and schedule.',
       },
     ],
     requirementsAr: [
-      'العمر 18 سنة فأكثر مع امتلاك هاتف ذكي بكاميرا واضحة واتصال إنترنت مستقر.',
-      'القدرة على تقديم بث مرئي تفاعلي (حوار، مواهب، ترفيه، أو تحديات).',
-      'الالتزام ببث منتظم لبناء قاعدة متابعين وداعمين دائمين في التطبيق.',
-      'الالتزام التام بمعايير المجتمع وسياسات البث الآمن في تانجو لايف.',
+      'نظام الثابت الشهري: مدة العرض شهر واحد وقابل للتمديد حتى 3 أشهر.',
+      'الحد الأدنى للبث: إكمال 20 يوم بث نشط على الأقل خلال الشهر.',
+      'قواعد البث الصارمة: ممنوع الكتم نهائياً وممنوع إغلاق الكاميرا طوال فترة البث.',
+      'المكافأة الشهرية الإضافية (40$ / 80$ / 100$) تصرف بالإضافة للنسبة في نهاية كل شهر.',
+      'الالتزام بالشروط: في حال عدم تحقيق شروط ساعات البث كاملة، تصرف النسبة فقط ولا تصرف المكافأة الإضافية.',
     ],
     requirementsEn: [
-      'Age 18+ with a clear smartphone camera and stable internet connection.',
-      'Ability to host interactive video broadcasts (talk, talent, entertainment).',
-      'Consistent streaming schedule to build loyal supporters.',
-      'Full compliance with Tango Live community guidelines.',
+      'Fixed Bonus Duration: 1 month contract, renewable up to 3 months.',
+      'Minimum Activity: At least 20 active streaming days per month.',
+      'Active Stream Rule: Strictly no muting and no turning off camera during broadcast.',
+      'Monthly Bonus: ($40 / $80 / $100) paid alongside the creator percentage at month end.',
+      'If hours/conditions are not met, only percentage is paid (no extra fixed bonus).',
     ],
     tiers: [
       {
-        levelAr: 'انطلاقة المذيع (Rising Host)',
-        levelEn: 'Rising Host',
-        hoursAr: '35 ساعة / 15 يوم',
-        hoursEn: '35 hrs / 15 days',
-        targetAr: 'شريحة البداية',
-        payoutAr: 'تفعيل الحساب + تأهيل وتدريب تفاعلي',
-        payoutEn: 'Account Activation + Onboarding Coaching',
+        levelAr: 'المستوى 1 (Level 1)',
+        levelEn: 'Level 1 Tier',
+        hoursAr: '90 ساعة بث / 20 يوم',
+        hoursEn: '90 hrs / 20 days',
+        targetAr: 'ممنوع الكتم وإغلاق الكاميرا',
+        payoutAr: '40$ دولار مكافأة شهرية ثابتة + النسبة',
+        payoutEn: '$40 Monthly Fixed Bonus + % Share',
       },
       {
-        levelAr: 'مذيع متقدم (Elite Streamer)',
-        levelEn: 'Elite Streamer',
-        hoursAr: '50 ساعة / 20 يوم',
-        hoursEn: '50 hrs / 20 days',
-        targetAr: 'شريحة الاحتراف',
-        payoutAr: 'أولوية الظهور في Explore + متابعة أسبوعية',
-        payoutEn: 'Explore Priority + Weekly Review',
+        levelAr: 'المستوى 2 (Level 2)',
+        levelEn: 'Level 2 Tier',
+        hoursAr: '150 ساعة بث / 20 يوم',
+        hoursEn: '150 hrs / 20 days',
+        targetAr: 'ممنوع الكتم وإغلاق الكاميرا',
+        payoutAr: '80$ دولار مكافأة شهرية ثابتة + النسبة',
+        payoutEn: '$80 Monthly Fixed Bonus + % Share',
       },
       {
-        levelAr: 'نجم تانجو (Tango Legend)',
-        levelEn: 'Tango Legend',
-        hoursAr: '65 ساعة / 22 يوم',
-        hoursEn: '65 hrs / 22 days',
-        targetAr: 'شريحة النخبة',
-        payoutAr: 'دعم ترويجي VIP + مدير حساب مخصص',
-        payoutEn: 'VIP Promotion + Dedicated Manager',
+        levelAr: 'المستوى 3 (Level 3)',
+        levelEn: 'Level 3 Tier',
+        hoursAr: '200 ساعة بث / 20 يوم',
+        hoursEn: '200 hrs / 20 days',
+        targetAr: 'ممنوع الكتم وإغلاق الكاميرا',
+        payoutAr: '100$ دولار مكافأة شهرية ثابتة + النسبة',
+        payoutEn: '$100 Monthly Fixed Bonus + % Share',
       },
     ],
     LogoComponent: BrandIcons.Tango,
@@ -1245,6 +1247,7 @@ export function MonoformSite() {
 
   // Dedicated Platform Page View (`null` = Main 3D Scroll Stage, `'xena' | 'tango' | 'bigo'` = Full Dedicated Page)
   const [activeAppPage, setActiveAppPage] = useState<PlatformId | null>(null);
+  const [tangoPosterOpen, setTangoPosterOpen] = useState(false);
   const last3DScrollYRef = useRef(0);
 
   // Active platform selected in the Phase 3 Interactive Ecosystem Hub
@@ -3252,6 +3255,46 @@ export function MonoformSite() {
       {/* =====================================================================
           INTERACTIVE MULTI-PLATFORM APPLICATION MODAL
          ===================================================================== */}
+      {/* TANGO SYSTEM POSTER LIGHTBOX MODAL */}
+      {tangoPosterOpen && (
+        <div
+          dir="rtl"
+          className="fixed inset-0 z-[220] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+          onClick={() => setTangoPosterOpen(false)}
+        >
+          <div
+            className="relative max-w-md w-full rounded-3xl bg-[#09090f] border border-amber-500/40 p-3 sm:p-4 shadow-[0_20px_90px_rgba(0,0,0,1)] my-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setTangoPosterOpen(false)}
+              className="absolute top-4 left-4 z-20 w-9 h-9 rounded-full bg-black/80 hover:bg-white hover:text-black border border-white/20 flex items-center justify-center text-white transition cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
+              <img
+                src="/assets/tango_salary_system.jpg"
+                alt="نظام الثابت - وكالة الأساطير"
+                className="w-full h-auto object-contain max-h-[80vh] rounded-2xl"
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between text-xs text-white/70 px-2">
+              <span className="font-bold text-amber-300">وكالة الأساطير — نظام الثابت تانجو لايف</span>
+              <a
+                href="/assets/tango_salary_system.jpg"
+                download="tango_salary_system.jpg"
+                className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold"
+              >
+                <span>تحميل الصورة</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {applyModalOpen && (
         <div
           dir="rtl"
